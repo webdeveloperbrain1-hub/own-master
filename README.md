@@ -1,9 +1,9 @@
 # 🚀 Project Name – Waitlist Landing Page
 
-This is a simple waitlist landing page for **[Project Name]**, built to validate interest and collect early signups before the full product launch.
+This is a simple waitlist landing page for **Own Master**, built to validate interest and collect early signups before the full product launch.
 
 ## 🌐 Live Site
-[Add your deployed URL here]
+[[Own Master Website](https://ownmasters.com/)]
 
 ## 📌 Overview
 The goal of this landing page is to:
@@ -16,7 +16,6 @@ The goal of this landing page is to:
 - Next.js / React (or your stack here)
 - Tailwind CSS
 - Vercel (deployment)
-- [Any form service or backend you used]
 
 ## ✉️ Features
 - Email waitlist signup form
