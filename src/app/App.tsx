@@ -101,7 +101,14 @@ export default function App() {
       <div className="max-w-[1120px] mx-auto px-[18px] pb-16">
         {/* Header */}
         <header className="flex justify-between items-center py-[18px] border-b border-border">
-          <div className="font-[850] tracking-[-0.3px] text-[18px]">Own Masters</div>
+          <a href="/" className="flex items-center justify-center font-[850] tracking-[-0.3px] text-[18px] gap-2">
+            <img
+              src="/own-masters-logo.png"
+              alt="Own Master Logo"
+              className="w-16 h-auto"
+            />
+            Own Masters
+          </a>
           <div className="flex gap-6 items-center">
             <button
               onClick={() => scrollToSection('home')}
