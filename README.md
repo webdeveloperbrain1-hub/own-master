@@ -1,11 +1,25 @@
+# 🚀 Project Name – Waitlist Landing Page
 
-  # Version 4
+This is a simple waitlist landing page for **[Project Name]**, built to validate interest and collect early signups before the full product launch.
 
-  This is a code bundle for Version 4. The original project is available at https://www.figma.com/design/sXfhlwenjZ22ab90zOnnSP/Version-4.
+## 🌐 Live Site
+[Add your deployed URL here]
 
-  ## Running the code
+## 📌 Overview
+The goal of this landing page is to:
+- Capture early user interest
+- Build an email waitlist
+- Test demand for the product/idea
+- Start growing an early audience
 
-  Run `npm i` to install the dependencies.
+## 🧱 Tech Stack
+- Next.js / React (or your stack here)
+- Tailwind CSS
+- Vercel (deployment)
+- [Any form service or backend you used]
 
-  Run `npm run dev` to start the development server.
-  
+## ✉️ Features
+- Email waitlist signup form
+- Responsive design (mobile + desktop)
+- Simple conversion-focused layout
+- Basic validation for submissions
