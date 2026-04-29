@@ -1,7 +1,18 @@
 import { useState, useEffect } from 'react';
+import { supabase } from '../lib/supabaseClient';
 
+// ─── Types ───────────────────────────────────────────────────────────────────
+interface FormData {
+  name: string;
+  email: string;
+  role: string;
+  link: string;
+  message: string;
+}
+
+// ─── Component ───────────────────────────────────────────────────────────────
 export default function App() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     role: '',
@@ -9,10 +20,38 @@ export default function App() {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your interest! We\'ll be in touch soon.');
+    setIsSubmitting(true);
+    setErrorMsg('');
+
+    const { error } = await supabase.from('waitlist').insert([
+      {
+        name: formData.name,
+        email: formData.email,
+        role: formData.role,
+        link: formData.link || null,
+        message: formData.message || null,
+      }
+    ]);
+
+    if (error) {
+      // Duplicate email (unique constraint violation)
+      if (error.code === '23505') {
+        setErrorMsg("You're already on the list! We'll be in touch soon.");
+      } else {
+        setErrorMsg('Something went wrong. Please try again.');
+        console.error('Supabase error:', error);
+      }
+    } else {
+      setSubmitted(true);
+    }
+
+    setIsSubmitting(false);
   };
 
   const scrollToSection = (id: string) => {
@@ -25,8 +64,6 @@ export default function App() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-in');
-
-            // Animate children with stagger effect
             const children = entry.target.querySelectorAll('.stagger-item');
             children.forEach((child, index) => {
               setTimeout(() => {
@@ -99,6 +136,7 @@ export default function App() {
         }
       `}</style>
       <div className="max-w-[1120px] mx-auto px-[18px] pb-16">
+
         {/* Header */}
         <header className="flex justify-between items-center py-[18px] border-b border-border">
           <a href="/" className="flex items-center justify-center font-[850] tracking-[-0.3px] text-[18px] gap-2">
@@ -397,67 +435,93 @@ export default function App() {
               and partners as we build the first version.
             </p>
 
-            <form onSubmit={handleSubmit} className="grid gap-3">
-              <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-3">
+            {/* ── Success state ── */}
+            {submitted ? (
+              <div className="border border-border bg-gradient-to-b from-[rgba(255,255,255,.08)] to-[rgba(255,255,255,.04)] rounded-[18px] p-8 text-center">
+                <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-primary flex items-center justify-center">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <h3 className="m-0 mb-2 text-[22px] tracking-tight">You're on the list!</h3>
+                <p className="m-0 text-muted-foreground text-[16px] leading-[1.5]">
+                  Thanks for joining early access. We'll reach out as we open up spots.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="grid gap-3">
+                <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-3">
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] transition-all focus:border-primary focus:ring-1 focus:ring-primary"
+                    required
+                    disabled={isSubmitting}
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] transition-all focus:border-primary focus:ring-1 focus:ring-primary"
+                    required
+                    disabled={isSubmitting}
+                  />
+                </div>
+
+                <select
+                  value={formData.role}
+                  onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                  className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none transition-all focus:border-primary focus:ring-1 focus:ring-primary"
+                  required
+                  disabled={isSubmitting}
+                >
+                  <option className="text-black" value="">What best describes you?</option>
+                  <option className="text-black" value="artist">Artist</option>
+                  <option className="text-black" value="manager">Manager</option>
+                  <option className="text-black" value="producer">Producer</option>
+                  <option className="text-black" value="writer">Writer</option>
+                  <option className="text-black" value="dj">DJ</option>
+                  <option className="text-black" value="attorney">Attorney</option>
+                  <option className="text-black" value="a&r">A&R</option>
+                  <option className="text-black" value="publisher">Publisher</option>
+                  <option className="text-black" value="marketing">Marketing / Distribution Pro</option>
+                  <option className="text-black" value="other">Other Industry Pro</option>
+                </select>
+
                 <input
                   type="text"
-                  placeholder="Name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  placeholder="Instagram, website, or company"
+                  value={formData.link}
+                  onChange={(e) => setFormData({ ...formData, link: e.target.value })}
                   className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-                  required
+                  disabled={isSubmitting}
                 />
-                <input
-                  type="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-                  required
+
+                <textarea
+                  placeholder="What are you trying to solve right now? Example: splits, agreements, release planning, finding advisors, managing artists..."
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] min-h-[110px] resize-y transition-all focus:border-primary focus:ring-1 focus:ring-primary"
+                  disabled={isSubmitting}
                 />
-              </div>
 
-              <select
-                value={formData.role}
-                onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-                required
-              >
-                <option className="text-black" value="">What best describes you?</option>
-                <option className="text-black" value="artist">Artist</option>
-                <option className="text-black" value="manager">Manager</option>
-                <option className="text-black" value="producer">Producer</option>
-                <option className="text-black" value="writer">Writer</option>
-                <option className="text-black" value="dj">DJ</option>
-                <option className="text-black" value="attorney">Attorney</option>
-                <option className="text-black" value="a&r">A&R</option>
-                <option className="text-black" value="publisher">Publisher</option>
-                <option className="text-black" value="marketing">Marketing / Distribution Pro</option>
-                <option className="text-black" value="other">Other Industry Pro</option>
-              </select>
+                {/* Error message */}
+                {errorMsg && (
+                  <p className="text-red-400 text-[14px] m-0">{errorMsg}</p>
+                )}
 
-              <input
-                type="text"
-                placeholder="Instagram, website, or company"
-                value={formData.link}
-                onChange={(e) => setFormData({ ...formData, link: e.target.value })}
-                className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-              />
-
-              <textarea
-                placeholder="What are you trying to solve right now? Example: splits, agreements, release planning, finding advisors, managing artists..."
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] min-h-[110px] resize-y transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-              />
-
-              <button
-                type="submit"
-                className="border border-primary bg-primary text-primary-foreground px-[15px] py-[11px] rounded-[14px] font-[750] cursor-pointer hover:opacity-90 transition-all hover:scale-101"
-              >
-                Request Early Access
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="border border-primary bg-primary text-primary-foreground px-[15px] py-[11px] rounded-[14px] font-[750] cursor-pointer hover:opacity-90 transition-all hover:scale-101 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
+                >
+                  {isSubmitting ? 'Submitting…' : 'Request Early Access'}
+                </button>
+              </form>
+            )}
           </div>
         </section>
 
