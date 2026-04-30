@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabaseClient';
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 interface FormData {
@@ -28,30 +27,38 @@ export default function App() {
     e.preventDefault();
     setIsSubmitting(true);
     setErrorMsg('');
+console.log('Anon key:', import.meta.env.VITE_SUPABASE_ANON_KEY);
 
-    const { error } = await supabase.from('waitlist').insert([
-      {
-        name: formData.name,
-        email: formData.email,
-        role: formData.role,
-        link: formData.link || null,
-        message: formData.message || null,
-      }
-    ]);
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-confirmation`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
-    if (error) {
-      // Duplicate email (unique constraint violation)
-      if (error.code === '23505') {
-        setErrorMsg("You're already on the list! We'll be in touch soon.");
+      const data = await res.json();
+
+      if (!res.ok) {
+        if (data.error === 'duplicate') {
+          setErrorMsg("You're already on the list! We'll be in touch soon.");
+        } else {
+          setErrorMsg('Something went wrong. Please try again.');
+        }
       } else {
-        setErrorMsg('Something went wrong. Please try again.');
-        console.error('Supabase error:', error);
+        setSubmitted(true);
       }
-    } else {
-      setSubmitted(true);
+    } catch (err) {
+      console.error('Fetch error:', err);
+      setErrorMsg('Network error. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setIsSubmitting(false);
   };
 
   const scrollToSection = (id: string) => {
@@ -435,7 +442,6 @@ export default function App() {
               and partners as we build the first version.
             </p>
 
-            {/* ── Success state ── */}
             {submitted ? (
               <div className="border border-border bg-gradient-to-b from-[rgba(255,255,255,.08)] to-[rgba(255,255,255,.04)] rounded-[18px] p-8 text-center">
                 <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-primary flex items-center justify-center">
@@ -508,7 +514,6 @@ export default function App() {
                   disabled={isSubmitting}
                 />
 
-                {/* Error message */}
                 {errorMsg && (
                   <p className="text-red-400 text-[14px] m-0">{errorMsg}</p>
                 )}
