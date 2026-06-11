@@ -2,8 +2,10 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Download,
   FileText,
+  FolderDown,
   Loader2,
   Pencil,
+  RefreshCw,
   Save,
   Search,
   Sparkles,
@@ -16,8 +18,10 @@ import {
   fetchFilingTemplateFill,
   fetchFilingTemplates,
   filingDraftDownloadUrl,
+  importFilingLibrary,
   previewFilingTemplate,
   saveFilingDraft,
+  scanAllFilingFields,
   updateFilingDraft,
   type FilingCompletion,
   type FilingDraftListItem,
@@ -196,6 +200,35 @@ export default function ContractFillerPage() {
     }
   }
 
+  async function runImport() {
+    setBusy(true);
+    setStatus('Importing contract library (this can take a few minutes on first run)...');
+    try {
+      const result = await importFilingLibrary(0);
+      setStatus(`Imported ${result.imported}, duplicates ${result.duplicates}, failed ${result.failed}.`);
+      await loadTemplates(query);
+      await loadSummary();
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : 'Import failed.');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function runScanAll() {
+    setBusy(true);
+    setStatus('Scanning template fields with AI...');
+    try {
+      const result = await scanAllFilingFields(false);
+      setStatus(`Scanned fields for ${result.scanned} template(s).`);
+      await loadSummary();
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : 'Field scan failed.');
+    } finally {
+      setBusy(false);
+    }
+  }
+
   async function openDrafts() {
     setView('drafts');
     try {
@@ -224,6 +257,12 @@ export default function ContractFillerPage() {
           </p>
         </div>
         <div className="flex items-center gap-2">
+          <button className={ghostButton} onClick={runImport} disabled={busy}>
+            <FolderDown className="w-4 h-4" /> Import library
+          </button>
+          <button className={ghostButton} onClick={runScanAll} disabled={busy}>
+            <RefreshCw className="w-4 h-4" /> Scan fields
+          </button>
           <button className={ghostButton} onClick={openDrafts} disabled={busy}>
             <FileText className="w-4 h-4" /> Saved drafts
           </button>

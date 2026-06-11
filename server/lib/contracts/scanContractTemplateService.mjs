@@ -26,18 +26,20 @@ export async function scanContractTemplate(templateId) {
       ...extracted.warnings.map((message) => ({ type: 'text_extraction', message })),
       ...(fieldSchema.warnings ?? []),
     ];
-    const status = fieldSchema.reviewRequired || extracted.textQuality !== 'good' ? 'needs_review' : 'scanned';
 
-    return await prisma.contractTemplate.update({
-      where: { id: templateId },
-      data: {
-        extractedText: extracted.text,
-        textQuality: extracted.textQuality,
-        fieldSchema,
-        warnings,
-        aiScanStatus: status,
-      },
-    });
+const status = 'scanned';
+
+return await prisma.contractTemplate.update({
+  where: { id: templateId },
+  data: {
+    extractedText: extracted.text,
+    textQuality: extracted.textQuality,
+    fieldSchema,
+    warnings,
+    aiScanStatus: status,
+    approved: true,
+  },
+});
   } catch (error) {
     await prisma.contractTemplate.update({
       where: { id: templateId },
@@ -51,8 +53,17 @@ export async function scanContractTemplate(templateId) {
 }
 
 export async function scanContractTemplates({ force = false } = {}) {
+  const staleScanningCutoff = new Date(Date.now() - 15 * 60 * 1000);
+
   const templates = await prisma.contractTemplate.findMany({
-    where: force ? {} : { aiScanStatus: { in: ['not_scanned', 'failed'] } },
+    where: force
+      ? {}
+      : {
+          OR: [
+            { aiScanStatus: { in: ['not_scanned', 'needs_review', 'failed'] } },
+            { aiScanStatus: 'scanning', updatedAt: { lt: staleScanningCutoff } },
+          ],
+        },
     orderBy: { createdAt: 'asc' },
   });
   const results = [];

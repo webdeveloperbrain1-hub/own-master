@@ -16,8 +16,17 @@ if (limitArg && (!Number.isFinite(limit) || limit <= 0)) {
   process.exit(1);
 }
 
+const staleScanningCutoff = new Date(Date.now() - 15 * 60 * 1000);
+
 const templates = await prisma.contractTemplate.findMany({
-  where: force ? {} : { aiScanStatus: { in: ['not_scanned', 'failed'] } },
+  where: force
+    ? {}
+    : {
+        OR: [
+          { aiScanStatus: { in: ['not_scanned', 'needs_review', 'failed'] } },
+          { aiScanStatus: 'scanning', updatedAt: { lt: staleScanningCutoff } },
+        ],
+      },
   orderBy: { createdAt: 'asc' },
   take: limit,
 });
