@@ -1,0 +1,29 @@
+{
+  "fields": [
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 1,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________________________________________________",
+      "candidateIds": [
+        "blank_001"
+      ],
+      "surroundingContext": "ARTISTS(S): _________________________________________________________\nARTISTS(S): _________________________________________________________\n_________________________________________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

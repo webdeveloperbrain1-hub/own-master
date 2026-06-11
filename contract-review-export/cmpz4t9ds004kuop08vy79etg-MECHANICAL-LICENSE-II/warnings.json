@@ -1,0 +1,53 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "Date:________________________\nDate:________________________\n________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 3,
+    "context": "WRITER(S): ____________________________________________________________________\nWRITER(S): ____________________________________________________________________\n____________________________________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_003"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "PHONORECORD NO.: _______________________ ARTIST:____________________________\nPHONORECORD NO.: _______________________ ARTIST:____________________________\n_______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "PHONORECORD NO.: _______________________ ARTIST:____________________________\nPHONORECORD NO.: _______________________ ARTIST:____________________________\n____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 6,
+    "context": "RECORD COMPANY: _____________________________\nRECORD COMPANY: _____________________________\n_____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_006"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

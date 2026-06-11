@@ -1,0 +1,494 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_________ | ___________ | ___ | _________________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004"
+      ],
+      "surroundingContext": "RECORDING CONTRACT\nThis agreement is hereby entered into on this _________ day of ___________, 20 ___ by\n_________________________ hereinafter referred to as “Artist” and\nThis agreement is hereby entered into on this _________ day of ___________, 20 ___ by\n_________"
+    },
+    {
+      "key": "artistName",
+      "type": "text",
+      "label": "Artist Name",
+      "order": 5,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_________________________",
+      "candidateIds": [
+        "blank_005"
+      ],
+      "surroundingContext": "_________________________ hereinafter referred to as “Artist” and\n_________________________ hereinafter referred to as “Company” for the purposes of\na recording contract.\n_________________________ hereinafter referred to as “Company” for the purposes of\n_________________________"
+    },
+    {
+      "key": "artistName2",
+      "type": "text",
+      "label": "Artist Name2",
+      "order": 6,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "____________",
+      "candidateIds": [
+        "blank_006"
+      ],
+      "surroundingContext": "Company attests the following:\n1. Company is aware of Artist’s stage name as ____________, talents,\nexperience, image, and musical style.\n1. Company is aware of Artist’s stage name as ____________, talents,\n____________"
+    },
+    {
+      "key": "recordSides",
+      "type": "number",
+      "label": "Record Sides",
+      "order": 7,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_________ | (____)",
+      "candidateIds": [
+        "blank_007",
+        "blank_008"
+      ],
+      "surroundingContext": "Artist shall deliver to Company, for valuable consideration hereinafter described,\n_________ (____) number of recordings consisting of not less than 35 minutes of\noriginal musical work within _____ months. First album shall be delivered as\n_________ (____) number of recordings consisting of not less than 35 minutes of\n_________"
+    },
+    {
+      "key": "recordSides2",
+      "type": "number",
+      "label": "Record Sides2",
+      "order": 9,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____",
+      "candidateIds": [
+        "blank_009"
+      ],
+      "surroundingContext": "_________ (____) number of recordings consisting of not less than 35 minutes of\noriginal musical work within _____ months. First album shall be delivered as\ncomplete by or before the ________month anniversary of the signing of this\noriginal musical work within _____ months. First album shall be delivered as\n_____"
+    },
+    {
+      "key": "projectTitle",
+      "type": "text",
+      "label": "Project Title",
+      "order": 10,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________",
+      "candidateIds": [
+        "blank_010"
+      ],
+      "surroundingContext": "original musical work within _____ months. First album shall be delivered as\ncomplete by or before the ________month anniversary of the signing of this\ncontract by delivering in digital or CD format, the musical work. (All album(s) as\ncomplete by or before the ________month anniversary of the signing of this\n________"
+    },
+    {
+      "key": "royaltyRate",
+      "type": "percentage",
+      "label": "Royalty Rate",
+      "order": 11,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "____________ | ____%",
+      "candidateIds": [
+        "blank_011",
+        "blank_012"
+      ],
+      "surroundingContext": "Artist shall be compensated the following for services rendered:\nA royalty of ____________ (____%) per cent in respect of Work produced,\nplayed, promoted and sold, made hereunder during the term of this agreement.\nA royalty of ____________ (____%) per cent in respect of Work produced,\n____________"
+    },
+    {
+      "key": "artistName3",
+      "type": "text",
+      "label": "Artist Name3",
+      "order": 13,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_____________________",
+      "candidateIds": [
+        "blank_013"
+      ],
+      "surroundingContext": "Artist shall grant to the Company the license to use the name\n“_____________________”, and the Artist's photographic image, biographical\ninformation, and other likeness and public information, in the promotion and\n“_____________________”, and the Artist's photographic image, biographical\n_____________________"
+    },
+    {
+      "key": "termEndDate",
+      "type": "date",
+      "label": "Term End Date",
+      "order": 14,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________________",
+      "candidateIds": [
+        "blank_014"
+      ],
+      "surroundingContext": "number of performances during the term of this Agreement shall not exceed\n___________________. Company shall be responsible for travel, hotel and meal\ncosts incurred by Artist in attending each such performance, Artist shall be paid\n___________________. Company shall be responsible for travel, hotel and meal\n___________________"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 15,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________ | ________",
+      "candidateIds": [
+        "blank_015",
+        "blank_016"
+      ],
+      "surroundingContext": "in accordance with applicable law in any in any court having jurisdiction thereof.\nVenue will be in ___________(county), ________ (state). Artist further consentsto the arbitrator who is appointed in said proceeding.\nc) JURISDICTION/APPLICABLE LAW.\nVenue will be in ___________(county), ________ (state). Artist further consentsto the arbitrator who is appointed in said proceeding.\n___________"
+    },
+    {
+      "key": "governingState2",
+      "type": "text",
+      "label": "Governing State2",
+      "order": 17,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_________________",
+      "candidateIds": [
+        "blank_017"
+      ],
+      "surroundingContext": "Company and Artist hereby submit to the jurisdiction of the courts of\n_________________(state) for the enforcement of this Agreement or any\narbitration award or decision arising herefrom. This Agreement shall be enforcedor construed according to the laws of the State of _________________.\n_________________(state) for the enforcement of this Agreement or any\n_________________"
+    },
+    {
+      "key": "feeAmount",
+      "type": "currency",
+      "label": "Fee Amount",
+      "order": 18,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________",
+      "candidateIds": [
+        "blank_018"
+      ],
+      "surroundingContext": "_________________(state) for the enforcement of this Agreement or any\narbitration award or decision arising herefrom. This Agreement shall be enforcedor construed according to the laws of the State of _________________.\nd) ATTORNEY'S FEES.\narbitration award or decision arising herefrom. This Agreement shall be enforcedor construed according to the laws of the State of _________________.\n_________________"
+    },
+    {
+      "key": "agreementDate2",
+      "type": "date",
+      "label": "Agreement Date2",
+      "order": 19,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________________________ | _____________________________",
+      "candidateIds": [
+        "blank_019",
+        "blank_020"
+      ],
+      "surroundingContext": "date first above mentioned.\n______________________________ _____________________________\nAuthorized Person Artist Rep or Artist\n______________________________ _____________________________\n______________________________"
+    },
+    {
+      "key": "artistName4",
+      "type": "text",
+      "label": "Artist Name4",
+      "order": 21,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________________________ | _____________________________",
+      "candidateIds": [
+        "blank_021",
+        "blank_022"
+      ],
+      "surroundingContext": "Authorized Person Artist Rep or Artist\n______________________________ _____________________________\nTitle Artist/Band Name (if applicable)\n______________________________ _____________________________\n______________________________"
+    },
+    {
+      "key": "artistName5",
+      "type": "text",
+      "label": "Artist Name5",
+      "order": 23,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________________________ | _____________________________",
+      "candidateIds": [
+        "blank_023",
+        "blank_024"
+      ],
+      "surroundingContext": "Title Artist/Band Name (if applicable)\n______________________________ _____________________________\nCompany Name Address\n______________________________ _____________________________\n______________________________"
+    },
+    {
+      "key": "companyName",
+      "type": "text",
+      "label": "Company Name",
+      "order": 25,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________________________ | _____________________________",
+      "candidateIds": [
+        "blank_025",
+        "blank_026"
+      ],
+      "surroundingContext": "Company Name Address\n______________________________ _____________________________\nAddress Address\n______________________________ _____________________________\n______________________________"
+    },
+    {
+      "key": "address",
+      "type": "textarea",
+      "label": "Address",
+      "order": 27,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________ | ____________________________",
+      "candidateIds": [
+        "blank_027",
+        "blank_028"
+      ],
+      "surroundingContext": "Address Address\n______________________________ ____________________________\nAddress Phone\n______________________________ ____________________________\n______________________________"
+    },
+    {
+      "key": "address2",
+      "type": "textarea",
+      "label": "Address2",
+      "order": 29,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________ | ____________________________",
+      "candidateIds": [
+        "blank_029",
+        "blank_030"
+      ],
+      "surroundingContext": "Address Phone\n______________________________ ____________________________\nPhone Email\n______________________________ ____________________________\n______________________________"
+    },
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 31,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________",
+      "candidateIds": [
+        "blank_031"
+      ],
+      "surroundingContext": "Phone Email\n______________________________\nEmail\n______________________________\n______________________________"
+    }
+  ],
+  "source": "deterministic_fallback",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "RECORDING CONTRACT\nThis agreement is hereby entered into on this _________ day of ___________, 20 ___ by\n_________________________ hereinafter referred to as “Artist” and\nThis agreement is hereby entered into on this _________ day of ___________, 20 ___ by\n_________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "RECORDING CONTRACT\nThis agreement is hereby entered into on this _________ day of ___________, 20 ___ by\n_________________________ hereinafter referred to as “Artist” and\nThis agreement is hereby entered into on this _________ day of ___________, 20 ___ by\n___________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_002"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "RECORDING CONTRACT\nThis agreement is hereby entered into on this _________ day of ___________, 20 ___ by\n_________________________ hereinafter referred to as “Artist” and\nThis agreement is hereby entered into on this _________ day of ___________, 20 ___ by\n___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "This agreement is hereby entered into on this _________ day of ___________, 20 ___ by\n_________________________ hereinafter referred to as “Artist” and\n_________________________ hereinafter referred to as “Company” for the purposes of\n_________________________ hereinafter referred to as “Artist” and\n_________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 5,
+      "context": "_________________________ hereinafter referred to as “Artist” and\n_________________________ hereinafter referred to as “Company” for the purposes of\na recording contract.\n_________________________ hereinafter referred to as “Company” for the purposes of\n_________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 6,
+      "context": "Company attests the following:\n1. Company is aware of Artist’s stage name as ____________, talents,\nexperience, image, and musical style.\n1. Company is aware of Artist’s stage name as ____________, talents,\n____________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_006"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 7,
+      "context": "Artist shall deliver to Company, for valuable consideration hereinafter described,\n_________ (____) number of recordings consisting of not less than 35 minutes of\noriginal musical work within _____ months. First album shall be delivered as\n_________ (____) number of recordings consisting of not less than 35 minutes of\n_________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_007"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "Artist shall deliver to Company, for valuable consideration hereinafter described,\n_________ (____) number of recordings consisting of not less than 35 minutes of\noriginal musical work within _____ months. First album shall be delivered as\n_________ (____) number of recordings consisting of not less than 35 minutes of\n(____)",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 11,
+      "context": "Artist shall be compensated the following for services rendered:\nA royalty of ____________ (____%) per cent in respect of Work produced,\nplayed, promoted and sold, made hereunder during the term of this agreement.\nA royalty of ____________ (____%) per cent in respect of Work produced,\n____________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_011"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 12,
+      "context": "Artist shall be compensated the following for services rendered:\nA royalty of ____________ (____%) per cent in respect of Work produced,\nplayed, promoted and sold, made hereunder during the term of this agreement.\nA royalty of ____________ (____%) per cent in respect of Work produced,\n____%",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_012"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 13,
+      "context": "Artist shall grant to the Company the license to use the name\n“_____________________”, and the Artist's photographic image, biographical\ninformation, and other likeness and public information, in the promotion and\n“_____________________”, and the Artist's photographic image, biographical\n_____________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_013"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 14,
+      "context": "number of performances during the term of this Agreement shall not exceed\n___________________. Company shall be responsible for travel, hotel and meal\ncosts incurred by Artist in attending each such performance, Artist shall be paid\n___________________. Company shall be responsible for travel, hotel and meal\n___________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_014"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 15,
+      "context": "in accordance with applicable law in any in any court having jurisdiction thereof.\nVenue will be in ___________(county), ________ (state). Artist further consentsto the arbitrator who is appointed in said proceeding.\nc) JURISDICTION/APPLICABLE LAW.\nVenue will be in ___________(county), ________ (state). Artist further consentsto the arbitrator who is appointed in said proceeding.\n___________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_015"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 16,
+      "context": "in accordance with applicable law in any in any court having jurisdiction thereof.\nVenue will be in ___________(county), ________ (state). Artist further consentsto the arbitrator who is appointed in said proceeding.\nc) JURISDICTION/APPLICABLE LAW.\nVenue will be in ___________(county), ________ (state). Artist further consentsto the arbitrator who is appointed in said proceeding.\n________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_016"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 17,
+      "context": "Company and Artist hereby submit to the jurisdiction of the courts of\n_________________(state) for the enforcement of this Agreement or any\narbitration award or decision arising herefrom. This Agreement shall be enforcedor construed according to the laws of the State of _________________.\n_________________(state) for the enforcement of this Agreement or any\n_________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_017"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 19,
+      "context": "date first above mentioned.\n______________________________ _____________________________\nAuthorized Person Artist Rep or Artist\n______________________________ _____________________________\n______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_019"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 20,
+      "context": "date first above mentioned.\n______________________________ _____________________________\nAuthorized Person Artist Rep or Artist\n______________________________ _____________________________\n_____________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_020"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 21,
+      "context": "Authorized Person Artist Rep or Artist\n______________________________ _____________________________\nTitle Artist/Band Name (if applicable)\n______________________________ _____________________________\n______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_021"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 22,
+      "context": "Authorized Person Artist Rep or Artist\n______________________________ _____________________________\nTitle Artist/Band Name (if applicable)\n______________________________ _____________________________\n_____________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_022"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 23,
+      "context": "Title Artist/Band Name (if applicable)\n______________________________ _____________________________\nCompany Name Address\n______________________________ _____________________________\n______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_023"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 24,
+      "context": "Title Artist/Band Name (if applicable)\n______________________________ _____________________________\nCompany Name Address\n______________________________ _____________________________\n_____________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_024"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 25,
+      "context": "Company Name Address\n______________________________ _____________________________\nAddress Address\n______________________________ _____________________________\n______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_025"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 26,
+      "context": "Company Name Address\n______________________________ _____________________________\nAddress Address\n______________________________ _____________________________\n_____________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_026"
+      ]
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

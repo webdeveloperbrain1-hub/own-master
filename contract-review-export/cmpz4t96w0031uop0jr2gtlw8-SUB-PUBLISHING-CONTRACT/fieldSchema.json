@@ -1,0 +1,222 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_________ | ______________ | 20___ | __________________ | _______________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004",
+        "blank_005"
+      ],
+      "surroundingContext": "AGREEMENT made this _________ day of ______________, 20___, by and between __________________ (hereinafter called the \"Owner\"), and _______________________ (hereinafter called the \"sub-publisher\").\nAGREEMENT made this _________ day of ______________, 20___, by and between __________________ (hereinafter called the \"Owner\"), and _______________________ (hereinafter called the \"sub-publisher\").\n_________"
+    },
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 6,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________________________________________________________________ | ________________________________________________________________",
+      "candidateIds": [
+        "blank_006",
+        "blank_017",
+        "blank_018"
+      ],
+      "surroundingContext": "__________________________________________________________________________________\n__________________________________________________________________________________\n__________________________________________________________________________________"
+    },
+    {
+      "key": "territory",
+      "type": "text",
+      "label": "Territory",
+      "order": 7,
+      "category": "rights",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________________________",
+      "candidateIds": [
+        "blank_007"
+      ],
+      "surroundingContext": "a song by ________________________________, for the term herein set forth, and for the territory of:\na song by ________________________________, for the term herein set forth, and for the territory of:\n________________________________"
+    },
+    {
+      "key": "publisherName",
+      "type": "text",
+      "label": "Publisher Name",
+      "order": 8,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "____________",
+      "candidateIds": [
+        "blank_008"
+      ],
+      "surroundingContext": "(c) The grant of performing rights is subject to the rights of ____________. The Sub-Publisher shall cause the performing and broadcast rights of the Song to be registered with the performing rights societies in the licensed Territory so as to provide that the entire publisher's share of performing fees and broadcasting fees shall be credited and paid to the Owner. The Sub-Publisher shall account to the Owner with respect thereto in accordance with Paragraph \" 3 (b) (iii)\".\n(c) The grant of performing rights is subject to the rights of ____________. The Sub-Publisher shall cause the performing and broadcast rights of the Song to be registered with the performing rights societies in the licensed Territory so as to provide that the entire publisher's share of performing fees and broadcasting fees shall be credited and paid to the Owner. The Sub-Publisher shall account to the Owner with respect thereto in accordance with Paragraph \" 3 (b) (iii)\".\n____________"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 9,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________",
+      "candidateIds": [
+        "blank_009"
+      ],
+      "surroundingContext": "14. This Agreement shall be construed in accordance with and governed by the laws of the State of _________. Should any portion of this Agreement be found to be invalid or unenforceable, it shall not affect the balance of this Agreement.\n14. This Agreement shall be construed in accordance with and governed by the laws of the State of _________. Should any portion of this Agreement be found to be invalid or unenforceable, it shall not affect the balance of this Agreement.\n_________"
+    },
+    {
+      "key": "publisherSignature",
+      "type": "signature",
+      "label": "Publisher Signature",
+      "order": 10,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________________",
+      "candidateIds": [
+        "blank_010"
+      ],
+      "surroundingContext": "16. Sub-Publisher agrees to pay Owner at the time Sub-Publisher and Owner have both signed and executed this Agreement an advance of ________________________.\n16. Sub-Publisher agrees to pay Owner at the time Sub-Publisher and Owner have both signed and executed this Agreement an advance of ________________________.\n________________________"
+    },
+    {
+      "key": "publisherName2",
+      "type": "text",
+      "label": "Publisher Name2",
+      "order": 11,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________ | _________________",
+      "candidateIds": [
+        "blank_011",
+        "blank_012"
+      ],
+      "surroundingContext": "OWNER_____________________________ SUB-PUBLISHER_________________\nOWNER_____________________________ SUB-PUBLISHER_________________\n_____________________________"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 13,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________ | ____________________________",
+      "candidateIds": [
+        "blank_013",
+        "blank_014"
+      ],
+      "surroundingContext": "By:_______________________________ By:____________________________\nBy:_______________________________ By:____________________________\n_______________________________"
+    },
+    {
+      "key": "address",
+      "type": "textarea",
+      "label": "Address",
+      "order": 15,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________ | _______________________",
+      "candidateIds": [
+        "blank_015",
+        "blank_016"
+      ],
+      "surroundingContext": "Address:__________________________ Address:_______________________\nAddress:__________________________ Address:_______________________\n__________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "AGREEMENT made this _________ day of ______________, 20___, by and between __________________ (hereinafter called the \"Owner\"), and _______________________ (hereinafter called the \"sub-publisher\").\nAGREEMENT made this _________ day of ______________, 20___, by and between __________________ (hereinafter called the \"Owner\"), and _______________________ (hereinafter called the \"sub-publisher\").\n_________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "AGREEMENT made this _________ day of ______________, 20___, by and between __________________ (hereinafter called the \"Owner\"), and _______________________ (hereinafter called the \"sub-publisher\").\nAGREEMENT made this _________ day of ______________, 20___, by and between __________________ (hereinafter called the \"Owner\"), and _______________________ (hereinafter called the \"sub-publisher\").\n______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_002"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "AGREEMENT made this _________ day of ______________, 20___, by and between __________________ (hereinafter called the \"Owner\"), and _______________________ (hereinafter called the \"sub-publisher\").\nAGREEMENT made this _________ day of ______________, 20___, by and between __________________ (hereinafter called the \"Owner\"), and _______________________ (hereinafter called the \"sub-publisher\").\n20___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "AGREEMENT made this _________ day of ______________, 20___, by and between __________________ (hereinafter called the \"Owner\"), and _______________________ (hereinafter called the \"sub-publisher\").\nAGREEMENT made this _________ day of ______________, 20___, by and between __________________ (hereinafter called the \"Owner\"), and _______________________ (hereinafter called the \"sub-publisher\").\n__________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 5,
+      "context": "AGREEMENT made this _________ day of ______________, 20___, by and between __________________ (hereinafter called the \"Owner\"), and _______________________ (hereinafter called the \"sub-publisher\").\nAGREEMENT made this _________ day of ______________, 20___, by and between __________________ (hereinafter called the \"Owner\"), and _______________________ (hereinafter called the \"sub-publisher\").\n_______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 7,
+      "context": "a song by ________________________________, for the term herein set forth, and for the territory of:\na song by ________________________________, for the term herein set forth, and for the territory of:\n________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_007"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "(c) The grant of performing rights is subject to the rights of ____________. The Sub-Publisher shall cause the performing and broadcast rights of the Song to be registered with the performing rights societies in the licensed Territory so as to provide that the entire publisher's share of performing fees and broadcasting fees shall be credited and paid to the Owner. The Sub-Publisher shall account to the Owner with respect thereto in accordance with Paragraph \" 3 (b) (iii)\".\n(c) The grant of performing rights is subject to the rights of ____________. The Sub-Publisher shall cause the performing and broadcast rights of the Song to be registered with the performing rights societies in the licensed Territory so as to provide that the entire publisher's share of performing fees and broadcasting fees shall be credited and paid to the Owner. The Sub-Publisher shall account to the Owner with respect thereto in accordance with Paragraph \" 3 (b) (iii)\".\n____________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 10,
+      "context": "16. Sub-Publisher agrees to pay Owner at the time Sub-Publisher and Owner have both signed and executed this Agreement an advance of ________________________.\n16. Sub-Publisher agrees to pay Owner at the time Sub-Publisher and Owner have both signed and executed this Agreement an advance of ________________________.\n________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_010"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

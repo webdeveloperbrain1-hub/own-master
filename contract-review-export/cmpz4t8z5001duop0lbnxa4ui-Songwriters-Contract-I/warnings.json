@@ -1,0 +1,20 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "(a) An advance of $__________________________in hand paid, receipt of which is hereby acknowledged, which sum shall be deductible from any payments hereafter becoming due the Writer(s) under this agreement.",
+    "message": "The blank for advance amount may contain a risky legal term.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 2,
+    "context": "(j) Upon the use of the composition in synchronization with motion pictures under any bulk or block license heretofore made, the Writer(s) shall be entitled to receive an amount equal to _______% in no case less than 50% jointly) of the license fee for each synchronization by the licensee, but in no event less than the following:",
+    "message": "The blank for synchronization royalty rate may contain a risky legal term.",
+    "candidateIds": [
+      "blank_002"
+    ]
+  }
+]

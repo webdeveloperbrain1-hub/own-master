@@ -1,0 +1,216 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________ | __________ | 20______ | _____________________________________________ | _______________________________________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004",
+        "blank_005"
+      ],
+      "surroundingContext": "This AGENCY AGREEMENT is made this _______________ day of __________, 20______, by and between _____________________________________________ (hereinafter referred to as \"Assignor\") and _______________________________________________ (hereinafter referred to as \"Agent\").\nThis AGENCY AGREEMENT is made this _______________ day of __________, 20______, by and between _____________________________________________ (hereinafter referred to as \"Assignor\") and _______________________________________________ (hereinafter referred to as \"Agent\").\n_______________"
+    },
+    {
+      "key": "projectTitle",
+      "type": "text",
+      "label": "Project Title",
+      "order": 6,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_________________________________________ | _________________________________________________________________ | _________________________________________________________________________",
+      "candidateIds": [
+        "blank_006",
+        "blank_007",
+        "blank_008"
+      ],
+      "surroundingContext": "1. Assignor is the owner of the mechanical recording rights in copyrighted musical work referred to as _________________________________________ (hereinafter referred to as the \"Composition/Album\") with music and lyrics by _________________________________________________________________ as recorded by _________________________________________________________________________.\n1. Assignor is the owner of the mechanical recording rights in copyrighted musical work referred to as _________________________________________ (hereinafter referred to as the \"Composition/Album\") with music and lyrics by _________________________________________________________________ as recorded by _________________________________________________________________________.\n_________________________________________"
+    },
+    {
+      "key": "publisherName",
+      "type": "text",
+      "label": "Publisher Name",
+      "order": 9,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________",
+      "candidateIds": [
+        "blank_009"
+      ],
+      "surroundingContext": "2. Assignor does hereby appoint Agent as lawful agent and representative for the purpose of exploiting, marketing and negotiating for the granting of sub-publishers within the territory of _______________________________________________ (hereinafter referred to as \"Licensed Territory\") the following rights:\n2. Assignor does hereby appoint Agent as lawful agent and representative for the purpose of exploiting, marketing and negotiating for the granting of sub-publishers within the territory of _______________________________________________ (hereinafter referred to as \"Licensed Territory\") the following rights:\n_______________________________________________"
+    },
+    {
+      "key": "royaltyBasePercentage",
+      "type": "percentage",
+      "label": "Royalty Base Percentage",
+      "order": 10,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________",
+      "candidateIds": [
+        "blank_010"
+      ],
+      "surroundingContext": "(a) ________ (%) Percent of any and all gross receipts paid or credited to Assignor for each use of the Composition/Album in any album, book, folio, or newspaper,\n(a) ________ (%) Percent of any and all gross receipts paid or credited to Assignor for each use of the Composition/Album in any album, book, folio, or newspaper,\n________"
+    },
+    {
+      "key": "royaltyRate",
+      "type": "percentage",
+      "label": "Royalty Rate",
+      "order": 11,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________",
+      "candidateIds": [
+        "blank_011"
+      ],
+      "surroundingContext": "(b) _________ (%) of the retail selling price of each copy of the Composition/Album in any form sold and credited or paid for and not returned,\n(b) _________ (%) of the retail selling price of each copy of the Composition/Album in any form sold and credited or paid for and not returned,\n_________"
+    },
+    {
+      "key": "royaltyBasePercentage2",
+      "type": "percentage",
+      "label": "Royalty Base Percentage2",
+      "order": 12,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________",
+      "candidateIds": [
+        "blank_012"
+      ],
+      "surroundingContext": "(c) _________ (%) of any and all gross receipts paid or credited to the Assignor by any licensee for mechanical reproductions thereof on phonorecords and prerecorded tapes, videos, and any and all other means of mechanically reproducing the Composition/Album.\n(c) _________ (%) of any and all gross receipts paid or credited to the Assignor by any licensee for mechanical reproductions thereof on phonorecords and prerecorded tapes, videos, and any and all other means of mechanically reproducing the Composition/Album.\n_________"
+    },
+    {
+      "key": "feeAmount",
+      "type": "currency",
+      "label": "Fee Amount",
+      "order": 13,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__________",
+      "candidateIds": [
+        "blank_013"
+      ],
+      "surroundingContext": "(d) __________ (%) of all monies paid or credited to Assignor by any licensee for any use thereof whatsoever, including but not limited to gross broadcast and performance fees in respect to public performances thereof, in the Licensed Territory.\n(d) __________ (%) of all monies paid or credited to Assignor by any licensee for any use thereof whatsoever, including but not limited to gross broadcast and performance fees in respect to public performances thereof, in the Licensed Territory.\n__________"
+    },
+    {
+      "key": "agreementDate2",
+      "type": "date",
+      "label": "Agreement Date2",
+      "order": 14,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________________",
+      "candidateIds": [
+        "blank_014"
+      ],
+      "surroundingContext": "5. The term of this Agreement shall be for a period of ________________________ year(s) commencing on the date of execution of this Agreement.\n5. The term of this Agreement shall be for a period of ________________________ year(s) commencing on the date of execution of this Agreement.\n________________________"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 15,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________",
+      "candidateIds": [
+        "blank_015"
+      ],
+      "surroundingContext": "6. This Agreement shall inure to the benefit of and shall be binding upon the parties hereto, their heirs, successors and assigns. This Agreement is not assignable by either party without written consent of both parties. This Agreement shall be construed under the laws of the State of _____________________.\n6. This Agreement shall inure to the benefit of and shall be binding upon the parties hereto, their heirs, successors and assigns. This Agreement is not assignable by either party without written consent of both parties. This Agreement shall be construed under the laws of the State of _____________________.\n_____________________"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 16,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________________________",
+      "candidateIds": [
+        "blank_016",
+        "blank_017"
+      ],
+      "surroundingContext": "By: _____________________________________________\nBy: _____________________________________________\n_____________________________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 6,
+      "context": "1. Assignor is the owner of the mechanical recording rights in copyrighted musical work referred to as _________________________________________ (hereinafter referred to as the \"Composition/Album\") with music and lyrics by _________________________________________________________________ as recorded by _________________________________________________________________________.\n1. Assignor is the owner of the mechanical recording rights in copyrighted musical work referred to as _________________________________________ (hereinafter referred to as the \"Composition/Album\") with music and lyrics by _________________________________________________________________ as recorded by _________________________________________________________________________.\n_________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_006"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 7,
+      "context": "1. Assignor is the owner of the mechanical recording rights in copyrighted musical work referred to as _________________________________________ (hereinafter referred to as the \"Composition/Album\") with music and lyrics by _________________________________________________________________ as recorded by _________________________________________________________________________.\n1. Assignor is the owner of the mechanical recording rights in copyrighted musical work referred to as _________________________________________ (hereinafter referred to as the \"Composition/Album\") with music and lyrics by _________________________________________________________________ as recorded by _________________________________________________________________________.\n_________________________________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_007"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "1. Assignor is the owner of the mechanical recording rights in copyrighted musical work referred to as _________________________________________ (hereinafter referred to as the \"Composition/Album\") with music and lyrics by _________________________________________________________________ as recorded by _________________________________________________________________________.\n1. Assignor is the owner of the mechanical recording rights in copyrighted musical work referred to as _________________________________________ (hereinafter referred to as the \"Composition/Album\") with music and lyrics by _________________________________________________________________ as recorded by _________________________________________________________________________.\n_________________________________________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "2. Assignor does hereby appoint Agent as lawful agent and representative for the purpose of exploiting, marketing and negotiating for the granting of sub-publishers within the territory of _______________________________________________ (hereinafter referred to as \"Licensed Territory\") the following rights:\n2. Assignor does hereby appoint Agent as lawful agent and representative for the purpose of exploiting, marketing and negotiating for the granting of sub-publishers within the territory of _______________________________________________ (hereinafter referred to as \"Licensed Territory\") the following rights:\n_______________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 13,
+      "context": "(d) __________ (%) of all monies paid or credited to Assignor by any licensee for any use thereof whatsoever, including but not limited to gross broadcast and performance fees in respect to public performances thereof, in the Licensed Territory.\n(d) __________ (%) of all monies paid or credited to Assignor by any licensee for any use thereof whatsoever, including but not limited to gross broadcast and performance fees in respect to public performances thereof, in the Licensed Territory.\n__________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_013"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 14,
+      "context": "5. The term of this Agreement shall be for a period of ________________________ year(s) commencing on the date of execution of this Agreement.\n5. The term of this Agreement shall be for a period of ________________________ year(s) commencing on the date of execution of this Agreement.\n________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_014"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

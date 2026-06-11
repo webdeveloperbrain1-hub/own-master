@@ -1,0 +1,799 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________ | ______________ | 20___ | _______________________ | ___________ | ______________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004",
+        "blank_005",
+        "blank_006"
+      ],
+      "surroundingContext": "INTERNATIONAL MARKETING CONTRACT\nAn Agreement made this ________ day of ______________, 20___ between\n_______________________(Agent)___________, ______________________(address)\nAn Agreement made this ________ day of ______________, 20___ between\n________"
+    },
+    {
+      "key": "address",
+      "type": "textarea",
+      "label": "Address",
+      "order": 7,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________ | _____________________",
+      "candidateIds": [
+        "blank_007",
+        "blank_008"
+      ],
+      "surroundingContext": "_______________________(Agent)___________, ______________________(address)\n__________________, (hereinafter referred to as the\"Agent\") and _____________________,of\n__________________________________, USA\n__________________, (hereinafter referred to as the\"Agent\") and _____________________,of\n__________________"
+    },
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 9,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________________",
+      "candidateIds": [
+        "blank_009"
+      ],
+      "surroundingContext": "__________________, (hereinafter referred to as the\"Agent\") and _____________________,of\n__________________________________, USA\n(hereinafter referred to as the Client).\n__________________________________, USA\n__________________________________"
+    },
+    {
+      "key": "field2",
+      "type": "text",
+      "label": "Field2",
+      "order": 10,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________",
+      "candidateIds": [
+        "blank_010"
+      ],
+      "surroundingContext": "(hereinafter referred to as the Client).\nThe Agent hereby agrees to market ________ copies of the Clients audio product, listed in the\nattached \"Exhibit A\" (hereinafter referred to as the \"Product\"), to the Agent's foreign\nThe Agent hereby agrees to market ________ copies of the Clients audio product, listed in the\n________"
+    },
+    {
+      "key": "advanceAmount",
+      "type": "currency",
+      "label": "Advance Amount",
+      "order": 11,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________",
+      "candidateIds": [
+        "blank_011"
+      ],
+      "surroundingContext": "outlets under the following terms and conditions:\n1. The Client agrees to pay in advance to the Agent the sum of _______________ Dollarsper copy of the product as a non-refundable retainer for the Agent's services in marketing the\nProduct to territories outside of the United States of America.\n1. The Client agrees to pay in advance to the Agent the sum of _______________ Dollarsper copy of the product as a non-refundable retainer for the Agent's services in marketing the\n_______________"
+    },
+    {
+      "key": "term",
+      "type": "text",
+      "label": "Term",
+      "order": 12,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________",
+      "candidateIds": [
+        "blank_012"
+      ],
+      "surroundingContext": "10. (a) Agent and Client agree that all contractual agreements secured under the\nterms of this Agreement shall be made in the name of ___________________________(Owner)\n__________________ with _______________________(Agent)_________________________ as Agent\".\nterms of this Agreement shall be made in the name of ___________________________(Owner)\n___________________________"
+    },
+    {
+      "key": "advanceAmount2",
+      "type": "currency",
+      "label": "Advance Amount2",
+      "order": 13,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__________________ | _______________________ | _________________________ | ____________________ | ________________",
+      "candidateIds": [
+        "blank_013",
+        "blank_014",
+        "blank_015",
+        "blank_016",
+        "blank_017"
+      ],
+      "surroundingContext": "terms of this Agreement shall be made in the name of ___________________________(Owner)\n__________________ with _______________________(Agent)_________________________ as Agent\".\nFurthermore, all financial instruments containing advance and/or royalty payments associated with such\n__________________ with _______________________(Agent)_________________________ as Agent\".\n__________________"
+    },
+    {
+      "key": "address2",
+      "type": "textarea",
+      "label": "Address2",
+      "order": 18,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________________________________________",
+      "candidateIds": [
+        "blank_018"
+      ],
+      "surroundingContext": "shall be deposited in escrow at:\n_____________________________________________________________\n(Name and Address of Bank)\n_____________________________________________________________\n_____________________________________________________________"
+    },
+    {
+      "key": "field3",
+      "type": "number",
+      "label": "Field3",
+      "order": 19,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________",
+      "candidateIds": [
+        "blank_019"
+      ],
+      "surroundingContext": "(hereinafter referred to as the \"Bank\")\nThe escrow account at the Bank shall be named \"__________________________(Client\n& Agent) ________________________\". The Agent and the Client agree to appoint and authorize\nThe escrow account at the Bank shall be named \"__________________________(Client\n__________________________"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 20,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________________ | _________________________________ | ______________________ | __________________________ | ____________________________ | ___________ | ____________________________ | 20___ | _______________________________________________________________",
+      "candidateIds": [
+        "blank_020",
+        "blank_021",
+        "blank_022",
+        "blank_023",
+        "blank_024",
+        "blank_078",
+        "blank_079",
+        "blank_080",
+        "blank_081"
+      ],
+      "surroundingContext": "The escrow account at the Bank shall be named \"__________________________(Client\n& Agent) ________________________\". The Agent and the Client agree to appoint and authorize\n_________________________________(Agent)______________________ to endorse, on behalf of Agentand Client with his signature and the phrase \"for deposit only,\" all financial instruments made payable to\n& Agent) ________________________\". The Agent and the Client agree to appoint and authorize\n________________________"
+    },
+    {
+      "key": "term2",
+      "type": "text",
+      "label": "Term2",
+      "order": 25,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________ | _________________________",
+      "candidateIds": [
+        "blank_025",
+        "blank_026"
+      ],
+      "surroundingContext": "abide by the terms of this Agreement.\n______________________________ _________________________\n______________________________ _________________________\n______________________________ _________________________\n______________________________"
+    },
+    {
+      "key": "field4",
+      "type": "text",
+      "label": "Field4",
+      "order": 27,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________ | _________________________",
+      "candidateIds": [
+        "blank_027",
+        "blank_028"
+      ],
+      "surroundingContext": "______________________________ _________________________\n______________________________ _________________________\n______________________________ _________________________\n______________________________ _________________________\n______________________________"
+    },
+    {
+      "key": "field5",
+      "type": "text",
+      "label": "Field5",
+      "order": 29,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________ | _________________________",
+      "candidateIds": [
+        "blank_029",
+        "blank_030"
+      ],
+      "surroundingContext": "______________________________ _________________________\n______________________________ _________________________\nClient Agentby ____________________________ by ______________________\n______________________________ _________________________\n______________________________"
+    },
+    {
+      "key": "projectTitle",
+      "type": "text",
+      "label": "Project Title",
+      "order": 31,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "____________________________ | ______________________",
+      "candidateIds": [
+        "blank_031",
+        "blank_032"
+      ],
+      "surroundingContext": "______________________________ _________________________\nClient Agentby ____________________________ by ______________________\nTitle Title\nClient Agentby ____________________________ by ______________________\n____________________________"
+    },
+    {
+      "key": "agreementDate2",
+      "type": "date",
+      "label": "Agreement Date2",
+      "order": 33,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________________ | 20___ | _______________ | _______________________",
+      "candidateIds": [
+        "blank_033",
+        "blank_034",
+        "blank_035",
+        "blank_036"
+      ],
+      "surroundingContext": "Title Title\nDate: ______________________, 20___.\n41: 3\nDate: ______________________, 20___.\n______________________"
+    },
+    {
+      "key": "agreementDate3",
+      "type": "date",
+      "label": "Agreement Date3",
+      "order": 37,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________________________ | ________________ | __________ | 20___ | ____________________ | __________________ | ___________________ | ____",
+      "candidateIds": [
+        "blank_037",
+        "blank_038",
+        "blank_039",
+        "blank_040",
+        "blank_043",
+        "blank_044",
+        "blank_045",
+        "blank_046",
+        "blank_047",
+        "blank_048"
+      ],
+      "surroundingContext": "Marketing Agreement between _______________(Agent)_______________________ and\n________________________ made this ________________ day of __________, 20___.\nThe product(s) subject to the above is listed below, with the\n________________________ made this ________________ day of __________, 20___.\n________________________"
+    },
+    {
+      "key": "artistName",
+      "type": "text",
+      "label": "Artist Name",
+      "order": 41,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________________________________",
+      "candidateIds": [
+        "blank_041"
+      ],
+      "surroundingContext": "Includes the Following:\nArtist: ___________________________________\nTitles:\nArtist: ___________________________________\n___________________________________"
+    },
+    {
+      "key": "field6",
+      "type": "text",
+      "label": "Field6",
+      "order": 42,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________________________________",
+      "candidateIds": [
+        "blank_042"
+      ],
+      "surroundingContext": "21.\nPUBLISHED BY ________________________________\n41: 4\nPUBLISHED BY ________________________________\n________________________________"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 49,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________ | _______________",
+      "candidateIds": [
+        "blank_049",
+        "blank_050"
+      ],
+      "surroundingContext": "account provided for in Paragraph 9 of the Agreement. This\ninformation has been supplied by _____________________(Bank)_______________, of\n_____________,________________(city/state).\ninformation has been supplied by _____________________(Bank)_______________, of\n_____________________"
+    },
+    {
+      "key": "effectiveDate",
+      "type": "date",
+      "label": "Effective Date",
+      "order": 51,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_____________ | ________________ | _____ | ____",
+      "candidateIds": [
+        "blank_051",
+        "blank_052",
+        "blank_053",
+        "blank_054"
+      ],
+      "surroundingContext": "information has been supplied by _____________________(Bank)_______________, of\n_____________,________________(city/state).\nSCHEDULE OF SERVICES (effective _____/____, 20____)\n_____________,________________(city/state).\n_____________"
+    },
+    {
+      "key": "effectiveDate2",
+      "type": "date",
+      "label": "Effective Date2",
+      "order": 55,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "20____",
+      "candidateIds": [
+        "blank_055"
+      ],
+      "surroundingContext": "_____________,________________(city/state).\nSCHEDULE OF SERVICES (effective _____/____, 20____)\n1. Monthly Maintenance fee\nSCHEDULE OF SERVICES (effective _____/____, 20____)\n20____"
+    },
+    {
+      "key": "feeAmount",
+      "type": "currency",
+      "label": "Fee Amount",
+      "order": 56,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "$ __",
+      "candidateIds": [
+        "blank_056"
+      ],
+      "surroundingContext": "1. Monthly Maintenance fee\n(business checking account)* $ __.00\n2. Collection Items ** $ __.00\n(business checking account)* $ __.00\n$ __"
+    },
+    {
+      "key": "paymentAmount",
+      "type": "currency",
+      "label": "Payment Amount",
+      "order": 57,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "$ __",
+      "candidateIds": [
+        "blank_057"
+      ],
+      "surroundingContext": "(business checking account)* $ __.00\n2. Collection Items ** $ __.00\n3. Transfer of Funds between Accounts $ __.00\n2. Collection Items ** $ __.00\n$ __"
+    },
+    {
+      "key": "paymentAmount2",
+      "type": "currency",
+      "label": "Payment Amount2",
+      "order": 58,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "$ __",
+      "candidateIds": [
+        "blank_058"
+      ],
+      "surroundingContext": "2. Collection Items ** $ __.00\n3. Transfer of Funds between Accounts $ __.00\n4. Cashier's Check $ __.00\n3. Transfer of Funds between Accounts $ __.00\n$ __"
+    },
+    {
+      "key": "paymentAmount3",
+      "type": "currency",
+      "label": "Payment Amount3",
+      "order": 59,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "$ __",
+      "candidateIds": [
+        "blank_059"
+      ],
+      "surroundingContext": "3. Transfer of Funds between Accounts $ __.00\n4. Cashier's Check $ __.00\nNOTES:\n4. Cashier's Check $ __.00\n$ __"
+    },
+    {
+      "key": "depositAmount",
+      "type": "currency",
+      "label": "Deposit Amount",
+      "order": 60,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____",
+      "candidateIds": [
+        "blank_060"
+      ],
+      "surroundingContext": "** Collection Items are defined as instruments drawn on\nforeign banks. Any items deposited in the account whichare drawn on U.S. banks will be charged at _____cents\n($0.___) per item and will be subject to hold until\nforeign banks. Any items deposited in the account whichare drawn on U.S. banks will be charged at _____cents\n_____"
+    },
+    {
+      "key": "depositAmount2",
+      "type": "currency",
+      "label": "Deposit Amount2",
+      "order": 61,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___",
+      "candidateIds": [
+        "blank_061"
+      ],
+      "surroundingContext": "foreign banks. Any items deposited in the account whichare drawn on U.S. banks will be charged at _____cents\n($0.___) per item and will be subject to hold until\nactually collected.\n($0.___) per item and will be subject to hold until\n___"
+    },
+    {
+      "key": "agreementDate4",
+      "type": "date",
+      "label": "Agreement Date4",
+      "order": 62,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________ | ______________ | _________ | ____ | 20___ | ____________ | ___________",
+      "candidateIds": [
+        "blank_062",
+        "blank_063",
+        "blank_064",
+        "blank_065",
+        "blank_066",
+        "blank_067",
+        "blank_068",
+        "blank_069",
+        "blank_070"
+      ],
+      "surroundingContext": "WRITER'S/PUBLISHER'S INDUCEMENT\nAs a material inducement to ________________(Writer/Publisher)________________ for\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nAs a material inducement to ________________(Writer/Publisher)________________ for\n________________"
+    },
+    {
+      "key": "field7",
+      "type": "text",
+      "label": "Field7",
+      "order": 71,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________ | _______________________________",
+      "candidateIds": [
+        "blank_071",
+        "blank_072"
+      ],
+      "surroundingContext": "and knowing that ____________(Agent)___________ will rely thereon, I(We)\n___________________________, doing business as _______________________________\nhereby warrant, represent and agree that:\n___________________________, doing business as _______________________________\n___________________________"
+    },
+    {
+      "key": "projectTitle2",
+      "type": "text",
+      "label": "Project Title2",
+      "order": 73,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_____________________",
+      "candidateIds": [
+        "blank_073"
+      ],
+      "surroundingContext": "(a) I(We) have read the above-mentioned agreement;\n(b) I(We) have granted to _____________________, for the\npurposes of the above-mentioned agreement, the controland use of all rights to all copyrights (\"titles\"), in\n(b) I(We) have granted to _____________________, for the\n_____________________"
+    },
+    {
+      "key": "projectTitle3",
+      "type": "text",
+      "label": "Project Title3",
+      "order": 74,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________",
+      "candidateIds": [
+        "blank_074"
+      ],
+      "surroundingContext": "assigns, including but not limited to those titles listedin Exhibit 'A' of said Agreement, necessary to empower\n_______________________________________ to enter into the\nabove-mentioned Agreement with Agent. (Refers to\n_______________________________________ to enter into the\n_______________________________________"
+    },
+    {
+      "key": "projectTitle4",
+      "type": "text",
+      "label": "Project Title4",
+      "order": 75,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________",
+      "candidateIds": [
+        "blank_075"
+      ],
+      "surroundingContext": "warranties, representations and indemnities made by\nme(us) to ______________________ with respect to the\ntitles;\nme(us) to ______________________ with respect to the\n______________________"
+    },
+    {
+      "key": "field8",
+      "type": "currency",
+      "label": "Field8",
+      "order": 76,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________",
+      "candidateIds": [
+        "blank_076"
+      ],
+      "surroundingContext": "(e) I(We) agree to be bound by the aforementioned agreementto the extent same relates to me(us); and\n(f) I(We) shall look solely to _____________________________\nfor any amounts due me(us) in respect of any and all\n(f) I(We) shall look solely to _____________________________\n_____________________________"
+    },
+    {
+      "key": "field9",
+      "type": "text",
+      "label": "Field9",
+      "order": 77,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "____________________________________",
+      "candidateIds": [
+        "blank_077"
+      ],
+      "surroundingContext": "first or concurrently pursuing any remedy Agent may have against\n____________________________________ or any other person. No\nalteration, modification, or amendment of the foregoing agreement\n____________________________________ or any other person. No\n____________________________________"
+    },
+    {
+      "key": "projectTitle5",
+      "type": "text",
+      "label": "Project Title5",
+      "order": 82,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________________ | _______________________",
+      "candidateIds": [
+        "blank_082",
+        "blank_083"
+      ],
+      "surroundingContext": "For_______________________________________________________________\nby _____________________________________ title _______________________\n41: 6\nby _____________________________________ title _______________________\n_____________________________________"
+    }
+  ],
+  "source": "deterministic_fallback",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 11,
+      "context": "outlets under the following terms and conditions:\n1. The Client agrees to pay in advance to the Agent the sum of _______________ Dollarsper copy of the product as a non-refundable retainer for the Agent's services in marketing the\nProduct to territories outside of the United States of America.\n1. The Client agrees to pay in advance to the Agent the sum of _______________ Dollarsper copy of the product as a non-refundable retainer for the Agent's services in marketing the\n_______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_011"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 13,
+      "context": "terms of this Agreement shall be made in the name of ___________________________(Owner)\n__________________ with _______________________(Agent)_________________________ as Agent\".\nFurthermore, all financial instruments containing advance and/or royalty payments associated with such\n__________________ with _______________________(Agent)_________________________ as Agent\".\n__________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_013"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 14,
+      "context": "terms of this Agreement shall be made in the name of ___________________________(Owner)\n__________________ with _______________________(Agent)_________________________ as Agent\".\nFurthermore, all financial instruments containing advance and/or royalty payments associated with such\n__________________ with _______________________(Agent)_________________________ as Agent\".\n_______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_014"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 15,
+      "context": "terms of this Agreement shall be made in the name of ___________________________(Owner)\n__________________ with _______________________(Agent)_________________________ as Agent\".\nFurthermore, all financial instruments containing advance and/or royalty payments associated with such\n__________________ with _______________________(Agent)_________________________ as Agent\".\n_________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_015"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 16,
+      "context": "Furthermore, all financial instruments containing advance and/or royalty payments associated with such\nagreements shall be made payable to \" ____________________(Agent $ Owner)________________\".and\nshall be deposited in escrow at:\nagreements shall be made payable to \" ____________________(Agent $ Owner)________________\".and\n____________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_016"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 17,
+      "context": "Furthermore, all financial instruments containing advance and/or royalty payments associated with such\nagreements shall be made payable to \" ____________________(Agent $ Owner)________________\".and\nshall be deposited in escrow at:\nagreements shall be made payable to \" ____________________(Agent $ Owner)________________\".and\n________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_017"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 20,
+      "context": "The escrow account at the Bank shall be named \"__________________________(Client\n& Agent) ________________________\". The Agent and the Client agree to appoint and authorize\n_________________________________(Agent)______________________ to endorse, on behalf of Agentand Client with his signature and the phrase \"for deposit only,\" all financial instruments made payable to\n& Agent) ________________________\". The Agent and the Client agree to appoint and authorize\n________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_020"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 21,
+      "context": "& Agent) ________________________\". The Agent and the Client agree to appoint and authorize\n_________________________________(Agent)______________________ to endorse, on behalf of Agentand Client with his signature and the phrase \"for deposit only,\" all financial instruments made payable to\n\"__________________________(Agent &Client)____________________________\" and deposit such\n_________________________________(Agent)______________________ to endorse, on behalf of Agentand Client with his signature and the phrase \"for deposit only,\" all financial instruments made payable to\n_________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_021"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 22,
+      "context": "& Agent) ________________________\". The Agent and the Client agree to appoint and authorize\n_________________________________(Agent)______________________ to endorse, on behalf of Agentand Client with his signature and the phrase \"for deposit only,\" all financial instruments made payable to\n\"__________________________(Agent &Client)____________________________\" and deposit such\n_________________________________(Agent)______________________ to endorse, on behalf of Agentand Client with his signature and the phrase \"for deposit only,\" all financial instruments made payable to\n______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_022"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 23,
+      "context": "_________________________________(Agent)______________________ to endorse, on behalf of Agentand Client with his signature and the phrase \"for deposit only,\" all financial instruments made payable to\n\"__________________________(Agent &Client)____________________________\" and deposit such\ninstruments into the escrow account.\n\"__________________________(Agent &Client)____________________________\" and deposit such\n__________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_023"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 24,
+      "context": "_________________________________(Agent)______________________ to endorse, on behalf of Agentand Client with his signature and the phrase \"for deposit only,\" all financial instruments made payable to\n\"__________________________(Agent &Client)____________________________\" and deposit such\ninstruments into the escrow account.\n\"__________________________(Agent &Client)____________________________\" and deposit such\n____________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_024"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 33,
+      "context": "Title Title\nDate: ______________________, 20___.\n41: 3\nDate: ______________________, 20___.\n______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_033"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 34,
+      "context": "Title Title\nDate: ______________________, 20___.\n41: 3\nDate: ______________________, 20___.\n20___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_034"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 41,
+      "context": "Includes the Following:\nArtist: ___________________________________\nTitles:\nArtist: ___________________________________\n___________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_041"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 53,
+      "context": "_____________,________________(city/state).\nSCHEDULE OF SERVICES (effective _____/____, 20____)\n1. Monthly Maintenance fee\nSCHEDULE OF SERVICES (effective _____/____, 20____)\n_____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_053"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 54,
+      "context": "_____________,________________(city/state).\nSCHEDULE OF SERVICES (effective _____/____, 20____)\n1. Monthly Maintenance fee\nSCHEDULE OF SERVICES (effective _____/____, 20____)\n____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_054"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 55,
+      "context": "_____________,________________(city/state).\nSCHEDULE OF SERVICES (effective _____/____, 20____)\n1. Monthly Maintenance fee\nSCHEDULE OF SERVICES (effective _____/____, 20____)\n20____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_055"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 56,
+      "context": "1. Monthly Maintenance fee\n(business checking account)* $ __.00\n2. Collection Items ** $ __.00\n(business checking account)* $ __.00\n$ __",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_056"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 62,
+      "context": "WRITER'S/PUBLISHER'S INDUCEMENT\nAs a material inducement to ________________(Writer/Publisher)________________ for\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nAs a material inducement to ________________(Writer/Publisher)________________ for\n________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_062"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 63,
+      "context": "WRITER'S/PUBLISHER'S INDUCEMENT\nAs a material inducement to ________________(Writer/Publisher)________________ for\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nAs a material inducement to ________________(Writer/Publisher)________________ for\n________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_063"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 64,
+      "context": "As a material inducement to ________________(Writer/Publisher)________________ for\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\n______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_064"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 65,
+      "context": "As a material inducement to ________________(Writer/Publisher)________________ for\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\n_________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_065"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 66,
+      "context": "As a material inducement to ________________(Writer/Publisher)________________ for\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\n____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_066"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 67,
+      "context": "As a material inducement to ________________(Writer/Publisher)________________ for\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\n_________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_067"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 68,
+      "context": "As a material inducement to ________________(Writer/Publisher)________________ for\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\n20___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_068"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 69,
+      "context": "entering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\n___________________________, doing business as _______________________________\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\n____________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_069"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 70,
+      "context": "entering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\n___________________________, doing business as _______________________________\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\n___________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_070"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 73,
+      "context": "(a) I(We) have read the above-mentioned agreement;\n(b) I(We) have granted to _____________________, for the\npurposes of the above-mentioned agreement, the controland use of all rights to all copyrights (\"titles\"), in\n(b) I(We) have granted to _____________________, for the\n_____________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_073"
+      ]
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

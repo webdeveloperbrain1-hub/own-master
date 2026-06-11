@@ -1,0 +1,281 @@
+{
+  "fields": [
+    {
+      "key": "effectiveDate",
+      "type": "date",
+      "label": "Effective Date",
+      "order": 1,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "____ | __________ | 20____ | _____________________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004"
+      ],
+      "surroundingContext": "CO-OPERATIVE PROMOTIONAL CONTRACT\nThis Co-Op Promotional Agreement (\"Agreement\") is made and effective this ____ Day of __________,\n20____ by and between _____________________________ (hereinafter referred to as the \"Reseller\") and\nThis Co-Op Promotional Agreement (\"Agreement\") is made and effective this ____ Day of __________,\n____"
+    },
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 5,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________________________________",
+      "candidateIds": [
+        "blank_005"
+      ],
+      "surroundingContext": "20____ by and between _____________________________ (hereinafter referred to as the \"Reseller\") and\n________________________________ (hereinafter referred to as the \"Vendor\").\nVendor sells products under the trade name _________________________________ (the \"Product\").\n________________________________ (hereinafter referred to as the \"Vendor\").\n________________________________"
+    },
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 6,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________________________",
+      "candidateIds": [
+        "blank_006"
+      ],
+      "surroundingContext": "________________________________ (hereinafter referred to as the \"Vendor\").\nVendor sells products under the trade name _________________________________ (the \"Product\").\nReseller resells and/or promotes the sale of many goods.\nVendor sells products under the trade name _________________________________ (the \"Product\").\n_________________________________"
+    },
+    {
+      "key": "term",
+      "type": "text",
+      "label": "Term",
+      "order": 8,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "[Materials Provided by Reseller]",
+      "candidateIds": [
+        "blank_008"
+      ],
+      "surroundingContext": "Provided by Vendor].\nB. The following material is in the possession of Reseller and will be used by Resellerin performing the Promotion: [Materials Provided by Reseller].\n3. Term. The Reseller will completely implement the Promotion not later than _____________\nB. The following material is in the possession of Reseller and will be used by Resellerin performing the Promotion: [Materials Provided by Reseller].\n[Materials Provided by Reseller]"
+    },
+    {
+      "key": "termEndDate",
+      "type": "date",
+      "label": "Term End Date",
+      "order": 9,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_____________ | ___________________",
+      "candidateIds": [
+        "blank_009",
+        "blank_010"
+      ],
+      "surroundingContext": "B. The following material is in the possession of Reseller and will be used by Resellerin performing the Promotion: [Materials Provided by Reseller].\n3. Term. The Reseller will completely implement the Promotion not later than _____________\nand the promotion shall continue until ___________________.\n3. Term. The Reseller will completely implement the Promotion not later than _____________\n_____________"
+    },
+    {
+      "key": "field2",
+      "type": "text",
+      "label": "Field2",
+      "order": 11,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________",
+      "candidateIds": [
+        "blank_011"
+      ],
+      "surroundingContext": "If to Reseller:\n______________________________\n______________________________\n______________________________\n______________________________"
+    },
+    {
+      "key": "field3",
+      "type": "text",
+      "label": "Field3",
+      "order": 12,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________",
+      "candidateIds": [
+        "blank_012",
+        "blank_015"
+      ],
+      "surroundingContext": "______________________________\n______________________________\n______________________________\n______________________________\n______________________________"
+    },
+    {
+      "key": "field4",
+      "type": "text",
+      "label": "Field4",
+      "order": 13,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________",
+      "candidateIds": [
+        "blank_013"
+      ],
+      "surroundingContext": "______________________________\n______________________________\nand if to Vendor:\n______________________________\n______________________________"
+    },
+    {
+      "key": "field5",
+      "type": "text",
+      "label": "Field5",
+      "order": 14,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________",
+      "candidateIds": [
+        "blank_014"
+      ],
+      "surroundingContext": "and if to Vendor:\n______________________________\n______________________________\n______________________________\n______________________________"
+    },
+    {
+      "key": "field6",
+      "type": "text",
+      "label": "Field6",
+      "order": 16,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________",
+      "candidateIds": [
+        "blank_016"
+      ],
+      "surroundingContext": "______________________________\n______________________________\nAny notice given pursuant to this Agreement shall be in writing to the individuals identified above by\n______________________________\n______________________________"
+    },
+    {
+      "key": "feeAmount",
+      "type": "currency",
+      "label": "Fee Amount",
+      "order": 18,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "$_______________",
+      "candidateIds": [
+        "blank_018"
+      ],
+      "surroundingContext": "6. Fees & Charges. In consideration of the performance of the Promotion as set forth herein, Vendor\nshall pay Reseller $_______________. Vendor shall pay the fee to Reseller not later than thirty (30) days\nfollowing Reseller's' delivery to Vendor of proof of performance as set forth in Section 5 above together\nshall pay Reseller $_______________. Vendor shall pay the fee to Reseller not later than thirty (30) days\n$_______________"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 19,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________________",
+      "candidateIds": [
+        "blank_019"
+      ],
+      "surroundingContext": "10. Governing Law. This agreement shall be construed and enforced according to the laws of the\nstate of ______________________.\n11. Headings. The section headings used in this agreement are provided for the conveniencefor the parties only and shall not be used to construe the meanings or intent of any term.\nstate of ______________________.\n______________________"
+    },
+    {
+      "key": "field7",
+      "type": "text",
+      "label": "Field7",
+      "order": 20,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________________________________",
+      "candidateIds": [
+        "blank_020",
+        "blank_021"
+      ],
+      "surroundingContext": "first written above.\n________________________________ ________________________________\nReseller Vendor\n________________________________ ________________________________\n________________________________"
+    },
+    {
+      "key": "agreementDate2",
+      "type": "date",
+      "label": "Agreement Date2",
+      "order": 22,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_________________________",
+      "candidateIds": [
+        "blank_022",
+        "blank_023"
+      ],
+      "surroundingContext": "Reseller Vendor\nDate: _________________________ Date: _________________________\n66: 2\nDate: _________________________ Date: _________________________\n_________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "Provided by Vendor].\nB. The following material is in the possession of Reseller and will be used by Resellerin performing the Promotion: [Materials Provided by Reseller].\n3. Term. The Reseller will completely implement the Promotion not later than _____________\nB. The following material is in the possession of Reseller and will be used by Resellerin performing the Promotion: [Materials Provided by Reseller].\n[Materials Provided by Reseller]",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "B. The following material is in the possession of Reseller and will be used by Resellerin performing the Promotion: [Materials Provided by Reseller].\n3. Term. The Reseller will completely implement the Promotion not later than _____________\nand the promotion shall continue until ___________________.\n3. Term. The Reseller will completely implement the Promotion not later than _____________\n_____________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 10,
+      "context": "3. Term. The Reseller will completely implement the Promotion not later than _____________\nand the promotion shall continue until ___________________.\n4. Principal Contacts and Notices. The principal contact for each party for the purpose of\nand the promotion shall continue until ___________________.\n___________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_010"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 18,
+      "context": "6. Fees & Charges. In consideration of the performance of the Promotion as set forth herein, Vendor\nshall pay Reseller $_______________. Vendor shall pay the fee to Reseller not later than thirty (30) days\nfollowing Reseller's' delivery to Vendor of proof of performance as set forth in Section 5 above together\nshall pay Reseller $_______________. Vendor shall pay the fee to Reseller not later than thirty (30) days\n$_______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_018"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 19,
+      "context": "10. Governing Law. This agreement shall be construed and enforced according to the laws of the\nstate of ______________________.\n11. Headings. The section headings used in this agreement are provided for the conveniencefor the parties only and shall not be used to construe the meanings or intent of any term.\nstate of ______________________.\n______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_019"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 22,
+      "context": "Reseller Vendor\nDate: _________________________ Date: _________________________\n66: 2\nDate: _________________________ Date: _________________________\n_________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_022"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 23,
+      "context": "Reseller Vendor\nDate: _________________________ Date: _________________________\n66: 2\nDate: _________________________ Date: _________________________\n_________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_023"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

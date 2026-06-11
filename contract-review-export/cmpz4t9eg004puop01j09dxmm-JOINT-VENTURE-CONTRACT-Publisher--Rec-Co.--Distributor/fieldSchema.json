@@ -1,0 +1,42 @@
+{
+  "fields": [
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 1,
+      "category": "signatures",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "________________________________________ ______________________________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004",
+        "blank_005",
+        "blank_006"
+      ],
+      "surroundingContext": "JOINT VENTURE CONTRACT\n\n...\nIN WITNESS WHEREOF, the undersigned members of the joint venture have hereunto set their hands this day:\n\n________________________________________ ______________________________________\n\n________________________________________ ______________________________________"
+    }
+  ],
+  "source": "ollama",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "The surrounding text involves signatures which could be critical legal terms.",
+      "message": "Potential risky blank in the context of legal/business terms.",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004",
+        "blank_005",
+        "blank_006"
+      ]
+    }
+  ],
+  "templateName": "Joint Venture Contract Template",
+  "reviewRequired": true
+}

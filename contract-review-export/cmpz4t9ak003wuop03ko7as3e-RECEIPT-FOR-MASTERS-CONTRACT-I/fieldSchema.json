@@ -1,0 +1,76 @@
+{
+  "fields": [
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 1,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________ | ____________________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002"
+      ],
+      "surroundingContext": "2. This is an attachment referred to in Paragraph ________________ of the parent contract dated ____________________________ between the undersigned parties.\n2. This is an attachment referred to in Paragraph ________________ of the parent contract dated ____________________________ between the undersigned parties.\n________________"
+    },
+    {
+      "key": "signature2",
+      "type": "signature",
+      "label": "Signature2",
+      "order": 3,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________________________",
+      "candidateIds": [
+        "blank_003"
+      ],
+      "surroundingContext": "By:_________________________________\nBy:_________________________________\n_________________________________"
+    },
+    {
+      "key": "signature3",
+      "type": "signature",
+      "label": "Signature3",
+      "order": 4,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________________________",
+      "candidateIds": [
+        "blank_004"
+      ],
+      "surroundingContext": "By: _________________________________\nBy: _________________________________\n_________________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "2. This is an attachment referred to in Paragraph ________________ of the parent contract dated ____________________________ between the undersigned parties.\n2. This is an attachment referred to in Paragraph ________________ of the parent contract dated ____________________________ between the undersigned parties.\n________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "2. This is an attachment referred to in Paragraph ________________ of the parent contract dated ____________________________ between the undersigned parties.\n2. This is an attachment referred to in Paragraph ________________ of the parent contract dated ____________________________ between the undersigned parties.\n____________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_002"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

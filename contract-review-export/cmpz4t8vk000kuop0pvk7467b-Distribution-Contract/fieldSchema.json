@@ -1,0 +1,321 @@
+{
+  "fields": [
+    {
+      "key": "publisherName",
+      "type": "text",
+      "label": "Publisher Name",
+      "order": 1,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________________ | _________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004"
+      ],
+      "surroundingContext": "TITLES COMPOSERS PUBLISHER ARTIST\n___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n___________________"
+    },
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 5,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________ | _________________",
+      "candidateIds": [
+        "blank_005",
+        "blank_006",
+        "blank_007",
+        "blank_008",
+        "blank_009",
+        "blank_010",
+        "blank_011",
+        "blank_012",
+        "blank_013",
+        "blank_014",
+        "blank_015",
+        "blank_016",
+        "blank_017",
+        "blank_018",
+        "blank_019",
+        "blank_020",
+        "blank_021",
+        "blank_022",
+        "blank_023",
+        "blank_024",
+        "blank_025",
+        "blank_026",
+        "blank_027",
+        "blank_028",
+        "blank_029",
+        "blank_030",
+        "blank_031",
+        "blank_032",
+        "blank_033",
+        "blank_034",
+        "blank_035",
+        "blank_036",
+        "blank_037",
+        "blank_038",
+        "blank_039",
+        "blank_040",
+        "blank_041",
+        "blank_042",
+        "blank_043",
+        "blank_044"
+      ],
+      "surroundingContext": "___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n___________________"
+    },
+    {
+      "key": "projectTitle",
+      "type": "text",
+      "label": "Project Title",
+      "order": 45,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________________ | _________________",
+      "candidateIds": [
+        "blank_045",
+        "blank_046",
+        "blank_047",
+        "blank_048"
+      ],
+      "surroundingContext": "___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n(hereinafter referred to individually and collectively as the Master\") and of all the performances embodied\n___________________ _________________ _________________ _________________\n___________________"
+    },
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 49,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________",
+      "candidateIds": [
+        "blank_049"
+      ],
+      "surroundingContext": "with the Master or with the performance not specifically set forth herein.\n(c) You hereby agree to \"drop ship\" an initial shipment of ______________ units\nwithin 21 days of the date of this Agreement and, to the best of your ability, to continueto supply us with records when demand from retail outlets so warrants. The address of\n(c) You hereby agree to \"drop ship\" an initial shipment of ______________ units\n______________"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 50,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________",
+      "candidateIds": [
+        "blank_050"
+      ],
+      "surroundingContext": "you and for all the rights granted to us hereunder, we agree to pay you the sum of\n_______________for each record sold and paid for in the United States and Canada. For records of the\nMaster sold and paid for outside the United States, we agree to pay you ONE HALF (1/2) of all monies\n_______________for each record sold and paid for in the United States and Canada. For records of the\n_______________"
+    },
+    {
+      "key": "labelName",
+      "type": "text",
+      "label": "Label Name",
+      "order": 51,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________",
+      "candidateIds": [
+        "blank_051"
+      ],
+      "surroundingContext": "issued to yourself the necessary documents required by the copyright office.\n6. The aforesaid Master is to remain on the _______________ label, however, we will be allowed to\nadd to the label that the record is distributed by us.\n6. The aforesaid Master is to remain on the _______________ label, however, we will be allowed to\n_______________"
+    },
+    {
+      "key": "royaltyRate",
+      "type": "percentage",
+      "label": "Royalty Rate",
+      "order": 52,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________",
+      "candidateIds": [
+        "blank_052"
+      ],
+      "surroundingContext": "January and July of each year for the preceding six (6) month period and will pay royaltiesto you within said sixty (60) days.\n10. This Agreement shall be deemed to have been made in the State of _________ and shall be\ninterpreted and governed by the laws of that state. Should any portion of this Agreement be found to be\n10. This Agreement shall be deemed to have been made in the State of _________ and shall be\n_________"
+    },
+    {
+      "key": "agreementDate2",
+      "type": "date",
+      "label": "Agreement Date2",
+      "order": 53,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________",
+      "candidateIds": [
+        "blank_053"
+      ],
+      "surroundingContext": "invalid or unenforceable, it shall not affect the balance of this Agreement.\n11. The duration of this Agreement shall be for ________ years from the above date at the end of this\ntime this Agreement shall be null and void and the remaining stock and all rights\n11. The duration of this Agreement shall be for ________ years from the above date at the end of this\n________"
+    },
+    {
+      "key": "governingState2",
+      "type": "text",
+      "label": "Governing State2",
+      "order": 54,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________",
+      "candidateIds": [
+        "blank_054"
+      ],
+      "surroundingContext": "13. If any disputes or differences whatsoever shall arise between us in connection with this\nAgreement, they shall be submitted to arbitration in the State of ________, in accordance with the laws,\nrules and regulations of that state.\nAgreement, they shall be submitted to arbitration in the State of ________, in accordance with the laws,\n________"
+    },
+    {
+      "key": "producerSignature",
+      "type": "signature",
+      "label": "Producer Signature",
+      "order": 55,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________ | __________________________",
+      "candidateIds": [
+        "blank_055",
+        "blank_056"
+      ],
+      "surroundingContext": "ACCEPTED AND AGREED TO BY:\nBy: _______________________________ By: __________________________\nPRODUCER DISTRIBUTOR\nBy: _______________________________ By: __________________________\n_______________________________"
+    }
+  ],
+  "source": "deterministic_fallback",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "TITLES COMPOSERS PUBLISHER ARTIST\n___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n___________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "TITLES COMPOSERS PUBLISHER ARTIST\n___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n_________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_002"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "TITLES COMPOSERS PUBLISHER ARTIST\n___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n_________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "TITLES COMPOSERS PUBLISHER ARTIST\n___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n_________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 45,
+      "context": "___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n(hereinafter referred to individually and collectively as the Master\") and of all the performances embodied\n___________________ _________________ _________________ _________________\n___________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_045"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 46,
+      "context": "___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n(hereinafter referred to individually and collectively as the Master\") and of all the performances embodied\n___________________ _________________ _________________ _________________\n_________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_046"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 47,
+      "context": "___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n(hereinafter referred to individually and collectively as the Master\") and of all the performances embodied\n___________________ _________________ _________________ _________________\n_________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_047"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 48,
+      "context": "___________________ _________________ _________________ _________________\n___________________ _________________ _________________ _________________\n(hereinafter referred to individually and collectively as the Master\") and of all the performances embodied\n___________________ _________________ _________________ _________________\n_________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_048"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 49,
+      "context": "with the Master or with the performance not specifically set forth herein.\n(c) You hereby agree to \"drop ship\" an initial shipment of ______________ units\nwithin 21 days of the date of this Agreement and, to the best of your ability, to continueto supply us with records when demand from retail outlets so warrants. The address of\n(c) You hereby agree to \"drop ship\" an initial shipment of ______________ units\n______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_049"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 50,
+      "context": "you and for all the rights granted to us hereunder, we agree to pay you the sum of\n_______________for each record sold and paid for in the United States and Canada. For records of the\nMaster sold and paid for outside the United States, we agree to pay you ONE HALF (1/2) of all monies\n_______________for each record sold and paid for in the United States and Canada. For records of the\n_______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_050"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 51,
+      "context": "issued to yourself the necessary documents required by the copyright office.\n6. The aforesaid Master is to remain on the _______________ label, however, we will be allowed to\nadd to the label that the record is distributed by us.\n6. The aforesaid Master is to remain on the _______________ label, however, we will be allowed to\n_______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_051"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 53,
+      "context": "invalid or unenforceable, it shall not affect the balance of this Agreement.\n11. The duration of this Agreement shall be for ________ years from the above date at the end of this\ntime this Agreement shall be null and void and the remaining stock and all rights\n11. The duration of this Agreement shall be for ________ years from the above date at the end of this\n________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_053"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 55,
+      "context": "ACCEPTED AND AGREED TO BY:\nBy: _______________________________ By: __________________________\nPRODUCER DISTRIBUTOR\nBy: _______________________________ By: __________________________\n_______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_055"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 56,
+      "context": "ACCEPTED AND AGREED TO BY:\nBy: _______________________________ By: __________________________\nPRODUCER DISTRIBUTOR\nBy: _______________________________ By: __________________________\n__________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_056"
+      ]
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "COMPANY:_______________________________________\nCOMPANY:_______________________________________\n_______________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 2,
+    "context": "ARTIST (S)_______________________________________________\nARTIST (S)_______________________________________________\n_______________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_002"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

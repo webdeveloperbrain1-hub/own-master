@@ -1,0 +1,11 @@
+[
+  {
+    "type": "low_confidence",
+    "order": 1,
+    "context": "(j) Upon the use of the composition in synchronization with motion pictures under any bulk or block license heretofore made, the Writer(s) shall be entitled to receive an amount equal to _______% in no case less than 50% jointly) of the license fee for each synchronization by the licensee, but in no event less than the following:",
+    "message": "Low confidence in the exact amount or percentage for synchronization royalties.",
+    "candidateIds": [
+      "blank_002"
+    ]
+  }
+]

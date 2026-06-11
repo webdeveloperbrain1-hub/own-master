@@ -1,0 +1,53 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 3,
+    "context": "IN WITNESS WHEREOF, Writer has hereto set his hand and seal and Publisher has caused these presents to be signed by its duly authorized officer, the __________ day of ____________, 20____.\nIN WITNESS WHEREOF, Writer has hereto set his hand and seal and Publisher has caused these presents to be signed by its duly authorized officer, the __________ day of ____________, 20____.\n__________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_003"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "IN WITNESS WHEREOF, Writer has hereto set his hand and seal and Publisher has caused these presents to be signed by its duly authorized officer, the __________ day of ____________, 20____.\nIN WITNESS WHEREOF, Writer has hereto set his hand and seal and Publisher has caused these presents to be signed by its duly authorized officer, the __________ day of ____________, 20____.\n____________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "IN WITNESS WHEREOF, Writer has hereto set his hand and seal and Publisher has caused these presents to be signed by its duly authorized officer, the __________ day of ____________, 20____.\nIN WITNESS WHEREOF, Writer has hereto set his hand and seal and Publisher has caused these presents to be signed by its duly authorized officer, the __________ day of ____________, 20____.\n20____",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 14,
+    "context": "WRITER'S PERCENTAGE______________ PUBLISHER'S PERCENTAGE_______________\nWRITER'S PERCENTAGE______________ PUBLISHER'S PERCENTAGE_______________\n______________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_014"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 15,
+    "context": "WRITER'S PERCENTAGE______________ PUBLISHER'S PERCENTAGE_______________\nWRITER'S PERCENTAGE______________ PUBLISHER'S PERCENTAGE_______________\n_______________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_015"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

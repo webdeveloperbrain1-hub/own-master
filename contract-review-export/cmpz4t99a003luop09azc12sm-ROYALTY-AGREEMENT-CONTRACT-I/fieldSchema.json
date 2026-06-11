@@ -1,0 +1,153 @@
+{
+  "fields": [
+    {
+      "key": "paymentAmount",
+      "type": "currency",
+      "label": "Payment Amount",
+      "order": 1,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________",
+      "candidateIds": [
+        "blank_001"
+      ],
+      "surroundingContext": "NOW, therefore, in consideration of the sum of _________________($_______)\nNOW, therefore, in consideration of the sum of _________________($_______)\n_________________"
+    },
+    {
+      "key": "paymentAmount2",
+      "type": "currency",
+      "label": "Payment Amount2",
+      "order": 2,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "($_______)",
+      "candidateIds": [
+        "blank_002"
+      ],
+      "surroundingContext": "NOW, therefore, in consideration of the sum of _________________($_______)\nNOW, therefore, in consideration of the sum of _________________($_______)\n($_______)"
+    },
+    {
+      "key": "writerSignature",
+      "type": "signature",
+      "label": "Writer Signature",
+      "order": 3,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__________ | ____________ | 20____",
+      "candidateIds": [
+        "blank_003",
+        "blank_004",
+        "blank_005"
+      ],
+      "surroundingContext": "IN WITNESS WHEREOF, Writer has hereto set his hand and seal and Publisher has caused these presents to be signed by its duly authorized officer, the __________ day of ____________, 20____.\nIN WITNESS WHEREOF, Writer has hereto set his hand and seal and Publisher has caused these presents to be signed by its duly authorized officer, the __________ day of ____________, 20____.\n__________"
+    },
+    {
+      "key": "field",
+      "type": "signature",
+      "label": "Field",
+      "order": 6,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________ | _______________________________",
+      "candidateIds": [
+        "blank_006",
+        "blank_007"
+      ],
+      "surroundingContext": "______________________________ _______________________________\n______________________________ _______________________________\n______________________________"
+    },
+    {
+      "key": "field2",
+      "type": "text",
+      "label": "Field2",
+      "order": 8,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________________________________________________________",
+      "candidateIds": [
+        "blank_008",
+        "blank_009",
+        "blank_010",
+        "blank_011",
+        "blank_012",
+        "blank_013"
+      ],
+      "surroundingContext": "______________________________________________________________________________\n______________________________________________________________________________\n______________________________________________________________________________"
+    },
+    {
+      "key": "publisherName",
+      "type": "text",
+      "label": "Publisher Name",
+      "order": 14,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________ | _______________",
+      "candidateIds": [
+        "blank_014",
+        "blank_015"
+      ],
+      "surroundingContext": "WRITER'S PERCENTAGE______________ PUBLISHER'S PERCENTAGE_______________\nWRITER'S PERCENTAGE______________ PUBLISHER'S PERCENTAGE_______________\n______________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "IN WITNESS WHEREOF, Writer has hereto set his hand and seal and Publisher has caused these presents to be signed by its duly authorized officer, the __________ day of ____________, 20____.\nIN WITNESS WHEREOF, Writer has hereto set his hand and seal and Publisher has caused these presents to be signed by its duly authorized officer, the __________ day of ____________, 20____.\n__________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "IN WITNESS WHEREOF, Writer has hereto set his hand and seal and Publisher has caused these presents to be signed by its duly authorized officer, the __________ day of ____________, 20____.\nIN WITNESS WHEREOF, Writer has hereto set his hand and seal and Publisher has caused these presents to be signed by its duly authorized officer, the __________ day of ____________, 20____.\n____________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 5,
+      "context": "IN WITNESS WHEREOF, Writer has hereto set his hand and seal and Publisher has caused these presents to be signed by its duly authorized officer, the __________ day of ____________, 20____.\nIN WITNESS WHEREOF, Writer has hereto set his hand and seal and Publisher has caused these presents to be signed by its duly authorized officer, the __________ day of ____________, 20____.\n20____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 14,
+      "context": "WRITER'S PERCENTAGE______________ PUBLISHER'S PERCENTAGE_______________\nWRITER'S PERCENTAGE______________ PUBLISHER'S PERCENTAGE_______________\n______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_014"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 15,
+      "context": "WRITER'S PERCENTAGE______________ PUBLISHER'S PERCENTAGE_______________\nWRITER'S PERCENTAGE______________ PUBLISHER'S PERCENTAGE_______________\n_______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_015"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

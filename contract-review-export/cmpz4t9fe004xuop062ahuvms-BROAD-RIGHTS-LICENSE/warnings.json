@@ -1,0 +1,28 @@
+[
+  {
+    "type": "low_confidence",
+    "order": 1,
+    "context": "IN WITNESS WHEREOF, the parties have caused the foregoing to be executed as of the___ day of______",
+    "message": "Execution date is not explicitly provided, relying on contextual clues.",
+    "candidateIds": [
+      "blank_002",
+      "blank_003"
+    ]
+  },
+  {
+    "type": "removed_field_unknown_candidate",
+    "context": "IN WITNESS WHEREOF, the parties have caused the foregoing to be executed as of the___ day of______\n\nIf the foregoing correctly reflects your understanding and agreement, please so indicate by signing below.\n\nVery truly yours.\n\nPUBLISHER:\n\nPRODUCER:",
+    "message": "Removed \"Publisher Signature\" because its candidate IDs were not found.",
+    "candidateIds": [
+      "producerSignature"
+    ]
+  },
+  {
+    "type": "removed_field_unknown_candidate",
+    "context": "IN WITNESS WHEREOF, the parties have caused the foregoing to be executed as of the___ day of______\n\nIf the foregoing correctly reflects your understanding and agreement, please so indicate by signing below.\n\nVery truly yours.\n\nPUBLISHER:\n\nPRODUCER:",
+    "message": "Removed \"Publisher Signature\" because its candidate IDs were not found.",
+    "candidateIds": [
+      "publisherSignature"
+    ]
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 27,
+    "context": "This Agreement and the rights of the Partners under this Agreement shall be governed by the laws of the State of ______________________.\nThis Agreement and the rights of the Partners under this Agreement shall be governed by the laws of the State of ______________________.\n______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_027"
+    ]
+  }
+]

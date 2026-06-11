@@ -1,0 +1,17 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "4. Payment of accrued royalties shall be made semi-annually on the first day of ____\n4. Payment of accrued royalties shall be made semi-annually on the first day of ____\n____",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

@@ -1,0 +1,76 @@
+{
+  "fields": [
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 1,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______ | ____________ | 20____",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003"
+      ],
+      "surroundingContext": "AGREEMENT made this _______ day of ____________, 20____, by and between the undersigned PHOTOGRAPHER and the undersigned CLIENT.\nAGREEMENT made this _______ day of ____________, 20____, by and between the undersigned PHOTOGRAPHER and the undersigned CLIENT.\n_______"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 4,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________ | ________________",
+      "candidateIds": [
+        "blank_004",
+        "blank_005",
+        "blank_006"
+      ],
+      "surroundingContext": "This Agreement is entered into in the City of _____________________________and County of ________________, State of ________________ and is guided by and governed by the laws of that state.\nThis Agreement is entered into in the City of _____________________________and County of ________________, State of ________________ and is guided by and governed by the laws of that state.\n_____________________________"
+    },
+    {
+      "key": "paymentAmount",
+      "type": "currency",
+      "label": "Payment Amount",
+      "order": 7,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "$_______________________________",
+      "candidateIds": [
+        "blank_007"
+      ],
+      "surroundingContext": "The enticement and consideration for this Agreement is the promise by the Client to pay the Photographer the amount of $_______________________________. This is a one-time compensation for\nThe enticement and consideration for this Agreement is the promise by the Client to pay the Photographer the amount of $_______________________________. This is a one-time compensation for\n$_______________________________"
+    },
+    {
+      "key": "field",
+      "type": "date",
+      "label": "Field",
+      "order": 8,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________ | __________________________________",
+      "candidateIds": [
+        "blank_008",
+        "blank_009"
+      ],
+      "surroundingContext": "___________________________ __________________________________\n___________________________ __________________________________\n___________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

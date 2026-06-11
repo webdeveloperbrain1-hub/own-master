@@ -1,0 +1,100 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_____ | _______",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003"
+      ],
+      "surroundingContext": "Date:_____/_____/_______\nDate:_____/_____/_______\n_____"
+    },
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 4,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________________________",
+      "candidateIds": [
+        "blank_004"
+      ],
+      "surroundingContext": "Artists' Manager: ______________________________________________\nArtists' Manager: ______________________________________________\n______________________________________________"
+    },
+    {
+      "key": "address",
+      "type": "textarea",
+      "label": "Address",
+      "order": 5,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________________________________",
+      "candidateIds": [
+        "blank_005"
+      ],
+      "surroundingContext": "Address: _____________________________________________________\nAddress: _____________________________________________________\n_____________________________________________________"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 6,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________________________________",
+      "candidateIds": [
+        "blank_006"
+      ],
+      "surroundingContext": "City & State: __________________________________________________\nCity & State: __________________________________________________\n__________________________________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "Date:_____/_____/_______\nDate:_____/_____/_______\n_____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "Date:_____/_____/_______\nDate:_____/_____/_______\n_____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_002"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "Date:_____/_____/_______\nDate:_____/_____/_______\n_______",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

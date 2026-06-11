@@ -1,0 +1,80 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "Date:_______________\nDate:_______________\n_______________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 2,
+    "context": "This shall serve as the sole agreement between _________________ (hereinafter referred to as \"Producer\") for services in producing Master Recordings, (hereinafter referred to as \"Masters\") for and of the recording artist(s) professionally known as _________________ (hereinafter referred to as \"Artist\").\nThis shall serve as the sole agreement between _________________ (hereinafter referred to as \"Producer\") for services in producing Master Recordings, (hereinafter referred to as \"Masters\") for and of the recording artist(s) professionally known as _________________ (hereinafter referred to as \"Artist\").\n_________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_002"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 3,
+    "context": "This shall serve as the sole agreement between _________________ (hereinafter referred to as \"Producer\") for services in producing Master Recordings, (hereinafter referred to as \"Masters\") for and of the recording artist(s) professionally known as _________________ (hereinafter referred to as \"Artist\").\nThis shall serve as the sole agreement between _________________ (hereinafter referred to as \"Producer\") for services in producing Master Recordings, (hereinafter referred to as \"Masters\") for and of the recording artist(s) professionally known as _________________ (hereinafter referred to as \"Artist\").\n_________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_003"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "2. (a) Recording sessions for the Masters shall be conducted by Producer under this Agreement at such times and places as shall be mutually designated by Artist and Producer. All individuals rendering services in connection with the recording of Masters shall be subject to Artist's approval. Artist shall have the right and opportunity to have Artists representatives attend each such recording session. Each Master shall embody the performance by the Artist of a single musical composition designated by the Artist, and shall be subject to Producers approval as technically satisfactory for the manufacture, broadcast and sale of phonorecords, and, upon Artists request, Producer shall re-record any musical composition or other selection until a Master technically satisfactory to Artist shall have been obtained, provided additional production costs will be paid by Artist. Producer agrees to begin preproduction, rehearsals, and recording on _____________________, 20____.\n2. (a) Recording sessions for the Masters shall be conducted by Producer under this Agreement at such times and places as shall be mutually designated by Artist and Producer. All individuals rendering services in connection with the recording of Masters shall be subject to Artist's approval. Artist shall have the right and opportunity to have Artists representatives attend each such recording session. Each Master shall embody the performance by the Artist of a single musical composition designated by the Artist, and shall be subject to Producers approval as technically satisfactory for the manufacture, broadcast and sale of phonorecords, and, upon Artists request, Producer shall re-record any musical composition or other selection until a Master technically satisfactory to Artist shall have been obtained, provided additional production costs will be paid by Artist. Producer agrees to begin preproduction, rehearsals, and recording on _____________________, 20____.\n_____________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "2. (a) Recording sessions for the Masters shall be conducted by Producer under this Agreement at such times and places as shall be mutually designated by Artist and Producer. All individuals rendering services in connection with the recording of Masters shall be subject to Artist's approval. Artist shall have the right and opportunity to have Artists representatives attend each such recording session. Each Master shall embody the performance by the Artist of a single musical composition designated by the Artist, and shall be subject to Producers approval as technically satisfactory for the manufacture, broadcast and sale of phonorecords, and, upon Artists request, Producer shall re-record any musical composition or other selection until a Master technically satisfactory to Artist shall have been obtained, provided additional production costs will be paid by Artist. Producer agrees to begin preproduction, rehearsals, and recording on _____________________, 20____.\n2. (a) Recording sessions for the Masters shall be conducted by Producer under this Agreement at such times and places as shall be mutually designated by Artist and Producer. All individuals rendering services in connection with the recording of Masters shall be subject to Artist's approval. Artist shall have the right and opportunity to have Artists representatives attend each such recording session. Each Master shall embody the performance by the Artist of a single musical composition designated by the Artist, and shall be subject to Producers approval as technically satisfactory for the manufacture, broadcast and sale of phonorecords, and, upon Artists request, Producer shall re-record any musical composition or other selection until a Master technically satisfactory to Artist shall have been obtained, provided additional production costs will be paid by Artist. Producer agrees to begin preproduction, rehearsals, and recording on _____________________, 20____.\n20____",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 6,
+    "context": "4. (a) Conditioned upon Producer's full and faithful performance of all the terms and provisions hereof, Artist shall pay Producer, as an advance recoupable by Artist from any and all royalties payable by Artist to Producer hereunder, the sum of $ ________________ DOLLARS payable upon commencement of recording, and the balance upon the delivery to you of the Masters.\n4. (a) Conditioned upon Producer's full and faithful performance of all the terms and provisions hereof, Artist shall pay Producer, as an advance recoupable by Artist from any and all royalties payable by Artist to Producer hereunder, the sum of $ ________________ DOLLARS payable upon commencement of recording, and the balance upon the delivery to you of the Masters.\n$ ________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_006"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 7,
+    "context": "(i) in the event the Masters are released on any label other than ___________\n(i) in the event the Masters are released on any label other than ___________\n___________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_007"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 8,
+    "context": "(ii) in the event the Masters are released on the ______________ label or a subsidiary or affiliate label, Producer shall be paid in respect to the sale of such phonorecords a royalty rate of three percent (3%) of the suggested retail price of each phonorecord sold and paid for in the United States. Payments of royalties from foreign sources shall be ONE HALF of the United States royalty rate. All fees paid to Producer hereunder shall constitute recoupable advances which shall be recouped prior to further payment of royalties.\n(ii) in the event the Masters are released on the ______________ label or a subsidiary or affiliate label, Producer shall be paid in respect to the sale of such phonorecords a royalty rate of three percent (3%) of the suggested retail price of each phonorecord sold and paid for in the United States. Payments of royalties from foreign sources shall be ONE HALF of the United States royalty rate. All fees paid to Producer hereunder shall constitute recoupable advances which shall be recouped prior to further payment of royalties.\n______________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_008"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

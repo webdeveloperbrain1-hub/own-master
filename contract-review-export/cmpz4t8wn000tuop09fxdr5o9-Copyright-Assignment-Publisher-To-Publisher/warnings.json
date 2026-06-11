@@ -1,0 +1,17 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "2. Second Song;_____________________________________________By:__________________\n_______________________________________________________________________________\nto the undersigned ASSIGNEE, in consideration of the payment of\n_______________________________________________________________________________\n_______________________________________________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

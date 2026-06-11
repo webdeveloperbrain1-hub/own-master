@@ -1,0 +1,254 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 11,
+    "context": "outlets under the following terms and conditions:\n1. The Client agrees to pay in advance to the Agent the sum of _______________ Dollarsper copy of the product as a non-refundable retainer for the Agent's services in marketing the\nProduct to territories outside of the United States of America.\n1. The Client agrees to pay in advance to the Agent the sum of _______________ Dollarsper copy of the product as a non-refundable retainer for the Agent's services in marketing the\n_______________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_011"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 13,
+    "context": "terms of this Agreement shall be made in the name of ___________________________(Owner)\n__________________ with _______________________(Agent)_________________________ as Agent\".\nFurthermore, all financial instruments containing advance and/or royalty payments associated with such\n__________________ with _______________________(Agent)_________________________ as Agent\".\n__________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_013"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 14,
+    "context": "terms of this Agreement shall be made in the name of ___________________________(Owner)\n__________________ with _______________________(Agent)_________________________ as Agent\".\nFurthermore, all financial instruments containing advance and/or royalty payments associated with such\n__________________ with _______________________(Agent)_________________________ as Agent\".\n_______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_014"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 15,
+    "context": "terms of this Agreement shall be made in the name of ___________________________(Owner)\n__________________ with _______________________(Agent)_________________________ as Agent\".\nFurthermore, all financial instruments containing advance and/or royalty payments associated with such\n__________________ with _______________________(Agent)_________________________ as Agent\".\n_________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_015"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 16,
+    "context": "Furthermore, all financial instruments containing advance and/or royalty payments associated with such\nagreements shall be made payable to \" ____________________(Agent $ Owner)________________\".and\nshall be deposited in escrow at:\nagreements shall be made payable to \" ____________________(Agent $ Owner)________________\".and\n____________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_016"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 17,
+    "context": "Furthermore, all financial instruments containing advance and/or royalty payments associated with such\nagreements shall be made payable to \" ____________________(Agent $ Owner)________________\".and\nshall be deposited in escrow at:\nagreements shall be made payable to \" ____________________(Agent $ Owner)________________\".and\n________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_017"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 20,
+    "context": "The escrow account at the Bank shall be named \"__________________________(Client\n& Agent) ________________________\". The Agent and the Client agree to appoint and authorize\n_________________________________(Agent)______________________ to endorse, on behalf of Agentand Client with his signature and the phrase \"for deposit only,\" all financial instruments made payable to\n& Agent) ________________________\". The Agent and the Client agree to appoint and authorize\n________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_020"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 21,
+    "context": "& Agent) ________________________\". The Agent and the Client agree to appoint and authorize\n_________________________________(Agent)______________________ to endorse, on behalf of Agentand Client with his signature and the phrase \"for deposit only,\" all financial instruments made payable to\n\"__________________________(Agent &Client)____________________________\" and deposit such\n_________________________________(Agent)______________________ to endorse, on behalf of Agentand Client with his signature and the phrase \"for deposit only,\" all financial instruments made payable to\n_________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_021"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 22,
+    "context": "& Agent) ________________________\". The Agent and the Client agree to appoint and authorize\n_________________________________(Agent)______________________ to endorse, on behalf of Agentand Client with his signature and the phrase \"for deposit only,\" all financial instruments made payable to\n\"__________________________(Agent &Client)____________________________\" and deposit such\n_________________________________(Agent)______________________ to endorse, on behalf of Agentand Client with his signature and the phrase \"for deposit only,\" all financial instruments made payable to\n______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_022"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 23,
+    "context": "_________________________________(Agent)______________________ to endorse, on behalf of Agentand Client with his signature and the phrase \"for deposit only,\" all financial instruments made payable to\n\"__________________________(Agent &Client)____________________________\" and deposit such\ninstruments into the escrow account.\n\"__________________________(Agent &Client)____________________________\" and deposit such\n__________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_023"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 24,
+    "context": "_________________________________(Agent)______________________ to endorse, on behalf of Agentand Client with his signature and the phrase \"for deposit only,\" all financial instruments made payable to\n\"__________________________(Agent &Client)____________________________\" and deposit such\ninstruments into the escrow account.\n\"__________________________(Agent &Client)____________________________\" and deposit such\n____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_024"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 33,
+    "context": "Title Title\nDate: ______________________, 20___.\n41: 3\nDate: ______________________, 20___.\n______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_033"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 34,
+    "context": "Title Title\nDate: ______________________, 20___.\n41: 3\nDate: ______________________, 20___.\n20___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_034"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 41,
+    "context": "Includes the Following:\nArtist: ___________________________________\nTitles:\nArtist: ___________________________________\n___________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_041"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 53,
+    "context": "_____________,________________(city/state).\nSCHEDULE OF SERVICES (effective _____/____, 20____)\n1. Monthly Maintenance fee\nSCHEDULE OF SERVICES (effective _____/____, 20____)\n_____",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_053"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 54,
+    "context": "_____________,________________(city/state).\nSCHEDULE OF SERVICES (effective _____/____, 20____)\n1. Monthly Maintenance fee\nSCHEDULE OF SERVICES (effective _____/____, 20____)\n____",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_054"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 55,
+    "context": "_____________,________________(city/state).\nSCHEDULE OF SERVICES (effective _____/____, 20____)\n1. Monthly Maintenance fee\nSCHEDULE OF SERVICES (effective _____/____, 20____)\n20____",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_055"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 56,
+    "context": "1. Monthly Maintenance fee\n(business checking account)* $ __.00\n2. Collection Items ** $ __.00\n(business checking account)* $ __.00\n$ __",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_056"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 62,
+    "context": "WRITER'S/PUBLISHER'S INDUCEMENT\nAs a material inducement to ________________(Writer/Publisher)________________ for\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nAs a material inducement to ________________(Writer/Publisher)________________ for\n________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_062"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 63,
+    "context": "WRITER'S/PUBLISHER'S INDUCEMENT\nAs a material inducement to ________________(Writer/Publisher)________________ for\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nAs a material inducement to ________________(Writer/Publisher)________________ for\n________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_063"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 64,
+    "context": "As a material inducement to ________________(Writer/Publisher)________________ for\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\n______________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_064"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 65,
+    "context": "As a material inducement to ________________(Writer/Publisher)________________ for\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\n_________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_065"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 66,
+    "context": "As a material inducement to ________________(Writer/Publisher)________________ for\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\n____",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_066"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 67,
+    "context": "As a material inducement to ________________(Writer/Publisher)________________ for\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\n_________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_067"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 68,
+    "context": "As a material inducement to ________________(Writer/Publisher)________________ for\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\nentering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\n20___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_068"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 69,
+    "context": "entering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\n___________________________, doing business as _______________________________\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\n____________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_069"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 70,
+    "context": "entering into the INTERNATIONAL MARKETING AGREEMENT between Agentand ______________(Owner)_________ dated this ____th day of _________, 20___,\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\n___________________________, doing business as _______________________________\nand knowing that ____________(Agent)___________ will rely thereon, I(We)\n___________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_070"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 73,
+    "context": "(a) I(We) have read the above-mentioned agreement;\n(b) I(We) have granted to _____________________, for the\npurposes of the above-mentioned agreement, the controland use of all rights to all copyrights (\"titles\"), in\n(b) I(We) have granted to _____________________, for the\n_____________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_073"
+    ]
+  }
+]

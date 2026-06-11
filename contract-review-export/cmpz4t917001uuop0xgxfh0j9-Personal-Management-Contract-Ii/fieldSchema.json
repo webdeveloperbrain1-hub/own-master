@@ -1,0 +1,196 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________ | 20______",
+      "candidateIds": [
+        "blank_001",
+        "blank_002"
+      ],
+      "surroundingContext": "_______________, 20______\n_______________, 20______\n_______________"
+    },
+    {
+      "key": "address",
+      "type": "textarea",
+      "label": "Address",
+      "order": 3,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________ | ______________________ | ______________________________ | _______________________________",
+      "candidateIds": [
+        "blank_003",
+        "blank_004",
+        "blank_005",
+        "blank_006"
+      ],
+      "surroundingContext": "__________________________ doing business as ______________________ at (location) ______________________________ in the State of _______________________________.\n__________________________ doing business as ______________________ at (location) ______________________________ in the State of _______________________________.\n__________________________"
+    },
+    {
+      "key": "advanceAmount",
+      "type": "currency",
+      "label": "Advance Amount",
+      "order": 7,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________________ | ________%",
+      "candidateIds": [
+        "blank_007",
+        "blank_008"
+      ],
+      "surroundingContext": "I. If, as a result of your efforts, I enter into a contract for my services as a recording artist with a major recording concern, I hereby agree to pay you ______________________ PERCENT (________%) of any and all sales, production, or royalty advances.\nI. If, as a result of your efforts, I enter into a contract for my services as a recording artist with a major recording concern, I hereby agree to pay you ______________________ PERCENT (________%) of any and all sales, production, or royalty advances.\n______________________"
+    },
+    {
+      "key": "publisherName",
+      "type": "text",
+      "label": "Publisher Name",
+      "order": 9,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___",
+      "candidateIds": [
+        "blank_009",
+        "blank_010",
+        "blank_011"
+      ],
+      "surroundingContext": "copyrights to either ___(Publisher Name)__ ASCAP. or ___(Publisher Name)___ BMI. I will retain all artist and writer credits and royalties.\ncopyrights to either ___(Publisher Name)__ ASCAP. or ___(Publisher Name)___ BMI. I will retain all artist and writer credits and royalties.\n___"
+    },
+    {
+      "key": "termEndDate",
+      "type": "date",
+      "label": "Term End Date",
+      "order": 12,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________________ | 19___",
+      "candidateIds": [
+        "blank_012",
+        "blank_013"
+      ],
+      "surroundingContext": "IV. If none of the conditions in sections I, II, and III, come into being by ________________, 19___, this agreement may be made void by my written notification to you of such intent. This agreement shall remain in effect until such notification.\nIV. If none of the conditions in sections I, II, and III, come into being by ________________, 19___, this agreement may be made void by my written notification to you of such intent. This agreement shall remain in effect until such notification.\n________________"
+    },
+    {
+      "key": "agreementDate2",
+      "type": "date",
+      "label": "Agreement Date2",
+      "order": 14,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "____________ | ________ | 20____",
+      "candidateIds": [
+        "blank_014",
+        "blank_015",
+        "blank_016"
+      ],
+      "surroundingContext": "____________ day of________, 20____.\n____________ day of________, 20____.\n____________"
+    },
+    {
+      "key": "field",
+      "type": "signature",
+      "label": "Field",
+      "order": 17,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________________________",
+      "candidateIds": [
+        "blank_017"
+      ],
+      "surroundingContext": "_____________________________________________\n_____________________________________________\n_____________________________________________"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 18,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________",
+      "candidateIds": [
+        "blank_018"
+      ],
+      "surroundingContext": "STATE OF ______________________________\nSTATE OF ______________________________\n______________________________"
+    },
+    {
+      "key": "field2",
+      "type": "number",
+      "label": "Field2",
+      "order": 19,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________",
+      "candidateIds": [
+        "blank_019"
+      ],
+      "surroundingContext": "COUNTY OF _____________________________\nCOUNTY OF _____________________________\n_____________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 7,
+      "context": "I. If, as a result of your efforts, I enter into a contract for my services as a recording artist with a major recording concern, I hereby agree to pay you ______________________ PERCENT (________%) of any and all sales, production, or royalty advances.\nI. If, as a result of your efforts, I enter into a contract for my services as a recording artist with a major recording concern, I hereby agree to pay you ______________________ PERCENT (________%) of any and all sales, production, or royalty advances.\n______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_007"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "I. If, as a result of your efforts, I enter into a contract for my services as a recording artist with a major recording concern, I hereby agree to pay you ______________________ PERCENT (________%) of any and all sales, production, or royalty advances.\nI. If, as a result of your efforts, I enter into a contract for my services as a recording artist with a major recording concern, I hereby agree to pay you ______________________ PERCENT (________%) of any and all sales, production, or royalty advances.\n________%",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "copyrights to either ___(Publisher Name)__ ASCAP. or ___(Publisher Name)___ BMI. I will retain all artist and writer credits and royalties.\ncopyrights to either ___(Publisher Name)__ ASCAP. or ___(Publisher Name)___ BMI. I will retain all artist and writer credits and royalties.\n___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 10,
+      "context": "copyrights to either ___(Publisher Name)__ ASCAP. or ___(Publisher Name)___ BMI. I will retain all artist and writer credits and royalties.\ncopyrights to either ___(Publisher Name)__ ASCAP. or ___(Publisher Name)___ BMI. I will retain all artist and writer credits and royalties.\n___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_010"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 11,
+      "context": "copyrights to either ___(Publisher Name)__ ASCAP. or ___(Publisher Name)___ BMI. I will retain all artist and writer credits and royalties.\ncopyrights to either ___(Publisher Name)__ ASCAP. or ___(Publisher Name)___ BMI. I will retain all artist and writer credits and royalties.\n___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_011"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

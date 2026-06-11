@@ -1,0 +1,101 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "1. The Writer(s) hereby sells, assigns, transfers and delivers to the Publisher, its successors and assigns, a certain heretofore unpublished original musical composition, written and/or composed by the above named Writer(s) now entitled:________________________________________________________________ including the title, words and music thereof, and the right to secure copyright therein throughout the entire world, and to have and to hold the said copyright and all rights of whatsoever nature thereunder existing, subject to the terms of this agreement.\n1. The Writer(s) hereby sells, assigns, transfers and delivers to the Publisher, its successors and assigns, a certain heretofore unpublished original musical composition, written and/or composed by the above named Writer(s) now entitled:________________________________________________________________ including the title, words and music thereof, and the right to secure copyright therein throughout the entire world, and to have and to hold the said copyright and all rights of whatsoever nature thereunder existing, subject to the terms of this agreement.\n________________________________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "(a) An advance of $__________________________in hand paid, receipt of which is hereby acknowledged, which sum shall be deductible from any payments hereafter becoming due the Writer(s) under this agreement.\n(a) An advance of $__________________________in hand paid, receipt of which is hereby acknowledged, which sum shall be deductible from any payments hereafter becoming due the Writer(s) under this agreement.\n$__________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 10,
+    "context": "(c) A royalty of____________________% (in no case however less than 50% jointly) of all net sums received by the Publisher in respect of regular piano copies and/or orchestrations thereof sold and paid for in any foreign country.\n(c) A royalty of____________________% (in no case however less than 50% jointly) of all net sums received by the Publisher in respect of regular piano copies and/or orchestrations thereof sold and paid for in any foreign country.\n____________________%",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_010"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 11,
+    "context": "(d) A royalty of___________________________ cents per copy of orchestrations thereof in any form sold and paid for in the United States of America.\n(d) A royalty of___________________________ cents per copy of orchestrations thereof in any form sold and paid for in the United States of America.\n___________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_011"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 12,
+    "context": "(e) Said composition shall not be published in any folio or composite work until__________________ after publication thereof in regular piano copies, and subsequent to said date, only upon such terms and conditions as may hereafter be agreed to in writing by the parties hereto.\n(e) Said composition shall not be published in any folio or composite work until__________________ after publication thereof in regular piano copies, and subsequent to said date, only upon such terms and conditions as may hereafter be agreed to in writing by the parties hereto.\n__________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_012"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 14,
+    "context": "(j) Upon the use of the composition in synchronization with motion pictures under any bulk or block license heretofore made, the Writer(s) shall be entitled to receive an amount equal to _______% (in no case less than 50% jointly) of the license fee for each synchronization by the licensee, but in no event less than the following:\n(j) Upon the use of the composition in synchronization with motion pictures under any bulk or block license heretofore made, the Writer(s) shall be entitled to receive an amount equal to _______% (in no case less than 50% jointly) of the license fee for each synchronization by the licensee, but in no event less than the following:\n_______%",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_014"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 19,
+    "context": "at________________________________________________________________________________________ (or at the address last furnished to the Publisher in writing by the Writer(s) or any of them). The tender of delivery of such notice at such address by the post office carrier or the telegraph company messenger shall be deemed a delivery hereunder.\nat________________________________________________________________________________________ (or at the address last furnished to the Publisher in writing by the Writer(s) or any of them). The tender of delivery of such notice at such address by the post office carrier or the telegraph company messenger shall be deemed a delivery hereunder.\n________________________________________________________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_019"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 21,
+    "context": "6 The Publisher shall render the Writer (s), as above, on or before each_________________________________\n6 The Publisher shall render the Writer (s), as above, on or before each_________________________________\n_________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_021"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 26,
+    "context": "covering the 3 months ending______________________; hereafter, so long as he shall continue publication or the licensing of any rights in the said composition, royalty statements accompanied by remittance of the amount due, provided, however, that if it shall have heretofore been the custom of the Publisher to render royalty statements accompanied by remittance semi-annually, such custom may be continued.\ncovering the 3 months ending______________________; hereafter, so long as he shall continue publication or the licensing of any rights in the said composition, royalty statements accompanied by remittance of the amount due, provided, however, that if it shall have heretofore been the custom of the Publisher to render royalty statements accompanied by remittance semi-annually, such custom may be continued.\n______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_026"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 27,
+    "context": "7. The Publisher agrees to publish in saleable form the said musical composition within ___________________\n7. The Publisher agrees to publish in saleable form the said musical composition within ___________________\n___________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_027"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 28,
+    "context": "__________________________________________________________________________________________from the date hereof. Should he fail so to do the Writer(s) shall have the right in writing to demand the return of said composition, whereupon the Publisher must within one (1) month after receipt of such notice either publish the said composition, in which event this agreement remains in full force and effect, or upon failure so to publish, all rights of any and every nature, and the right to secure copyright and/or any copyright secured by the Publisher before publication, in and to the said composition, shall revert to and become the property of the Writer(s) and shall be reassigned to him.\n__________________________________________________________________________________________from the date hereof. Should he fail so to do the Writer(s) shall have the right in writing to demand the return of said composition, whereupon the Publisher must within one (1) month after receipt of such notice either publish the said composition, in which event this agreement remains in full force and effect, or upon failure so to publish, all rights of any and every nature, and the right to secure copyright and/or any copyright secured by the Publisher before publication, in and to the said composition, shall revert to and become the property of the Writer(s) and shall be reassigned to him.\n__________________________________________________________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_028"
+    ]
+  }
+]

@@ -1,0 +1,133 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________ | _______________ | 20____ | _____________________________________________ | ____________________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004",
+        "blank_005"
+      ],
+      "surroundingContext": "AGREEMENT made this __________ day of _______________, 20____. by and between AGENCY _____________________________________________ and ____________________________, (hereinafter referred to as \"SPONSOR\").\nAGREEMENT made this __________ day of _______________, 20____. by and between AGENCY _____________________________________________ and ____________________________, (hereinafter referred to as \"SPONSOR\").\n__________"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 6,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________________________ | __________________________________________________ | _________________ | ______________",
+      "candidateIds": [
+        "blank_006",
+        "blank_007",
+        "blank_015",
+        "blank_016"
+      ],
+      "surroundingContext": "2. It is agreed that as full compensation for the services mentioned herein, the SPONSOR will pay to _________________________________ or specified delegate in United States currency, or acceptable bank draft the designate sum of: __________________________________________________.\n2. It is agreed that as full compensation for the services mentioned herein, the SPONSOR will pay to _________________________________ or specified delegate in United States currency, or acceptable bank draft the designate sum of: __________________________________________________.\n_________________________________"
+    },
+    {
+      "key": "paymentAmount",
+      "type": "currency",
+      "label": "Payment Amount",
+      "order": 8,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________________________________",
+      "candidateIds": [
+        "blank_008"
+      ],
+      "surroundingContext": "A. Payments will be made to __________________________________________________\nA. Payments will be made to __________________________________________________\n__________________________________________________"
+    },
+    {
+      "key": "field",
+      "type": "currency",
+      "label": "Field",
+      "order": 9,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________________________________ | ______________________________________________________________________________ | ___________________________________________ | _________________________________",
+      "candidateIds": [
+        "blank_009",
+        "blank_010",
+        "blank_011",
+        "blank_012",
+        "blank_013",
+        "blank_014",
+        "blank_021",
+        "blank_022",
+        "blank_023",
+        "blank_027"
+      ],
+      "surroundingContext": "_______________________________________________________________________\n_______________________________________________________________________\n_______________________________________________________________________"
+    },
+    {
+      "key": "writerName",
+      "type": "text",
+      "label": "Writer Name",
+      "order": 17,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________ | ____________ | ______________________ | _______________________________",
+      "candidateIds": [
+        "blank_017",
+        "blank_018",
+        "blank_019",
+        "blank_020"
+      ],
+      "surroundingContext": "9. AGENCY agrees to furnish ___________________ copies of a black & white photograph, ____________ color photographs, and a biography of the performer(s) by ______________________. AGENCY also agrees to provide the suggested music with titles, credits, names of composers which performer(s) wishes to perform on the program by _______________________________.\n9. AGENCY agrees to furnish ___________________ copies of a black & white photograph, ____________ color photographs, and a biography of the performer(s) by ______________________. AGENCY also agrees to provide the suggested music with titles, credits, names of composers which performer(s) wishes to perform on the program by _______________________________.\n___________________"
+    },
+    {
+      "key": "field2",
+      "type": "text",
+      "label": "Field2",
+      "order": 24,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________",
+      "candidateIds": [
+        "blank_024"
+      ],
+      "surroundingContext": "This agreement (including _____________ riders attached hereto) constitutes the entire understanding between the parties, supersedes all prior understandings, and cannot be changed, except by\nThis agreement (including _____________ riders attached hereto) constitutes the entire understanding between the parties, supersedes all prior understandings, and cannot be changed, except by\n_____________"
+    },
+    {
+      "key": "field3",
+      "type": "signature",
+      "label": "Field3",
+      "order": 25,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________________ | _________________________________",
+      "candidateIds": [
+        "blank_025",
+        "blank_026"
+      ],
+      "surroundingContext": "___________________________________ _________________________________\n___________________________________ _________________________________\n___________________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

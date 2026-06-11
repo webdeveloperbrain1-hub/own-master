@@ -1,0 +1,345 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______ | ________ | 20____ | _______________________________________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004"
+      ],
+      "surroundingContext": "THIS ENTERTAINMENT AGREEMENT is made this _______ day of ________, 20____ by and between _______________________________________________(Buyer)\nTHIS ENTERTAINMENT AGREEMENT is made this _______ day of ________, 20____ by and between _______________________________________________(Buyer)\n_______"
+    },
+    {
+      "key": "artistName",
+      "type": "text",
+      "label": "Artist Name",
+      "order": 5,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________________",
+      "candidateIds": [
+        "blank_005"
+      ],
+      "surroundingContext": "_______________________________________ (hereinafter referred to as the \"Buyer\") and the entertainer or entertainers, if more than one, listed on Addendum A attached hereto and included herein (hereinafter referred to as the \"Artist\"), by and through their designated agent or representative (\"Manager\") identified below.\n_______________________________________ (hereinafter referred to as the \"Buyer\") and the entertainer or entertainers, if more than one, listed on Addendum A attached hereto and included herein (hereinafter referred to as the \"Artist\"), by and through their designated agent or representative (\"Manager\") identified below.\n_______________________________________"
+    },
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 6,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________",
+      "candidateIds": [
+        "blank_006"
+      ],
+      "surroundingContext": "WHEREAS, Buyer conducts the annual event known as __________________ (hereinafter referred to as the \"Concert\"); and\nWHEREAS, Buyer conducts the annual event known as __________________ (hereinafter referred to as the \"Concert\"); and\n__________________"
+    },
+    {
+      "key": "agreementDate2",
+      "type": "date",
+      "label": "Agreement Date2",
+      "order": 7,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "20________",
+      "candidateIds": [
+        "blank_007"
+      ],
+      "surroundingContext": "WHEREAS, Buyer desires to hire Artist, as independent contractor(s), to provide the entertainment generally described below (the \"Performance\") at the 20________ Concert; and\nWHEREAS, Buyer desires to hire Artist, as independent contractor(s), to provide the entertainment generally described below (the \"Performance\") at the 20________ Concert; and\n20________"
+    },
+    {
+      "key": "field2",
+      "type": "text",
+      "label": "Field2",
+      "order": 8,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "____________________________________ | __________________________________________________________________ | ___________________________________",
+      "candidateIds": [
+        "blank_008",
+        "blank_009",
+        "blank_010",
+        "blank_011",
+        "blank_012",
+        "blank_017",
+        "blank_030",
+        "blank_033",
+        "blank_036",
+        "blank_039",
+        "blank_042"
+      ],
+      "surroundingContext": "____________________________________\n____________________________________\n____________________________________"
+    },
+    {
+      "key": "agreementDate3",
+      "type": "date",
+      "label": "Agreement Date3",
+      "order": 13,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________ | 20____ | _____________ | _______",
+      "candidateIds": [
+        "blank_013",
+        "blank_014",
+        "blank_015",
+        "blank_016"
+      ],
+      "surroundingContext": "4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n________________"
+    },
+    {
+      "key": "artistSignature",
+      "type": "signature",
+      "label": "Artist Signature",
+      "order": 18,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________",
+      "candidateIds": [
+        "blank_018"
+      ],
+      "surroundingContext": "7. Price of Performance: Buyer agrees to pay Artist or his agent an aggregate of ________________ DOLLARS ($ ) for the Performance by check immediately following the Performance, which check shall be made payable to the Manager. Upon proper endorsement of such check by Manager, Buyer agrees to cash the check for the Manager. The Manager shall distribute such amount to Artist(s) as agreed upon between them.\n7. Price of Performance: Buyer agrees to pay Artist or his agent an aggregate of ________________ DOLLARS ($ ) for the Performance by check immediately following the Performance, which check shall be made payable to the Manager. Upon proper endorsement of such check by Manager, Buyer agrees to cash the check for the Manager. The Manager shall distribute such amount to Artist(s) as agreed upon between them.\n________________"
+    },
+    {
+      "key": "agreementDate4",
+      "type": "date",
+      "label": "Agreement Date4",
+      "order": 19,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "20___",
+      "candidateIds": [
+        "blank_019",
+        "blank_020",
+        "blank_021"
+      ],
+      "surroundingContext": "13. Merchandising: Artist(s) shall not, during the 20___ Concert sell any goods, products, merchandise or services (other than the services provided herein) on the grounds of the Concert.\n13. Merchandising: Artist(s) shall not, during the 20___ Concert sell any goods, products, merchandise or services (other than the services provided herein) on the grounds of the Concert.\n20___"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 22,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "20___",
+      "candidateIds": [
+        "blank_022"
+      ],
+      "surroundingContext": "hereby acknowledge and agree that Buyer may use their names, photographs, likeness, facsimile signature and any other promotional materials in all of such promotions, advertising or other activities used to increase attendance at the 20___ Concert.\nhereby acknowledge and agree that Buyer may use their names, photographs, likeness, facsimile signature and any other promotional materials in all of such promotions, advertising or other activities used to increase attendance at the 20___ Concert.\n20___"
+    },
+    {
+      "key": "field3",
+      "type": "text",
+      "label": "Field3",
+      "order": 23,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________",
+      "candidateIds": [
+        "blank_023"
+      ],
+      "surroundingContext": "BUYER _______________________________________\nBUYER _______________________________________\n_______________________________________"
+    },
+    {
+      "key": "signature2",
+      "type": "signature",
+      "label": "Signature2",
+      "order": 24,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________",
+      "candidateIds": [
+        "blank_024"
+      ],
+      "surroundingContext": "By: _______________________________________\nBy: _______________________________________\n_______________________________________"
+    },
+    {
+      "key": "field4",
+      "type": "text",
+      "label": "Field4",
+      "order": 25,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________________",
+      "candidateIds": [
+        "blank_025"
+      ],
+      "surroundingContext": "MANAGER _____________________________________\nMANAGER _____________________________________\n_____________________________________"
+    },
+    {
+      "key": "signature3",
+      "type": "signature",
+      "label": "Signature3",
+      "order": 26,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________________",
+      "candidateIds": [
+        "blank_026"
+      ],
+      "surroundingContext": "By:_____________________________________\nBy:_____________________________________\n_____________________________________"
+    },
+    {
+      "key": "projectTitle",
+      "type": "text",
+      "label": "Project Title",
+      "order": 27,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________________",
+      "candidateIds": [
+        "blank_027"
+      ],
+      "surroundingContext": "Title: ___________________________________\nTitle: ___________________________________\n___________________________________"
+    },
+    {
+      "key": "field5",
+      "type": "textarea",
+      "label": "Field5",
+      "order": 28,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "____________________________________ | __________________________ | ___________________________________",
+      "candidateIds": [
+        "blank_028",
+        "blank_029",
+        "blank_031",
+        "blank_032",
+        "blank_034",
+        "blank_035",
+        "blank_037",
+        "blank_038",
+        "blank_040",
+        "blank_041"
+      ],
+      "surroundingContext": "____________________________________ __________________________\n____________________________________ __________________________\n____________________________________"
+    }
+  ],
+  "source": "deterministic_fallback",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 5,
+      "context": "_______________________________________ (hereinafter referred to as the \"Buyer\") and the entertainer or entertainers, if more than one, listed on Addendum A attached hereto and included herein (hereinafter referred to as the \"Artist\"), by and through their designated agent or representative (\"Manager\") identified below.\n_______________________________________ (hereinafter referred to as the \"Buyer\") and the entertainer or entertainers, if more than one, listed on Addendum A attached hereto and included herein (hereinafter referred to as the \"Artist\"), by and through their designated agent or representative (\"Manager\") identified below.\n_______________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 7,
+      "context": "WHEREAS, Buyer desires to hire Artist, as independent contractor(s), to provide the entertainment generally described below (the \"Performance\") at the 20________ Concert; and\nWHEREAS, Buyer desires to hire Artist, as independent contractor(s), to provide the entertainment generally described below (the \"Performance\") at the 20________ Concert; and\n20________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_007"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 13,
+      "context": "4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_013"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 14,
+      "context": "4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n20____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_014"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 15,
+      "context": "4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n_____________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_015"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 16,
+      "context": "4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n_______",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_016"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 18,
+      "context": "7. Price of Performance: Buyer agrees to pay Artist or his agent an aggregate of ________________ DOLLARS ($ ) for the Performance by check immediately following the Performance, which check shall be made payable to the Manager. Upon proper endorsement of such check by Manager, Buyer agrees to cash the check for the Manager. The Manager shall distribute such amount to Artist(s) as agreed upon between them.\n7. Price of Performance: Buyer agrees to pay Artist or his agent an aggregate of ________________ DOLLARS ($ ) for the Performance by check immediately following the Performance, which check shall be made payable to the Manager. Upon proper endorsement of such check by Manager, Buyer agrees to cash the check for the Manager. The Manager shall distribute such amount to Artist(s) as agreed upon between them.\n________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_018"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 19,
+      "context": "13. Merchandising: Artist(s) shall not, during the 20___ Concert sell any goods, products, merchandise or services (other than the services provided herein) on the grounds of the Concert.\n13. Merchandising: Artist(s) shall not, during the 20___ Concert sell any goods, products, merchandise or services (other than the services provided herein) on the grounds of the Concert.\n20___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_019"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 20,
+      "context": "14. Promotion: Buyer shall be entitled to advertise and promote the appearance of Artist(s) at the 20___ Concert and the Performance. Artist(s) acknowledge that Buyer will rely on the terms hereof in all such promotions and advertising and in the brochures to be printed setting forth the names, dates and times of all performances to be held at the 20___ Concert. Artist(s)\n14. Promotion: Buyer shall be entitled to advertise and promote the appearance of Artist(s) at the 20___ Concert and the Performance. Artist(s) acknowledge that Buyer will rely on the terms hereof in all such promotions and advertising and in the brochures to be printed setting forth the names, dates and times of all performances to be held at the 20___ Concert. Artist(s)\n20___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_020"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 21,
+      "context": "14. Promotion: Buyer shall be entitled to advertise and promote the appearance of Artist(s) at the 20___ Concert and the Performance. Artist(s) acknowledge that Buyer will rely on the terms hereof in all such promotions and advertising and in the brochures to be printed setting forth the names, dates and times of all performances to be held at the 20___ Concert. Artist(s)\n14. Promotion: Buyer shall be entitled to advertise and promote the appearance of Artist(s) at the 20___ Concert and the Performance. Artist(s) acknowledge that Buyer will rely on the terms hereof in all such promotions and advertising and in the brochures to be printed setting forth the names, dates and times of all performances to be held at the 20___ Concert. Artist(s)\n20___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_021"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 22,
+      "context": "hereby acknowledge and agree that Buyer may use their names, photographs, likeness, facsimile signature and any other promotional materials in all of such promotions, advertising or other activities used to increase attendance at the 20___ Concert.\nhereby acknowledge and agree that Buyer may use their names, photographs, likeness, facsimile signature and any other promotional materials in all of such promotions, advertising or other activities used to increase attendance at the 20___ Concert.\n20___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_022"
+      ]
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

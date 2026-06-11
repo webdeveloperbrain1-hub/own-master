@@ -1,0 +1,44 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "(delete non-applicable terms) (a) in advance; (b) upon conclusion of recording\nsession; (c) within _______ days after the end of the recording session; (d) within _______ daysof completion of recording project.\n3. Studio shall endeavor to secure all recording media (all master tapes, slaves, final mixes, DATs,\nsession; (c) within _______ days after the end of the recording session; (d) within _______ daysof completion of recording project.\n_______",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "(delete non-applicable terms) (a) in advance; (b) upon conclusion of recording\nsession; (c) within _______ days after the end of the recording session; (d) within _______ daysof completion of recording project.\n3. Studio shall endeavor to secure all recording media (all master tapes, slaves, final mixes, DATs,\nsession; (c) within _______ days after the end of the recording session; (d) within _______ daysof completion of recording project.\n_______",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 8,
+    "context": "service shall become the property of Studio if all monies due Studio have been paid.\n8. All rented tapes shall be erased _______ days after completion of last recording session or service\nunless Client makes purchase payment for said tape(s) at full retail purchase price set forth by\n8. All rented tapes shall be erased _______ days after completion of last recording session or service\n_______",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_008"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 9,
+    "context": "unless Client makes purchase payment for said tape(s) at full retail purchase price set forth by\nStudio within _______ days after completion of last recording session or service.\n9. In the event Clients recording media have been stored on premises, Studio shall not release said\nStudio within _______ days after completion of last recording session or service.\n_______",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_009"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

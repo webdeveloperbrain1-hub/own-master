@@ -1,0 +1,250 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________",
+      "candidateIds": [
+        "blank_001"
+      ],
+      "surroundingContext": "Date:_______________\nDate:_______________\n_______________"
+    },
+    {
+      "key": "recipientName",
+      "type": "text",
+      "label": "Recipient Name",
+      "order": 2,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________",
+      "candidateIds": [
+        "blank_002"
+      ],
+      "surroundingContext": "Dear Mr./Ms. __________________,\nDear Mr./Ms. __________________,\n__________________"
+    },
+    {
+      "key": "producerName",
+      "type": "text",
+      "label": "Producer Name",
+      "order": 3,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_________________",
+      "candidateIds": [
+        "blank_003"
+      ],
+      "surroundingContext": "This letter shall serve as our agreement in respect to _________________ (hereinafter referred to as the \"Producer\") services in producing Master Recordings (hereinafter referred to as the\nThis letter shall serve as our agreement in respect to _________________ (hereinafter referred to as the \"Producer\") services in producing Master Recordings (hereinafter referred to as the\n_________________"
+    },
+    {
+      "key": "artistName",
+      "type": "text",
+      "label": "Artist Name",
+      "order": 4,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_________________",
+      "candidateIds": [
+        "blank_004"
+      ],
+      "surroundingContext": "\"Masters\") of the recording artist(s) professionally known as _________________ (hereinafter referred to as the \"Artist\").\n\"Masters\") of the recording artist(s) professionally known as _________________ (hereinafter referred to as the \"Artist\").\n_________________"
+    },
+    {
+      "key": "recordingStartDate",
+      "type": "date",
+      "label": "Recording Start Date",
+      "order": 5,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_____________________ | 20__",
+      "candidateIds": [
+        "blank_005",
+        "blank_006"
+      ],
+      "surroundingContext": "2. (a) Recording sessions for the Masters shall be conducted by Producer under this Agreement at such times and places as shall be mutually designated by you and Producer. All individuals rendering services in connection with the recording of Masters shall be subject to your approval. You shall have the right and opportunity to have your representatives attend each such recording session. Each Master shall embody the performance by the Artist of a single musical composition designated by the Artist (subject to your approval, not to be unreasonably withheld) and shall be subject to your approval as technically satisfactory for the manufacture, broadcast and sale of phonorecords, and, upon your request, Producer shall re-record any musical composition or other selection until a Master technically satisfactory to you shall have been obtained, provided additional production costs will be paid by you. Producer agrees to begin preproduction, rehearsals, and recording on _____________________, 20__.\n2. (a) Recording sessions for the Masters shall be conducted by Producer under this Agreement at such times and places as shall be mutually designated by you and Producer. All individuals rendering services in connection with the recording of Masters shall be subject to your approval. You shall have the right and opportunity to have your representatives attend each such recording session. Each Master shall embody the performance by the Artist of a single musical composition designated by the Artist (subject to your approval, not to be unreasonably withheld) and shall be subject to your approval as technically satisfactory for the manufacture, broadcast and sale of phonorecords, and, upon your request, Producer shall re-record any musical composition or other selection until a Master technically satisfactory to you shall have been obtained, provided additional production costs will be paid by you. Producer agrees to begin preproduction, rehearsals, and recording on _____________________, 20__.\n_____________________"
+    },
+    {
+      "key": "advanceAmount",
+      "type": "currency",
+      "label": "Advance Amount",
+      "order": 7,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "$ ________",
+      "candidateIds": [
+        "blank_007"
+      ],
+      "surroundingContext": "4. (a) Conditioned upon Producer's full and faithful performance of all the terms and provisions hereof, you shall pay Producer, as an advance recoupable by us from any and all royalties payable by you to Producer hereunder, the sum of $ ________ DOLLARS payable upon commencement of recording, and the balance upon the delivery to you of the Masters.\n4. (a) Conditioned upon Producer's full and faithful performance of all the terms and provisions hereof, you shall pay Producer, as an advance recoupable by us from any and all royalties payable by you to Producer hereunder, the sum of $ ________ DOLLARS payable upon commencement of recording, and the balance upon the delivery to you of the Masters.\n$ ________"
+    },
+    {
+      "key": "labelName",
+      "type": "text",
+      "label": "Label Name",
+      "order": 8,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________ | ______________",
+      "candidateIds": [
+        "blank_008",
+        "blank_009"
+      ],
+      "surroundingContext": "(i) in the event the Masters are released on any label other than ___________ or it's subsidiary or affiliate label or labels, Producer shall not receive a royalty in connection with the sale of such records;\n(i) in the event the Masters are released on any label other than ___________ or it's subsidiary or affiliate label or labels, Producer shall not receive a royalty in connection with the sale of such records;\n___________"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 10,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______ | _______",
+      "candidateIds": [
+        "blank_010",
+        "blank_011"
+      ],
+      "surroundingContext": "(d) This contract has been entered into in the State of ______, and its validity, construction, interpretation, and legal effect shall be governed by the laws of the State of _______.\n(d) This contract has been entered into in the State of ______, and its validity, construction, interpretation, and legal effect shall be governed by the laws of the State of _______.\n______"
+    },
+    {
+      "key": "companySignature",
+      "type": "signature",
+      "label": "Company Signature",
+      "order": 12,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___ | _____",
+      "candidateIds": [
+        "blank_012",
+        "blank_013"
+      ],
+      "surroundingContext": "(e) This contract shall not become binding and effective until signed by you and countersigned by a duly authorized agent of ___(Company)_____. If the foregoing correctly reflects your understanding and agreement with us, please indicate by signing below.\n(e) This contract shall not become binding and effective until signed by you and countersigned by a duly authorized agent of ___(Company)_____. If the foregoing correctly reflects your understanding and agreement with us, please indicate by signing below.\n___"
+    },
+    {
+      "key": "field",
+      "type": "signature",
+      "label": "Field",
+      "order": 14,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________",
+      "candidateIds": [
+        "blank_014",
+        "blank_015"
+      ],
+      "surroundingContext": "_______________________________\n_______________________________\n_______________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "Date:_______________\nDate:_______________\n_______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "This letter shall serve as our agreement in respect to _________________ (hereinafter referred to as the \"Producer\") services in producing Master Recordings (hereinafter referred to as the\nThis letter shall serve as our agreement in respect to _________________ (hereinafter referred to as the \"Producer\") services in producing Master Recordings (hereinafter referred to as the\n_________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "\"Masters\") of the recording artist(s) professionally known as _________________ (hereinafter referred to as the \"Artist\").\n\"Masters\") of the recording artist(s) professionally known as _________________ (hereinafter referred to as the \"Artist\").\n_________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 5,
+      "context": "2. (a) Recording sessions for the Masters shall be conducted by Producer under this Agreement at such times and places as shall be mutually designated by you and Producer. All individuals rendering services in connection with the recording of Masters shall be subject to your approval. You shall have the right and opportunity to have your representatives attend each such recording session. Each Master shall embody the performance by the Artist of a single musical composition designated by the Artist (subject to your approval, not to be unreasonably withheld) and shall be subject to your approval as technically satisfactory for the manufacture, broadcast and sale of phonorecords, and, upon your request, Producer shall re-record any musical composition or other selection until a Master technically satisfactory to you shall have been obtained, provided additional production costs will be paid by you. Producer agrees to begin preproduction, rehearsals, and recording on _____________________, 20__.\n2. (a) Recording sessions for the Masters shall be conducted by Producer under this Agreement at such times and places as shall be mutually designated by you and Producer. All individuals rendering services in connection with the recording of Masters shall be subject to your approval. You shall have the right and opportunity to have your representatives attend each such recording session. Each Master shall embody the performance by the Artist of a single musical composition designated by the Artist (subject to your approval, not to be unreasonably withheld) and shall be subject to your approval as technically satisfactory for the manufacture, broadcast and sale of phonorecords, and, upon your request, Producer shall re-record any musical composition or other selection until a Master technically satisfactory to you shall have been obtained, provided additional production costs will be paid by you. Producer agrees to begin preproduction, rehearsals, and recording on _____________________, 20__.\n_____________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 6,
+      "context": "2. (a) Recording sessions for the Masters shall be conducted by Producer under this Agreement at such times and places as shall be mutually designated by you and Producer. All individuals rendering services in connection with the recording of Masters shall be subject to your approval. You shall have the right and opportunity to have your representatives attend each such recording session. Each Master shall embody the performance by the Artist of a single musical composition designated by the Artist (subject to your approval, not to be unreasonably withheld) and shall be subject to your approval as technically satisfactory for the manufacture, broadcast and sale of phonorecords, and, upon your request, Producer shall re-record any musical composition or other selection until a Master technically satisfactory to you shall have been obtained, provided additional production costs will be paid by you. Producer agrees to begin preproduction, rehearsals, and recording on _____________________, 20__.\n2. (a) Recording sessions for the Masters shall be conducted by Producer under this Agreement at such times and places as shall be mutually designated by you and Producer. All individuals rendering services in connection with the recording of Masters shall be subject to your approval. You shall have the right and opportunity to have your representatives attend each such recording session. Each Master shall embody the performance by the Artist of a single musical composition designated by the Artist (subject to your approval, not to be unreasonably withheld) and shall be subject to your approval as technically satisfactory for the manufacture, broadcast and sale of phonorecords, and, upon your request, Producer shall re-record any musical composition or other selection until a Master technically satisfactory to you shall have been obtained, provided additional production costs will be paid by you. Producer agrees to begin preproduction, rehearsals, and recording on _____________________, 20__.\n20__",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_006"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 7,
+      "context": "4. (a) Conditioned upon Producer's full and faithful performance of all the terms and provisions hereof, you shall pay Producer, as an advance recoupable by us from any and all royalties payable by you to Producer hereunder, the sum of $ ________ DOLLARS payable upon commencement of recording, and the balance upon the delivery to you of the Masters.\n4. (a) Conditioned upon Producer's full and faithful performance of all the terms and provisions hereof, you shall pay Producer, as an advance recoupable by us from any and all royalties payable by you to Producer hereunder, the sum of $ ________ DOLLARS payable upon commencement of recording, and the balance upon the delivery to you of the Masters.\n$ ________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_007"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "(i) in the event the Masters are released on any label other than ___________ or it's subsidiary or affiliate label or labels, Producer shall not receive a royalty in connection with the sale of such records;\n(i) in the event the Masters are released on any label other than ___________ or it's subsidiary or affiliate label or labels, Producer shall not receive a royalty in connection with the sale of such records;\n___________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "(ii) in the event the Masters are released on the ______________ label or a subsidiary or affiliate label, Producer shall be paid in respect to the sale of such phonorecords a royalty rate of three percent (3%) of the suggested retail price of each phonorecord sold and paid for in the United States. Payments of royalties from foreign sources shall be ONE HALF of the United States royalty rate. All fees paid to Producer hereunder shall constitute recoupable advances which shall be recouped prior to further payment of royalties.\n(ii) in the event the Masters are released on the ______________ label or a subsidiary or affiliate label, Producer shall be paid in respect to the sale of such phonorecords a royalty rate of three percent (3%) of the suggested retail price of each phonorecord sold and paid for in the United States. Payments of royalties from foreign sources shall be ONE HALF of the United States royalty rate. All fees paid to Producer hereunder shall constitute recoupable advances which shall be recouped prior to further payment of royalties.\n______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 12,
+      "context": "(e) This contract shall not become binding and effective until signed by you and countersigned by a duly authorized agent of ___(Company)_____. If the foregoing correctly reflects your understanding and agreement with us, please indicate by signing below.\n(e) This contract shall not become binding and effective until signed by you and countersigned by a duly authorized agent of ___(Company)_____. If the foregoing correctly reflects your understanding and agreement with us, please indicate by signing below.\n___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_012"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 13,
+      "context": "(e) This contract shall not become binding and effective until signed by you and countersigned by a duly authorized agent of ___(Company)_____. If the foregoing correctly reflects your understanding and agreement with us, please indicate by signing below.\n(e) This contract shall not become binding and effective until signed by you and countersigned by a duly authorized agent of ___(Company)_____. If the foregoing correctly reflects your understanding and agreement with us, please indicate by signing below.\n_____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_013"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

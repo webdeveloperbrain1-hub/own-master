@@ -1,0 +1,390 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________ | ____________________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002"
+      ],
+      "surroundingContext": "Record Company and Producer - (Royalties/Retain Copyright)\nDate ________________\nThis writing will serve as the agreement with ____________________________\nDate ________________\n________________"
+    },
+    {
+      "key": "termEndDate",
+      "type": "date",
+      "label": "Term End Date",
+      "order": 3,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________ | _________ | ___",
+      "candidateIds": [
+        "blank_003",
+        "blank_004",
+        "blank_005"
+      ],
+      "surroundingContext": "with the production of the masters of Musical Performances and/or Musical Compositions\nand/or Instrumental Productions on behalf of ________________ Record Company.\n1. The term of this agreement shall commence as of the date hereof and shall continue untilthe completion of Producer’s services.\nand/or Instrumental Productions on behalf of ________________ Record Company.\n________________"
+    },
+    {
+      "key": "artistName",
+      "type": "text",
+      "label": "Artist Name",
+      "order": 6,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__________________",
+      "candidateIds": [
+        "blank_006"
+      ],
+      "surroundingContext": "Compositions (hereinafter designated “Masters”) to be embodied with the performance or\nperformances of Record Company’s designated Artist or Artists:__________________ and to\nperform all other obligations required under this Agreement.\nperformances of Record Company’s designated Artist or Artists:__________________ and to\n__________________"
+    },
+    {
+      "key": "producerName",
+      "type": "text",
+      "label": "Producer Name",
+      "order": 7,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________________",
+      "candidateIds": [
+        "blank_007"
+      ],
+      "surroundingContext": "3. Recording sessions for the Masters shall be conducted by Producer under the direction of\n________________________ (hereinafter designated as \"Record Company\"). The recording\nagreement between the Producer and Record Company at such times and places shall be\n________________________ (hereinafter designated as \"Record Company\"). The recording\n________________________"
+    },
+    {
+      "key": "recordingStartDate",
+      "type": "date",
+      "label": "Recording Start Date",
+      "order": 8,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "____ | ___________ | 20___",
+      "candidateIds": [
+        "blank_008",
+        "blank_009",
+        "blank_010"
+      ],
+      "surroundingContext": "Company has been obtained. Producer agrees to begin pre-production, rehearsals, and\nrecording on the ____day of ___________, 20___. Said Masters shall be, at Record\nCompany’s election, maintained at a recording studio or other location designated by\nrecording on the ____day of ___________, 20___. Said Masters shall be, at Record\n____"
+    },
+    {
+      "key": "royaltyBasePercentage",
+      "type": "percentage",
+      "label": "Royalty Base Percentage",
+      "order": 11,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_____%",
+      "candidateIds": [
+        "blank_011"
+      ],
+      "surroundingContext": "means whatsoever via any outlet whatsoever, Producer shall be entitled to a royalty of\n_____% percent of suggested retail selling price of the commercially produced\nrecording.\n_____% percent of suggested retail selling price of the commercially produced\n_____%"
+    },
+    {
+      "key": "paymentAmount",
+      "type": "currency",
+      "label": "Payment Amount",
+      "order": 12,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "($________)",
+      "candidateIds": [
+        "blank_012"
+      ],
+      "surroundingContext": "Producer the following:\n(a) Dollars ($________) per hour for each hour of services\nrendered by Producer hereunder; or,\n(a) Dollars ($________) per hour for each hour of services\n($________)"
+    },
+    {
+      "key": "paymentAmount2",
+      "type": "currency",
+      "label": "Payment Amount2",
+      "order": 13,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "($________)",
+      "candidateIds": [
+        "blank_013"
+      ],
+      "surroundingContext": "rendered by Producer hereunder; or,\n(b) Dollars ($________) per day for each day's services\nrendered by Producer hereunder; or,\n(b) Dollars ($________) per day for each day's services\n($________)"
+    },
+    {
+      "key": "feeAmount",
+      "type": "currency",
+      "label": "Fee Amount",
+      "order": 14,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "($________)",
+      "candidateIds": [
+        "blank_014"
+      ],
+      "surroundingContext": "rendered by Producer hereunder; or,\n(c) Dollars ($________) flat fee per Recording produced by\nProducer hereunder; or,\n(c) Dollars ($________) flat fee per Recording produced by\n($________)"
+    },
+    {
+      "key": "paymentAmount3",
+      "type": "currency",
+      "label": "Payment Amount3",
+      "order": 15,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "($________)",
+      "candidateIds": [
+        "blank_015"
+      ],
+      "surroundingContext": "Producer hereunder; or,\n(d) Dollars ($________) for the entire project produced by\nProducer hereunder; plus,\n(d) Dollars ($________) for the entire project produced by\n($________)"
+    },
+    {
+      "key": "paymentAmount4",
+      "type": "currency",
+      "label": "Payment Amount4",
+      "order": 16,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "($________)",
+      "candidateIds": [
+        "blank_016"
+      ],
+      "surroundingContext": "(e) If Producer's services includes engineering services as well, the additional sum of\n($________) Dollars per hour, day,\nRecording or project.\n($________) Dollars per hour, day,\n($________)"
+    },
+    {
+      "key": "producerSignature",
+      "type": "signature",
+      "label": "Producer Signature",
+      "order": 17,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__________",
+      "candidateIds": [
+        "blank_017"
+      ],
+      "surroundingContext": "representatives of Producer and Record Company. This agreement shall be construed in\naccordance with the laws of the State of __________. IN WITNESS WHEREOF,\nProducer and Record Company set their hands.\naccordance with the laws of the State of __________. IN WITNESS WHEREOF,\n__________"
+    },
+    {
+      "key": "agreementDate2",
+      "type": "date",
+      "label": "Agreement Date2",
+      "order": 18,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_________ | _____________ | 20___ | ________________________________________",
+      "candidateIds": [
+        "blank_018",
+        "blank_019",
+        "blank_020",
+        "blank_021"
+      ],
+      "surroundingContext": "I hereby agree to and am bound by these terms.\nI set my name to this Agreement the _________day of _____________, 20___.\n________________________________________\nI set my name to this Agreement the _________day of _____________, 20___.\n_________"
+    },
+    {
+      "key": "field",
+      "type": "signature",
+      "label": "Field",
+      "order": 22,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________________________________",
+      "candidateIds": [
+        "blank_022"
+      ],
+      "surroundingContext": "Producer\n________________________________________\nRecord Company\n________________________________________\n________________________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "Record Company and Producer - (Royalties/Retain Copyright)\nDate ________________\nThis writing will serve as the agreement with ____________________________\nDate ________________\n________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "Date ________________\nThis writing will serve as the agreement with ____________________________\n(hereinafter designated as \"Producer\"), with respect to Producers services in connection\nThis writing will serve as the agreement with ____________________________\n____________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_002"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "with the production of the masters of Musical Performances and/or Musical Compositions\nand/or Instrumental Productions on behalf of ________________ Record Company.\n1. The term of this agreement shall commence as of the date hereof and shall continue untilthe completion of Producer’s services.\nand/or Instrumental Productions on behalf of ________________ Record Company.\n________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "1. The term of this agreement shall commence as of the date hereof and shall continue untilthe completion of Producer’s services.\n2. During the term of this Agreement Producer agrees to produce _________(#___) Musical\nCompositions (hereinafter designated “Masters”) to be embodied with the performance or\n2. During the term of this Agreement Producer agrees to produce _________(#___) Musical\n_________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 5,
+      "context": "1. The term of this agreement shall commence as of the date hereof and shall continue untilthe completion of Producer’s services.\n2. During the term of this Agreement Producer agrees to produce _________(#___) Musical\nCompositions (hereinafter designated “Masters”) to be embodied with the performance or\n2. During the term of this Agreement Producer agrees to produce _________(#___) Musical\n___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 6,
+      "context": "Compositions (hereinafter designated “Masters”) to be embodied with the performance or\nperformances of Record Company’s designated Artist or Artists:__________________ and to\nperform all other obligations required under this Agreement.\nperformances of Record Company’s designated Artist or Artists:__________________ and to\n__________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_006"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 7,
+      "context": "3. Recording sessions for the Masters shall be conducted by Producer under the direction of\n________________________ (hereinafter designated as \"Record Company\"). The recording\nagreement between the Producer and Record Company at such times and places shall be\n________________________ (hereinafter designated as \"Record Company\"). The recording\n________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_007"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "Company has been obtained. Producer agrees to begin pre-production, rehearsals, and\nrecording on the ____day of ___________, 20___. Said Masters shall be, at Record\nCompany’s election, maintained at a recording studio or other location designated by\nrecording on the ____day of ___________, 20___. Said Masters shall be, at Record\n____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "Company has been obtained. Producer agrees to begin pre-production, rehearsals, and\nrecording on the ____day of ___________, 20___. Said Masters shall be, at Record\nCompany’s election, maintained at a recording studio or other location designated by\nrecording on the ____day of ___________, 20___. Said Masters shall be, at Record\n___________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 10,
+      "context": "Company has been obtained. Producer agrees to begin pre-production, rehearsals, and\nrecording on the ____day of ___________, 20___. Said Masters shall be, at Record\nCompany’s election, maintained at a recording studio or other location designated by\nrecording on the ____day of ___________, 20___. Said Masters shall be, at Record\n20___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_010"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 11,
+      "context": "means whatsoever via any outlet whatsoever, Producer shall be entitled to a royalty of\n_____% percent of suggested retail selling price of the commercially produced\nrecording.\n_____% percent of suggested retail selling price of the commercially produced\n_____%",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_011"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 12,
+      "context": "Producer the following:\n(a) Dollars ($________) per hour for each hour of services\nrendered by Producer hereunder; or,\n(a) Dollars ($________) per hour for each hour of services\n($________)",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_012"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 13,
+      "context": "rendered by Producer hereunder; or,\n(b) Dollars ($________) per day for each day's services\nrendered by Producer hereunder; or,\n(b) Dollars ($________) per day for each day's services\n($________)",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_013"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 14,
+      "context": "rendered by Producer hereunder; or,\n(c) Dollars ($________) flat fee per Recording produced by\nProducer hereunder; or,\n(c) Dollars ($________) flat fee per Recording produced by\n($________)",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_014"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 15,
+      "context": "Producer hereunder; or,\n(d) Dollars ($________) for the entire project produced by\nProducer hereunder; plus,\n(d) Dollars ($________) for the entire project produced by\n($________)",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_015"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 16,
+      "context": "(e) If Producer's services includes engineering services as well, the additional sum of\n($________) Dollars per hour, day,\nRecording or project.\n($________) Dollars per hour, day,\n($________)",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_016"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 17,
+      "context": "representatives of Producer and Record Company. This agreement shall be construed in\naccordance with the laws of the State of __________. IN WITNESS WHEREOF,\nProducer and Record Company set their hands.\naccordance with the laws of the State of __________. IN WITNESS WHEREOF,\n__________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_017"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 21,
+      "context": "I set my name to this Agreement the _________day of _____________, 20___.\n________________________________________\nProducer\n________________________________________\n________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_021"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 22,
+      "context": "Producer\n________________________________________\nRecord Company\n________________________________________\n________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_022"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

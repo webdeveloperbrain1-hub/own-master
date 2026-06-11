@@ -1,0 +1,187 @@
+{
+  "fields": [
+    {
+      "key": "effectiveDate",
+      "type": "date",
+      "label": "Effective Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________ | 20___ | _______________________ | _______________________________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004"
+      ],
+      "surroundingContext": "This Employment Agreement (hereinafter referred to as the \"Agreement\") is made and effective this ________, 20___, by and between _______________________ (hereinafter referred to as the \"Company\") and _______________________________________ (hereinafter referred to as the \"Executive\").\nThis Employment Agreement (hereinafter referred to as the \"Agreement\") is made and effective this ________, 20___, by and between _______________________ (hereinafter referred to as the \"Company\") and _______________________________________ (hereinafter referred to as the \"Executive\").\n________"
+    },
+    {
+      "key": "paymentAmount",
+      "type": "currency",
+      "label": "Payment Amount",
+      "order": 7,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "$ ______________________________________________",
+      "candidateIds": [
+        "blank_007"
+      ],
+      "surroundingContext": "A. A base salary of $ ______________________________________________ (dollar amount spelled out) per year, payable in installments according to the Company's regular payroll schedule. The base salary shall be adjusted at the end of each year of employment at the discretion of the board of directors.\nA. A base salary of $ ______________________________________________ (dollar amount spelled out) per year, payable in installments according to the Company's regular payroll schedule. The base salary shall be adjusted at the end of each year of employment at the discretion of the board of directors.\n$ ______________________________________________"
+    },
+    {
+      "key": "companySignature",
+      "type": "signature",
+      "label": "Company Signature",
+      "order": 8,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__________________________________ | [First Incentive Year] | [Maximum Incentive Compared to Base]",
+      "candidateIds": [
+        "blank_008",
+        "blank_009",
+        "blank_010"
+      ],
+      "surroundingContext": "B. An incentive salary equal to __________________________________ of the adjusted net profits hereinafter defined) of the Company beginning with the Company's year end [First Incentive Year] and each fiscal year thereafter during the term of this Agreement. \"Adjusted net profit\" shall be the net profit of the Company before federal and state income taxes, determined in accordance with generally accepted accounting practices by the Company's independent accounting firm and adjusted to exclude: (i) any incentive salary payments paid pursuant to this Agreement; (ii) any contributions to pension and/or profit sharing plans; (iii) any extraordinary gains or losses (including, but not limited to, gains or losses on disposition of assets); (iv) any refund or deficiency of federal and state income taxes paid in a prior year; and (v) any provision for federal or state income taxes made in prior years which is subsequently determined to be unnecessary. The determination of the adjusted net profits made by the independent accounting firm employed by the Company shall be final and binding upon Executive and Company. The incentive salary payment shall be made within thirty (30) days after the Company's independent accounting firm has concluded its audit. If the final audit is not prepared within ninety (90) days after the end of the fiscal year, then Company shall make a preliminary payment equal to fifty percent (50%) of the amount due based upon the adjusted net profits preliminarily determined by the independent accounting firm, subject to payment of the balance, if any, promptly following completion of the audit by the Company's independent accounting firm. The maximum incentive salary payable for any one year shall not exceed [Maximum Incentive Compared to Base] of the then applicable base salary of Executive.\nB. An incentive salary equal to __________________________________ of the adjusted net profits hereinafter defined) of the Company beginning with the Company's year end [First Incentive Year] and each fiscal year thereafter during the term of this Agreement. \"Adjusted net profit\" shall be the net profit of the Company before federal and state income taxes, determined in accordance with generally accepted accounting practices by the Company's independent accounting firm and adjusted to exclude: (i) any incentive salary payments paid pursuant to this Agreement; (ii) any contributions to pension and/or profit sharing plans; (iii) any extraordinary gains or losses (including, but not limited to, gains or losses on disposition of assets); (iv) any refund or deficiency of federal and state income taxes paid in a prior year; and (v) any provision for federal or state income taxes made in prior years which is subsequently determined to be unnecessary. The determination of the adjusted net profits made by the independent accounting firm employed by the Company shall be final and binding upon Executive and Company. The incentive salary payment shall be made within thirty (30) days after the Company's independent accounting firm has concluded its audit. If the final audit is not prepared within ninety (90) days after the end of the fiscal year, then Company shall make a preliminary payment equal to fifty percent (50%) of the amount due based upon the adjusted net profits preliminarily determined by the independent accounting firm, subject to payment of the balance, if any, promptly following completion of the audit by the Company's independent accounting firm. The maximum incentive salary payable for any one year shall not exceed [Maximum Incentive Compared to Base] of the then applicable base salary of Executive.\n__________________________________"
+    },
+    {
+      "key": "companyName",
+      "type": "text",
+      "label": "Company Name",
+      "order": 20,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________________ | ___________________",
+      "candidateIds": [
+        "blank_020",
+        "blank_021"
+      ],
+      "surroundingContext": "_________________________Company Name/Address___________________\n_________________________Company Name/Address___________________\n_________________________"
+    },
+    {
+      "key": "address",
+      "type": "textarea",
+      "label": "Address",
+      "order": 22,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________________ | ___________________",
+      "candidateIds": [
+        "blank_022",
+        "blank_023"
+      ],
+      "surroundingContext": "_________________________Executive Name/Address___________________\n_________________________Executive Name/Address___________________\n_________________________"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 24,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________________",
+      "candidateIds": [
+        "blank_024"
+      ],
+      "surroundingContext": "This Agreement shall be construed and enforced in accordance with the laws of the state of __________________________________.\nThis Agreement shall be construed and enforced in accordance with the laws of the state of __________________________________.\n__________________________________"
+    },
+    {
+      "key": "field",
+      "type": "date",
+      "label": "Field",
+      "order": 26,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________________________ | ______________________________________________",
+      "candidateIds": [
+        "blank_026",
+        "blank_027"
+      ],
+      "surroundingContext": "_____________________________________________\n_____________________________________________\n_____________________________________________"
+    }
+  ],
+  "source": "deterministic_fallback",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "This Employment Agreement (hereinafter referred to as the \"Agreement\") is made and effective this ________, 20___, by and between _______________________ (hereinafter referred to as the \"Company\") and _______________________________________ (hereinafter referred to as the \"Executive\").\nThis Employment Agreement (hereinafter referred to as the \"Agreement\") is made and effective this ________, 20___, by and between _______________________ (hereinafter referred to as the \"Company\") and _______________________________________ (hereinafter referred to as the \"Executive\").\n________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "This Employment Agreement (hereinafter referred to as the \"Agreement\") is made and effective this ________, 20___, by and between _______________________ (hereinafter referred to as the \"Company\") and _______________________________________ (hereinafter referred to as the \"Executive\").\nThis Employment Agreement (hereinafter referred to as the \"Agreement\") is made and effective this ________, 20___, by and between _______________________ (hereinafter referred to as the \"Company\") and _______________________________________ (hereinafter referred to as the \"Executive\").\n20___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_002"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "This Employment Agreement (hereinafter referred to as the \"Agreement\") is made and effective this ________, 20___, by and between _______________________ (hereinafter referred to as the \"Company\") and _______________________________________ (hereinafter referred to as the \"Executive\").\nThis Employment Agreement (hereinafter referred to as the \"Agreement\") is made and effective this ________, 20___, by and between _______________________ (hereinafter referred to as the \"Company\") and _______________________________________ (hereinafter referred to as the \"Executive\").\n_______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "This Employment Agreement (hereinafter referred to as the \"Agreement\") is made and effective this ________, 20___, by and between _______________________ (hereinafter referred to as the \"Company\") and _______________________________________ (hereinafter referred to as the \"Executive\").\nThis Employment Agreement (hereinafter referred to as the \"Agreement\") is made and effective this ________, 20___, by and between _______________________ (hereinafter referred to as the \"Company\") and _______________________________________ (hereinafter referred to as the \"Executive\").\n_______________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 7,
+      "context": "A. A base salary of $ ______________________________________________ (dollar amount spelled out) per year, payable in installments according to the Company's regular payroll schedule. The base salary shall be adjusted at the end of each year of employment at the discretion of the board of directors.\nA. A base salary of $ ______________________________________________ (dollar amount spelled out) per year, payable in installments according to the Company's regular payroll schedule. The base salary shall be adjusted at the end of each year of employment at the discretion of the board of directors.\n$ ______________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_007"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "B. An incentive salary equal to __________________________________ of the adjusted net profits hereinafter defined) of the Company beginning with the Company's year end [First Incentive Year] and each fiscal year thereafter during the term of this Agreement. \"Adjusted net profit\" shall be the net profit of the Company before federal and state income taxes, determined in accordance with generally accepted accounting practices by the Company's independent accounting firm and adjusted to exclude: (i) any incentive salary payments paid pursuant to this Agreement; (ii) any contributions to pension and/or profit sharing plans; (iii) any extraordinary gains or losses (including, but not limited to, gains or losses on disposition of assets); (iv) any refund or deficiency of federal and state income taxes paid in a prior year; and (v) any provision for federal or state income taxes made in prior years which is subsequently determined to be unnecessary. The determination of the adjusted net profits made by the independent accounting firm employed by the Company shall be final and binding upon Executive and Company. The incentive salary payment shall be made within thirty (30) days after the Company's independent accounting firm has concluded its audit. If the final audit is not prepared within ninety (90) days after the end of the fiscal year, then Company shall make a preliminary payment equal to fifty percent (50%) of the amount due based upon the adjusted net profits preliminarily determined by the independent accounting firm, subject to payment of the balance, if any, promptly following completion of the audit by the Company's independent accounting firm. The maximum incentive salary payable for any one year shall not exceed [Maximum Incentive Compared to Base] of the then applicable base salary of Executive.\nB. An incentive salary equal to __________________________________ of the adjusted net profits hereinafter defined) of the Company beginning with the Company's year end [First Incentive Year] and each fiscal year thereafter during the term of this Agreement. \"Adjusted net profit\" shall be the net profit of the Company before federal and state income taxes, determined in accordance with generally accepted accounting practices by the Company's independent accounting firm and adjusted to exclude: (i) any incentive salary payments paid pursuant to this Agreement; (ii) any contributions to pension and/or profit sharing plans; (iii) any extraordinary gains or losses (including, but not limited to, gains or losses on disposition of assets); (iv) any refund or deficiency of federal and state income taxes paid in a prior year; and (v) any provision for federal or state income taxes made in prior years which is subsequently determined to be unnecessary. The determination of the adjusted net profits made by the independent accounting firm employed by the Company shall be final and binding upon Executive and Company. The incentive salary payment shall be made within thirty (30) days after the Company's independent accounting firm has concluded its audit. If the final audit is not prepared within ninety (90) days after the end of the fiscal year, then Company shall make a preliminary payment equal to fifty percent (50%) of the amount due based upon the adjusted net profits preliminarily determined by the independent accounting firm, subject to payment of the balance, if any, promptly following completion of the audit by the Company's independent accounting firm. The maximum incentive salary payable for any one year shall not exceed [Maximum Incentive Compared to Base] of the then applicable base salary of Executive.\n__________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "B. An incentive salary equal to __________________________________ of the adjusted net profits hereinafter defined) of the Company beginning with the Company's year end [First Incentive Year] and each fiscal year thereafter during the term of this Agreement. \"Adjusted net profit\" shall be the net profit of the Company before federal and state income taxes, determined in accordance with generally accepted accounting practices by the Company's independent accounting firm and adjusted to exclude: (i) any incentive salary payments paid pursuant to this Agreement; (ii) any contributions to pension and/or profit sharing plans; (iii) any extraordinary gains or losses (including, but not limited to, gains or losses on disposition of assets); (iv) any refund or deficiency of federal and state income taxes paid in a prior year; and (v) any provision for federal or state income taxes made in prior years which is subsequently determined to be unnecessary. The determination of the adjusted net profits made by the independent accounting firm employed by the Company shall be final and binding upon Executive and Company. The incentive salary payment shall be made within thirty (30) days after the Company's independent accounting firm has concluded its audit. If the final audit is not prepared within ninety (90) days after the end of the fiscal year, then Company shall make a preliminary payment equal to fifty percent (50%) of the amount due based upon the adjusted net profits preliminarily determined by the independent accounting firm, subject to payment of the balance, if any, promptly following completion of the audit by the Company's independent accounting firm. The maximum incentive salary payable for any one year shall not exceed [Maximum Incentive Compared to Base] of the then applicable base salary of Executive.\nB. An incentive salary equal to __________________________________ of the adjusted net profits hereinafter defined) of the Company beginning with the Company's year end [First Incentive Year] and each fiscal year thereafter during the term of this Agreement. \"Adjusted net profit\" shall be the net profit of the Company before federal and state income taxes, determined in accordance with generally accepted accounting practices by the Company's independent accounting firm and adjusted to exclude: (i) any incentive salary payments paid pursuant to this Agreement; (ii) any contributions to pension and/or profit sharing plans; (iii) any extraordinary gains or losses (including, but not limited to, gains or losses on disposition of assets); (iv) any refund or deficiency of federal and state income taxes paid in a prior year; and (v) any provision for federal or state income taxes made in prior years which is subsequently determined to be unnecessary. The determination of the adjusted net profits made by the independent accounting firm employed by the Company shall be final and binding upon Executive and Company. The incentive salary payment shall be made within thirty (30) days after the Company's independent accounting firm has concluded its audit. If the final audit is not prepared within ninety (90) days after the end of the fiscal year, then Company shall make a preliminary payment equal to fifty percent (50%) of the amount due based upon the adjusted net profits preliminarily determined by the independent accounting firm, subject to payment of the balance, if any, promptly following completion of the audit by the Company's independent accounting firm. The maximum incentive salary payable for any one year shall not exceed [Maximum Incentive Compared to Base] of the then applicable base salary of Executive.\n[First Incentive Year]",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 10,
+      "context": "B. An incentive salary equal to __________________________________ of the adjusted net profits hereinafter defined) of the Company beginning with the Company's year end [First Incentive Year] and each fiscal year thereafter during the term of this Agreement. \"Adjusted net profit\" shall be the net profit of the Company before federal and state income taxes, determined in accordance with generally accepted accounting practices by the Company's independent accounting firm and adjusted to exclude: (i) any incentive salary payments paid pursuant to this Agreement; (ii) any contributions to pension and/or profit sharing plans; (iii) any extraordinary gains or losses (including, but not limited to, gains or losses on disposition of assets); (iv) any refund or deficiency of federal and state income taxes paid in a prior year; and (v) any provision for federal or state income taxes made in prior years which is subsequently determined to be unnecessary. The determination of the adjusted net profits made by the independent accounting firm employed by the Company shall be final and binding upon Executive and Company. The incentive salary payment shall be made within thirty (30) days after the Company's independent accounting firm has concluded its audit. If the final audit is not prepared within ninety (90) days after the end of the fiscal year, then Company shall make a preliminary payment equal to fifty percent (50%) of the amount due based upon the adjusted net profits preliminarily determined by the independent accounting firm, subject to payment of the balance, if any, promptly following completion of the audit by the Company's independent accounting firm. The maximum incentive salary payable for any one year shall not exceed [Maximum Incentive Compared to Base] of the then applicable base salary of Executive.\nB. An incentive salary equal to __________________________________ of the adjusted net profits hereinafter defined) of the Company beginning with the Company's year end [First Incentive Year] and each fiscal year thereafter during the term of this Agreement. \"Adjusted net profit\" shall be the net profit of the Company before federal and state income taxes, determined in accordance with generally accepted accounting practices by the Company's independent accounting firm and adjusted to exclude: (i) any incentive salary payments paid pursuant to this Agreement; (ii) any contributions to pension and/or profit sharing plans; (iii) any extraordinary gains or losses (including, but not limited to, gains or losses on disposition of assets); (iv) any refund or deficiency of federal and state income taxes paid in a prior year; and (v) any provision for federal or state income taxes made in prior years which is subsequently determined to be unnecessary. The determination of the adjusted net profits made by the independent accounting firm employed by the Company shall be final and binding upon Executive and Company. The incentive salary payment shall be made within thirty (30) days after the Company's independent accounting firm has concluded its audit. If the final audit is not prepared within ninety (90) days after the end of the fiscal year, then Company shall make a preliminary payment equal to fifty percent (50%) of the amount due based upon the adjusted net profits preliminarily determined by the independent accounting firm, subject to payment of the balance, if any, promptly following completion of the audit by the Company's independent accounting firm. The maximum incentive salary payable for any one year shall not exceed [Maximum Incentive Compared to Base] of the then applicable base salary of Executive.\n[Maximum Incentive Compared to Base]",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_010"
+      ]
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

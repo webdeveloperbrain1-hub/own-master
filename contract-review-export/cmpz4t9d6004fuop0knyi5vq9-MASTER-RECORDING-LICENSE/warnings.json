@@ -1,0 +1,26 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 13,
+    "context": "4. We agree to pay you the sum of _______________________ as an advance against the royalties payable hereunder. We further agree to pay to you any royalties accruing to you hereunder over and above the amount of said advance. We further agree to reimburse you for session costs of each future master upon acceptance of the Master.\n4. We agree to pay you the sum of _______________________ as an advance against the royalties payable hereunder. We further agree to pay to you any royalties accruing to you hereunder over and above the amount of said advance. We further agree to reimburse you for session costs of each future master upon acceptance of the Master.\n_______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_013"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 15,
+    "context": "11. The duration of this Agreement shall be for _____ years from the date on which you give us the Master under this Agreement, at the end of which time the Master and any accompanying artwork shall be returned to you. We shall continue to render royalty statements and payments until inventory is depleted. You may at the expiration of this Agreement purchase the remaining inventory at cost plus shipping.\n11. The duration of this Agreement shall be for _____ years from the date on which you give us the Master under this Agreement, at the end of which time the Master and any accompanying artwork shall be returned to you. We shall continue to render royalty statements and payments until inventory is depleted. You may at the expiration of this Agreement purchase the remaining inventory at cost plus shipping.\n_____",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_015"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

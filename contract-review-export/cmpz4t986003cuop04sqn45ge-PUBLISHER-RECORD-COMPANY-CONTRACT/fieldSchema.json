@@ -1,0 +1,57 @@
+{
+  "fields": [
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 1,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___",
+      "candidateIds": [
+        "blank_001"
+      ],
+      "surroundingContext": "¢ for all records listed to sell at a suggested retail price of more than ___ ¢ but not more than ¢;\n¢ for all records listed to sell at a suggested retail price of more than ___ ¢ but not more than ¢;\n___"
+    },
+    {
+      "key": "field2",
+      "type": "text",
+      "label": "Field2",
+      "order": 2,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________________________________",
+      "candidateIds": [
+        "blank_002"
+      ],
+      "surroundingContext": "By_________________________________________\nBy_________________________________________\n_________________________________________"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 3,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________________________________",
+      "candidateIds": [
+        "blank_003"
+      ],
+      "surroundingContext": "By:_________________________________________\nBy:_________________________________________\n_________________________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

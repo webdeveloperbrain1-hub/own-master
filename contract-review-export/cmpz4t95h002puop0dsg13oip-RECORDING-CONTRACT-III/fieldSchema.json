@@ -1,0 +1,105 @@
+{
+  "fields": [
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 1,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________________",
+      "candidateIds": [
+        "blank_001"
+      ],
+      "surroundingContext": "COMPANY:_______________________________________\nCOMPANY:_______________________________________\n_______________________________________"
+    },
+    {
+      "key": "field2",
+      "type": "text",
+      "label": "Field2",
+      "order": 2,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________",
+      "candidateIds": [
+        "blank_002"
+      ],
+      "surroundingContext": "ARTIST (S)_______________________________________________\nARTIST (S)_______________________________________________\n_______________________________________________"
+    },
+    {
+      "key": "field3",
+      "type": "text",
+      "label": "Field3",
+      "order": 3,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "____________________________________________________",
+      "candidateIds": [
+        "blank_003"
+      ],
+      "surroundingContext": "Names____________________________________________________\nNames____________________________________________________\n____________________________________________________"
+    },
+    {
+      "key": "field4",
+      "type": "text",
+      "label": "Field4",
+      "order": 4,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________________________________________",
+      "candidateIds": [
+        "blank_004",
+        "blank_005"
+      ],
+      "surroundingContext": "__________________________________________________________\n__________________________________________________________\n__________________________________________________________"
+    },
+    {
+      "key": "address",
+      "type": "textarea",
+      "label": "Address",
+      "order": 6,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "____________ | _________________",
+      "candidateIds": [
+        "blank_006",
+        "blank_007"
+      ],
+      "surroundingContext": "Addresses (City, State, & Zips) ____________ Telephones _________________ SSI#'s\nAddresses (City, State, & Zips) ____________ Telephones _________________ SSI#'s\n____________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "COMPANY:_______________________________________\nCOMPANY:_______________________________________\n_______________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "ARTIST (S)_______________________________________________\nARTIST (S)_______________________________________________\n_______________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_002"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

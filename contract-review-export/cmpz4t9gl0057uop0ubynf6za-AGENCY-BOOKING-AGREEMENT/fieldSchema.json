@@ -1,0 +1,313 @@
+{
+  "fields": [
+    {
+      "key": "artistSignature",
+      "type": "signature",
+      "label": "Artist Signature",
+      "order": 1,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "____ | __________ | 20___ | _____________________________ | ____ % | $ __________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_019",
+        "blank_020",
+        "blank_021"
+      ],
+      "surroundingContext": "THIS CONTRACT for the services of the music and/or entertainment described below made this ____th day of __________, 20___, between the undersigned Purchaser of music and/or entertainment (hereinafter called the Purchaser) and the undersigned Artist(s) (plus any accompanying musicians and/or entertainers) as described below, an independent contractor(s), (hereinafter called the \"Artist\").\nTHIS CONTRACT for the services of the music and/or entertainment described below made this ____th day of __________, 20___, between the undersigned Purchaser of music and/or entertainment (hereinafter called the Purchaser) and the undersigned Artist(s) (plus any accompanying musicians and/or entertainers) as described below, an independent contractor(s), (hereinafter called the \"Artist\").\n____"
+    },
+    {
+      "key": "artistName",
+      "type": "text",
+      "label": "Artist Name",
+      "order": 4,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________________________________ | _____",
+      "candidateIds": [
+        "blank_004",
+        "blank_005"
+      ],
+      "surroundingContext": "1. NAME OF ARTIST(S) ___________________________________NUMBER OF ARTIST(S) _____\n1. NAME OF ARTIST(S) ___________________________________NUMBER OF ARTIST(S) _____\n___________________________________"
+    },
+    {
+      "key": "field",
+      "type": "textarea",
+      "label": "Field",
+      "order": 6,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________________________________________",
+      "candidateIds": [
+        "blank_006"
+      ],
+      "surroundingContext": "2. PLACE OF ENGAGEMENT__________________________________________________________\n2. PLACE OF ENGAGEMENT__________________________________________________________\n__________________________________________________________"
+    },
+    {
+      "key": "address",
+      "type": "textarea",
+      "label": "Address",
+      "order": 7,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________________",
+      "candidateIds": [
+        "blank_007"
+      ],
+      "surroundingContext": "3. ADDRESS OF ENGAGEMENT_______________________________________________________\n3. ADDRESS OF ENGAGEMENT_______________________________________________________\n_______________________________________________________"
+    },
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 8,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________________________________________________",
+      "candidateIds": [
+        "blank_008"
+      ],
+      "surroundingContext": "4. DATE(S) OF ENGAGEMENT________________________________________________________\n4. DATE(S) OF ENGAGEMENT________________________________________________________\n________________________________________________________"
+    },
+    {
+      "key": "field2",
+      "type": "text",
+      "label": "Field2",
+      "order": 9,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________________ | ______________________",
+      "candidateIds": [
+        "blank_009",
+        "blank_010"
+      ],
+      "surroundingContext": "5. HOURS OF ENGAGEMENT _________________________ LOAD IN ______________________\n5. HOURS OF ENGAGEMENT _________________________ LOAD IN ______________________\n_________________________"
+    },
+    {
+      "key": "field3",
+      "type": "text",
+      "label": "Field3",
+      "order": 11,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________ | ________________________",
+      "candidateIds": [
+        "blank_011",
+        "blank_012"
+      ],
+      "surroundingContext": "6. TYPE OF ENGAGEMENT ___________________________ DRESS ________________________\n6. TYPE OF ENGAGEMENT ___________________________ DRESS ________________________\n___________________________"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 13,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "____________________________________________________________",
+      "candidateIds": [
+        "blank_013"
+      ],
+      "surroundingContext": "7. PRICE AGREED UPON ____________________________________________________________\n7. PRICE AGREED UPON ____________________________________________________________\n____________________________________________________________"
+    },
+    {
+      "key": "depositAmount",
+      "type": "currency",
+      "label": "Deposit Amount",
+      "order": 14,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "$ ____________________________________",
+      "candidateIds": [
+        "blank_014"
+      ],
+      "surroundingContext": "DEPOSIT $ ____________________________________, Payable to AGENT with return of contract.\nDEPOSIT $ ____________________________________, Payable to AGENT with return of contract.\n$ ____________________________________"
+    },
+    {
+      "key": "balanceAmount",
+      "type": "currency",
+      "label": "Balance Amount",
+      "order": 15,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "$ ___________________________________",
+      "candidateIds": [
+        "blank_015"
+      ],
+      "surroundingContext": "BALANCE $ ___________________________________, Payable to____________________________ in cash immediately upon conclusion of engagement.\nBALANCE $ ___________________________________, Payable to____________________________ in cash immediately upon conclusion of engagement.\n$ ___________________________________"
+    },
+    {
+      "key": "balanceAmount2",
+      "type": "currency",
+      "label": "Balance Amount2",
+      "order": 16,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "____________________________",
+      "candidateIds": [
+        "blank_016"
+      ],
+      "surroundingContext": "BALANCE $ ___________________________________, Payable to____________________________ in cash immediately upon conclusion of engagement.\nBALANCE $ ___________________________________, Payable to____________________________ in cash immediately upon conclusion of engagement.\n____________________________"
+    },
+    {
+      "key": "field4",
+      "type": "text",
+      "label": "Field4",
+      "order": 17,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________________________________________",
+      "candidateIds": [
+        "blank_017"
+      ],
+      "surroundingContext": "8. SOUND PROVIDED BY _____________________________________________________________\n8. SOUND PROVIDED BY _____________________________________________________________\n_____________________________________________________________"
+    },
+    {
+      "key": "field5",
+      "type": "text",
+      "label": "Field5",
+      "order": 18,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "____________________________________________________________",
+      "candidateIds": [
+        "blank_018"
+      ],
+      "surroundingContext": "LIGHTS PROVIDED BY ____________________________________________________________\nLIGHTS PROVIDED BY ____________________________________________________________\n____________________________________________________________"
+    },
+    {
+      "key": "field6",
+      "type": "text",
+      "label": "Field6",
+      "order": 22,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________________ | _____________",
+      "candidateIds": [
+        "blank_022",
+        "blank_023",
+        "blank_024",
+        "blank_025",
+        "blank_027",
+        "blank_028"
+      ],
+      "surroundingContext": "___________________________________ ___________________________________\n___________________________________ ___________________________________\n___________________________________"
+    },
+    {
+      "key": "field7",
+      "type": "textarea",
+      "label": "Field7",
+      "order": 26,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________________",
+      "candidateIds": [
+        "blank_026"
+      ],
+      "surroundingContext": "___________________________________\n___________________________________\n___________________________________"
+    }
+  ],
+  "source": "deterministic_fallback",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "THIS CONTRACT for the services of the music and/or entertainment described below made this ____th day of __________, 20___, between the undersigned Purchaser of music and/or entertainment (hereinafter called the Purchaser) and the undersigned Artist(s) (plus any accompanying musicians and/or entertainers) as described below, an independent contractor(s), (hereinafter called the \"Artist\").\nTHIS CONTRACT for the services of the music and/or entertainment described below made this ____th day of __________, 20___, between the undersigned Purchaser of music and/or entertainment (hereinafter called the Purchaser) and the undersigned Artist(s) (plus any accompanying musicians and/or entertainers) as described below, an independent contractor(s), (hereinafter called the \"Artist\").\n____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "THIS CONTRACT for the services of the music and/or entertainment described below made this ____th day of __________, 20___, between the undersigned Purchaser of music and/or entertainment (hereinafter called the Purchaser) and the undersigned Artist(s) (plus any accompanying musicians and/or entertainers) as described below, an independent contractor(s), (hereinafter called the \"Artist\").\nTHIS CONTRACT for the services of the music and/or entertainment described below made this ____th day of __________, 20___, between the undersigned Purchaser of music and/or entertainment (hereinafter called the Purchaser) and the undersigned Artist(s) (plus any accompanying musicians and/or entertainers) as described below, an independent contractor(s), (hereinafter called the \"Artist\").\n__________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_002"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "THIS CONTRACT for the services of the music and/or entertainment described below made this ____th day of __________, 20___, between the undersigned Purchaser of music and/or entertainment (hereinafter called the Purchaser) and the undersigned Artist(s) (plus any accompanying musicians and/or entertainers) as described below, an independent contractor(s), (hereinafter called the \"Artist\").\nTHIS CONTRACT for the services of the music and/or entertainment described below made this ____th day of __________, 20___, between the undersigned Purchaser of music and/or entertainment (hereinafter called the Purchaser) and the undersigned Artist(s) (plus any accompanying musicians and/or entertainers) as described below, an independent contractor(s), (hereinafter called the \"Artist\").\n20___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "1. NAME OF ARTIST(S) ___________________________________NUMBER OF ARTIST(S) _____\n1. NAME OF ARTIST(S) ___________________________________NUMBER OF ARTIST(S) _____\n___________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 5,
+      "context": "1. NAME OF ARTIST(S) ___________________________________NUMBER OF ARTIST(S) _____\n1. NAME OF ARTIST(S) ___________________________________NUMBER OF ARTIST(S) _____\n_____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "4. DATE(S) OF ENGAGEMENT________________________________________________________\n4. DATE(S) OF ENGAGEMENT________________________________________________________\n________________________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 19,
+      "context": "12. THE ARTIST, leader, manager, or representative of the Artist(s) _____________________________ agrees and guarantees to pay ____ % percent of the agreed price $ __________________ (Section 7 above) for personal services, booking fee, contract fee, and telephone expense rendered and incurred in this transaction to AGENT. This commission is due and payable when all parties have signed this Contract and must be paid within five days after the date that the Artist(s) is to perform for the Purchaser except where Agent has already retained said commission from the deposit already paid by Purchaser.\n12. THE ARTIST, leader, manager, or representative of the Artist(s) _____________________________ agrees and guarantees to pay ____ % percent of the agreed price $ __________________ (Section 7 above) for personal services, booking fee, contract fee, and telephone expense rendered and incurred in this transaction to AGENT. This commission is due and payable when all parties have signed this Contract and must be paid within five days after the date that the Artist(s) is to perform for the Purchaser except where Agent has already retained said commission from the deposit already paid by Purchaser.\n_____________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_019"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 20,
+      "context": "12. THE ARTIST, leader, manager, or representative of the Artist(s) _____________________________ agrees and guarantees to pay ____ % percent of the agreed price $ __________________ (Section 7 above) for personal services, booking fee, contract fee, and telephone expense rendered and incurred in this transaction to AGENT. This commission is due and payable when all parties have signed this Contract and must be paid within five days after the date that the Artist(s) is to perform for the Purchaser except where Agent has already retained said commission from the deposit already paid by Purchaser.\n12. THE ARTIST, leader, manager, or representative of the Artist(s) _____________________________ agrees and guarantees to pay ____ % percent of the agreed price $ __________________ (Section 7 above) for personal services, booking fee, contract fee, and telephone expense rendered and incurred in this transaction to AGENT. This commission is due and payable when all parties have signed this Contract and must be paid within five days after the date that the Artist(s) is to perform for the Purchaser except where Agent has already retained said commission from the deposit already paid by Purchaser.\n____ %",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_020"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 21,
+      "context": "12. THE ARTIST, leader, manager, or representative of the Artist(s) _____________________________ agrees and guarantees to pay ____ % percent of the agreed price $ __________________ (Section 7 above) for personal services, booking fee, contract fee, and telephone expense rendered and incurred in this transaction to AGENT. This commission is due and payable when all parties have signed this Contract and must be paid within five days after the date that the Artist(s) is to perform for the Purchaser except where Agent has already retained said commission from the deposit already paid by Purchaser.\n12. THE ARTIST, leader, manager, or representative of the Artist(s) _____________________________ agrees and guarantees to pay ____ % percent of the agreed price $ __________________ (Section 7 above) for personal services, booking fee, contract fee, and telephone expense rendered and incurred in this transaction to AGENT. This commission is due and payable when all parties have signed this Contract and must be paid within five days after the date that the Artist(s) is to perform for the Purchaser except where Agent has already retained said commission from the deposit already paid by Purchaser.\n$ __________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_021"
+      ]
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

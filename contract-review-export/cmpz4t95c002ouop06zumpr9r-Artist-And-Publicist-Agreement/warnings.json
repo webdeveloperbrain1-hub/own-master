@@ -1,0 +1,92 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "ARTIST AND PUBLICIST AGREEMENT\nThis Agreement is hereby entered into on ______________, 20___ by and between\n____________________, with the Stage Name of “__________________” hereinafter\nThis Agreement is hereby entered into on ______________, 20___ by and between\n______________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 2,
+    "context": "ARTIST AND PUBLICIST AGREEMENT\nThis Agreement is hereby entered into on ______________, 20___ by and between\n____________________, with the Stage Name of “__________________” hereinafter\nThis Agreement is hereby entered into on ______________, 20___ by and between\n20___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_002"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 3,
+    "context": "This Agreement is hereby entered into on ______________, 20___ by and between\n____________________, with the Stage Name of “__________________” hereinafter\nreferred to as “Artist” and _________________________ of ______________________\n____________________, with the Stage Name of “__________________” hereinafter\n____________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_003"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "This Agreement is hereby entered into on ______________, 20___ by and between\n____________________, with the Stage Name of “__________________” hereinafter\nreferred to as “Artist” and _________________________ of ______________________\n____________________, with the Stage Name of “__________________” hereinafter\n__________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "____________________, with the Stage Name of “__________________” hereinafter\nreferred to as “Artist” and _________________________ of ______________________\nhereinafter referred to as “Publicist.”\nreferred to as “Artist” and _________________________ of ______________________\n_________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 6,
+    "context": "____________________, with the Stage Name of “__________________” hereinafter\nreferred to as “Artist” and _________________________ of ______________________\nhereinafter referred to as “Publicist.”\nreferred to as “Artist” and _________________________ of ______________________\n______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_006"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 7,
+    "context": "In consideration of services performed herein described, Artist shall pay a sum of\n_____________ per ______________.\n1. TERM.\n_____________ per ______________.\n_____________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_007"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 8,
+    "context": "In consideration of services performed herein described, Artist shall pay a sum of\n_____________ per ______________.\n1. TERM.\n_____________ per ______________.\n______________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_008"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 12,
+    "context": "setting their names below.\n____________________________\nARTIST\n____________________________\n____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_012"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 13,
+    "context": "ARTIST\n____________________________\nPUBLICIST\n____________________________\n____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_013"
+    ]
+  }
+]

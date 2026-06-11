@@ -1,0 +1,62 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "I, _________, hereby grant _________________ and its agents the right to video/audio tape my likeness/voice/performance and/or the likeness/voice/performance of ________________ (name of group), in connection with the production and distribution of the video/audio tape presentation named below, and that said video/audio tape may be broadcast or otherwise transmitted by ______________ its successors or assigns. I agree that you may copyright said video/audio tape.\nI, _________, hereby grant _________________ and its agents the right to video/audio tape my likeness/voice/performance and/or the likeness/voice/performance of ________________ (name of group), in connection with the production and distribution of the video/audio tape presentation named below, and that said video/audio tape may be broadcast or otherwise transmitted by ______________ its successors or assigns. I agree that you may copyright said video/audio tape.\n_________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 2,
+    "context": "I, _________, hereby grant _________________ and its agents the right to video/audio tape my likeness/voice/performance and/or the likeness/voice/performance of ________________ (name of group), in connection with the production and distribution of the video/audio tape presentation named below, and that said video/audio tape may be broadcast or otherwise transmitted by ______________ its successors or assigns. I agree that you may copyright said video/audio tape.\nI, _________, hereby grant _________________ and its agents the right to video/audio tape my likeness/voice/performance and/or the likeness/voice/performance of ________________ (name of group), in connection with the production and distribution of the video/audio tape presentation named below, and that said video/audio tape may be broadcast or otherwise transmitted by ______________ its successors or assigns. I agree that you may copyright said video/audio tape.\n_________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_002"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 3,
+    "context": "I, _________, hereby grant _________________ and its agents the right to video/audio tape my likeness/voice/performance and/or the likeness/voice/performance of ________________ (name of group), in connection with the production and distribution of the video/audio tape presentation named below, and that said video/audio tape may be broadcast or otherwise transmitted by ______________ its successors or assigns. I agree that you may copyright said video/audio tape.\nI, _________, hereby grant _________________ and its agents the right to video/audio tape my likeness/voice/performance and/or the likeness/voice/performance of ________________ (name of group), in connection with the production and distribution of the video/audio tape presentation named below, and that said video/audio tape may be broadcast or otherwise transmitted by ______________ its successors or assigns. I agree that you may copyright said video/audio tape.\n________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_003"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "I, _________, hereby grant _________________ and its agents the right to video/audio tape my likeness/voice/performance and/or the likeness/voice/performance of ________________ (name of group), in connection with the production and distribution of the video/audio tape presentation named below, and that said video/audio tape may be broadcast or otherwise transmitted by ______________ its successors or assigns. I agree that you may copyright said video/audio tape.\nI, _________, hereby grant _________________ and its agents the right to video/audio tape my likeness/voice/performance and/or the likeness/voice/performance of ________________ (name of group), in connection with the production and distribution of the video/audio tape presentation named below, and that said video/audio tape may be broadcast or otherwise transmitted by ______________ its successors or assigns. I agree that you may copyright said video/audio tape.\n______________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 7,
+    "context": "Date: _________________________ Signature _________________________________\nDate: _________________________ Signature _________________________________\n_________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_007"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 8,
+    "context": "Date: _________________________ Signature _________________________________\nDate: _________________________ Signature _________________________________\n_________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_008"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

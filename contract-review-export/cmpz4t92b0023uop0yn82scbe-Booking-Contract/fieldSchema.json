@@ -1,0 +1,69 @@
+{
+  "fields": [
+    {
+      "key": "artistSignature",
+      "type": "signature",
+      "label": "Artist Signature",
+      "order": 1,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________________ | ________ | 20_____",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003"
+      ],
+      "surroundingContext": "THIS CONTRACT, entered into on this ________________ day of ________, 20_____, is for the personal services of the Musician(s) for the performance described below. The undersigned employer and the undersigned musician(s) agree and contract as follows:\nTHIS CONTRACT, entered into on this ________________ day of ________, 20_____, is for the personal services of the Musician(s) for the performance described below. The undersigned employer and the undersigned musician(s) agree and contract as follows:\n________________"
+    },
+    {
+      "key": "balanceAmount",
+      "type": "currency",
+      "label": "Balance Amount",
+      "order": 4,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_____________________________________________",
+      "candidateIds": [
+        "blank_004"
+      ],
+      "surroundingContext": "PAYMENT OF BALANCE TO _____________________________________________\nPAYMENT OF BALANCE TO _____________________________________________\n_____________________________________________"
+    },
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 5,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________________ | __________________________________",
+      "candidateIds": [
+        "blank_005",
+        "blank_006"
+      ],
+      "surroundingContext": "___________________________________ __________________________________\n___________________________________ __________________________________\n___________________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "PAYMENT OF BALANCE TO _____________________________________________\nPAYMENT OF BALANCE TO _____________________________________________\n_____________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

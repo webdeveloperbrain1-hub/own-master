@@ -1,0 +1,17 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "7. DEPOSIT:\n8. PAYMENT OF BALANCE TO _____________________________________________\nMADE IN U.S. CURRENCY OR CERTIFIED CHECK AT THE END OF PERFORMANCE.\n8. PAYMENT OF BALANCE TO _____________________________________________\n_____________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

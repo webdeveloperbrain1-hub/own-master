@@ -1,0 +1,62 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "I, _______________________________, (herein known as \"Artist\") do hereby agree not to produce, sell, or market the recordings below listed until the debt and obligation to the parties herein listed are paid in full. The musical compositions shall include and are limited to:\nI, _______________________________, (herein known as \"Artist\") do hereby agree not to produce, sell, or market the recordings below listed until the debt and obligation to the parties herein listed are paid in full. The musical compositions shall include and are limited to:\n_______________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 12,
+    "context": "These song(s) were recorded at ___________________________ Studios in the City of _________________ in the State of ______________________ at the address of ________________________________ on the the date(s) of:_____________________________\nThese song(s) were recorded at ___________________________ Studios in the City of _________________ in the State of ______________________ at the address of ________________________________ on the the date(s) of:_____________________________\n___________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_012"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 13,
+    "context": "These song(s) were recorded at ___________________________ Studios in the City of _________________ in the State of ______________________ at the address of ________________________________ on the the date(s) of:_____________________________\nThese song(s) were recorded at ___________________________ Studios in the City of _________________ in the State of ______________________ at the address of ________________________________ on the the date(s) of:_____________________________\n_________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_013"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 14,
+    "context": "These song(s) were recorded at ___________________________ Studios in the City of _________________ in the State of ______________________ at the address of ________________________________ on the the date(s) of:_____________________________\nThese song(s) were recorded at ___________________________ Studios in the City of _________________ in the State of ______________________ at the address of ________________________________ on the the date(s) of:_____________________________\n______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_014"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 15,
+    "context": "These song(s) were recorded at ___________________________ Studios in the City of _________________ in the State of ______________________ at the address of ________________________________ on the the date(s) of:_____________________________\nThese song(s) were recorded at ___________________________ Studios in the City of _________________ in the State of ______________________ at the address of ________________________________ on the the date(s) of:_____________________________\n________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_015"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 16,
+    "context": "These song(s) were recorded at ___________________________ Studios in the City of _________________ in the State of ______________________ at the address of ________________________________ on the the date(s) of:_____________________________\nThese song(s) were recorded at ___________________________ Studios in the City of _________________ in the State of ______________________ at the address of ________________________________ on the the date(s) of:_____________________________\n_____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_016"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

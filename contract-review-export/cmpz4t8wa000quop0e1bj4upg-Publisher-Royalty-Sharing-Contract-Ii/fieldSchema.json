@@ -1,0 +1,147 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________________________________",
+      "candidateIds": [
+        "blank_001"
+      ],
+      "surroundingContext": "AGREEMENT made and entered into this herein below date, by and between\n___________________________________ (hereinafter referred to as the \"Publisher\") and\n___________________________________ (hereinafter referred to as \"Assignee\").\n___________________________________ (hereinafter referred to as the \"Publisher\") and\n___________________________________"
+    },
+    {
+      "key": "publisherName",
+      "type": "text",
+      "label": "Publisher Name",
+      "order": 2,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________________________________",
+      "candidateIds": [
+        "blank_002"
+      ],
+      "surroundingContext": "___________________________________ (hereinafter referred to as the \"Publisher\") and\n___________________________________ (hereinafter referred to as \"Assignee\").\nThe Publisher and Assignee agrees as follows concerning the musical composition now entitled:\n___________________________________ (hereinafter referred to as \"Assignee\").\n___________________________________"
+    },
+    {
+      "key": "publisherName2",
+      "type": "text",
+      "label": "Publisher Name2",
+      "order": 3,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "____________________________________________________________________________________",
+      "candidateIds": [
+        "blank_003"
+      ],
+      "surroundingContext": "The Publisher and Assignee agrees as follows concerning the musical composition now entitled:\n____________________________________________________________________________________\nwritten by ___________________________________________________________________________\n____________________________________________________________________________________\n____________________________________________________________________________________"
+    },
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 4,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________________________________________________________",
+      "candidateIds": [
+        "blank_004"
+      ],
+      "surroundingContext": "____________________________________________________________________________________\nwritten by ___________________________________________________________________________\nFor good and valuable consideration by each of the parties hereto given to the other, receipt of\nwritten by ___________________________________________________________________________\n___________________________________________________________________________"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 5,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________ | 20_____",
+      "candidateIds": [
+        "blank_005",
+        "blank_006",
+        "blank_007"
+      ],
+      "surroundingContext": "Assignee and upon whatever terms it deems wise or wishes.\nIN WITNESS WHEREOF, we hereunto set our hands this ________,day of ________, 20_____.\n______________________________ ______________________________\nIN WITNESS WHEREOF, we hereunto set our hands this ________,day of ________, 20_____.\n________"
+    },
+    {
+      "key": "publisherSignature",
+      "type": "signature",
+      "label": "Publisher Signature",
+      "order": 8,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________________________",
+      "candidateIds": [
+        "blank_008",
+        "blank_009"
+      ],
+      "surroundingContext": "IN WITNESS WHEREOF, we hereunto set our hands this ________,day of ________, 20_____.\n______________________________ ______________________________\nPUBLISHER ASSIGNEE\n______________________________ ______________________________\n______________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "AGREEMENT made and entered into this herein below date, by and between\n___________________________________ (hereinafter referred to as the \"Publisher\") and\n___________________________________ (hereinafter referred to as \"Assignee\").\n___________________________________ (hereinafter referred to as the \"Publisher\") and\n___________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "___________________________________ (hereinafter referred to as the \"Publisher\") and\n___________________________________ (hereinafter referred to as \"Assignee\").\nThe Publisher and Assignee agrees as follows concerning the musical composition now entitled:\n___________________________________ (hereinafter referred to as \"Assignee\").\n___________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_002"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "The Publisher and Assignee agrees as follows concerning the musical composition now entitled:\n____________________________________________________________________________________\nwritten by ___________________________________________________________________________\n____________________________________________________________________________________\n____________________________________________________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "IN WITNESS WHEREOF, we hereunto set our hands this ________,day of ________, 20_____.\n______________________________ ______________________________\nPUBLISHER ASSIGNEE\n______________________________ ______________________________\n______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "IN WITNESS WHEREOF, we hereunto set our hands this ________,day of ________, 20_____.\n______________________________ ______________________________\nPUBLISHER ASSIGNEE\n______________________________ ______________________________\n______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

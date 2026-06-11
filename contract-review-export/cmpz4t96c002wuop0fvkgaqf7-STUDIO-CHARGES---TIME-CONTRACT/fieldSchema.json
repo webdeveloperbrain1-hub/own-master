@@ -1,0 +1,156 @@
+{
+  "fields": [
+    {
+      "key": "paymentAmount",
+      "type": "currency",
+      "label": "Payment Amount",
+      "order": 1,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "$_______ | _______",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003"
+      ],
+      "surroundingContext": "1. Client agrees to the hourly rate of $_______ an hour, or $_______ each day, at _______ hours per billable day.\n1. Client agrees to the hourly rate of $_______ an hour, or $_______ each day, at _______ hours per billable day.\n$_______"
+    },
+    {
+      "key": "advanceAmount",
+      "type": "currency",
+      "label": "Advance Amount",
+      "order": 4,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______",
+      "candidateIds": [
+        "blank_004",
+        "blank_005"
+      ],
+      "surroundingContext": "2. Client is responsible for all monies due to Studio, and shall make payment to Studio as follows: (delete non-applicable terms) (a) in advance; (b) upon conclusion of recording session; (c) within _______ days after the end of the recording session; (d) within _______ days of completion of recording project.\n2. Client is responsible for all monies due to Studio, and shall make payment to Studio as follows: (delete non-applicable terms) (a) in advance; (b) upon conclusion of recording session; (c) within _______ days after the end of the recording session; (d) within _______ days of completion of recording project.\n_______"
+    },
+    {
+      "key": "projectTitle",
+      "type": "text",
+      "label": "Project Title",
+      "order": 6,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______",
+      "candidateIds": [
+        "blank_006"
+      ],
+      "surroundingContext": "6. Clients recording media left on premises ______ days after completion of last recording session or service shall become the property of Studio if all monies due Studio have not been paid.\n6. Clients recording media left on premises ______ days after completion of last recording session or service shall become the property of Studio if all monies due Studio have not been paid.\n______"
+    },
+    {
+      "key": "projectTitle2",
+      "type": "text",
+      "label": "Project Title2",
+      "order": 7,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______",
+      "candidateIds": [
+        "blank_007"
+      ],
+      "surroundingContext": "7. Clients recording media left on premises ______ days after completion of last recording session or service shall become the property of Studio if all monies due Studio have been paid.\n7. Clients recording media left on premises ______ days after completion of last recording session or service shall become the property of Studio if all monies due Studio have been paid.\n______"
+    },
+    {
+      "key": "paymentAmount2",
+      "type": "currency",
+      "label": "Payment Amount2",
+      "order": 8,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______",
+      "candidateIds": [
+        "blank_008",
+        "blank_009"
+      ],
+      "surroundingContext": "8. All rented tapes shall be erased _______ days after completion of last recording session or service unless Client makes purchase payment for said tape(s) at full retail purchase price set forth by Studio within _______ days after completion of last recording session or service.\n8. All rented tapes shall be erased _______ days after completion of last recording session or service unless Client makes purchase payment for said tape(s) at full retail purchase price set forth by Studio within _______ days after completion of last recording session or service.\n_______"
+    },
+    {
+      "key": "royaltyRate",
+      "type": "percentage",
+      "label": "Royalty Rate",
+      "order": 10,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______ % | _______",
+      "candidateIds": [
+        "blank_010",
+        "blank_011"
+      ],
+      "surroundingContext": "11. In the event of cancellation of recording session or other scheduled service by Client, Client shall be responsible for ______ % of cost of services scheduled if cancellation occurs within _______ hours of the scheduled recording session or service.\n11. In the event of cancellation of recording session or other scheduled service by Client, Client shall be responsible for ______ % of cost of services scheduled if cancellation occurs within _______ hours of the scheduled recording session or service.\n______ %"
+    },
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 12,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______ | ______________ | ____",
+      "candidateIds": [
+        "blank_012",
+        "blank_013",
+        "blank_014"
+      ],
+      "surroundingContext": "Executed on the _______day of ______________ 20 ____.\nExecuted on the _______day of ______________ 20 ____.\n_______"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "2. Client is responsible for all monies due to Studio, and shall make payment to Studio as follows: (delete non-applicable terms) (a) in advance; (b) upon conclusion of recording session; (c) within _______ days after the end of the recording session; (d) within _______ days of completion of recording project.\n2. Client is responsible for all monies due to Studio, and shall make payment to Studio as follows: (delete non-applicable terms) (a) in advance; (b) upon conclusion of recording session; (c) within _______ days after the end of the recording session; (d) within _______ days of completion of recording project.\n_______",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 5,
+      "context": "2. Client is responsible for all monies due to Studio, and shall make payment to Studio as follows: (delete non-applicable terms) (a) in advance; (b) upon conclusion of recording session; (c) within _______ days after the end of the recording session; (d) within _______ days of completion of recording project.\n2. Client is responsible for all monies due to Studio, and shall make payment to Studio as follows: (delete non-applicable terms) (a) in advance; (b) upon conclusion of recording session; (c) within _______ days after the end of the recording session; (d) within _______ days of completion of recording project.\n_______",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "8. All rented tapes shall be erased _______ days after completion of last recording session or service unless Client makes purchase payment for said tape(s) at full retail purchase price set forth by Studio within _______ days after completion of last recording session or service.\n8. All rented tapes shall be erased _______ days after completion of last recording session or service unless Client makes purchase payment for said tape(s) at full retail purchase price set forth by Studio within _______ days after completion of last recording session or service.\n_______",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "8. All rented tapes shall be erased _______ days after completion of last recording session or service unless Client makes purchase payment for said tape(s) at full retail purchase price set forth by Studio within _______ days after completion of last recording session or service.\n8. All rented tapes shall be erased _______ days after completion of last recording session or service unless Client makes purchase payment for said tape(s) at full retail purchase price set forth by Studio within _______ days after completion of last recording session or service.\n_______",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

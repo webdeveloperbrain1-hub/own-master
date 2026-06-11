@@ -1,0 +1,29 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 3,
+    "context": "performance. Lighting focus shall be completed ___________ in advance of\nperformance. Lighting focus shall be completed ___________ in advance of\n___________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_003"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "inventory _______ weeks prior to ARTIST'S arrival; equipment necessary to\ninventory _______ weeks prior to ARTIST'S arrival; equipment necessary to\n_______",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 9,
+    "context": "Name of Artist _______________________________\nName of Artist _______________________________\n_______________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_009"
+    ]
+  }
+]

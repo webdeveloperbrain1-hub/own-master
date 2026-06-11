@@ -1,0 +1,234 @@
+{
+  "fields": [
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 1,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________________________________________________________ | ____________________________________________________________________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_005"
+      ],
+      "surroundingContext": "Name:___________________________________________________________________________\nName:___________________________________________________________________________\n___________________________________________________________________________"
+    },
+    {
+      "key": "address",
+      "type": "textarea",
+      "label": "Address",
+      "order": 2,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________________________________________________________________",
+      "candidateIds": [
+        "blank_002",
+        "blank_006"
+      ],
+      "surroundingContext": "Address:_________________________________________________________________________\nAddress:_________________________________________________________________________\n_________________________________________________________________________"
+    },
+    {
+      "key": "field2",
+      "type": "text",
+      "label": "Field2",
+      "order": 3,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________________",
+      "candidateIds": [
+        "blank_003",
+        "blank_007"
+      ],
+      "surroundingContext": "Telephone:_____________________________________\nTelephone:_____________________________________\n_____________________________________"
+    },
+    {
+      "key": "paymentAmount",
+      "type": "currency",
+      "label": "Payment Amount",
+      "order": 4,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________________________________________",
+      "candidateIds": [
+        "blank_004"
+      ],
+      "surroundingContext": "for and in consideration of the sum of ________________________________________ ($ ) and other valuable consideration, receipt of which is hereby acknowledged, does hereby assign, transfer, to the\nfor and in consideration of the sum of ________________________________________ ($ ) and other valuable consideration, receipt of which is hereby acknowledged, does hereby assign, transfer, to the\n________________________________________"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 8,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_____________________________ | _____________ | 20_____ | _________________________ | ________________ | ___________________ | _________________ | __________ | _____________ | ________________ | 20___",
+      "candidateIds": [
+        "blank_008",
+        "blank_009",
+        "blank_010",
+        "blank_011",
+        "blank_012",
+        "blank_013",
+        "blank_014",
+        "blank_015",
+        "blank_016",
+        "blank_017",
+        "blank_018"
+      ],
+      "surroundingContext": "written and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\nwritten and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\n_____________________________"
+    },
+    {
+      "key": "signature2",
+      "type": "signature",
+      "label": "Signature2",
+      "order": 19,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________________________",
+      "candidateIds": [
+        "blank_019"
+      ],
+      "surroundingContext": "ASSIGNEE: By: ______________________________________________\nASSIGNEE: By: ______________________________________________\n______________________________________________"
+    },
+    {
+      "key": "signature3",
+      "type": "signature",
+      "label": "Signature3",
+      "order": 20,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________",
+      "candidateIds": [
+        "blank_020"
+      ],
+      "surroundingContext": "WITNESS: By: _______________________________________________\nWITNESS: By: _______________________________________________\n_______________________________________________"
+    },
+    {
+      "key": "field3",
+      "type": "text",
+      "label": "Field3",
+      "order": 21,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________________________",
+      "candidateIds": [
+        "blank_021"
+      ],
+      "surroundingContext": "Name __________________________________________\nName __________________________________________\n__________________________________________"
+    },
+    {
+      "key": "address2",
+      "type": "textarea",
+      "label": "Address2",
+      "order": 22,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________________________",
+      "candidateIds": [
+        "blank_022"
+      ],
+      "surroundingContext": "Address___________________________________________\nAddress___________________________________________\n___________________________________________"
+    },
+    {
+      "key": "field4",
+      "type": "textarea",
+      "label": "Field4",
+      "order": 23,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________________________",
+      "candidateIds": [
+        "blank_023"
+      ],
+      "surroundingContext": "___________________________________________\n___________________________________________\n___________________________________________"
+    }
+  ],
+  "source": "deterministic_fallback",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "written and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\nwritten and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\n_____________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "written and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\nwritten and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\n_____________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 10,
+      "context": "written and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\nwritten and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\n20_____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_010"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 11,
+      "context": "written and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\nwritten and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\n_________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_011"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 12,
+      "context": "written and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\nwritten and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\n________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_012"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 13,
+      "context": "written and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\nwritten and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\n___________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_013"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 14,
+      "context": "written and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\nwritten and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\n_________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_014"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 15,
+      "context": "written and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\nwritten and composed by _____________________________ together with any and all assignor's existing copyrights therein throughout the United States and the world, and any and all assignor's rights of every kind, nature or description attaching to or which may attach to said musical composition and/or embraces or included in the copyright thereof in the United States and entire world, which said composition the undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright Office of the United States of America on _________________________, under Copyright Entry, Class E, Copyright Number ________________. The form U registration is registered on ___________________ in Volume _________________, page __________.\n__________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_015"
+      ]
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

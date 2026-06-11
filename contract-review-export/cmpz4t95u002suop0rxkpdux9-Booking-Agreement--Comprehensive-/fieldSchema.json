@@ -1,0 +1,485 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________ | 20__ | ______________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004"
+      ],
+      "surroundingContext": "BOOKING AGREEMENT (COMPREHENSIVE)\nThis Agreement is entered into on this day, ________________, 20__ by\nand between ______________________, (a.k.a. ______________________) hereinafter\nThis Agreement is entered into on this day, ________________, 20__ by\n________________"
+    },
+    {
+      "key": "artistName",
+      "type": "text",
+      "label": "Artist Name",
+      "order": 5,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________________",
+      "candidateIds": [
+        "blank_005"
+      ],
+      "surroundingContext": "and between ______________________, (a.k.a. ______________________) hereinafter\nreferred to as “Artist” and ______________________ (Name) of\n(Venue or Agency) located at ______________________ (Address) hereinafter referredto as “Client”. For the mutual promises, obligations and considerations set forth herein,\nreferred to as “Artist” and ______________________ (Name) of\n______________________"
+    },
+    {
+      "key": "artistName2",
+      "type": "text",
+      "label": "Artist Name2",
+      "order": 6,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________________",
+      "candidateIds": [
+        "blank_006"
+      ],
+      "surroundingContext": "referred to as “Artist” and ______________________ (Name) of\n(Venue or Agency) located at ______________________ (Address) hereinafter referredto as “Client”. For the mutual promises, obligations and considerations set forth herein,\nthe parties agree to be bound as follows:\n(Venue or Agency) located at ______________________ (Address) hereinafter referredto as “Client”. For the mutual promises, obligations and considerations set forth herein,\n______________________"
+    },
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 7,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________",
+      "candidateIds": [
+        "blank_007"
+      ],
+      "surroundingContext": "Client shall provide the following equipment:\n_______________________________________________,\n_______________________________________________,\n_______________________________________________,\n_______________________________________________"
+    },
+    {
+      "key": "field2",
+      "type": "text",
+      "label": "Field2",
+      "order": 8,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________",
+      "candidateIds": [
+        "blank_008",
+        "blank_009",
+        "blank_010",
+        "blank_014",
+        "blank_015",
+        "blank_016"
+      ],
+      "surroundingContext": "_______________________________________________,\n_______________________________________________,\n_______________________________________________,\n_______________________________________________,\n_______________________________________________"
+    },
+    {
+      "key": "field3",
+      "type": "text",
+      "label": "Field3",
+      "order": 11,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________",
+      "candidateIds": [
+        "blank_011",
+        "blank_017"
+      ],
+      "surroundingContext": "_______________________________________________,\n_______________________________________________,\n_______________________________________________.\n_______________________________________________,\n_______________________________________________"
+    },
+    {
+      "key": "field4",
+      "type": "text",
+      "label": "Field4",
+      "order": 12,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________",
+      "candidateIds": [
+        "blank_012"
+      ],
+      "surroundingContext": "_______________________________________________,\n_______________________________________________.\nIf equipment of these specifications is not available, Client must obtain Artist’s express\n_______________________________________________.\n_______________________________________________"
+    },
+    {
+      "key": "field5",
+      "type": "text",
+      "label": "Field5",
+      "order": 13,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________",
+      "candidateIds": [
+        "blank_013"
+      ],
+      "surroundingContext": "Client shall provide the following required items as requested by Artist:\n_______________________________________________,\n_______________________________________________,\n_______________________________________________,\n_______________________________________________"
+    },
+    {
+      "key": "field6",
+      "type": "text",
+      "label": "Field6",
+      "order": 18,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________",
+      "candidateIds": [
+        "blank_018"
+      ],
+      "surroundingContext": "_______________________________________________,\n_______________________________________________.\nD. Venue/Licensing/Permits\n_______________________________________________.\n_______________________________________________"
+    },
+    {
+      "key": "artistSignature",
+      "type": "signature",
+      "label": "Artist Signature",
+      "order": 19,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "$___________",
+      "candidateIds": [
+        "blank_019"
+      ],
+      "surroundingContext": "In exchange for the services specified in this Agreement, Client agrees to pay to Artist the\ntotal sum of $___________. This fee is exclusive of any travel, accommodations, or\nrider costs agreed to under this Agreement. Client agrees to pay 50% of the total fee\ntotal sum of $___________. This fee is exclusive of any travel, accommodations, or\n$___________"
+    },
+    {
+      "key": "artistName3",
+      "type": "text",
+      "label": "Artist Name3",
+      "order": 20,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__________________________________",
+      "candidateIds": [
+        "blank_020"
+      ],
+      "surroundingContext": "Where the location of performances under this contract is greater than two hundred (200)\nmiles from __________________________________ (home city and state of Artist)\nhereinafter referred to “Home”, Client shall be responsible to provide round-trip air\nmiles from __________________________________ (home city and state of Artist)\n__________________________________"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 21,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________",
+      "candidateIds": [
+        "blank_021"
+      ],
+      "surroundingContext": "and judgment may be entered upon it in accordance with applicable law in any court\nhaving jurisdiction thereof. Venue will be in __________________ county in the state of\n__________________. Client further consents to the arbitrator who is appointed in said\nhaving jurisdiction thereof. Venue will be in __________________ county in the state of\n__________________"
+    },
+    {
+      "key": "governingState2",
+      "type": "text",
+      "label": "Governing State2",
+      "order": 22,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________",
+      "candidateIds": [
+        "blank_022"
+      ],
+      "surroundingContext": "having jurisdiction thereof. Venue will be in __________________ county in the state of\n__________________. Client further consents to the arbitrator who is appointed in said\nproceeding.\n__________________. Client further consents to the arbitrator who is appointed in said\n__________________"
+    },
+    {
+      "key": "governingState3",
+      "type": "text",
+      "label": "Governing State3",
+      "order": 23,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________",
+      "candidateIds": [
+        "blank_023"
+      ],
+      "surroundingContext": "This Agreement shall be construed in accordance with the laws of\nthe State of _______________________________.\nK. Cancellation.\nthe State of _______________________________.\n_______________________________"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 24,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________ | __________________________________",
+      "candidateIds": [
+        "blank_024",
+        "blank_025"
+      ],
+      "surroundingContext": "that they are legally permitted to enter into valid, binding contracts.\n_______________________________________________\nClient (signature)\n_______________________________________________\n_______________________________________________"
+    },
+    {
+      "key": "address",
+      "type": "textarea",
+      "label": "Address",
+      "order": 26,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________________",
+      "candidateIds": [
+        "blank_026"
+      ],
+      "surroundingContext": "Client: __________________________________\nAddress: __________________________________\n__________________________________\nAddress: __________________________________\n__________________________________"
+    },
+    {
+      "key": "address2",
+      "type": "textarea",
+      "label": "Address2",
+      "order": 27,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________________",
+      "candidateIds": [
+        "blank_027",
+        "blank_034"
+      ],
+      "surroundingContext": "Address: __________________________________\n__________________________________\n__________________________________\n__________________________________\n__________________________________"
+    },
+    {
+      "key": "field7",
+      "type": "textarea",
+      "label": "Field7",
+      "order": 28,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________________",
+      "candidateIds": [
+        "blank_028",
+        "blank_035"
+      ],
+      "surroundingContext": "__________________________________\n__________________________________\nPhone: __________________________________\n__________________________________\n__________________________________"
+    },
+    {
+      "key": "agreementDate2",
+      "type": "date",
+      "label": "Agreement Date2",
+      "order": 29,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__________________________________ | _______________________________________________",
+      "candidateIds": [
+        "blank_029",
+        "blank_030",
+        "blank_031",
+        "blank_036"
+      ],
+      "surroundingContext": "__________________________________\nPhone: __________________________________\nDated: __________________________________\nPhone: __________________________________\n__________________________________"
+    },
+    {
+      "key": "address3",
+      "type": "textarea",
+      "label": "Address3",
+      "order": 32,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__________________________________",
+      "candidateIds": [
+        "blank_032"
+      ],
+      "surroundingContext": "Artist or Authorized Representative of Artist\nArtist: __________________________________\nAddress: __________________________________\nArtist: __________________________________\n__________________________________"
+    },
+    {
+      "key": "address4",
+      "type": "textarea",
+      "label": "Address4",
+      "order": 33,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__________________________________",
+      "candidateIds": [
+        "blank_033"
+      ],
+      "surroundingContext": "Artist: __________________________________\nAddress: __________________________________\n__________________________________\nAddress: __________________________________\n__________________________________"
+    },
+    {
+      "key": "agreementDate3",
+      "type": "date",
+      "label": "Agreement Date3",
+      "order": 37,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__________________________________",
+      "candidateIds": [
+        "blank_037"
+      ],
+      "surroundingContext": "Phone: __________________________________\nDated: __________________________________\nDated: __________________________________\n__________________________________"
+    }
+  ],
+  "source": "deterministic_fallback",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "This Agreement is entered into on this day, ________________, 20__ by\nand between ______________________, (a.k.a. ______________________) hereinafter\nreferred to as “Artist” and ______________________ (Name) of\nand between ______________________, (a.k.a. ______________________) hereinafter\n______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "This Agreement is entered into on this day, ________________, 20__ by\nand between ______________________, (a.k.a. ______________________) hereinafter\nreferred to as “Artist” and ______________________ (Name) of\nand between ______________________, (a.k.a. ______________________) hereinafter\n______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 5,
+      "context": "and between ______________________, (a.k.a. ______________________) hereinafter\nreferred to as “Artist” and ______________________ (Name) of\n(Venue or Agency) located at ______________________ (Address) hereinafter referredto as “Client”. For the mutual promises, obligations and considerations set forth herein,\nreferred to as “Artist” and ______________________ (Name) of\n______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 6,
+      "context": "referred to as “Artist” and ______________________ (Name) of\n(Venue or Agency) located at ______________________ (Address) hereinafter referredto as “Client”. For the mutual promises, obligations and considerations set forth herein,\nthe parties agree to be bound as follows:\n(Venue or Agency) located at ______________________ (Address) hereinafter referredto as “Client”. For the mutual promises, obligations and considerations set forth herein,\n______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_006"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 12,
+      "context": "_______________________________________________,\n_______________________________________________.\nIf equipment of these specifications is not available, Client must obtain Artist’s express\n_______________________________________________.\n_______________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_012"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 13,
+      "context": "Client shall provide the following required items as requested by Artist:\n_______________________________________________,\n_______________________________________________,\n_______________________________________________,\n_______________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_013"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 19,
+      "context": "In exchange for the services specified in this Agreement, Client agrees to pay to Artist the\ntotal sum of $___________. This fee is exclusive of any travel, accommodations, or\nrider costs agreed to under this Agreement. Client agrees to pay 50% of the total fee\ntotal sum of $___________. This fee is exclusive of any travel, accommodations, or\n$___________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_019"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 20,
+      "context": "Where the location of performances under this contract is greater than two hundred (200)\nmiles from __________________________________ (home city and state of Artist)\nhereinafter referred to “Home”, Client shall be responsible to provide round-trip air\nmiles from __________________________________ (home city and state of Artist)\n__________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_020"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 24,
+      "context": "that they are legally permitted to enter into valid, binding contracts.\n_______________________________________________\nClient (signature)\n_______________________________________________\n_______________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_024"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 25,
+      "context": "Client (signature)\nClient: __________________________________\nAddress: __________________________________\nClient: __________________________________\n__________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_025"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 29,
+      "context": "__________________________________\nPhone: __________________________________\nDated: __________________________________\nPhone: __________________________________\n__________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_029"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 30,
+      "context": "Phone: __________________________________\nDated: __________________________________\n_______________________________________________\nDated: __________________________________\n__________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_030"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 31,
+      "context": "Dated: __________________________________\n_______________________________________________\nArtist or Authorized Representative of Artist\n_______________________________________________\n_______________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_031"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 32,
+      "context": "Artist or Authorized Representative of Artist\nArtist: __________________________________\nAddress: __________________________________\nArtist: __________________________________\n__________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_032"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 33,
+      "context": "Artist: __________________________________\nAddress: __________________________________\n__________________________________\nAddress: __________________________________\n__________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_033"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 36,
+      "context": "__________________________________\nPhone: __________________________________\nDated: __________________________________\nPhone: __________________________________\n__________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_036"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 37,
+      "context": "Phone: __________________________________\nDated: __________________________________\nDated: __________________________________\n__________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_037"
+      ]
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

@@ -1,0 +1,101 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "THIS AGREEMENT entered into this ______ day of ___________, 20______, by and between _____________________ (hereinafter referred to as the \"Program\") and ________________, (hereinafter jointly and severally referred to as the \"Artist).\nTHIS AGREEMENT entered into this ______ day of ___________, 20______, by and between _____________________ (hereinafter referred to as the \"Program\") and ________________, (hereinafter jointly and severally referred to as the \"Artist).\n______",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 2,
+    "context": "THIS AGREEMENT entered into this ______ day of ___________, 20______, by and between _____________________ (hereinafter referred to as the \"Program\") and ________________, (hereinafter jointly and severally referred to as the \"Artist).\nTHIS AGREEMENT entered into this ______ day of ___________, 20______, by and between _____________________ (hereinafter referred to as the \"Program\") and ________________, (hereinafter jointly and severally referred to as the \"Artist).\n___________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_002"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 3,
+    "context": "THIS AGREEMENT entered into this ______ day of ___________, 20______, by and between _____________________ (hereinafter referred to as the \"Program\") and ________________, (hereinafter jointly and severally referred to as the \"Artist).\nTHIS AGREEMENT entered into this ______ day of ___________, 20______, by and between _____________________ (hereinafter referred to as the \"Program\") and ________________, (hereinafter jointly and severally referred to as the \"Artist).\n20______",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_003"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "THIS AGREEMENT entered into this ______ day of ___________, 20______, by and between _____________________ (hereinafter referred to as the \"Program\") and ________________, (hereinafter jointly and severally referred to as the \"Artist).\nTHIS AGREEMENT entered into this ______ day of ___________, 20______, by and between _____________________ (hereinafter referred to as the \"Program\") and ________________, (hereinafter jointly and severally referred to as the \"Artist).\n_____________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "THIS AGREEMENT entered into this ______ day of ___________, 20______, by and between _____________________ (hereinafter referred to as the \"Program\") and ________________, (hereinafter jointly and severally referred to as the \"Artist).\nTHIS AGREEMENT entered into this ______ day of ___________, 20______, by and between _____________________ (hereinafter referred to as the \"Program\") and ________________, (hereinafter jointly and severally referred to as the \"Artist).\n________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 6,
+    "context": "1. NAME OF ARTIST- _______________________________\n1. NAME OF ARTIST- _______________________________\n_______________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_006"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 8,
+    "context": "1. The Program hereby warrants and represents that the use of the Master recordings of the Artist's performance shall be used for the sole purpose of broadcast on the syndicated radio program now known as \"___________________\". Copies of recordings embodying the Artist's performance shall not be licensed, leased or sold to any other person, firm or corporation for any purpose other than that of radio broadcast of the Program.\n1. The Program hereby warrants and represents that the use of the Master recordings of the Artist's performance shall be used for the sole purpose of broadcast on the syndicated radio program now known as \"___________________\". Copies of recordings embodying the Artist's performance shall not be licensed, leased or sold to any other person, firm or corporation for any purpose other than that of radio broadcast of the Program.\n___________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_008"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 9,
+    "context": "1. THE PURPOSE of this performance is to record Artist for the syndicated radio program now known as \"________________\". Artist grants license for this recording under the following terms and conditions:\n1. THE PURPOSE of this performance is to record Artist for the syndicated radio program now known as \"________________\". Artist grants license for this recording under the following terms and conditions:\n________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_009"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 10,
+    "context": "(b) Artist appears courtesy of \"_________________________ RECORDS\";\n(b) Artist appears courtesy of \"_________________________ RECORDS\";\n_________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_010"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 16,
+    "context": "DATE:_____________________ TAPE DUB RECEIVED:_________________________\nDATE:_____________________ TAPE DUB RECEIVED:_________________________\n_____________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_016"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 17,
+    "context": "DATE:_____________________ TAPE DUB RECEIVED:_________________________\nDATE:_____________________ TAPE DUB RECEIVED:_________________________\n_________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_017"
+    ]
+  }
+]

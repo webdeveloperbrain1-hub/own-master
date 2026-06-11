@@ -1,0 +1,275 @@
+{
+  "fields": [
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 1,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________________________________________________________________________ | _____________ | 20_____ | _________________________ | _________________ | __________ | _____________ | ________________ | 20___ | ______________________________________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_009",
+        "blank_010",
+        "blank_011",
+        "blank_014",
+        "blank_015",
+        "blank_016",
+        "blank_017",
+        "blank_018",
+        "blank_019"
+      ],
+      "surroundingContext": "KNOW ALL MEN BY THESE PRESENTS, the undersigned assignor,\nName:___________________________________________________________________________\nAddress:_________________________________________________________________________\nName:___________________________________________________________________________\n___________________________________________________________________________"
+    },
+    {
+      "key": "address",
+      "type": "textarea",
+      "label": "Address",
+      "order": 2,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________________________________________________________________",
+      "candidateIds": [
+        "blank_002",
+        "blank_006"
+      ],
+      "surroundingContext": "Name:___________________________________________________________________________\nAddress:_________________________________________________________________________\nTelephone:_____________________________________\nAddress:_________________________________________________________________________\n_________________________________________________________________________"
+    },
+    {
+      "key": "address2",
+      "type": "textarea",
+      "label": "Address2",
+      "order": 3,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________________",
+      "candidateIds": [
+        "blank_003"
+      ],
+      "surroundingContext": "Address:_________________________________________________________________________\nTelephone:_____________________________________\nfor and in consideration of the sum of ________________________________________ ($ ) and\nTelephone:_____________________________________\n_____________________________________"
+    },
+    {
+      "key": "paymentAmount",
+      "type": "currency",
+      "label": "Payment Amount",
+      "order": 4,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________________________________________",
+      "candidateIds": [
+        "blank_004"
+      ],
+      "surroundingContext": "Telephone:_____________________________________\nfor and in consideration of the sum of ________________________________________ ($ ) and\nother valuable consideration, receipt of which is hereby acknowledged, does hereby assign, transfer, to the\nfor and in consideration of the sum of ________________________________________ ($ ) and\n________________________________________"
+    },
+    {
+      "key": "address3",
+      "type": "textarea",
+      "label": "Address3",
+      "order": 5,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "____________________________________________________________________________",
+      "candidateIds": [
+        "blank_005"
+      ],
+      "surroundingContext": "assignee,\nName:____________________________________________________________________________\nAddress:_________________________________________________________________________\nName:____________________________________________________________________________\n____________________________________________________________________________"
+    },
+    {
+      "key": "address4",
+      "type": "textarea",
+      "label": "Address4",
+      "order": 7,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_____________________________________",
+      "candidateIds": [
+        "blank_007"
+      ],
+      "surroundingContext": "Address:_________________________________________________________________________\nTelephone:_____________________________________\nit's successors and assigns forever, all of its rights, title and interest in and to the musical composition now\nTelephone:_____________________________________\n_____________________________________"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 8,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_____________________________",
+      "candidateIds": [
+        "blank_008"
+      ],
+      "surroundingContext": "entitled:\nwritten and composed by _____________________________ together with any and all assignor's existing\ncopyrights therein throughout the United States and the world, and any and all assignor's rights of every\nwritten and composed by _____________________________ together with any and all assignor's existing\n_____________________________"
+    },
+    {
+      "key": "governingState2",
+      "type": "text",
+      "label": "Governing State2",
+      "order": 12,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________ | ___________________",
+      "candidateIds": [
+        "blank_012",
+        "blank_013"
+      ],
+      "surroundingContext": "Office of the United States of America on _________________________, under Copyright Entry, Class E,\nCopyright Number ________________. The form U registration is registered on ___________________\nin Volume _________________, page __________.\nCopyright Number ________________. The form U registration is registered on ___________________\n________________"
+    },
+    {
+      "key": "signature2",
+      "type": "signature",
+      "label": "Signature2",
+      "order": 20,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________",
+      "candidateIds": [
+        "blank_020"
+      ],
+      "surroundingContext": "ASSIGNEE: By: ______________________________________________\nWITNESS: By: _______________________________________________\nName __________________________________________\nWITNESS: By: _______________________________________________\n_______________________________________________"
+    },
+    {
+      "key": "signature3",
+      "type": "signature",
+      "label": "Signature3",
+      "order": 21,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________________________",
+      "candidateIds": [
+        "blank_021"
+      ],
+      "surroundingContext": "WITNESS: By: _______________________________________________\nName __________________________________________\nAddress___________________________________________\nName __________________________________________\n__________________________________________"
+    },
+    {
+      "key": "address5",
+      "type": "textarea",
+      "label": "Address5",
+      "order": 22,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________________________",
+      "candidateIds": [
+        "blank_022"
+      ],
+      "surroundingContext": "Name __________________________________________\nAddress___________________________________________\n___________________________________________\nAddress___________________________________________\n___________________________________________"
+    },
+    {
+      "key": "address6",
+      "type": "textarea",
+      "label": "Address6",
+      "order": 23,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________________________",
+      "candidateIds": [
+        "blank_023"
+      ],
+      "surroundingContext": "Address___________________________________________\n___________________________________________\n25: 1\n___________________________________________\n___________________________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 7,
+      "context": "Address:_________________________________________________________________________\nTelephone:_____________________________________\nit's successors and assigns forever, all of its rights, title and interest in and to the musical composition now\nTelephone:_____________________________________\n_____________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_007"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "entitled:\nwritten and composed by _____________________________ together with any and all assignor's existing\ncopyrights therein throughout the United States and the world, and any and all assignor's rights of every\nwritten and composed by _____________________________ together with any and all assignor's existing\n_____________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "kind, nature or description attaching to or which may attach to said musical composition and/or embracesor included in the copyright thereof in the United States and entire world, which said composition the\nundersigned was originally assigned on _____________, 20_____, and was registered with the Copyright\nOffice of the United States of America on _________________________, under Copyright Entry, Class E,\nundersigned was originally assigned on _____________, 20_____, and was registered with the Copyright\n_____________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 10,
+      "context": "kind, nature or description attaching to or which may attach to said musical composition and/or embracesor included in the copyright thereof in the United States and entire world, which said composition the\nundersigned was originally assigned on _____________, 20_____, and was registered with the Copyright\nOffice of the United States of America on _________________________, under Copyright Entry, Class E,\nundersigned was originally assigned on _____________, 20_____, and was registered with the Copyright\n20_____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_010"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 11,
+      "context": "undersigned was originally assigned on _____________, 20_____, and was registered with the Copyright\nOffice of the United States of America on _________________________, under Copyright Entry, Class E,\nCopyright Number ________________. The form U registration is registered on ___________________\nOffice of the United States of America on _________________________, under Copyright Entry, Class E,\n_________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_011"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 12,
+      "context": "Office of the United States of America on _________________________, under Copyright Entry, Class E,\nCopyright Number ________________. The form U registration is registered on ___________________\nin Volume _________________, page __________.\nCopyright Number ________________. The form U registration is registered on ___________________\n________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_012"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 13,
+      "context": "Office of the United States of America on _________________________, under Copyright Entry, Class E,\nCopyright Number ________________. The form U registration is registered on ___________________\nin Volume _________________, page __________.\nCopyright Number ________________. The form U registration is registered on ___________________\n___________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_013"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 14,
+      "context": "Copyright Number ________________. The form U registration is registered on ___________________\nin Volume _________________, page __________.\nIN WITNESS WHEREOF, the undersigned has executed the foregoing instrument on this\nin Volume _________________, page __________.\n_________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_014"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 15,
+      "context": "Copyright Number ________________. The form U registration is registered on ___________________\nin Volume _________________, page __________.\nIN WITNESS WHEREOF, the undersigned has executed the foregoing instrument on this\nin Volume _________________, page __________.\n__________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_015"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

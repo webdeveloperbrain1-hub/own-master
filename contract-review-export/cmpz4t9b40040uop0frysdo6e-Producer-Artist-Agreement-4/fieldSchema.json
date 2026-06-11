@@ -1,0 +1,265 @@
+{
+  "fields": [
+    {
+      "key": "producerSignature",
+      "type": "signature",
+      "label": "Producer Signature",
+      "order": 1,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________ | ______________________ | ______________ | ($________) | _________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004",
+        "blank_011"
+      ],
+      "surroundingContext": "\"Recordings\"). Producer hereby agrees to produce said Recordings to the best of\nProducer's ability. The Recordings shall be produced during the month(s) of, 20, in which production shall take place at ___________Recording\nStudios in ______________________(unless otherwise agreed to by Producer and Artist)\nProducer's ability. The Recordings shall be produced during the month(s) of, 20, in which production shall take place at ___________Recording\n___________"
+    },
+    {
+      "key": "paymentAmount",
+      "type": "currency",
+      "label": "Payment Amount",
+      "order": 5,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "($________)",
+      "candidateIds": [
+        "blank_005"
+      ],
+      "surroundingContext": "following:\n(a) Dollars ($________) per hour for each hour of services\nrendered by Producer hereunder; or,\n(a) Dollars ($________) per hour for each hour of services\n($________)"
+    },
+    {
+      "key": "paymentAmount2",
+      "type": "currency",
+      "label": "Payment Amount2",
+      "order": 6,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "($________)",
+      "candidateIds": [
+        "blank_006"
+      ],
+      "surroundingContext": "rendered by Producer hereunder; or,\n(b) Dollars ($________) per day for each day's services\nrendered by Producer hereunder; or,\n(b) Dollars ($________) per day for each day's services\n($________)"
+    },
+    {
+      "key": "feeAmount",
+      "type": "currency",
+      "label": "Fee Amount",
+      "order": 7,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "($________)",
+      "candidateIds": [
+        "blank_007"
+      ],
+      "surroundingContext": "rendered by Producer hereunder; or,\n(c) Dollars ($________) flat fee per Recording produced by\nProducer hereunder; or,\n(c) Dollars ($________) flat fee per Recording produced by\n($________)"
+    },
+    {
+      "key": "paymentAmount3",
+      "type": "currency",
+      "label": "Payment Amount3",
+      "order": 8,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "($________)",
+      "candidateIds": [
+        "blank_008"
+      ],
+      "surroundingContext": "Producer hereunder; or,\n(d) Dollars ($________) for the entire project produced by\nProducer hereunder; plus,\n(d) Dollars ($________) for the entire project produced by\n($________)"
+    },
+    {
+      "key": "paymentAmount4",
+      "type": "currency",
+      "label": "Payment Amount4",
+      "order": 9,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "($________)",
+      "candidateIds": [
+        "blank_009"
+      ],
+      "surroundingContext": "(e) If Producer's services includes engineering services as well, the additional sum of\n($________) Dollars per hour, day,\nRecording or project.\n($________) Dollars per hour, day,\n($________)"
+    },
+    {
+      "key": "royaltyBasePercentage",
+      "type": "percentage",
+      "label": "Royalty Base Percentage",
+      "order": 10,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______%",
+      "candidateIds": [
+        "blank_010"
+      ],
+      "surroundingContext": "sells, self-promotion, and recording agreement or by any means whatsoever, Producer\nshall be entitled to a royalty of ______% percent of suggested retail selling price of the\ncommercially produced recording.\nshall be entitled to a royalty of ______% percent of suggested retail selling price of the\n______%"
+    },
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 12,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_________ | _____________ | 20___ | ________________________________________",
+      "candidateIds": [
+        "blank_012",
+        "blank_013",
+        "blank_014",
+        "blank_015"
+      ],
+      "surroundingContext": "I hereby agree to and am bound by these terms.\nI set my name to this Agreement the _________day of _____________, 20___.\n________________________________________\nI set my name to this Agreement the _________day of _____________, 20___.\n_________"
+    },
+    {
+      "key": "field",
+      "type": "signature",
+      "label": "Field",
+      "order": 16,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________________________________",
+      "candidateIds": [
+        "blank_016"
+      ],
+      "surroundingContext": "Producer\n________________________________________\nArtist\n________________________________________\n________________________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "\"Recordings\"). Producer hereby agrees to produce said Recordings to the best of\nProducer's ability. The Recordings shall be produced during the month(s) of, 20, in which production shall take place at ___________Recording\nStudios in ______________________(unless otherwise agreed to by Producer and Artist)\nProducer's ability. The Recordings shall be produced during the month(s) of, 20, in which production shall take place at ___________Recording\n___________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "Producer's ability. The Recordings shall be produced during the month(s) of, 20, in which production shall take place at ___________Recording\nStudios in ______________________(unless otherwise agreed to by Producer and Artist)\nwhere the budget for said Recordings shall total ______________Dollars ($________)\nStudios in ______________________(unless otherwise agreed to by Producer and Artist)\n______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_002"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "Studios in ______________________(unless otherwise agreed to by Producer and Artist)\nwhere the budget for said Recordings shall total ______________Dollars ($________)\nup to the point of producing masters to Artist's reasonable satisfaction.\nwhere the budget for said Recordings shall total ______________Dollars ($________)\n______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "Studios in ______________________(unless otherwise agreed to by Producer and Artist)\nwhere the budget for said Recordings shall total ______________Dollars ($________)\nup to the point of producing masters to Artist's reasonable satisfaction.\nwhere the budget for said Recordings shall total ______________Dollars ($________)\n($________)",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 5,
+      "context": "following:\n(a) Dollars ($________) per hour for each hour of services\nrendered by Producer hereunder; or,\n(a) Dollars ($________) per hour for each hour of services\n($________)",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 6,
+      "context": "rendered by Producer hereunder; or,\n(b) Dollars ($________) per day for each day's services\nrendered by Producer hereunder; or,\n(b) Dollars ($________) per day for each day's services\n($________)",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_006"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 7,
+      "context": "rendered by Producer hereunder; or,\n(c) Dollars ($________) flat fee per Recording produced by\nProducer hereunder; or,\n(c) Dollars ($________) flat fee per Recording produced by\n($________)",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_007"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "Producer hereunder; or,\n(d) Dollars ($________) for the entire project produced by\nProducer hereunder; plus,\n(d) Dollars ($________) for the entire project produced by\n($________)",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "(e) If Producer's services includes engineering services as well, the additional sum of\n($________) Dollars per hour, day,\nRecording or project.\n($________) Dollars per hour, day,\n($________)",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 10,
+      "context": "sells, self-promotion, and recording agreement or by any means whatsoever, Producer\nshall be entitled to a royalty of ______% percent of suggested retail selling price of the\ncommercially produced recording.\nshall be entitled to a royalty of ______% percent of suggested retail selling price of the\n______%",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_010"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 11,
+      "context": "Producer and Artist. This agreement shall be construed in accordance with the laws of\nthe State of _________. IN WITNESS WHEREOF, Producer and Artist set their hands.\nI hereby agree to and am bound by these terms.\nthe State of _________. IN WITNESS WHEREOF, Producer and Artist set their hands.\n_________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_011"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 15,
+      "context": "I set my name to this Agreement the _________day of _____________, 20___.\n________________________________________\nProducer\n________________________________________\n________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_015"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 16,
+      "context": "Producer\n________________________________________\nArtist\n________________________________________\n________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_016"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

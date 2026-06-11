@@ -1,0 +1,43 @@
+{
+  "fields": [
+    {
+      "key": "projectTitle",
+      "type": "text",
+      "label": "Project Title",
+      "order": 1,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________________________________________",
+      "candidateIds": [
+        "blank_001"
+      ],
+      "surroundingContext": "SCHEDULE A\nTitle of Composition(s): _____________________________________________________________\n__________________________________________________________________________________\nTitle of Composition(s): _____________________________________________________________\n_____________________________________________________________"
+    },
+    {
+      "key": "royaltyRate",
+      "type": "percentage",
+      "label": "Royalty Rate",
+      "order": 2,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________________________________________________________________",
+      "candidateIds": [
+        "blank_002"
+      ],
+      "surroundingContext": "Title of Composition(s): _____________________________________________________________\n__________________________________________________________________________________\nShare of royalties:\n__________________________________________________________________________________\n__________________________________________________________________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

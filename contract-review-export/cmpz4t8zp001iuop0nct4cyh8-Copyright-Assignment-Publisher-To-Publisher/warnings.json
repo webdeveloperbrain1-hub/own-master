@@ -1,0 +1,21 @@
+[
+  {
+    "type": "low_confidence",
+    "order": 1,
+    "context": "Blank text detected but not well-formed or contextually relevant.",
+    "message": "Low confidence in blank detection.",
+    "candidateIds": [
+      "blank_001",
+      "blank_004"
+    ]
+  },
+  {
+    "type": "extraction_issue",
+    "order": 2,
+    "context": "Blanks in copyright registration details are unclear without additional context.",
+    "message": "The surrounding context does not clearly indicate the purpose of the blank field.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  }
+]

@@ -1,0 +1,128 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "The following shall constitute the full agreement between ________________________(Sponsor) (hereinafter referred to as the \"Sponsor\") and _______________________(Artist's Management/Promoter) (hereinafter referred to as the \"Manager\") for the services of __________________________(Artist/Event) (hereinafter referred to as the \"Artist/Event\") in connection with the Sponsor's products and services (all collectively hereinafter referred to as the \"Products\").\nThe following shall constitute the full agreement between ________________________(Sponsor) (hereinafter referred to as the \"Sponsor\") and _______________________(Artist's Management/Promoter) (hereinafter referred to as the \"Manager\") for the services of __________________________(Artist/Event) (hereinafter referred to as the \"Artist/Event\") in connection with the Sponsor's products and services (all collectively hereinafter referred to as the \"Products\").\n________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 2,
+    "context": "The following shall constitute the full agreement between ________________________(Sponsor) (hereinafter referred to as the \"Sponsor\") and _______________________(Artist's Management/Promoter) (hereinafter referred to as the \"Manager\") for the services of __________________________(Artist/Event) (hereinafter referred to as the \"Artist/Event\") in connection with the Sponsor's products and services (all collectively hereinafter referred to as the \"Products\").\nThe following shall constitute the full agreement between ________________________(Sponsor) (hereinafter referred to as the \"Sponsor\") and _______________________(Artist's Management/Promoter) (hereinafter referred to as the \"Manager\") for the services of __________________________(Artist/Event) (hereinafter referred to as the \"Artist/Event\") in connection with the Sponsor's products and services (all collectively hereinafter referred to as the \"Products\").\n_______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_002"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 3,
+    "context": "The following shall constitute the full agreement between ________________________(Sponsor) (hereinafter referred to as the \"Sponsor\") and _______________________(Artist's Management/Promoter) (hereinafter referred to as the \"Manager\") for the services of __________________________(Artist/Event) (hereinafter referred to as the \"Artist/Event\") in connection with the Sponsor's products and services (all collectively hereinafter referred to as the \"Products\").\nThe following shall constitute the full agreement between ________________________(Sponsor) (hereinafter referred to as the \"Sponsor\") and _______________________(Artist's Management/Promoter) (hereinafter referred to as the \"Manager\") for the services of __________________________(Artist/Event) (hereinafter referred to as the \"Artist/Event\") in connection with the Sponsor's products and services (all collectively hereinafter referred to as the \"Products\").\n__________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_003"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "1. Sponsor shall be the exclusive sponsor of the Artist/Event tentatively scheduled for ____________________________(Event date or Tour dates)_____. Without limiting the generality of the foregoing, no other party (e.g. a local radio station or product manufacturer) may be listed or mentioned as a sponsor or presenter of the Event/Artist.\n1. Sponsor shall be the exclusive sponsor of the Artist/Event tentatively scheduled for ____________________________(Event date or Tour dates)_____. Without limiting the generality of the foregoing, no other party (e.g. a local radio station or product manufacturer) may be listed or mentioned as a sponsor or presenter of the Event/Artist.\n____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "1. Sponsor shall be the exclusive sponsor of the Artist/Event tentatively scheduled for ____________________________(Event date or Tour dates)_____. Without limiting the generality of the foregoing, no other party (e.g. a local radio station or product manufacturer) may be listed or mentioned as a sponsor or presenter of the Event/Artist.\n1. Sponsor shall be the exclusive sponsor of the Artist/Event tentatively scheduled for ____________________________(Event date or Tour dates)_____. Without limiting the generality of the foregoing, no other party (e.g. a local radio station or product manufacturer) may be listed or mentioned as a sponsor or presenter of the Event/Artist.\n_____",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 6,
+    "context": "2. As full compensation for the rights and services granted herein, Sponsor shall pay Manager the sum of ______________________________________________ dollars ($___________), payable on or before the following date\n2. As full compensation for the rights and services granted herein, Sponsor shall pay Manager the sum of ______________________________________________ dollars ($___________), payable on or before the following date\n______________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_006"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 7,
+    "context": "2. As full compensation for the rights and services granted herein, Sponsor shall pay Manager the sum of ______________________________________________ dollars ($___________), payable on or before the following date\n2. As full compensation for the rights and services granted herein, Sponsor shall pay Manager the sum of ______________________________________________ dollars ($___________), payable on or before the following date\n($___________)",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_007"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 8,
+    "context": "3. In connection with said Artist/Event, Sponsor shall receive __________ ( ) tickets at no cost for each performance. Such tickets shall be for favorable seats in the highest price range and locations. In addition, Sponsor shall have the right to purchase, at the ticket's face value price, up to ten percent (10%) of concert tickets at each venue, said tickets to be for\n3. In connection with said Artist/Event, Sponsor shall receive __________ ( ) tickets at no cost for each performance. Such tickets shall be for favorable seats in the highest price range and locations. In addition, Sponsor shall have the right to purchase, at the ticket's face value price, up to ten percent (10%) of concert tickets at each venue, said tickets to be for\n__________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_008"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 9,
+    "context": "7. Manager shall hold a press conference regarding the Artist/Event on or about _____(date)_____, and, unless Sponsor otherwise agrees, the only reference to Sponsor shall be Sponsor's sponsorship of the Artist/Event.\n7. Manager shall hold a press conference regarding the Artist/Event on or about _____(date)_____, and, unless Sponsor otherwise agrees, the only reference to Sponsor shall be Sponsor's sponsorship of the Artist/Event.\n_____",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_009"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 10,
+    "context": "7. Manager shall hold a press conference regarding the Artist/Event on or about _____(date)_____, and, unless Sponsor otherwise agrees, the only reference to Sponsor shall be Sponsor's sponsorship of the Artist/Event.\n7. Manager shall hold a press conference regarding the Artist/Event on or about _____(date)_____, and, unless Sponsor otherwise agrees, the only reference to Sponsor shall be Sponsor's sponsorship of the Artist/Event.\n_____",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_010"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 13,
+    "context": "(b) From the results of the services rendered pursuant to subparagraph (a) above, the Sponsor may produce two (2) television commercials with two (2) local television tag formats, two (2) local radio tag formats, two (2) print ad designs, two (2) outdoor billboard ad designs and one (1) point of sale design, all for use from ____________________________ through ___________________________ to promote Sponsor's products separately and/or in connection with the Artist/Event. Print ads, outdoor billboards and the point of sale pieces can be appropriately modified as to size and other minor modifications, provided such modifications do not change the basic concept.\n(b) From the results of the services rendered pursuant to subparagraph (a) above, the Sponsor may produce two (2) television commercials with two (2) local television tag formats, two (2) local radio tag formats, two (2) print ad designs, two (2) outdoor billboard ad designs and one (1) point of sale design, all for use from ____________________________ through ___________________________ to promote Sponsor's products separately and/or in connection with the Artist/Event. Print ads, outdoor billboards and the point of sale pieces can be appropriately modified as to size and other minor modifications, provided such modifications do not change the basic concept.\n____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_013"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 14,
+    "context": "(b) From the results of the services rendered pursuant to subparagraph (a) above, the Sponsor may produce two (2) television commercials with two (2) local television tag formats, two (2) local radio tag formats, two (2) print ad designs, two (2) outdoor billboard ad designs and one (1) point of sale design, all for use from ____________________________ through ___________________________ to promote Sponsor's products separately and/or in connection with the Artist/Event. Print ads, outdoor billboards and the point of sale pieces can be appropriately modified as to size and other minor modifications, provided such modifications do not change the basic concept.\n(b) From the results of the services rendered pursuant to subparagraph (a) above, the Sponsor may produce two (2) television commercials with two (2) local television tag formats, two (2) local radio tag formats, two (2) print ad designs, two (2) outdoor billboard ad designs and one (1) point of sale design, all for use from ____________________________ through ___________________________ to promote Sponsor's products separately and/or in connection with the Artist/Event. Print ads, outdoor billboards and the point of sale pieces can be appropriately modified as to size and other minor modifications, provided such modifications do not change the basic concept.\n___________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_014"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 15,
+    "context": "11. The term of this Agreement shall commence with the execution hereof by Sponsor, Manager and/or Artist/Event and shall continue until ______________________________, 20___.\n11. The term of this Agreement shall commence with the execution hereof by Sponsor, Manager and/or Artist/Event and shall continue until ______________________________, 20___.\n______________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_015"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 16,
+    "context": "11. The term of this Agreement shall commence with the execution hereof by Sponsor, Manager and/or Artist/Event and shall continue until ______________________________, 20___.\n11. The term of this Agreement shall commence with the execution hereof by Sponsor, Manager and/or Artist/Event and shall continue until ______________________________, 20___.\n20___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_016"
+    ]
+  }
+]

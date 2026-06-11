@@ -1,0 +1,151 @@
+{
+  "fields": [
+    {
+      "key": "effectiveDate",
+      "type": "date",
+      "label": "Effective Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "____ Day of __________, 20____ | ___________________________ (hereinafter referred to as the \"Reseller\") | ___________________________ (hereinafter referred to as the \"Vendor\")",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004",
+        "blank_005"
+      ],
+      "surroundingContext": "This Co-Op Promotional Agreement (\"Agreement\") is made and effective this ____ Day of __________, 20____ by and between _____________________________ (hereinafter referred to as the \"Reseller\") and ________________________________ (hereinafter referred to as the \"Vendor\")."
+    },
+    {
+      "key": "productName",
+      "type": "text",
+      "label": "Product Name",
+      "order": 4,
+      "category": "other",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "Vendor sells products under the trade name _________________________________ (the \"Product\").",
+      "candidateIds": [
+        "blank_006"
+      ],
+      "surroundingContext": "Vendor sells products under the trade name _________________________________ (the \"Product\"). Reseller resells and/or promotes the sale of many goods."
+    },
+    {
+      "key": "termEndDate",
+      "type": "date",
+      "label": "Term End Date",
+      "order": 6,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "not later than _____________ and the promotion shall continue until ___________________",
+      "candidateIds": [
+        "blank_019"
+      ],
+      "surroundingContext": "3. Term. The Reseller will completely implement the Promotion not later than _____________ and the promotion shall continue until ___________________."
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 7,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "______________________",
+      "candidateIds": [
+        "blank_020"
+      ],
+      "surroundingContext": "10. Governing Law. This agreement shall be construed and enforced according to the laws of the state of ______________________."
+    },
+    {
+      "key": "feeAmount",
+      "type": "currency",
+      "label": "Fee Amount",
+      "order": 8,
+      "category": "payment",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "$_______________",
+      "candidateIds": [
+        "blank_017"
+      ],
+      "surroundingContext": "6. Fees & Charges. In consideration of the performance of the Promotion as set forth herein, Vendor shall pay Reseller $_______________."
+    },
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 9,
+      "category": "dates",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "_________________________",
+      "candidateIds": [
+        "blank_023",
+        "blank_024"
+      ],
+      "surroundingContext": "Date: _________________________ Date: _________________________"
+    }
+  ],
+  "source": "ollama",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 10,
+      "context": "3. Term. The Reseller will completely implement the Promotion not later than _____________ and the promotion shall continue until ___________________.\n3. Term. The Reseller will completely implement the Promotion not later than _____________ and the promotion shall continue until ___________________.\n_____________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_010"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 11,
+      "context": "3. Term. The Reseller will completely implement the Promotion not later than _____________ and the promotion shall continue until ___________________.\n3. Term. The Reseller will completely implement the Promotion not later than _____________ and the promotion shall continue until ___________________.\n___________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_011"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 19,
+      "context": "6. Fees & Charges. In consideration of the performance of the Promotion as set forth herein, Vendor shall pay Reseller $_______________. Vendor shall pay the fee to Reseller not later than thirty (30) days following Reseller's' delivery to Vendor of proof of performance as set forth in Section 5 above together with Reseller's invoice. Reseller is not entitled to deduct the amount of its fees for the Promotion from amounts to be paid to Vendor for Product purchases or any other charges. In the event of a good faith partial performance by the Reseller, Vendor shall pay Reseller a pro rata portion of the fees, but only if Reseller has substantially completed its obligations in this Agreement.\n6. Fees & Charges. In consideration of the performance of the Promotion as set forth herein, Vendor shall pay Reseller $_______________. Vendor shall pay the fee to Reseller not later than thirty (30) days following Reseller's' delivery to Vendor of proof of performance as set forth in Section 5 above together with Reseller's invoice. Reseller is not entitled to deduct the amount of its fees for the Promotion from amounts to be paid to Vendor for Product purchases or any other charges. In the event of a good faith partial performance by the Reseller, Vendor shall pay Reseller a pro rata portion of the fees, but only if Reseller has substantially completed its obligations in this Agreement.\n$_______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_019"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 23,
+      "context": "Date: _________________________ Date: _________________________\nDate: _________________________ Date: _________________________\n_________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_023"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 24,
+      "context": "Date: _________________________ Date: _________________________\nDate: _________________________ Date: _________________________\n_________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_024"
+      ]
+    },
+    {
+      "type": "removed_field_unknown_candidate",
+      "context": "3. Term. The Reseller will completely implement the Promotion not later than _____________ and the promotion shall continue until ___________________.",
+      "message": "Removed \"Term End Date\" because its candidate IDs were not found.",
+      "candidateIds": [
+        "blank_018"
+      ]
+    }
+  ],
+  "templateName": "Co-Op Promotional Agreement",
+  "reviewRequired": true
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "CO-PUBLISHER AGREEMENT\nTHIS AGREEMENT is entered into this ___________ day of ____________, 20____ by and\nbetween _______________________(1st Publisher, hereinafter referred to as “First Party” and\nTHIS AGREEMENT is entered into this ___________ day of ____________, 20____ by and\n___________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 2,
+    "context": "CO-PUBLISHER AGREEMENT\nTHIS AGREEMENT is entered into this ___________ day of ____________, 20____ by and\nbetween _______________________(1st Publisher, hereinafter referred to as “First Party” and\nTHIS AGREEMENT is entered into this ___________ day of ____________, 20____ by and\n____________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_002"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 3,
+    "context": "CO-PUBLISHER AGREEMENT\nTHIS AGREEMENT is entered into this ___________ day of ____________, 20____ by and\nbetween _______________________(1st Publisher, hereinafter referred to as “First Party” and\nTHIS AGREEMENT is entered into this ___________ day of ____________, 20____ by and\n20____",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_003"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "THIS AGREEMENT is entered into this ___________ day of ____________, 20____ by and\nbetween _______________________(1st Publisher, hereinafter referred to as “First Party” and\n__________________(2nd Publisher, hereinafter referred to as “Second Party”).\nbetween _______________________(1st Publisher, hereinafter referred to as “First Party” and\n_______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "between _______________________(1st Publisher, hereinafter referred to as “First Party” and\n__________________(2nd Publisher, hereinafter referred to as “Second Party”).\nWHEREAS First Party and Second Party agree to co-publish a musical composition(s) or\n__________________(2nd Publisher, hereinafter referred to as “Second Party”).\n__________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 8,
+    "context": "3. Public Performance Rights in and to the Composition will be assigned to and licensed by\n________________________________ (ASCAP, BMI, or SESAC).\n_______________________ is hereby authorized to pay the licensing fees directly to eachof the parties, each as to a 50% share of such fees.\n________________________________ (ASCAP, BMI, or SESAC).\n________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_008"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

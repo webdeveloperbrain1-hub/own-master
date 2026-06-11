@@ -1,0 +1,81 @@
+{
+  "fields": [
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 1,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________________________________________",
+      "candidateIds": [
+        "blank_001"
+      ],
+      "surroundingContext": "1. First Song: By:\n_______________________________________________________________________________\n2. Second Song;_____________________________________________By:__________________\n_______________________________________________________________________________\n_______________________________________________________________________________"
+    },
+    {
+      "key": "signature2",
+      "type": "signature",
+      "label": "Signature2",
+      "order": 2,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________________________ | __________________",
+      "candidateIds": [
+        "blank_002",
+        "blank_003"
+      ],
+      "surroundingContext": "_______________________________________________________________________________\n2. Second Song;_____________________________________________By:__________________\n_______________________________________________________________________________\n2. Second Song;_____________________________________________By:__________________\n_____________________________________________"
+    },
+    {
+      "key": "signature3",
+      "type": "signature",
+      "label": "Signature3",
+      "order": 4,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________________________________________",
+      "candidateIds": [
+        "blank_004"
+      ],
+      "surroundingContext": "2. Second Song;_____________________________________________By:__________________\n_______________________________________________________________________________\nto the undersigned ASSIGNEE, in consideration of the payment of\n_______________________________________________________________________________\n_______________________________________________________________________________"
+    },
+    {
+      "key": "writerAddress",
+      "type": "textarea",
+      "label": "Writer Address",
+      "order": 5,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________________________________",
+      "candidateIds": [
+        "blank_005"
+      ],
+      "surroundingContext": "Address:\nSONGWRITERS:_______________________________________________________________________\nAddress:\nSONGWRITERS:_______________________________________________________________________\n_______________________________________________________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "2. Second Song;_____________________________________________By:__________________\n_______________________________________________________________________________\nto the undersigned ASSIGNEE, in consideration of the payment of\n_______________________________________________________________________________\n_______________________________________________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

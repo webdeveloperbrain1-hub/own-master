@@ -1,0 +1,75 @@
+{
+  "fields": [
+    {
+      "key": "termEndDate",
+      "type": "date",
+      "label": "Term End Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__________________________",
+      "candidateIds": [
+        "blank_001"
+      ],
+      "surroundingContext": "I do hereby engage you as my personal manager for a period of __________________________ years from date. As and when requested by me during and throughout the term hereof you agree to perform for me one or more of the services as follows: advice and counsel in the selection of literary, artistic and musical material; advice and counsel in any and all matters pertaining to publicity, public relations and advertising; advice and counsel with relation to the adoption of proper format for presentation of my artistic talents and in the determination of proper style, mood, setting, business and characterization in keeping with my talents; advice, counsel and direction in the selection of artistic talent to assist, accompany or embellish my artistic presentation; advice and counsel with regard to general practices in the entertainment and amusement industries and with respect to such matters of which you may have knowledge concerning compensation and privileges extended for similar artistic values; advice and counsel concerning the selection of theatrical agencies and persons, firms and corporations to counsel, advise, seek and procure employment and engagements for me.\nI do hereby engage you as my personal manager for a period of __________________________ years from date. As and when requested by me during and throughout the term hereof you agree to perform for me one or more of the services as follows: advice and counsel in the selection of literary, artistic and musical material; advice and counsel in any and all matters pertaining to publicity, public relations and advertising; advice and counsel with relation to the adoption of proper format for presentation of my artistic talents and in the determination of proper style, mood, setting, business and characterization in keeping with my talents; advice, counsel and direction in the selection of artistic talent to assist, accompany or embellish my artistic presentation; advice and counsel with regard to general practices in the entertainment and amusement industries and with respect to such matters of which you may have knowledge concerning compensation and privileges extended for similar artistic values; advice and counsel concerning the selection of theatrical agencies and persons, firms and corporations to counsel, advise, seek and procure employment and engagements for me.\n__________________________"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 2,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________",
+      "candidateIds": [
+        "blank_002"
+      ],
+      "surroundingContext": "This agreement shall be deemed to be executed in the State of ___________________________ and shall be construed in accordance with the laws of said State. In the event any provision hereof shall for any reason be illegal or unenforceable then, and in any such event, the same shall not affect the validity of the remaining portions and provisions hereof.\nThis agreement shall be deemed to be executed in the State of ___________________________ and shall be construed in accordance with the laws of said State. In the event any provision hereof shall for any reason be illegal or unenforceable then, and in any such event, the same shall not affect the validity of the remaining portions and provisions hereof.\n___________________________"
+    },
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 3,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________________________",
+      "candidateIds": [
+        "blank_003"
+      ],
+      "surroundingContext": "Very truly yours,(Artist)________________________________\nVery truly yours,(Artist)________________________________\n________________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "I do hereby engage you as my personal manager for a period of __________________________ years from date. As and when requested by me during and throughout the term hereof you agree to perform for me one or more of the services as follows: advice and counsel in the selection of literary, artistic and musical material; advice and counsel in any and all matters pertaining to publicity, public relations and advertising; advice and counsel with relation to the adoption of proper format for presentation of my artistic talents and in the determination of proper style, mood, setting, business and characterization in keeping with my talents; advice, counsel and direction in the selection of artistic talent to assist, accompany or embellish my artistic presentation; advice and counsel with regard to general practices in the entertainment and amusement industries and with respect to such matters of which you may have knowledge concerning compensation and privileges extended for similar artistic values; advice and counsel concerning the selection of theatrical agencies and persons, firms and corporations to counsel, advise, seek and procure employment and engagements for me.\nI do hereby engage you as my personal manager for a period of __________________________ years from date. As and when requested by me during and throughout the term hereof you agree to perform for me one or more of the services as follows: advice and counsel in the selection of literary, artistic and musical material; advice and counsel in any and all matters pertaining to publicity, public relations and advertising; advice and counsel with relation to the adoption of proper format for presentation of my artistic talents and in the determination of proper style, mood, setting, business and characterization in keeping with my talents; advice, counsel and direction in the selection of artistic talent to assist, accompany or embellish my artistic presentation; advice and counsel with regard to general practices in the entertainment and amusement industries and with respect to such matters of which you may have knowledge concerning compensation and privileges extended for similar artistic values; advice and counsel concerning the selection of theatrical agencies and persons, firms and corporations to counsel, advise, seek and procure employment and engagements for me.\n__________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "Very truly yours,(Artist)________________________________\nVery truly yours,(Artist)________________________________\n________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

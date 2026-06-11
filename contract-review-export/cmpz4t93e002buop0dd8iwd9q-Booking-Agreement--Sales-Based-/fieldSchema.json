@@ -1,0 +1,634 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________ | 20__ | __________________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003"
+      ],
+      "surroundingContext": "BOOKING AGREEMENT (SALES-BASED)\nTHIS AGREEMENT is hereby entered into as of _________________, 20__, by and\nbetween __________________________, whose business address is\nTHIS AGREEMENT is hereby entered into as of _________________, 20__, by and\n_________________"
+    },
+    {
+      "key": "artistName",
+      "type": "text",
+      "label": "Artist Name",
+      "order": 4,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_________________________",
+      "candidateIds": [
+        "blank_004"
+      ],
+      "surroundingContext": "between __________________________, whose business address is\n_________________________ (\"Client\") and the musical group or performer\n__________________________ (a.k.a. _________________)(\"Artist\"), whose business\n_________________________ (\"Client\") and the musical group or performer\n_________________________"
+    },
+    {
+      "key": "address",
+      "type": "textarea",
+      "label": "Address",
+      "order": 5,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__________________________ | _________________",
+      "candidateIds": [
+        "blank_005",
+        "blank_006"
+      ],
+      "surroundingContext": "_________________________ (\"Client\") and the musical group or performer\n__________________________ (a.k.a. _________________)(\"Artist\"), whose business\naddress is _____________________________________. In consideration of the mutual\n__________________________ (a.k.a. _________________)(\"Artist\"), whose business\n__________________________"
+    },
+    {
+      "key": "address2",
+      "type": "textarea",
+      "label": "Address2",
+      "order": 7,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_____________________________________",
+      "candidateIds": [
+        "blank_007"
+      ],
+      "surroundingContext": "__________________________ (a.k.a. _________________)(\"Artist\"), whose business\naddress is _____________________________________. In consideration of the mutual\ncovenants herein contained and, intending to be legally bound hereby, the Client and\naddress is _____________________________________. In consideration of the mutual\n_____________________________________"
+    },
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 8,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_________________________________________",
+      "candidateIds": [
+        "blank_008"
+      ],
+      "surroundingContext": "“Net ticket sales” gross ticket sales minus the actual cost to Client of the\nfollowing expenses: _________________________________________.\nFull and valuable consideration for all services rendered by Artist at the\nfollowing expenses: _________________________________________.\n_________________________________________"
+    },
+    {
+      "key": "feeAmount",
+      "type": "currency",
+      "label": "Fee Amount",
+      "order": 9,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___ | ______________________ | ($______) | ________ | ___%",
+      "candidateIds": [
+        "blank_009",
+        "blank_010",
+        "blank_011",
+        "blank_012",
+        "blank_013",
+        "blank_014",
+        "blank_019",
+        "blank_020",
+        "blank_021",
+        "blank_022",
+        "blank_023",
+        "blank_024"
+      ],
+      "surroundingContext": "(select one):\n___ Set Fee. A set fee of ______________________ Dollars ($______).\n___ Percentage of Ticket Sales. An amount equal to ________ percent (___%) of\n___ Set Fee. A set fee of ______________________ Dollars ($______).\n___"
+    },
+    {
+      "key": "paymentAmount",
+      "type": "currency",
+      "label": "Payment Amount",
+      "order": 15,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___ | ___________________ | ($______) | ________",
+      "candidateIds": [
+        "blank_015",
+        "blank_016",
+        "blank_017",
+        "blank_018"
+      ],
+      "surroundingContext": "the (select one) __ gross __ net ticket sales.\n___ Percentage of Ticket Sales With Guarantee. The greater of (a)\n___________________ Dollars ($______), or (b) an amount equal to ________\n___ Percentage of Ticket Sales With Guarantee. The greater of (a)\n___"
+    },
+    {
+      "key": "depositAmount",
+      "type": "currency",
+      "label": "Deposit Amount",
+      "order": 25,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___ | _____________________________________",
+      "candidateIds": [
+        "blank_025",
+        "blank_026"
+      ],
+      "surroundingContext": "(select one) __ gross __ net ticket sales.\n___ Other. (specify) _____________________________________.\n5. DEPOSIT.\n___ Other. (specify) _____________________________________.\n___"
+    },
+    {
+      "key": "agreementDate2",
+      "type": "date",
+      "label": "Agreement Date2",
+      "order": 27,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________________ | ($______) | __________________ | 20___",
+      "candidateIds": [
+        "blank_027",
+        "blank_028",
+        "blank_029",
+        "blank_030"
+      ],
+      "surroundingContext": "5. DEPOSIT.\nClient shall pay an initial deposit of ___________________ Dollars ($______) of\nthe payment to Artist as a deposit by __________________, 20___. If Client doesnot pay Artist the deposit, Artist will have the option of canceling this\nClient shall pay an initial deposit of ___________________ Dollars ($______) of\n___________________"
+    },
+    {
+      "key": "balanceAmount",
+      "type": "currency",
+      "label": "Balance Amount",
+      "order": 31,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________________________",
+      "candidateIds": [
+        "blank_031"
+      ],
+      "surroundingContext": "Artist the remaining balance of the payment in cash or by money order or certified\ncheck made payable to ______________________________.\n7. MERCHANDISE.\ncheck made payable to ______________________________.\n______________________________"
+    },
+    {
+      "key": "agreementDate3",
+      "type": "date",
+      "label": "Agreement Date3",
+      "order": 32,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_____ | ___________________ | ($______) | ______",
+      "candidateIds": [
+        "blank_032",
+        "blank_033",
+        "blank_034",
+        "blank_035"
+      ],
+      "surroundingContext": "8. CANCELLATION.\nIn the event Client cancels the Performance less than _____ weeks prior to the\nscheduled date, Client will pay Artist a sum equal to (select one)\nIn the event Client cancels the Performance less than _____ weeks prior to the\n_____"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 36,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________",
+      "candidateIds": [
+        "blank_036"
+      ],
+      "surroundingContext": "This Performance Agreement will be governed by and construed in accordance\nwith the laws of the State of ___________________, without regard to the\nprinciples of conflicts of law. In any action or proceeding involving a dispute\nwith the laws of the State of ___________________, without regard to the\n___________________"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 37,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________________________________________ | _______________________________",
+      "candidateIds": [
+        "blank_037",
+        "blank_038"
+      ],
+      "surroundingContext": "its duly authorized representative.\n___________________________________________\nClient (signature)\n___________________________________________\n___________________________________________"
+    },
+    {
+      "key": "address3",
+      "type": "textarea",
+      "label": "Address3",
+      "order": 39,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________",
+      "candidateIds": [
+        "blank_039"
+      ],
+      "surroundingContext": "Client: _______________________________\nAddress: _______________________________\n_______________________________\nAddress: _______________________________\n_______________________________"
+    },
+    {
+      "key": "address4",
+      "type": "textarea",
+      "label": "Address4",
+      "order": 40,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________",
+      "candidateIds": [
+        "blank_040",
+        "blank_047"
+      ],
+      "surroundingContext": "Address: _______________________________\n_______________________________\n_______________________________\n_______________________________\n_______________________________"
+    },
+    {
+      "key": "field2",
+      "type": "textarea",
+      "label": "Field2",
+      "order": 41,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________",
+      "candidateIds": [
+        "blank_041",
+        "blank_048"
+      ],
+      "surroundingContext": "_______________________________\n_______________________________\nPhone: _______________________________\n_______________________________\n_______________________________"
+    },
+    {
+      "key": "agreementDate4",
+      "type": "date",
+      "label": "Agreement Date4",
+      "order": 42,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________",
+      "candidateIds": [
+        "blank_042",
+        "blank_043",
+        "blank_049"
+      ],
+      "surroundingContext": "_______________________________\nPhone: _______________________________\nDated: _______________________________\nPhone: _______________________________\n_______________________________"
+    },
+    {
+      "key": "artistSignature",
+      "type": "signature",
+      "label": "Artist Signature",
+      "order": 44,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________________________________________ | _______________________________",
+      "candidateIds": [
+        "blank_044",
+        "blank_045"
+      ],
+      "surroundingContext": "Dated: _______________________________\n___________________________________________\nArtist or Authorized Representative of Artist (signature)\n___________________________________________\n___________________________________________"
+    },
+    {
+      "key": "address5",
+      "type": "textarea",
+      "label": "Address5",
+      "order": 46,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________",
+      "candidateIds": [
+        "blank_046"
+      ],
+      "surroundingContext": "Artist: _______________________________\nAddress: _______________________________\n_______________________________\nAddress: _______________________________\n_______________________________"
+    },
+    {
+      "key": "agreementDate5",
+      "type": "date",
+      "label": "Agreement Date5",
+      "order": 50,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________",
+      "candidateIds": [
+        "blank_050"
+      ],
+      "surroundingContext": "Phone: _______________________________\nDated: _______________________________\nDated: _______________________________\n_______________________________"
+    }
+  ],
+  "source": "deterministic_fallback",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "between __________________________, whose business address is\n_________________________ (\"Client\") and the musical group or performer\n__________________________ (a.k.a. _________________)(\"Artist\"), whose business\n_________________________ (\"Client\") and the musical group or performer\n_________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 5,
+      "context": "_________________________ (\"Client\") and the musical group or performer\n__________________________ (a.k.a. _________________)(\"Artist\"), whose business\naddress is _____________________________________. In consideration of the mutual\n__________________________ (a.k.a. _________________)(\"Artist\"), whose business\n__________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 6,
+      "context": "_________________________ (\"Client\") and the musical group or performer\n__________________________ (a.k.a. _________________)(\"Artist\"), whose business\naddress is _____________________________________. In consideration of the mutual\n__________________________ (a.k.a. _________________)(\"Artist\"), whose business\n_________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_006"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 7,
+      "context": "__________________________ (a.k.a. _________________)(\"Artist\"), whose business\naddress is _____________________________________. In consideration of the mutual\ncovenants herein contained and, intending to be legally bound hereby, the Client and\naddress is _____________________________________. In consideration of the mutual\n_____________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_007"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "“Net ticket sales” gross ticket sales minus the actual cost to Client of the\nfollowing expenses: _________________________________________.\nFull and valuable consideration for all services rendered by Artist at the\nfollowing expenses: _________________________________________.\n_________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "(select one):\n___ Set Fee. A set fee of ______________________ Dollars ($______).\n___ Percentage of Ticket Sales. An amount equal to ________ percent (___%) of\n___ Set Fee. A set fee of ______________________ Dollars ($______).\n___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 10,
+      "context": "(select one):\n___ Set Fee. A set fee of ______________________ Dollars ($______).\n___ Percentage of Ticket Sales. An amount equal to ________ percent (___%) of\n___ Set Fee. A set fee of ______________________ Dollars ($______).\n______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_010"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 11,
+      "context": "(select one):\n___ Set Fee. A set fee of ______________________ Dollars ($______).\n___ Percentage of Ticket Sales. An amount equal to ________ percent (___%) of\n___ Set Fee. A set fee of ______________________ Dollars ($______).\n($______)",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_011"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 12,
+      "context": "___ Set Fee. A set fee of ______________________ Dollars ($______).\n___ Percentage of Ticket Sales. An amount equal to ________ percent (___%) of\nthe (select one) __ gross __ net ticket sales.\n___ Percentage of Ticket Sales. An amount equal to ________ percent (___%) of\n___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_012"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 13,
+      "context": "___ Set Fee. A set fee of ______________________ Dollars ($______).\n___ Percentage of Ticket Sales. An amount equal to ________ percent (___%) of\nthe (select one) __ gross __ net ticket sales.\n___ Percentage of Ticket Sales. An amount equal to ________ percent (___%) of\n________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_013"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 14,
+      "context": "___ Set Fee. A set fee of ______________________ Dollars ($______).\n___ Percentage of Ticket Sales. An amount equal to ________ percent (___%) of\nthe (select one) __ gross __ net ticket sales.\n___ Percentage of Ticket Sales. An amount equal to ________ percent (___%) of\n___%",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_014"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 19,
+      "context": "___________________ Dollars ($______), or (b) an amount equal to ________\npercent (___%) of the (select one) __ gross __ net ticket sales.\n___ Set Fee plus Percentage of Ticket Sales. A fee of ______________________\npercent (___%) of the (select one) __ gross __ net ticket sales.\n___%",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_019"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 20,
+      "context": "percent (___%) of the (select one) __ gross __ net ticket sales.\n___ Set Fee plus Percentage of Ticket Sales. A fee of ______________________\nDollars ($______), plus an amount equal to ________ percent (___%) of the\n___ Set Fee plus Percentage of Ticket Sales. A fee of ______________________\n___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_020"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 21,
+      "context": "percent (___%) of the (select one) __ gross __ net ticket sales.\n___ Set Fee plus Percentage of Ticket Sales. A fee of ______________________\nDollars ($______), plus an amount equal to ________ percent (___%) of the\n___ Set Fee plus Percentage of Ticket Sales. A fee of ______________________\n______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_021"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 22,
+      "context": "___ Set Fee plus Percentage of Ticket Sales. A fee of ______________________\nDollars ($______), plus an amount equal to ________ percent (___%) of the\n(select one) __ gross __ net ticket sales.\nDollars ($______), plus an amount equal to ________ percent (___%) of the\n($______)",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_022"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 23,
+      "context": "___ Set Fee plus Percentage of Ticket Sales. A fee of ______________________\nDollars ($______), plus an amount equal to ________ percent (___%) of the\n(select one) __ gross __ net ticket sales.\nDollars ($______), plus an amount equal to ________ percent (___%) of the\n________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_023"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 24,
+      "context": "___ Set Fee plus Percentage of Ticket Sales. A fee of ______________________\nDollars ($______), plus an amount equal to ________ percent (___%) of the\n(select one) __ gross __ net ticket sales.\nDollars ($______), plus an amount equal to ________ percent (___%) of the\n___%",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_024"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 27,
+      "context": "5. DEPOSIT.\nClient shall pay an initial deposit of ___________________ Dollars ($______) of\nthe payment to Artist as a deposit by __________________, 20___. If Client doesnot pay Artist the deposit, Artist will have the option of canceling this\nClient shall pay an initial deposit of ___________________ Dollars ($______) of\n___________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_027"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 28,
+      "context": "5. DEPOSIT.\nClient shall pay an initial deposit of ___________________ Dollars ($______) of\nthe payment to Artist as a deposit by __________________, 20___. If Client doesnot pay Artist the deposit, Artist will have the option of canceling this\nClient shall pay an initial deposit of ___________________ Dollars ($______) of\n($______)",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_028"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 29,
+      "context": "Client shall pay an initial deposit of ___________________ Dollars ($______) of\nthe payment to Artist as a deposit by __________________, 20___. If Client doesnot pay Artist the deposit, Artist will have the option of canceling this\nPerformance Agreement with no further liability hereunder to Client.\nthe payment to Artist as a deposit by __________________, 20___. If Client doesnot pay Artist the deposit, Artist will have the option of canceling this\n__________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_029"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 30,
+      "context": "Client shall pay an initial deposit of ___________________ Dollars ($______) of\nthe payment to Artist as a deposit by __________________, 20___. If Client doesnot pay Artist the deposit, Artist will have the option of canceling this\nPerformance Agreement with no further liability hereunder to Client.\nthe payment to Artist as a deposit by __________________, 20___. If Client doesnot pay Artist the deposit, Artist will have the option of canceling this\n20___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_030"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 31,
+      "context": "Artist the remaining balance of the payment in cash or by money order or certified\ncheck made payable to ______________________________.\n7. MERCHANDISE.\ncheck made payable to ______________________________.\n______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_031"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 32,
+      "context": "8. CANCELLATION.\nIn the event Client cancels the Performance less than _____ weeks prior to the\nscheduled date, Client will pay Artist a sum equal to (select one)\nIn the event Client cancels the Performance less than _____ weeks prior to the\n_____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_032"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 33,
+      "context": "scheduled date, Client will pay Artist a sum equal to (select one)\n___________________ Dollars ($______) or ______ percent of the set fee\nspecified in paragraph 5. Upon payment of the cancellation fee, Client will haveno further liability to Artist hereunder.\n___________________ Dollars ($______) or ______ percent of the set fee\n___________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_033"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 34,
+      "context": "scheduled date, Client will pay Artist a sum equal to (select one)\n___________________ Dollars ($______) or ______ percent of the set fee\nspecified in paragraph 5. Upon payment of the cancellation fee, Client will haveno further liability to Artist hereunder.\n___________________ Dollars ($______) or ______ percent of the set fee\n($______)",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_034"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 35,
+      "context": "scheduled date, Client will pay Artist a sum equal to (select one)\n___________________ Dollars ($______) or ______ percent of the set fee\nspecified in paragraph 5. Upon payment of the cancellation fee, Client will haveno further liability to Artist hereunder.\n___________________ Dollars ($______) or ______ percent of the set fee\n______",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_035"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 37,
+      "context": "its duly authorized representative.\n___________________________________________\nClient (signature)\n___________________________________________\n___________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_037"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 38,
+      "context": "Client (signature)\nClient: _______________________________\nAddress: _______________________________\nClient: _______________________________\n_______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_038"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 42,
+      "context": "_______________________________\nPhone: _______________________________\nDated: _______________________________\nPhone: _______________________________\n_______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_042"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 43,
+      "context": "Phone: _______________________________\nDated: _______________________________\n___________________________________________\nDated: _______________________________\n_______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_043"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 44,
+      "context": "Dated: _______________________________\n___________________________________________\nArtist or Authorized Representative of Artist (signature)\n___________________________________________\n___________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_044"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 45,
+      "context": "Artist or Authorized Representative of Artist (signature)\nArtist: _______________________________\nAddress: _______________________________\nArtist: _______________________________\n_______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_045"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 46,
+      "context": "Artist: _______________________________\nAddress: _______________________________\n_______________________________\nAddress: _______________________________\n_______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_046"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 49,
+      "context": "_______________________________\nPhone: _______________________________\nDated: _______________________________\nPhone: _______________________________\n_______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_049"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 50,
+      "context": "Phone: _______________________________\nDated: _______________________________\nDated: _______________________________\n_______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_050"
+      ]
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

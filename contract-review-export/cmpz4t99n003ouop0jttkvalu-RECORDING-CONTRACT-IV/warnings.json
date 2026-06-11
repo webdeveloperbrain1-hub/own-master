@@ -1,0 +1,53 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "We will pay you in respect of recording made hereunder a royalty of ____________ (______%) of the wholesale list price in the country of manufacture, on _______________ (______%) percent of all records sold and paid for embodying performances hereunder on both sides thereof. However, that for records sold outside the United States, the royalty rate shall be one-half of the amount actually received by us. Royalties shall be paid to you when received by us, our affiliates, subsidiaries or associates or otherwise on our behalf. All royalties are payable to you when received by us in the United States and in the dollar equivalent at the rate of exchange at the time we receive payment. We agree to convert royalties from foreign countries without delay and if we are prohibited from so doing by local law, then and in such event, we shall so notify you in writing and comply with your directions to deposit monies due to your separate account in the respective foreign area(s) or territory(s).\nWe will pay you in respect of recording made hereunder a royalty of ____________ (______%) of the wholesale list price in the country of manufacture, on _______________ (______%) percent of all records sold and paid for embodying performances hereunder on both sides thereof. However, that for records sold outside the United States, the royalty rate shall be one-half of the amount actually received by us. Royalties shall be paid to you when received by us, our affiliates, subsidiaries or associates or otherwise on our behalf. All royalties are payable to you when received by us in the United States and in the dollar equivalent at the rate of exchange at the time we receive payment. We agree to convert royalties from foreign countries without delay and if we are prohibited from so doing by local law, then and in such event, we shall so notify you in writing and comply with your directions to deposit monies due to your separate account in the respective foreign area(s) or territory(s).\n____________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "We will pay you in respect of recording made hereunder a royalty of ____________ (______%) of the wholesale list price in the country of manufacture, on _______________ (______%) percent of all records sold and paid for embodying performances hereunder on both sides thereof. However, that for records sold outside the United States, the royalty rate shall be one-half of the amount actually received by us. Royalties shall be paid to you when received by us, our affiliates, subsidiaries or associates or otherwise on our behalf. All royalties are payable to you when received by us in the United States and in the dollar equivalent at the rate of exchange at the time we receive payment. We agree to convert royalties from foreign countries without delay and if we are prohibited from so doing by local law, then and in such event, we shall so notify you in writing and comply with your directions to deposit monies due to your separate account in the respective foreign area(s) or territory(s).\nWe will pay you in respect of recording made hereunder a royalty of ____________ (______%) of the wholesale list price in the country of manufacture, on _______________ (______%) percent of all records sold and paid for embodying performances hereunder on both sides thereof. However, that for records sold outside the United States, the royalty rate shall be one-half of the amount actually received by us. Royalties shall be paid to you when received by us, our affiliates, subsidiaries or associates or otherwise on our behalf. All royalties are payable to you when received by us in the United States and in the dollar equivalent at the rate of exchange at the time we receive payment. We agree to convert royalties from foreign countries without delay and if we are prohibited from so doing by local law, then and in such event, we shall so notify you in writing and comply with your directions to deposit monies due to your separate account in the respective foreign area(s) or territory(s).\n______%",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 6,
+    "context": "We will pay you in respect of recording made hereunder a royalty of ____________ (______%) of the wholesale list price in the country of manufacture, on _______________ (______%) percent of all records sold and paid for embodying performances hereunder on both sides thereof. However, that for records sold outside the United States, the royalty rate shall be one-half of the amount actually received by us. Royalties shall be paid to you when received by us, our affiliates, subsidiaries or associates or otherwise on our behalf. All royalties are payable to you when received by us in the United States and in the dollar equivalent at the rate of exchange at the time we receive payment. We agree to convert royalties from foreign countries without delay and if we are prohibited from so doing by local law, then and in such event, we shall so notify you in writing and comply with your directions to deposit monies due to your separate account in the respective foreign area(s) or territory(s).\nWe will pay you in respect of recording made hereunder a royalty of ____________ (______%) of the wholesale list price in the country of manufacture, on _______________ (______%) percent of all records sold and paid for embodying performances hereunder on both sides thereof. However, that for records sold outside the United States, the royalty rate shall be one-half of the amount actually received by us. Royalties shall be paid to you when received by us, our affiliates, subsidiaries or associates or otherwise on our behalf. All royalties are payable to you when received by us in the United States and in the dollar equivalent at the rate of exchange at the time we receive payment. We agree to convert royalties from foreign countries without delay and if we are prohibited from so doing by local law, then and in such event, we shall so notify you in writing and comply with your directions to deposit monies due to your separate account in the respective foreign area(s) or territory(s).\n_______________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_006"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 7,
+    "context": "We will pay you in respect of recording made hereunder a royalty of ____________ (______%) of the wholesale list price in the country of manufacture, on _______________ (______%) percent of all records sold and paid for embodying performances hereunder on both sides thereof. However, that for records sold outside the United States, the royalty rate shall be one-half of the amount actually received by us. Royalties shall be paid to you when received by us, our affiliates, subsidiaries or associates or otherwise on our behalf. All royalties are payable to you when received by us in the United States and in the dollar equivalent at the rate of exchange at the time we receive payment. We agree to convert royalties from foreign countries without delay and if we are prohibited from so doing by local law, then and in such event, we shall so notify you in writing and comply with your directions to deposit monies due to your separate account in the respective foreign area(s) or territory(s).\nWe will pay you in respect of recording made hereunder a royalty of ____________ (______%) of the wholesale list price in the country of manufacture, on _______________ (______%) percent of all records sold and paid for embodying performances hereunder on both sides thereof. However, that for records sold outside the United States, the royalty rate shall be one-half of the amount actually received by us. Royalties shall be paid to you when received by us, our affiliates, subsidiaries or associates or otherwise on our behalf. All royalties are payable to you when received by us in the United States and in the dollar equivalent at the rate of exchange at the time we receive payment. We agree to convert royalties from foreign countries without delay and if we are prohibited from so doing by local law, then and in such event, we shall so notify you in writing and comply with your directions to deposit monies due to your separate account in the respective foreign area(s) or territory(s).\n______%",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_007"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 11,
+    "context": "By Artist:_____________________________________________________\nBy Artist:_____________________________________________________\n_____________________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_011"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

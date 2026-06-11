@@ -1,0 +1,66 @@
+{
+  "fields": [
+    {
+      "key": "publisherAddress",
+      "type": "textarea",
+      "label": "Publisher Address",
+      "order": 1,
+      "category": "other",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "_______________________________________________________________________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_004"
+      ],
+      "surroundingContext": "_______________________________________________________________________________"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 2,
+      "category": "signatures",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "_____________________________________________ | __________________",
+      "candidateIds": [
+        "blank_002",
+        "blank_003"
+      ],
+      "surroundingContext": "2. Second Song;_____________________________________________By:__________________"
+    },
+    {
+      "key": "writerName",
+      "type": "text",
+      "label": "Writer Name",
+      "order": 5,
+      "category": "parties",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "_______________________________________________________________________",
+      "candidateIds": [
+        "blank_005"
+      ],
+      "surroundingContext": "SONGWRITERS:_______________________________________________________________________"
+    }
+  ],
+  "source": "ollama",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "Publisher Address, Second Song By Line Name, Second Song By Signature, Publisher Address, Songwriters Name",
+      "message": "Blank fields are present and may be critical for the agreement.",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004",
+        "blank_005"
+      ]
+    }
+  ],
+  "templateName": "Copyright Assignment Agreement",
+  "reviewRequired": true
+}

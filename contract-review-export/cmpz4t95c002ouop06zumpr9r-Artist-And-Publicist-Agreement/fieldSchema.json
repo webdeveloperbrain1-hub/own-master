@@ -1,0 +1,159 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "__/__/20____ | In consideration of services performed herein described, Artist shall pay a sum of\n_____________ per ______________.",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_007"
+      ],
+      "surroundingContext": "This Agreement is hereby entered into on ______________, 20___ by and between\n____________________, with the Stage Name of “__________________” hereinafter\nreferred to as “Artist” and _________________________ of ______________________\nhereinafter referred to as “Publicist.”"
+    },
+    {
+      "key": "artistName",
+      "type": "text",
+      "label": "Artist Name",
+      "order": 2,
+      "category": "parties",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "____________________, with the Stage Name of “__________________” hereinafter\nreferred to as “Artist” and _________________________ of ______________________\nhereinafter referred to as “Publicist.”",
+      "candidateIds": [
+        "blank_003",
+        "blank_004"
+      ],
+      "surroundingContext": "In consideration of services performed herein described, Artist shall pay a sum of\n_____________ per ______________."
+    },
+    {
+      "key": "publicistName",
+      "type": "text",
+      "label": "Publicist Name",
+      "order": 3,
+      "category": "parties",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "____________________, with the Stage Name of “__________________” hereinafter\nreferred to as “Artist” and _________________________ of ______________________\nhereinafter referred to as “Publicist.”",
+      "candidateIds": [
+        "blank_005",
+        "blank_006"
+      ],
+      "surroundingContext": "In consideration of services performed herein described, Artist shall pay a sum of\n_____________ per ______________."
+    },
+    {
+      "key": "agreementDate2",
+      "type": "date",
+      "label": "Agreement Date2",
+      "order": 5,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "In consideration of services performed herein described, Artist shall pay a sum of\n_____________ per ______________.",
+      "candidateIds": [
+        "blank_008"
+      ],
+      "surroundingContext": "The duration of this Agreement shall last two (2) years and shall commence on\nthe date above mentioned."
+    }
+  ],
+  "source": "ollama",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "ARTIST AND PUBLICIST AGREEMENT\nThis Agreement is hereby entered into on ______________, 20___ by and between\n____________________, with the Stage Name of “__________________” hereinafter\nThis Agreement is hereby entered into on ______________, 20___ by and between\n______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "ARTIST AND PUBLICIST AGREEMENT\nThis Agreement is hereby entered into on ______________, 20___ by and between\n____________________, with the Stage Name of “__________________” hereinafter\nThis Agreement is hereby entered into on ______________, 20___ by and between\n20___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_002"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "This Agreement is hereby entered into on ______________, 20___ by and between\n____________________, with the Stage Name of “__________________” hereinafter\nreferred to as “Artist” and _________________________ of ______________________\n____________________, with the Stage Name of “__________________” hereinafter\n____________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "This Agreement is hereby entered into on ______________, 20___ by and between\n____________________, with the Stage Name of “__________________” hereinafter\nreferred to as “Artist” and _________________________ of ______________________\n____________________, with the Stage Name of “__________________” hereinafter\n__________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 5,
+      "context": "____________________, with the Stage Name of “__________________” hereinafter\nreferred to as “Artist” and _________________________ of ______________________\nhereinafter referred to as “Publicist.”\nreferred to as “Artist” and _________________________ of ______________________\n_________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 6,
+      "context": "____________________, with the Stage Name of “__________________” hereinafter\nreferred to as “Artist” and _________________________ of ______________________\nhereinafter referred to as “Publicist.”\nreferred to as “Artist” and _________________________ of ______________________\n______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_006"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 7,
+      "context": "In consideration of services performed herein described, Artist shall pay a sum of\n_____________ per ______________.\n1. TERM.\n_____________ per ______________.\n_____________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_007"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "In consideration of services performed herein described, Artist shall pay a sum of\n_____________ per ______________.\n1. TERM.\n_____________ per ______________.\n______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 12,
+      "context": "setting their names below.\n____________________________\nARTIST\n____________________________\n____________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_012"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 13,
+      "context": "ARTIST\n____________________________\nPUBLICIST\n____________________________\n____________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_013"
+      ]
+    }
+  ],
+  "templateName": "ArtistAndPublicistAgreement",
+  "reviewRequired": true
+}

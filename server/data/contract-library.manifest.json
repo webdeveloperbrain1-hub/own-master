@@ -1,0 +1,3041 @@
+{
+  "sourceZip": "C:\\Users\\Roni_Brain1\\Downloads\\Over 200+ All Music Contracts-20260525T183848Z-3-001.zip",
+  "generatedAt": "2026-05-28T13:36:27.727Z",
+  "totalTemplates": 216,
+  "templates": [
+    {
+      "id": "producer-simple-agreement",
+      "title": "Producer Simple Agreement",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/Producer_Simple_Agreement.rtf",
+      "extension": "rtf",
+      "description": "Producer Simple Agreement from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "simple",
+        "agreements"
+      ]
+    },
+    {
+      "id": "recording-contract-iv",
+      "title": "Recording Contract Iv",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/recording_contract_iv.pdf",
+      "extension": "pdf",
+      "description": "Recording Contract Iv from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "recording",
+        "agreements"
+      ]
+    },
+    {
+      "id": "exclusive-songwriter-contract",
+      "title": "Exclusive Songwriter Contract",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/exclusive_songwriter_contract (1).pdf",
+      "extension": "pdf",
+      "description": "Exclusive Songwriter Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "exclusive",
+        "songwriter",
+        "publishing",
+        "agreements"
+      ]
+    },
+    {
+      "id": "copyright-assignment-publisher-to-songwriter",
+      "title": "Copyright Assignment Publisher To Songwriter",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/copyright_assignment_publisher_to_songwriter.pdf",
+      "extension": "pdf",
+      "description": "Copyright Assignment Publisher To Songwriter from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "copyright",
+        "assignment",
+        "publisher",
+        "songwriter",
+        "publishing",
+        "agreements"
+      ]
+    },
+    {
+      "id": "event-sponsorship-contract",
+      "title": "Event Sponsorship Contract",
+      "category": "Booking and Performance",
+      "sourceFile": "Over 200+ All Music Contracts/event_sponsorship_contract.pdf",
+      "extension": "pdf",
+      "description": "Event Sponsorship Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "event",
+        "sponsorship",
+        "booking",
+        "performance"
+      ]
+    },
+    {
+      "id": "producers-assistant-contract",
+      "title": "Producers Assistant Contract",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/producers_assistant_contract.pdf",
+      "extension": "pdf",
+      "description": "Producers Assistant Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producers",
+        "assistant",
+        "producer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "record-company-producer-contract",
+      "title": "RECORD COMPANY PRODUCER CONTRACT",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/RECORD COMPANY PRODUCER CONTRACT.doc",
+      "extension": "doc",
+      "description": "RECORD COMPANY PRODUCER CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "record",
+        "company",
+        "producer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "record-company-producer-contract-2",
+      "title": "Record Company Producer Contract",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/record_company_producer_contract.pdf",
+      "extension": "pdf",
+      "description": "Record Company Producer Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "record",
+        "company",
+        "producer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "studio-charges-time-contract",
+      "title": "Studio Charges Time Contract",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/studio_charges_time_contract.pdf",
+      "extension": "pdf",
+      "description": "Studio Charges Time Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "studio",
+        "charges",
+        "time",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "producer-recordcompany-agreement-3",
+      "title": "Producer RecordCompany Agreement 3",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/Producer-RecordCompany-Agreement-3.pdf",
+      "extension": "pdf",
+      "description": "Producer RecordCompany Agreement 3 from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "recordcompany",
+        "agreements"
+      ]
+    },
+    {
+      "id": "split-sheet",
+      "title": "Split Sheet",
+      "category": "Split Sheets",
+      "sourceFile": "Over 200+ All Music Contracts/Split sheet.doc",
+      "extension": "doc",
+      "description": "Split Sheet from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "split",
+        "sheet",
+        "sheets"
+      ]
+    },
+    {
+      "id": "producer-talent-contract",
+      "title": "Producer Talent Contract",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/producer_talent_contract.pdf",
+      "extension": "pdf",
+      "description": "Producer Talent Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "talent",
+        "agreements"
+      ]
+    },
+    {
+      "id": "recording-company-contract",
+      "title": "Recording Company Contract",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/recording_company_contract.pdf",
+      "extension": "pdf",
+      "description": "Recording Company Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "recording",
+        "company",
+        "agreements"
+      ]
+    },
+    {
+      "id": "royalty-agreement-contract-iii",
+      "title": "Royalty Agreement Contract Iii",
+      "category": "Royalty Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/royalty_agreement_contract_iii (1).pdf",
+      "extension": "pdf",
+      "description": "Royalty Agreement Contract Iii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "royalty",
+        "iii",
+        "agreements"
+      ]
+    },
+    {
+      "id": "songwriters-contract-i",
+      "title": "Songwriters Contract I",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/songwriters_contract_i.pdf",
+      "extension": "pdf",
+      "description": "Songwriters Contract I from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "songwriters",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "artist-producer-contract",
+      "title": "Artist Producer Contract",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/artist_producer_contract (1).pdf",
+      "extension": "pdf",
+      "description": "Artist Producer Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artist",
+        "producer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "manager-artist-contract",
+      "title": "Manager Artist Contract",
+      "category": "Management Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/Manager-Artist Contract.docx",
+      "extension": "docx",
+      "description": "Manager Artist Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "manager",
+        "artist",
+        "management",
+        "agreements"
+      ]
+    },
+    {
+      "id": "artist-recording-contract",
+      "title": "Artist Recording Contract",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/artist_recording_contract.pdf",
+      "extension": "pdf",
+      "description": "Artist Recording Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artist",
+        "recording",
+        "agreements"
+      ]
+    },
+    {
+      "id": "producermanager-contract",
+      "title": "Producermanager Contract",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/producermanager_contract.docx",
+      "extension": "docx",
+      "description": "Producermanager Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producermanager",
+        "producer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "royalty-payment-schedule",
+      "title": "Royalty Payment Schedule",
+      "category": "Royalty Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/royalty_payment_schedule.pdf",
+      "extension": "pdf",
+      "description": "Royalty Payment Schedule from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "royalty",
+        "payment",
+        "schedule",
+        "agreements"
+      ]
+    },
+    {
+      "id": "distribution-contract",
+      "title": "Distribution Contract",
+      "category": "Distribution Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/distribution_contract.pdf",
+      "extension": "pdf",
+      "description": "Distribution Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "distribution",
+        "agreements"
+      ]
+    },
+    {
+      "id": "recording-indie-agreement",
+      "title": "Recording Indie Agreement",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/Recording_Indie_Agreement.rtf",
+      "extension": "rtf",
+      "description": "Recording Indie Agreement from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "recording",
+        "indie",
+        "agreements"
+      ]
+    },
+    {
+      "id": "producer-royalties-contract",
+      "title": "Producer Royalties Contract",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/producer_royalties_contract.pdf",
+      "extension": "pdf",
+      "description": "Producer Royalties Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "royalties",
+        "agreements"
+      ]
+    },
+    {
+      "id": "foreign-agency-contract",
+      "title": "Foreign Agency Contract",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/foreign_agency_contract.pdf",
+      "extension": "pdf",
+      "description": "Foreign Agency Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "foreign",
+        "agency",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "producercomposer-contract",
+      "title": "Producercomposer Contract",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/producercomposer_contract.pdf",
+      "extension": "pdf",
+      "description": "Producercomposer Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producercomposer",
+        "producer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "agreement-of-obligation-to-pay",
+      "title": "Agreement Of Obligation To Pay",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/agreement_of_obligation_to_pay.pdf",
+      "extension": "pdf",
+      "description": "Agreement Of Obligation To Pay from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "obligation",
+        "pay",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "publisher-royalty-sharing-contract-ii",
+      "title": "Publisher Royalty Sharing Contract Ii",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/publisher__royalty_sharing_contract_ii (1).pdf",
+      "extension": "pdf",
+      "description": "Publisher Royalty Sharing Contract Ii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "publisher",
+        "royalty",
+        "sharing",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "single-song-option-contract",
+      "title": "Single Song Option Contract",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/single_song_option_contract.pdf",
+      "extension": "pdf",
+      "description": "Single Song Option Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "single",
+        "song",
+        "option",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "production-contract-ii",
+      "title": "Production Contract Ii",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/production_contract_ii.pdf",
+      "extension": "pdf",
+      "description": "Production Contract Ii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "production",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "production-contract-ii-2",
+      "title": "Production Contract Ii",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/production_contract_ii (1).pdf",
+      "extension": "pdf",
+      "description": "Production Contract Ii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "production",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "copyright-assignment-publisher-to-publisher",
+      "title": "Copyright Assignment Publisher To Publisher",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/copyright_assignment__publisher_to_publisher.pdf",
+      "extension": "pdf",
+      "description": "Copyright Assignment Publisher To Publisher from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "copyright",
+        "assignment",
+        "publisher",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "international-marketing-contract-ii",
+      "title": "International Marketing Contract Ii",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/international_marketing_contract_ii.pdf",
+      "extension": "pdf",
+      "description": "International Marketing Contract Ii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "international",
+        "marketing",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "event-sponsorship-contract-2",
+      "title": "Event Sponsorship Contract",
+      "category": "Booking and Performance",
+      "sourceFile": "Over 200+ All Music Contracts/event_sponsorship_contract.doc",
+      "extension": "doc",
+      "description": "Event Sponsorship Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "event",
+        "sponsorship",
+        "booking",
+        "performance"
+      ]
+    },
+    {
+      "id": "copyright-assignment-publisher-to-songwriter-2",
+      "title": "Copyright Assignment Publisher To Songwriter",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/copyright_assignment_publisher_to_songwriter.doc",
+      "extension": "doc",
+      "description": "Copyright Assignment Publisher To Songwriter from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "copyright",
+        "assignment",
+        "publisher",
+        "songwriter",
+        "publishing",
+        "agreements"
+      ]
+    },
+    {
+      "id": "booking-contract",
+      "title": "Booking Contract",
+      "category": "Booking and Performance",
+      "sourceFile": "Over 200+ All Music Contracts/booking_contract.pdf",
+      "extension": "pdf",
+      "description": "Booking Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "booking",
+        "performance"
+      ]
+    },
+    {
+      "id": "personal-management-contract-ii",
+      "title": "Personal Management Contract Ii",
+      "category": "Management Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/personal_management_contract_ii.pdf",
+      "extension": "pdf",
+      "description": "Personal Management Contract Ii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "personal",
+        "management",
+        "agreements"
+      ]
+    },
+    {
+      "id": "foreign-agency-contract-2",
+      "title": "Foreign Agency Contract",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/foreign_agency_contract.doc",
+      "extension": "doc",
+      "description": "Foreign Agency Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "foreign",
+        "agency",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "merchandise-licensing-contract",
+      "title": "Merchandise Licensing Contract",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/merchandise_licensing_contract.pdf",
+      "extension": "pdf",
+      "description": "Merchandise Licensing Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "merchandise",
+        "licensing",
+        "licenses",
+        "copyright"
+      ]
+    },
+    {
+      "id": "producer-talent-contract-2",
+      "title": "Producer Talent Contract",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/producer_talent_contract.doc",
+      "extension": "doc",
+      "description": "Producer Talent Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "talent",
+        "agreements"
+      ]
+    },
+    {
+      "id": "vocalist-contract",
+      "title": "Vocalist Contract",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/vocalist_contract.doc",
+      "extension": "doc",
+      "description": "Vocalist Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "vocalist",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "artists-management-contract-iii",
+      "title": "Artists Management Contract Iii",
+      "category": "Management Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/artists_management_contract_iii (1).pdf",
+      "extension": "pdf",
+      "description": "Artists Management Contract Iii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artists",
+        "management",
+        "iii",
+        "agreements"
+      ]
+    },
+    {
+      "id": "promotional-contract",
+      "title": "Promotional Contract",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/promotional_contract.pdf",
+      "extension": "pdf",
+      "description": "Promotional Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "promotional",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "exclusive-songwriter-contract-2",
+      "title": "Exclusive Songwriter Contract",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/exclusive_songwriter_contract (1).doc",
+      "extension": "doc",
+      "description": "Exclusive Songwriter Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "exclusive",
+        "songwriter",
+        "publishing",
+        "agreements"
+      ]
+    },
+    {
+      "id": "broadcast-release",
+      "title": "Broadcast Release",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/broadcast_release.pdf",
+      "extension": "pdf",
+      "description": "Broadcast Release from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "broadcast",
+        "release",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "vocalist-contract-2",
+      "title": "Vocalist Contract",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/vocalist_contract.pdf",
+      "extension": "pdf",
+      "description": "Vocalist Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "vocalist",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "copyright-license-and-contract",
+      "title": "Copyright License And Contract",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/copyright_license_and_contract.pdf",
+      "extension": "pdf",
+      "description": "Copyright License And Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "copyright",
+        "license",
+        "licenses"
+      ]
+    },
+    {
+      "id": "artist-recording-contract-2",
+      "title": "Artist Recording Contract",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/artist_recording_contract.doc",
+      "extension": "doc",
+      "description": "Artist Recording Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artist",
+        "recording",
+        "agreements"
+      ]
+    },
+    {
+      "id": "producercomposer-contract-2",
+      "title": "Producercomposer Contract",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/producercomposer_contract.doc",
+      "extension": "doc",
+      "description": "Producercomposer Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producercomposer",
+        "producer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "record-company-producer-contract-2-3",
+      "title": "Record Company Producer Contract",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/record_company_producer_contract.doc",
+      "extension": "doc",
+      "description": "Record Company Producer Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "record",
+        "company",
+        "producer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "talent-record-company-contract",
+      "title": "Talent Record Company Contract",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/talent__record_company_contract.doc",
+      "extension": "doc",
+      "description": "Talent Record Company Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "talent",
+        "record",
+        "company",
+        "recording",
+        "agreements"
+      ]
+    },
+    {
+      "id": "songwriters-contract-i-2",
+      "title": "Songwriters Contract I",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/songwriters_contract_i.doc",
+      "extension": "doc",
+      "description": "Songwriters Contract I from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "songwriters",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "production-contract-i",
+      "title": "Production Contract I",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/production_contract_i.doc",
+      "extension": "doc",
+      "description": "Production Contract I from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "production",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "recording-company-contract-2",
+      "title": "Recording Company Contract",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/recording_company_contract.doc",
+      "extension": "doc",
+      "description": "Recording Company Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "recording",
+        "company",
+        "agreements"
+      ]
+    },
+    {
+      "id": "broadcast-release-2",
+      "title": "Broadcast Release",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/broadcast_release.doc",
+      "extension": "doc",
+      "description": "Broadcast Release from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "broadcast",
+        "release",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "artist-producer-contract-2",
+      "title": "Artist Producer Contract",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/artist_producer_contract (1).doc",
+      "extension": "doc",
+      "description": "Artist Producer Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artist",
+        "producer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "copyright-assignment-publisher-to-publisher-2",
+      "title": "Copyright Assignment Publisher To Publisher",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/copyright_assignment__publisher_to_publisher.doc",
+      "extension": "doc",
+      "description": "Copyright Assignment Publisher To Publisher from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "copyright",
+        "assignment",
+        "publisher",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "agreement-of-obligation-to-pay-2",
+      "title": "Agreement Of Obligation To Pay",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/agreement_of_obligation_to_pay.doc",
+      "extension": "doc",
+      "description": "Agreement Of Obligation To Pay from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "obligation",
+        "pay",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "publisher-royalty-sharing-contract-ii-2",
+      "title": "Publisher Royalty Sharing Contract Ii",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/publisher__royalty_sharing_contract_ii (1).doc",
+      "extension": "doc",
+      "description": "Publisher Royalty Sharing Contract Ii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "publisher",
+        "royalty",
+        "sharing",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "artists-management-contract-iii-2",
+      "title": "Artists Management Contract Iii",
+      "category": "Management Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/artists_management_contract_iii (1).doc",
+      "extension": "doc",
+      "description": "Artists Management Contract Iii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artists",
+        "management",
+        "iii",
+        "agreements"
+      ]
+    },
+    {
+      "id": "producer-royalties-contract-2",
+      "title": "Producer Royalties Contract",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/producer_royalties_contract.doc",
+      "extension": "doc",
+      "description": "Producer Royalties Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "royalties",
+        "agreements"
+      ]
+    },
+    {
+      "id": "exclusive-songwriter-contract-2-3",
+      "title": "Exclusive Songwriter Contract",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/exclusive_songwriter_contract.doc",
+      "extension": "doc",
+      "description": "Exclusive Songwriter Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "exclusive",
+        "songwriter",
+        "publishing",
+        "agreements"
+      ]
+    },
+    {
+      "id": "royalty-payment-schedule-2",
+      "title": "Royalty Payment Schedule",
+      "category": "Royalty Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/royalty_payment_schedule.doc",
+      "extension": "doc",
+      "description": "Royalty Payment Schedule from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "royalty",
+        "payment",
+        "schedule",
+        "agreements"
+      ]
+    },
+    {
+      "id": "exclusive-songwriter-contract-2-3-4",
+      "title": "Exclusive Songwriter Contract",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/exclusive_songwriter_contract.pdf",
+      "extension": "pdf",
+      "description": "Exclusive Songwriter Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "exclusive",
+        "songwriter",
+        "publishing",
+        "agreements"
+      ]
+    },
+    {
+      "id": "artist-producer-contract-2-3",
+      "title": "Artist Producer Contract",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/artist_producer_contract.doc",
+      "extension": "doc",
+      "description": "Artist Producer Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artist",
+        "producer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "royalty-agreement-contract-iii-2",
+      "title": "Royalty Agreement Contract Iii",
+      "category": "Royalty Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/royalty_agreement_contract_iii.pdf",
+      "extension": "pdf",
+      "description": "Royalty Agreement Contract Iii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "royalty",
+        "iii",
+        "agreements"
+      ]
+    },
+    {
+      "id": "publisher-royalty-sharing-contract-ii-2-3",
+      "title": "Publisher Royalty Sharing Contract Ii",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/publisher__royalty_sharing_contract_ii.pdf",
+      "extension": "pdf",
+      "description": "Publisher Royalty Sharing Contract Ii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "publisher",
+        "royalty",
+        "sharing",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "copyright-assignment-ii",
+      "title": "Copyright Assignment Ii",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/copyright_assignment_ii.pdf",
+      "extension": "pdf",
+      "description": "Copyright Assignment Ii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "copyright",
+        "assignment",
+        "licenses"
+      ]
+    },
+    {
+      "id": "artists-management-contract-iii-2-3",
+      "title": "Artists Management Contract Iii",
+      "category": "Management Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/artists_management_contract_iii.pdf",
+      "extension": "pdf",
+      "description": "Artists Management Contract Iii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artists",
+        "management",
+        "iii",
+        "agreements"
+      ]
+    },
+    {
+      "id": "producers-assistant-contract-2",
+      "title": "Producers Assistant Contract",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/producers_assistant_contract.doc",
+      "extension": "doc",
+      "description": "Producers Assistant Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producers",
+        "assistant",
+        "producer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "single-song-option-contract-2",
+      "title": "Single Song Option Contract",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/single_song_option_contract.doc",
+      "extension": "doc",
+      "description": "Single Song Option Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "single",
+        "song",
+        "option",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "artists-management-contract-iii-2-3-4",
+      "title": "Artists Management Contract Iii",
+      "category": "Management Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/artists_management_contract_iii.doc",
+      "extension": "doc",
+      "description": "Artists Management Contract Iii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artists",
+        "management",
+        "iii",
+        "agreements"
+      ]
+    },
+    {
+      "id": "producermanager-contract-2",
+      "title": "Producermanager Contract",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/producermanager_contract.pdf",
+      "extension": "pdf",
+      "description": "Producermanager Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producermanager",
+        "producer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "talent-record-company-contract-2",
+      "title": "Talent Record Company Contract",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/talent__record_company_contract.pdf",
+      "extension": "pdf",
+      "description": "Talent Record Company Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "talent",
+        "record",
+        "company",
+        "recording",
+        "agreements"
+      ]
+    },
+    {
+      "id": "recording-contract-iii",
+      "title": "Recording Contract Iii",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/recording_contract_iii.doc",
+      "extension": "doc",
+      "description": "Recording Contract Iii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "recording",
+        "iii",
+        "agreements"
+      ]
+    },
+    {
+      "id": "personal-management-contract-ii-2",
+      "title": "Personal Management Contract Ii",
+      "category": "Management Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/personal_management_contract_ii.doc",
+      "extension": "doc",
+      "description": "Personal Management Contract Ii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "personal",
+        "management",
+        "agreements"
+      ]
+    },
+    {
+      "id": "mechanical-rights-license",
+      "title": "Mechanical Rights License",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/mechanical_rights_license.doc",
+      "extension": "doc",
+      "description": "Mechanical Rights License from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "mechanical",
+        "rights",
+        "license",
+        "licenses",
+        "copyright"
+      ]
+    },
+    {
+      "id": "artist-producer-contract-2-3-4",
+      "title": "Artist Producer Contract",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/artist_producer_contract.pdf",
+      "extension": "pdf",
+      "description": "Artist Producer Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artist",
+        "producer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "starting-your-own-publishing-company",
+      "title": "Starting Your Own Publishing Company",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/Starting Your Own Publishing Company.pdf",
+      "extension": "pdf",
+      "description": "Starting Your Own Publishing Company from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "starting",
+        "your",
+        "own",
+        "publishing",
+        "company",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "master-recording-license",
+      "title": "Master Recording License",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/master_recording_license.pdf",
+      "extension": "pdf",
+      "description": "Master Recording License from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "master",
+        "recording",
+        "license",
+        "agreements"
+      ]
+    },
+    {
+      "id": "record-recording-agreement-record-contract",
+      "title": "Record Recording Agreement (Record Contract)",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/Record Recording Agreement (Record Contract).pdf",
+      "extension": "pdf",
+      "description": "Record Recording Agreement (Record Contract) from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "record",
+        "recording",
+        "agreements"
+      ]
+    },
+    {
+      "id": "publisher-royalty-sharing-contract-ii-2-3-4",
+      "title": "Publisher Royalty Sharing Contract Ii",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/publisher__royalty_sharing_contract_ii.doc",
+      "extension": "doc",
+      "description": "Publisher Royalty Sharing Contract Ii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "publisher",
+        "royalty",
+        "sharing",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "radio-release-agreement",
+      "title": "Radio Release Agreement",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/Radio Release Agreement.pdf",
+      "extension": "pdf",
+      "description": "Radio Release Agreement from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "radio",
+        "release",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "distribution-contract-2",
+      "title": "Distribution Contract",
+      "category": "Distribution Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/distribution_contract.doc",
+      "extension": "doc",
+      "description": "Distribution Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "distribution",
+        "agreements"
+      ]
+    },
+    {
+      "id": "mechanical-rights-license-2",
+      "title": "Mechanical Rights License",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/mechanical_rights_license.pdf",
+      "extension": "pdf",
+      "description": "Mechanical Rights License from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "mechanical",
+        "rights",
+        "license",
+        "licenses",
+        "copyright"
+      ]
+    },
+    {
+      "id": "production-contract-ii-2-3",
+      "title": "Production Contract Ii",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/production_contract_ii (1).doc",
+      "extension": "doc",
+      "description": "Production Contract Ii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "production",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "booking-contract-2",
+      "title": "Booking Contract",
+      "category": "Booking and Performance",
+      "sourceFile": "Over 200+ All Music Contracts/booking_contract.doc",
+      "extension": "doc",
+      "description": "Booking Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "booking",
+        "performance"
+      ]
+    },
+    {
+      "id": "copyright-assignment-ii-2",
+      "title": "Copyright Assignment Ii",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/copyright_assignment_ii.doc",
+      "extension": "doc",
+      "description": "Copyright Assignment Ii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "copyright",
+        "assignment",
+        "licenses"
+      ]
+    },
+    {
+      "id": "copyright-license-and-contract-2",
+      "title": "Copyright License And Contract",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/copyright_license_and_contract.doc",
+      "extension": "doc",
+      "description": "Copyright License And Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "copyright",
+        "license",
+        "licenses"
+      ]
+    },
+    {
+      "id": "production-contract-ii-2-3-4",
+      "title": "Production Contract Ii",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/production_contract_ii.doc",
+      "extension": "doc",
+      "description": "Production Contract Ii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "production",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "recording-contract-iv-2",
+      "title": "Recording Contract Iv",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/recording_contract_iv.doc",
+      "extension": "doc",
+      "description": "Recording Contract Iv from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "recording",
+        "agreements"
+      ]
+    },
+    {
+      "id": "production-contract-i-2",
+      "title": "Production Contract I",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/production_contract_i.pdf",
+      "extension": "pdf",
+      "description": "Production Contract I from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "production",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "studio-charges-time-contract-2",
+      "title": "Studio Charges Time Contract",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/studio_charges_time_contract.doc",
+      "extension": "doc",
+      "description": "Studio Charges Time Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "studio",
+        "charges",
+        "time",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "royalty-agreement-contract-iii-2-3",
+      "title": "Royalty Agreement Contract Iii",
+      "category": "Royalty Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/royalty_agreement_contract_iii (1).doc",
+      "extension": "doc",
+      "description": "Royalty Agreement Contract Iii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "royalty",
+        "iii",
+        "agreements"
+      ]
+    },
+    {
+      "id": "international-marketing-contract-ii-2",
+      "title": "International Marketing Contract Ii",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/international_marketing_contract_ii.doc",
+      "extension": "doc",
+      "description": "International Marketing Contract Ii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "international",
+        "marketing",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "booking-agreement-sales-based",
+      "title": "Booking Agreement (Sales Based)",
+      "category": "Booking and Performance",
+      "sourceFile": "Over 200+ All Music Contracts/Booking Agreement (Sales-Based).pdf",
+      "extension": "pdf",
+      "description": "Booking Agreement (Sales Based) from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "booking",
+        "sales",
+        "based",
+        "performance"
+      ]
+    },
+    {
+      "id": "royalty-agreement-contract-iii-2-3-4",
+      "title": "Royalty Agreement Contract Iii",
+      "category": "Royalty Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/royalty_agreement_contract_iii.doc",
+      "extension": "doc",
+      "description": "Royalty Agreement Contract Iii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "royalty",
+        "iii",
+        "agreements"
+      ]
+    },
+    {
+      "id": "merchandise-licensing-contract-2",
+      "title": "Merchandise Licensing Contract",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/merchandise_licensing_contract.doc",
+      "extension": "doc",
+      "description": "Merchandise Licensing Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "merchandise",
+        "licensing",
+        "licenses",
+        "copyright"
+      ]
+    },
+    {
+      "id": "international-marketing-contract",
+      "title": "INTERNATIONAL MARKETING CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/INTERNATIONAL MARKETING CONTRACT.doc",
+      "extension": "doc",
+      "description": "INTERNATIONAL MARKETING CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "international",
+        "marketing",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "contract-description-and-usages-read-me",
+      "title": "Contract Description And Usages READ ME",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/Contract Description and Usages - READ ME.pdf",
+      "extension": "pdf",
+      "description": "Contract Description And Usages READ ME from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "description",
+        "usages",
+        "read",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "technical-advisor-and-consultant-contract",
+      "title": "TECHNICAL ADVISOR And CONSULTANT CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/TECHNICAL ADVISOR and CONSULTANT CONTRACT.doc",
+      "extension": "doc",
+      "description": "TECHNICAL ADVISOR And CONSULTANT CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "technical",
+        "advisor",
+        "consultant",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "copyright-assignment",
+      "title": "Copyright Assignment",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/Copyright Assignment.pdf",
+      "extension": "pdf",
+      "description": "Copyright Assignment from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "copyright",
+        "assignment",
+        "licenses"
+      ]
+    },
+    {
+      "id": "co-publisher-agreement",
+      "title": "Co Publisher Agreement",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/Co-Publisher Agreement.pdf",
+      "extension": "pdf",
+      "description": "Co Publisher Agreement from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "publisher",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "talent-release-contract-ii",
+      "title": "TALENT RELEASE CONTRACT II",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/TALENT RELEASE CONTRACT II.doc",
+      "extension": "doc",
+      "description": "TALENT RELEASE CONTRACT II from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "talent",
+        "release",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "producer-artist-agreement-2",
+      "title": "Producer Artist Agreement 2",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/Producer-Artist-Agreement-2.pdf",
+      "extension": "pdf",
+      "description": "Producer Artist Agreement 2 from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "artist",
+        "agreements"
+      ]
+    },
+    {
+      "id": "producer-recordcompany-agreement-2",
+      "title": "Producer RecordCompany Agreement 2",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/Producer-RecordCompany-Agreement-2.pdf",
+      "extension": "pdf",
+      "description": "Producer RecordCompany Agreement 2 from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "recordcompany",
+        "agreements"
+      ]
+    },
+    {
+      "id": "sponsorship-agreement",
+      "title": "Sponsorship Agreement",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/Sponsorship Agreement.pdf",
+      "extension": "pdf",
+      "description": "Sponsorship Agreement from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "sponsorship",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "vocalist-contract-2-3",
+      "title": "VOCALIST CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/VOCALIST CONTRACT.doc",
+      "extension": "doc",
+      "description": "VOCALIST CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "vocalist",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "producer-artist-agreement-3",
+      "title": "Producer Artist Agreement 3",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/Producer-Artist-Agreement-3.pdf",
+      "extension": "pdf",
+      "description": "Producer Artist Agreement 3 from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "artist",
+        "agreements"
+      ]
+    },
+    {
+      "id": "artist-and-publicist-agreement",
+      "title": "Artist And Publicist Agreement",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/Artist and Publicist Agreement.pdf",
+      "extension": "pdf",
+      "description": "Artist And Publicist Agreement from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artist",
+        "publicist",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "recording-contract-iii-2",
+      "title": "RECORDING CONTRACT III",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/RECORDING CONTRACT III.doc",
+      "extension": "doc",
+      "description": "RECORDING CONTRACT III from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "recording",
+        "iii",
+        "agreements"
+      ]
+    },
+    {
+      "id": "copyright-assignment-short-form",
+      "title": "COPYRIGHT ASSIGNMENT SHORT FORM",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/COPYRIGHT ASSIGNMENT - SHORT FORM.doc",
+      "extension": "doc",
+      "description": "COPYRIGHT ASSIGNMENT SHORT FORM from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "copyright",
+        "assignment",
+        "short",
+        "form",
+        "licenses"
+      ]
+    },
+    {
+      "id": "t-v-movie-film-synchronization-license",
+      "title": "T.V. MOVIE FILM SYNCHRONIZATION LICENSE",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/T.V.-MOVIE-FILM SYNCHRONIZATION LICENSE.doc",
+      "extension": "doc",
+      "description": "T.V. MOVIE FILM SYNCHRONIZATION LICENSE from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "movie",
+        "film",
+        "synchronization",
+        "license",
+        "licenses",
+        "copyright"
+      ]
+    },
+    {
+      "id": "booking-agreement-comprehensive",
+      "title": "Booking Agreement (Comprehensive)",
+      "category": "Booking and Performance",
+      "sourceFile": "Over 200+ All Music Contracts/Booking Agreement (Comprehensive).pdf",
+      "extension": "pdf",
+      "description": "Booking Agreement (Comprehensive) from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "booking",
+        "comprehensive",
+        "performance"
+      ]
+    },
+    {
+      "id": "producer-artist-agreement-1",
+      "title": "Producer Artist Agreement 1",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/Producer-Artist-Agreement-1.pdf",
+      "extension": "pdf",
+      "description": "Producer Artist Agreement 1 from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "artist",
+        "agreements"
+      ]
+    },
+    {
+      "id": "producer-recordcompany-agreement-1",
+      "title": "Producer RecordCompany Agreement 1",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/Producer-RecordCompany-Agreement-1.pdf",
+      "extension": "pdf",
+      "description": "Producer RecordCompany Agreement 1 from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "recordcompany",
+        "agreements"
+      ]
+    },
+    {
+      "id": "band-group-partnership-agreement",
+      "title": "Band Group Partnership Agreement",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/Band-Group Partnership Agreement.pdf",
+      "extension": "pdf",
+      "description": "Band Group Partnership Agreement from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "band",
+        "group",
+        "partnership",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "studio-charges-time-contract-2-3",
+      "title": "STUDIO CHARGES & TIME CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/STUDIO CHARGES & TIME CONTRACT.doc",
+      "extension": "doc",
+      "description": "STUDIO CHARGES & TIME CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "studio",
+        "charges",
+        "time",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "talent-release-contract-i",
+      "title": "TALENT RELEASE CONTRACT I",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/TALENT RELEASE CONTRACT I.doc",
+      "extension": "doc",
+      "description": "TALENT RELEASE CONTRACT I from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "talent",
+        "release",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "promotional-contract-2",
+      "title": "Promotional Contract",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/promotional_contract.doc",
+      "extension": "doc",
+      "description": "Promotional Contract from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "promotional",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "master-recording-license-2",
+      "title": "Master Recording License",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/master_recording_license.doc",
+      "extension": "doc",
+      "description": "Master Recording License from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "master",
+        "recording",
+        "license",
+        "agreements"
+      ]
+    },
+    {
+      "id": "recording-contract-iii-2-3",
+      "title": "Recording Contract Iii",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/recording_contract_iii.pdf",
+      "extension": "pdf",
+      "description": "Recording Contract Iii from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "recording",
+        "iii",
+        "agreements"
+      ]
+    },
+    {
+      "id": "sub-publishing-contract",
+      "title": "SUB PUBLISHING CONTRACT",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/SUB-PUBLISHING CONTRACT.doc",
+      "extension": "doc",
+      "description": "SUB PUBLISHING CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "sub",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "sound-and-light-contracting-agreement",
+      "title": "SOUND AND LIGHT CONTRACTING AGREEMENT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/SOUND AND LIGHT CONTRACTING AGREEMENT.doc",
+      "extension": "doc",
+      "description": "SOUND AND LIGHT CONTRACTING AGREEMENT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "sound",
+        "light",
+        "contracting",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "agency-agreement",
+      "title": "Agency Agreement",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/Agency Agreement.pdf",
+      "extension": "pdf",
+      "description": "Agency Agreement from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "agency",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "talent-record-company-contract-2-3",
+      "title": "TALENT RECORD COMPANY CONTRACT",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/TALENT - RECORD COMPANY CONTRACT.doc",
+      "extension": "doc",
+      "description": "TALENT RECORD COMPANY CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "talent",
+        "record",
+        "company",
+        "recording",
+        "agreements"
+      ]
+    },
+    {
+      "id": "video-release-contract",
+      "title": "VIDEO RELEASE CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/VIDEO RELEASE CONTRACT.doc",
+      "extension": "doc",
+      "description": "VIDEO RELEASE CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "video",
+        "release",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "union-booking-contract",
+      "title": "UNION BOOKING CONTRACT",
+      "category": "Booking and Performance",
+      "sourceFile": "Over 200+ All Music Contracts/UNION BOOKING CONTRACT.doc",
+      "extension": "doc",
+      "description": "UNION BOOKING CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "union",
+        "booking",
+        "performance"
+      ]
+    },
+    {
+      "id": "publishing-agreement",
+      "title": "Publishing Agreement",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/Publishing Agreement.pdf",
+      "extension": "pdf",
+      "description": "Publishing Agreement from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "producer-recordcompany-agreement-4",
+      "title": "Producer RecordCompany Agreement 4",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/Producer-RecordCompany-Agreement-4.pdf",
+      "extension": "pdf",
+      "description": "Producer RecordCompany Agreement 4 from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "recordcompany",
+        "agreements"
+      ]
+    },
+    {
+      "id": "recording-contract-artist",
+      "title": "RECORDING CONTRACT ARTIST",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/RECORDING CONTRACT-ARTIST.doc",
+      "extension": "doc",
+      "description": "RECORDING CONTRACT ARTIST from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "recording",
+        "artist",
+        "agreements"
+      ]
+    },
+    {
+      "id": "personal-management-contract-iii",
+      "title": "PERSONAL MANAGEMENT CONTRACT III",
+      "category": "Management Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/PERSONAL MANAGEMENT CONTRACT III.doc",
+      "extension": "doc",
+      "description": "PERSONAL MANAGEMENT CONTRACT III from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "personal",
+        "management",
+        "iii",
+        "agreements"
+      ]
+    },
+    {
+      "id": "recording-company-contract-2-3",
+      "title": "RECORDING COMPANY CONTRACT",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/RECORDING COMPANY CONTRACT.doc",
+      "extension": "doc",
+      "description": "RECORDING COMPANY CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "recording",
+        "company",
+        "agreements"
+      ]
+    },
+    {
+      "id": "publisher-record-company-contract",
+      "title": "PUBLISHER RECORD COMPANY CONTRACT",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/PUBLISHER-RECORD COMPANY CONTRACT.doc",
+      "extension": "doc",
+      "description": "PUBLISHER RECORD COMPANY CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "publisher",
+        "record",
+        "company",
+        "recording",
+        "agreements"
+      ]
+    },
+    {
+      "id": "royalty-agreement-contract-iii-2-3-4-5",
+      "title": "ROYALTY AGREEMENT CONTRACT III",
+      "category": "Royalty Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/ROYALTY AGREEMENT CONTRACT III.doc",
+      "extension": "doc",
+      "description": "ROYALTY AGREEMENT CONTRACT III from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "royalty",
+        "iii",
+        "agreements"
+      ]
+    },
+    {
+      "id": "personal-management-contract-ii-2-3",
+      "title": "PERSONAL MANAGEMENT CONTRACT II",
+      "category": "Management Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/PERSONAL MANAGEMENT CONTRACT II.doc",
+      "extension": "doc",
+      "description": "PERSONAL MANAGEMENT CONTRACT II from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "personal",
+        "management",
+        "agreements"
+      ]
+    },
+    {
+      "id": "receipt-for-masters-contract-ii",
+      "title": "RECEIPT FOR MASTERS CONTRACT II",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/RECEIPT FOR MASTERS CONTRACT II.doc",
+      "extension": "doc",
+      "description": "RECEIPT FOR MASTERS CONTRACT II from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "receipt",
+        "masters",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "recording-manufacturing-contract",
+      "title": "RECORDING MANUFACTURING CONTRACT",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/RECORDING MANUFACTURING CONTRACT.doc",
+      "extension": "doc",
+      "description": "RECORDING MANUFACTURING CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "recording",
+        "manufacturing",
+        "agreements"
+      ]
+    },
+    {
+      "id": "royalty-agreement-contract-ii",
+      "title": "ROYALTY AGREEMENT CONTRACT II",
+      "category": "Royalty Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/ROYALTY AGREEMENT CONTRACT II.doc",
+      "extension": "doc",
+      "description": "ROYALTY AGREEMENT CONTRACT II from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "royalty",
+        "agreements"
+      ]
+    },
+    {
+      "id": "songwriters-contract-ii",
+      "title": "SONGWRITERS CONTRACT II",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/SONGWRITERS CONTRACT II.doc",
+      "extension": "doc",
+      "description": "SONGWRITERS CONTRACT II from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "songwriters",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "record-co-distributer-policy-statement",
+      "title": "RECORD CO DISTRIBUTER POLICY STATEMENT",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/RECORD CO-DISTRIBUTER POLICY STATEMENT.doc",
+      "extension": "doc",
+      "description": "RECORD CO DISTRIBUTER POLICY STATEMENT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "record",
+        "distributer",
+        "policy",
+        "statement",
+        "recording",
+        "agreements"
+      ]
+    },
+    {
+      "id": "producers-assistant-contract-2-3",
+      "title": "PRODUCERS ASSISTANT CONTRACT",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/PRODUCERS ASSISTANT CONTRACT.doc",
+      "extension": "doc",
+      "description": "PRODUCERS ASSISTANT CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producers",
+        "assistant",
+        "producer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "royalty-agreement-contract-i",
+      "title": "ROYALTY AGREEMENT CONTRACT I",
+      "category": "Royalty Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/ROYALTY AGREEMENT CONTRACT I.doc",
+      "extension": "doc",
+      "description": "ROYALTY AGREEMENT CONTRACT I from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "royalty",
+        "agreements"
+      ]
+    },
+    {
+      "id": "partnership-contract",
+      "title": "PARTNERSHIP CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/PARTNERSHIP CONTRACT.doc",
+      "extension": "doc",
+      "description": "PARTNERSHIP CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "partnership",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "producer-composer-contract",
+      "title": "PRODUCER COMPOSER CONTRACT",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/PRODUCER-COMPOSER CONTRACT.doc",
+      "extension": "doc",
+      "description": "PRODUCER COMPOSER CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "composer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "recording-contract-iv-2-3",
+      "title": "RECORDING CONTRACT IV",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/RECORDING CONTRACT IV.doc",
+      "extension": "doc",
+      "description": "RECORDING CONTRACT IV from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "recording",
+        "agreements"
+      ]
+    },
+    {
+      "id": "photographer-contract",
+      "title": "PHOTOGRAPHER CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/PHOTOGRAPHER  CONTRACT.doc",
+      "extension": "doc",
+      "description": "PHOTOGRAPHER CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "photographer",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "producer-manager-contract",
+      "title": "PRODUCER MANAGER CONTRACT",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/PRODUCER-MANAGER CONTRACT.doc",
+      "extension": "doc",
+      "description": "PRODUCER MANAGER CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "manager",
+        "agreements"
+      ]
+    },
+    {
+      "id": "sale-of-property-contract",
+      "title": "SALE OF PROPERTY CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/SALE OF PROPERTY CONTRACT.doc",
+      "extension": "doc",
+      "description": "SALE OF PROPERTY CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "sale",
+        "property",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "single-song-option-contract-2-3",
+      "title": "SINGLE SONG OPTION CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/SINGLE SONG OPTION CONTRACT.doc",
+      "extension": "doc",
+      "description": "SINGLE SONG OPTION CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "single",
+        "song",
+        "option",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "producer-talent-contract-2-3",
+      "title": "PRODUCER TALENT CONTRACT",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/PRODUCER TALENT CONTRACT.doc",
+      "extension": "doc",
+      "description": "PRODUCER TALENT CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "talent",
+        "agreements"
+      ]
+    },
+    {
+      "id": "songwriters-contract-i-2-3",
+      "title": "SONGWRITERS CONTRACT I",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/SONGWRITERS CONTRACT I.doc",
+      "extension": "doc",
+      "description": "SONGWRITERS CONTRACT I from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "songwriters",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "recording-company-contract-ii",
+      "title": "RECORDING COMPANY CONTRACT II",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/RECORDING COMPANY CONTRACT II.doc",
+      "extension": "doc",
+      "description": "RECORDING COMPANY CONTRACT II from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "recording",
+        "company",
+        "agreements"
+      ]
+    },
+    {
+      "id": "receipt-for-masters-contract-i",
+      "title": "RECEIPT FOR MASTERS CONTRACT I",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/RECEIPT FOR MASTERS CONTRACT I.doc",
+      "extension": "doc",
+      "description": "RECEIPT FOR MASTERS CONTRACT I from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "receipt",
+        "masters",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "royalty-payment-schedule-2-3",
+      "title": "ROYALTY PAYMENT SCHEDULE",
+      "category": "Royalty Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/ROYALTY PAYMENT SCHEDULE.doc",
+      "extension": "doc",
+      "description": "ROYALTY PAYMENT SCHEDULE from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "royalty",
+        "payment",
+        "schedule",
+        "agreements"
+      ]
+    },
+    {
+      "id": "producer-royalties-contract-2-3",
+      "title": "PRODUCER ROYALTIES CONTRACT",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/PRODUCER ROYALTIES CONTRACT.doc",
+      "extension": "doc",
+      "description": "PRODUCER ROYALTIES CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "royalties",
+        "agreements"
+      ]
+    },
+    {
+      "id": "personal-management-contract",
+      "title": "PERSONAL MANAGEMENT CONTRACT",
+      "category": "Management Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/PERSONAL MANAGEMENT CONTRACT.doc",
+      "extension": "doc",
+      "description": "PERSONAL MANAGEMENT CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "personal",
+        "management",
+        "agreements"
+      ]
+    },
+    {
+      "id": "producer-artist-agreement-4",
+      "title": "Producer Artist Agreement 4",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/Producer-Artist-Agreement-4.pdf",
+      "extension": "pdf",
+      "description": "Producer Artist Agreement 4 from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "producer",
+        "artist",
+        "agreements"
+      ]
+    },
+    {
+      "id": "payment-obligation-contract",
+      "title": "PAYMENT OBLIGATION CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/PAYMENT OBLIGATION CONTRACT.doc",
+      "extension": "doc",
+      "description": "PAYMENT OBLIGATION CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "payment",
+        "obligation",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "production-distribution-promotion-contract",
+      "title": "PRODUCTION DISTRIBUTION PROMOTION CONTRACT",
+      "category": "Distribution Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/PRODUCTION-DISTRIBUTION-PROMOTION CONTRACT.doc",
+      "extension": "doc",
+      "description": "PRODUCTION DISTRIBUTION PROMOTION CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "production",
+        "distribution",
+        "promotion",
+        "agreements"
+      ]
+    },
+    {
+      "id": "songwriters-contract-iii",
+      "title": "SONGWRITERS CONTRACT III",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/SONGWRITERS CONTRACT III.doc",
+      "extension": "doc",
+      "description": "SONGWRITERS CONTRACT III from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "songwriters",
+        "iii",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "foreign-agency-contract-2-3",
+      "title": "FOREIGN AGENCY CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/FOREIGN AGENCY CONTRACT.doc",
+      "extension": "doc",
+      "description": "FOREIGN AGENCY CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "foreign",
+        "agency",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "publicity-contract",
+      "title": "PUBLICITY CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/PUBLICITY CONTRACT.doc",
+      "extension": "doc",
+      "description": "PUBLICITY CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "publicity",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "performance-contract",
+      "title": "PERFORMANCE CONTRACT",
+      "category": "Booking and Performance",
+      "sourceFile": "Over 200+ All Music Contracts/PERFORMANCE CONTRACT.doc",
+      "extension": "doc",
+      "description": "PERFORMANCE CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "performance",
+        "booking"
+      ]
+    },
+    {
+      "id": "mechanical-rights-license-2-3",
+      "title": "MECHANICAL RIGHTS LICENSE",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/MECHANICAL RIGHTS LICENSE.doc",
+      "extension": "doc",
+      "description": "MECHANICAL RIGHTS LICENSE from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "mechanical",
+        "rights",
+        "license",
+        "licenses",
+        "copyright"
+      ]
+    },
+    {
+      "id": "exclusive-agent-musician-contract",
+      "title": "EXCLUSIVE AGENT MUSICIAN CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/EXCLUSIVE AGENT - MUSICIAN CONTRACT.doc",
+      "extension": "doc",
+      "description": "EXCLUSIVE AGENT MUSICIAN CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "exclusive",
+        "agent",
+        "musician",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "production-contract-ii-2-3-4-5",
+      "title": "PRODUCTION CONTRACT II",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/PRODUCTION CONTRACT II.doc",
+      "extension": "doc",
+      "description": "PRODUCTION CONTRACT II from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "production",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "publisher-royalty-sharing-contract-i",
+      "title": "PUBLISHER ROYALTY SHARING CONTRACT I",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/PUBLISHER - ROYALTY SHARING CONTRACT I.doc",
+      "extension": "doc",
+      "description": "PUBLISHER ROYALTY SHARING CONTRACT I from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "publisher",
+        "royalty",
+        "sharing",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "promotional-contract-2-3",
+      "title": "PROMOTIONAL CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/PROMOTIONAL CONTRACT.doc",
+      "extension": "doc",
+      "description": "PROMOTIONAL CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "promotional",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "joint-venture-contract-publsiher-producer-rec-co",
+      "title": "JOINT VENTURE CONTRACT Publsiher, Producer, Rec Co.",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/JOINT VENTURE CONTRACT - Publsiher, Producer, Rec Co..doc",
+      "extension": "doc",
+      "description": "JOINT VENTURE CONTRACT Publsiher, Producer, Rec Co. from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "joint",
+        "venture",
+        "publsiher",
+        "producer",
+        "rec",
+        "agreements"
+      ]
+    },
+    {
+      "id": "master-use-rcording-license",
+      "title": "MASTER USE RCORDING LICENSE",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/MASTER USE RCORDING LICENSE.doc",
+      "extension": "doc",
+      "description": "MASTER USE RCORDING LICENSE from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "master",
+        "use",
+        "rcording",
+        "license",
+        "licenses",
+        "copyright"
+      ]
+    },
+    {
+      "id": "merchandise-licensing-contract-2-3",
+      "title": "MERCHANDISE LICENSING CONTRACT",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/MERCHANDISE LICENSING CONTRACT.doc",
+      "extension": "doc",
+      "description": "MERCHANDISE LICENSING CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "merchandise",
+        "licensing",
+        "licenses",
+        "copyright"
+      ]
+    },
+    {
+      "id": "master-recording-license-2-3",
+      "title": "MASTER RECORDING LICENSE",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/MASTER RECORDING LICENSE.doc",
+      "extension": "doc",
+      "description": "MASTER RECORDING LICENSE from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "master",
+        "recording",
+        "license",
+        "agreements"
+      ]
+    },
+    {
+      "id": "artists-management-contract-iii-2-3-4-5",
+      "title": "ARTISTS MANAGEMENT CONTRACT III",
+      "category": "Management Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/ARTISTS_ MANAGEMENT CONTRACT III.doc",
+      "extension": "doc",
+      "description": "ARTISTS MANAGEMENT CONTRACT III from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artists",
+        "management",
+        "iii",
+        "agreements"
+      ]
+    },
+    {
+      "id": "exclusive-songwriter-s-contract-ii",
+      "title": "EXCLUSIVE SONGWRITER S CONTRACT II",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/EXCLUSIVE SONGWRITER_S CONTRACT II.doc",
+      "extension": "doc",
+      "description": "EXCLUSIVE SONGWRITER S CONTRACT II from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "exclusive",
+        "songwriter",
+        "publishing",
+        "agreements"
+      ]
+    },
+    {
+      "id": "production-contract-i-2-3",
+      "title": "PRODUCTION CONTRACT I",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/PRODUCTION CONTRACT I.doc",
+      "extension": "doc",
+      "description": "PRODUCTION CONTRACT I from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "production",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "event-sponsorship-contract-2-3",
+      "title": "EVENT SPONSORSHIP CONTRACT",
+      "category": "Booking and Performance",
+      "sourceFile": "Over 200+ All Music Contracts/EVENT SPONSORSHIP CONTRACT.doc",
+      "extension": "doc",
+      "description": "EVENT SPONSORSHIP CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "event",
+        "sponsorship",
+        "booking",
+        "performance"
+      ]
+    },
+    {
+      "id": "mechanical-license-ii",
+      "title": "MECHANICAL LICENSE II",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/MECHANICAL LICENSE II.doc",
+      "extension": "doc",
+      "description": "MECHANICAL LICENSE II from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "mechanical",
+        "license",
+        "licenses",
+        "copyright"
+      ]
+    },
+    {
+      "id": "general-partnership-contract",
+      "title": "GENERAL PARTNERSHIP CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/GENERAL PARTNERSHIP CONTRACT.doc",
+      "extension": "doc",
+      "description": "GENERAL PARTNERSHIP CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "general",
+        "partnership",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "international-marketing-contract-ii-2-3",
+      "title": "INTERNATIONAL MARKETING CONTRACT II",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/INTERNATIONAL MARKETING CONTRACT II.doc",
+      "extension": "doc",
+      "description": "INTERNATIONAL MARKETING CONTRACT II from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "international",
+        "marketing",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "publisher-royalty-sharing-contract-ii-2-3-4-5",
+      "title": "PUBLISHER ROYALTY SHARING CONTRACT II",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/PUBLISHER - ROYALTY SHARING CONTRACT II.doc",
+      "extension": "doc",
+      "description": "PUBLISHER ROYALTY SHARING CONTRACT II from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "publisher",
+        "royalty",
+        "sharing",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "film-synchronization-contract",
+      "title": "FILM SYNCHRONIZATION CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/FILM SYNCHRONIZATION CONTRACT.doc",
+      "extension": "doc",
+      "description": "FILM SYNCHRONIZATION CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "film",
+        "synchronization",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "joint-venture-contract-publisher-rec-co-distributor",
+      "title": "JOINT VENTURE CONTRACT Publisher, Rec Co., Distributor",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/JOINT VENTURE CONTRACT - Publisher, Rec Co., Distributor.doc",
+      "extension": "doc",
+      "description": "JOINT VENTURE CONTRACT Publisher, Rec Co., Distributor from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "joint",
+        "venture",
+        "publisher",
+        "rec",
+        "distributor",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "parental-consent-form",
+      "title": "PARENTAL CONSENT FORM",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/PARENTAL CONSENT FORM.doc",
+      "extension": "doc",
+      "description": "PARENTAL CONSENT FORM from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "parental",
+        "consent",
+        "form",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "agreement-of-foreign-agency",
+      "title": "AGREEMENT OF FOREIGN AGENCY",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/AGREEMENT OF FOREIGN AGENCY.doc",
+      "extension": "doc",
+      "description": "AGREEMENT OF FOREIGN AGENCY from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "foreign",
+        "agency",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "independent-contractor-contract",
+      "title": "INDEPENDENT CONTRACTOR CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/INDEPENDENT CONTRACTOR CONTRACT.doc",
+      "extension": "doc",
+      "description": "INDEPENDENT CONTRACTOR CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "independent",
+        "contractor",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "exclusive-songwriter-contract-2-3-4-5",
+      "title": "EXCLUSIVE SONGWRITER CONTRACT",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/EXCLUSIVE SONGWRITER CONTRACT.doc",
+      "extension": "doc",
+      "description": "EXCLUSIVE SONGWRITER CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "exclusive",
+        "songwriter",
+        "publishing",
+        "agreements"
+      ]
+    },
+    {
+      "id": "event-sponsorship-contract-ii",
+      "title": "EVENT SPONSORSHIP CONTRACT II",
+      "category": "Booking and Performance",
+      "sourceFile": "Over 200+ All Music Contracts/EVENT SPONSORSHIP CONTRACT II.doc",
+      "extension": "doc",
+      "description": "EVENT SPONSORSHIP CONTRACT II from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "event",
+        "sponsorship",
+        "booking",
+        "performance"
+      ]
+    },
+    {
+      "id": "booking-contract-2-3",
+      "title": "BOOKING CONTRACT",
+      "category": "Booking and Performance",
+      "sourceFile": "Over 200+ All Music Contracts/BOOKING CONTRACT.doc",
+      "extension": "doc",
+      "description": "BOOKING CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "booking",
+        "performance"
+      ]
+    },
+    {
+      "id": "artist-management-contract-ii",
+      "title": "ARTIST MANAGEMENT CONTRACT II",
+      "category": "Management Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/ARTIST - MANAGEMENT CONTRACT II.doc",
+      "extension": "doc",
+      "description": "ARTIST MANAGEMENT CONTRACT II from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artist",
+        "management",
+        "agreements"
+      ]
+    },
+    {
+      "id": "broad-rights-license",
+      "title": "BROAD RIGHTS LICENSE",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/BROAD RIGHTS LICENSE.doc",
+      "extension": "doc",
+      "description": "BROAD RIGHTS LICENSE from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "broad",
+        "rights",
+        "license",
+        "licenses",
+        "copyright"
+      ]
+    },
+    {
+      "id": "co-publishing-contract",
+      "title": "CO PUBLISHING CONTRACT",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/CO-PUBLISHING CONTRACT.doc",
+      "extension": "doc",
+      "description": "CO PUBLISHING CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "artists-management-contract",
+      "title": "ARTISTS MANAGEMENT CONTRACT",
+      "category": "Management Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/ARTISTS_ MANAGEMENT CONTRACT.doc",
+      "extension": "doc",
+      "description": "ARTISTS MANAGEMENT CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artists",
+        "management",
+        "agreements"
+      ]
+    },
+    {
+      "id": "agreement-of-limited-partnership",
+      "title": "AGREEMENT OF LIMITED PARTNERSHIP",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/AGREEMENT OF LIMITED PARTNERSHIP.doc",
+      "extension": "doc",
+      "description": "AGREEMENT OF LIMITED PARTNERSHIP from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "limited",
+        "partnership",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "artist-recording-contract-2-3",
+      "title": "ARTIST RECORDING CONTRACT",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/ARTIST RECORDING CONTRACT.doc",
+      "extension": "doc",
+      "description": "ARTIST RECORDING CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artist",
+        "recording",
+        "agreements"
+      ]
+    },
+    {
+      "id": "copyright-assignment-publisher-to-songwriter-2-3",
+      "title": "COPYRIGHT ASSIGNMENT PUBLISHER TO SONGWRITER",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/COPYRIGHT ASSIGNMENT- PUBLISHER TO SONGWRITER.doc",
+      "extension": "doc",
+      "description": "COPYRIGHT ASSIGNMENT PUBLISHER TO SONGWRITER from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "copyright",
+        "assignment",
+        "publisher",
+        "songwriter",
+        "publishing",
+        "agreements"
+      ]
+    },
+    {
+      "id": "publishing-contract",
+      "title": "PUBLISHING CONTRACT",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/PUBLISHING CONTRACT.doc",
+      "extension": "doc",
+      "description": "PUBLISHING CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "master-track-license",
+      "title": "MASTER TRACK LICENSE",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/MASTER TRACK LICENSE.doc",
+      "extension": "doc",
+      "description": "MASTER TRACK LICENSE from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "master",
+        "track",
+        "license",
+        "licenses",
+        "copyright"
+      ]
+    },
+    {
+      "id": "artist-master-producer-contract",
+      "title": "ARTIST MASTER PRODUCER CONTRACT",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/ARTIST - MASTER PRODUCER CONTRACT.doc",
+      "extension": "doc",
+      "description": "ARTIST MASTER PRODUCER CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artist",
+        "master",
+        "producer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "commercial-music-contract",
+      "title": "COMMERCIAL MUSIC CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/COMMERCIAL MUSIC CONTRACT.doc",
+      "extension": "doc",
+      "description": "COMMERCIAL MUSIC CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "commercial",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "agency-booking-agreement",
+      "title": "AGENCY BOOKING AGREEMENT",
+      "category": "Booking and Performance",
+      "sourceFile": "Over 200+ All Music Contracts/AGENCY BOOKING AGREEMENT.doc",
+      "extension": "doc",
+      "description": "AGENCY BOOKING AGREEMENT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "agency",
+        "booking",
+        "performance"
+      ]
+    },
+    {
+      "id": "copyright-assignment-ii-2-3",
+      "title": "COPYRIGHT ASSIGNMENT II",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/COPYRIGHT ASSIGNMENT II.doc",
+      "extension": "doc",
+      "description": "COPYRIGHT ASSIGNMENT II from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "copyright",
+        "assignment",
+        "licenses"
+      ]
+    },
+    {
+      "id": "copyright-assignment-publisher-to-publisher-2-3",
+      "title": "COPYRIGHT ASSIGNMENT PUBLISHER TO PUBLISHER",
+      "category": "Publishing and Songwriter Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/COPYRIGHT ASSIGNMENT - PUBLISHER TO PUBLISHER.doc",
+      "extension": "doc",
+      "description": "COPYRIGHT ASSIGNMENT PUBLISHER TO PUBLISHER from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "copyright",
+        "assignment",
+        "publisher",
+        "publishing",
+        "songwriter",
+        "agreements"
+      ]
+    },
+    {
+      "id": "mechanical-license-i",
+      "title": "MECHANICAL LICENSE I",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/MECHANICAL LICENSE I.doc",
+      "extension": "doc",
+      "description": "MECHANICAL LICENSE I from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "mechanical",
+        "license",
+        "licenses",
+        "copyright"
+      ]
+    },
+    {
+      "id": "copyright-assignment-2",
+      "title": "COPYRIGHT ASSIGNMENT",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/COPYRIGHT ASSIGNMENT.doc",
+      "extension": "doc",
+      "description": "COPYRIGHT ASSIGNMENT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "copyright",
+        "assignment",
+        "licenses"
+      ]
+    },
+    {
+      "id": "artist-tech-rider",
+      "title": "ARTIST TECH RIDER",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/ARTIST TECH RIDER.doc",
+      "extension": "doc",
+      "description": "ARTIST TECH RIDER from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artist",
+        "tech",
+        "rider",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "agreement-of-obligation-to-pay-2-3",
+      "title": "AGREEMENT OF OBLIGATION TO PAY",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/AGREEMENT OF OBLIGATION TO PAY.doc",
+      "extension": "doc",
+      "description": "AGREEMENT OF OBLIGATION TO PAY from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "obligation",
+        "pay",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "distribution-contract-2-3",
+      "title": "DISTRIBUTION CONTRACT",
+      "category": "Distribution Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/DISTRIBUTION CONTRACT.doc",
+      "extension": "doc",
+      "description": "DISTRIBUTION CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "distribution",
+        "agreements"
+      ]
+    },
+    {
+      "id": "employment-contract",
+      "title": "EMPLOYMENT CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/EMPLOYMENT CONTRACT.doc",
+      "extension": "doc",
+      "description": "EMPLOYMENT CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "employment",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "artist-producer-contract-2-3-4-5",
+      "title": "ARTIST PRODUCER CONTRACT",
+      "category": "Producer Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/ARTIST PRODUCER CONTRACT.doc",
+      "extension": "doc",
+      "description": "ARTIST PRODUCER CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "artist",
+        "producer",
+        "agreements"
+      ]
+    },
+    {
+      "id": "broadcast-release-2-3",
+      "title": "BROADCAST RELEASE",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/BROADCAST RELEASE.doc",
+      "extension": "doc",
+      "description": "BROADCAST RELEASE from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "broadcast",
+        "release",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "composer-s-contract",
+      "title": "COMPOSER S CONTRACT",
+      "category": "Music Business Contracts",
+      "sourceFile": "Over 200+ All Music Contracts/COMPOSER_S CONTRACT.doc",
+      "extension": "doc",
+      "description": "COMPOSER S CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "composer",
+        "music",
+        "business",
+        "contracts"
+      ]
+    },
+    {
+      "id": "copyright-license",
+      "title": "COPYRIGHT LICENSE",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/COPYRIGHT LICENSE.doc",
+      "extension": "doc",
+      "description": "COPYRIGHT LICENSE from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "copyright",
+        "license",
+        "licenses"
+      ]
+    },
+    {
+      "id": "merchandise-license-contract",
+      "title": "MERCHANDISE LICENSE CONTRACT",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/MERCHANDISE LICENSE CONTRACT.doc",
+      "extension": "doc",
+      "description": "MERCHANDISE LICENSE CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "merchandise",
+        "license",
+        "licenses",
+        "copyright"
+      ]
+    },
+    {
+      "id": "copyright-license-and-contract-2-3",
+      "title": "COPYRIGHT LICENSE AND CONTRACT",
+      "category": "Licenses and Copyright",
+      "sourceFile": "Over 200+ All Music Contracts/COPYRIGHT LICENSE AND CONTRACT.doc",
+      "extension": "doc",
+      "description": "COPYRIGHT LICENSE AND CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "copyright",
+        "license",
+        "licenses"
+      ]
+    },
+    {
+      "id": "concert-performance-contract",
+      "title": "CONCERT PERFORMANCE CONTRACT",
+      "category": "Booking and Performance",
+      "sourceFile": "Over 200+ All Music Contracts/CONCERT PERFORMANCE CONTRACT.doc",
+      "extension": "doc",
+      "description": "CONCERT PERFORMANCE CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "concert",
+        "performance",
+        "booking"
+      ]
+    },
+    {
+      "id": "broadcast-recording-contract",
+      "title": "BROADCAST RECORDING CONTRACT",
+      "category": "Recording Agreements",
+      "sourceFile": "Over 200+ All Music Contracts/BROADCAST RECORDING CONTRACT.doc",
+      "extension": "doc",
+      "description": "BROADCAST RECORDING CONTRACT from the uploaded Own Masters music contract library.",
+      "keywords": [
+        "broadcast",
+        "recording",
+        "agreements"
+      ]
+    }
+  ]
+}

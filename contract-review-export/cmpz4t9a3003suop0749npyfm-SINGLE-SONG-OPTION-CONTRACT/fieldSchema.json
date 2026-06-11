@@ -1,0 +1,77 @@
+{
+  "fields": [
+    {
+      "key": "publisherSignature",
+      "type": "signature",
+      "label": "Publisher Signature",
+      "order": 1,
+      "category": "signatures",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "__ day of __, 20____ | __, 20____",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_004",
+        "blank_007",
+        "blank_008",
+        "blank_009"
+      ],
+      "surroundingContext": "ADDENDUM TO AGREEMENT DATED _____________ day of _______, 20______.\n\nSINGLE SONG OPTION: The Writer and Publisher do hereby agree to the terms of the aforementioned Agreement under the following terms and conditions:\n\n1. Publisher agrees that if the song by Writer now entitled - _____________________ is not assigned a mechanical license to be recorded and released to the general public on phonorecords by the ______ day of _____________________, 20____, the Publisher shall relinquish and return all rights and copyrights to the Writer."
+    },
+    {
+      "key": "writerSignature",
+      "type": "signature",
+      "label": "Writer Signature",
+      "order": 4,
+      "category": "signatures",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "__, 20____",
+      "candidateIds": [
+        "blank_010"
+      ],
+      "surroundingContext": "BY_____________________________ BY______________________________\n\nPUBLISHER WRITER"
+    },
+    {
+      "key": "publisherSignature2",
+      "type": "signature",
+      "label": "Publisher Signature2",
+      "order": 5,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__, 20____",
+      "candidateIds": [
+        "blank_011"
+      ],
+      "surroundingContext": "BY_____________________________ BY______________________________\n\nPUBLISHER WRITER"
+    }
+  ],
+  "source": "ollama",
+  "warnings": [
+    {
+      "type": "low_confidence",
+      "order": 1,
+      "context": "ADDENDUM TO AGREEMENT DATED _____________ day of _______, 20______.\n\nSINGLE SONG OPTION: The Writer and Publisher do hereby agree to the terms of the aforementioned Agreement under the following terms and conditions:\n\n1. Publisher agrees that if the song by Writer now entitled - _____________________ is not assigned a mechanical license to be recorded and released to the general public on phonorecords by the ______ day of _____________________, 20____, the Publisher shall relinquish and return all rights and copyrights to the Writer.",
+      "message": "Low confidence in date fragment extraction. Consider manual verification.",
+      "candidateIds": [
+        "blank_003",
+        "blank_007"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "1. Publisher agrees that if the song by Writer now entitled - _____________________ is not assigned a mechanical license to be recorded and released to the general public on phonorecords by the ______ day of _____________________, 20____, the Publisher shall relinquish and return all rights and copyrights to the Writer.",
+      "message": "Blanks in legal/business terms could be risky. Please verify these fields carefully.",
+      "candidateIds": [
+        "blank_004",
+        "blank_005",
+        "blank_006"
+      ]
+    }
+  ],
+  "templateName": "Addendum to Agreement",
+  "reviewRequired": true
+}

@@ -1,0 +1,316 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "______________________________ | _______________________________________ (Sponsoring Individual/Company)",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003"
+      ],
+      "surroundingContext": "This Agreement is entered into on this day ________________, 20___ by and between\n_______________________________________ (Sponsoring Individual/Company)\nhereinafter referred to as “Sponsor” and ________________________(Promoter or Event Coordinator) hereinafter referred to as “Promoter.”"
+    },
+    {
+      "key": "eventName",
+      "type": "text",
+      "label": "Event Name",
+      "order": 3,
+      "category": "other",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "“______________________” hereinafter referred to as “Event”.",
+      "candidateIds": [
+        "blank_005"
+      ],
+      "surroundingContext": "WHEREAS, Promoter has booked and organized the event known as\n“______________________” hereinafter referred to as “Event”. Event Description:"
+    },
+    {
+      "key": "eventDescription",
+      "type": "textarea",
+      "label": "Event Description",
+      "order": 4,
+      "category": "other",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "______________________________________________________________________\n______________________________________________________________________\n______________________________________________________________________",
+      "candidateIds": [
+        "blank_019",
+        "blank_020"
+      ],
+      "surroundingContext": "Event Description:\n______________________________________________________________________\n______________________________________________________________________\n______________________________________________________________________"
+    },
+    {
+      "key": "agreementDate2",
+      "type": "date",
+      "label": "Agreement Date2",
+      "order": 5,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__________________________ (Date or Dates) | between ______________________ and _________________________ at\n_____________________ (Event Location) | _____________________ (Event Location)",
+      "candidateIds": [
+        "blank_021",
+        "blank_023",
+        "blank_024"
+      ],
+      "surroundingContext": "WHEREAS, Event shall take place on __________________________ (Date or Dates)\nbetween ______________________ and _________________________ at\n_____________________ (Event Location)"
+    },
+    {
+      "key": "sponsorServices",
+      "type": "textarea",
+      "label": "Sponsor Services",
+      "order": 8,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "______________________________________________________________________\n______________________________________________________________________\n______________________________________________________________________\n______________________________________________________________________",
+      "candidateIds": [
+        "blank_025"
+      ],
+      "surroundingContext": "Sponsor agrees, as valuable consideration, to pay the following sum, provide the\nfollowing services, and/or provide the following goods to Promoter for Event related\npurposes:\n______________________________________________________________________\n______________________________________________________________________\n______________________________________________________________________\n______________________________________________________________________"
+    },
+    {
+      "key": "promoterPromotionServices",
+      "type": "textarea",
+      "label": "Promoter Promotion Services",
+      "order": 9,
+      "category": "parties",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "1.) Visible advertisement with Sponsor’s print ready logo or trademark on all\nhandbills, flyers, and Event signage used for the promotion and marketing of\nEvent.\n2.) Cause mention of Sponsor as to their sponsorship of Event on any and all\ntelevision, internet, or radio promotions.\n3.) Cause mention ",
+      "candidateIds": [
+        "blank_026"
+      ],
+      "surroundingContext": "In exchange for above mentioned valuable consideration, Promoter, shall, on behalf of\nself and Event provide the following:\n1.) Visible advertisement with Sponsor’s print ready logo or trademark on all\nhandbills, flyers, and Event signage used for the promotion and marketing of\nEvent.\n2.) Cause mention of Sponsor as to their sponsorship of Event on any and all\ntelevision, internet, or radio promotions.\n3.) Cause mention of Sponsor as to their sponsorship at Event at convenient times to\nboth Artist’s performing at Event and Promoter."
+    },
+    {
+      "key": "promoterWebsiteServices",
+      "type": "textarea",
+      "label": "Promoter Website Services",
+      "order": 10,
+      "category": "other",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "4.) Visible advertisement with Sponsor’s web ready logo or trademark on Event or\nPromoter website (if applicable) with link to Sponsor’s website (if applicable.)",
+      "candidateIds": [
+        "blank_027"
+      ],
+      "surroundingContext": "In exchange for above mentioned valuable consideration, Promoter, shall, on behalf of\nself and Event provide the following:\n4.) Visible advertisement with Sponsor’s web ready logo or trademark on Event or\nPromoter website (if applicable) with link to Sponsor’s website (if applicable.)"
+    },
+    {
+      "key": "promoterPromotionEfforts",
+      "type": "textarea",
+      "label": "Promoter Promotion Efforts",
+      "order": 11,
+      "category": "other",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "5.) Make reasonable efforts to promote event and offer maximum exposure to\nSponsor and Sponsor’s business in a positive light.",
+      "candidateIds": [
+        "blank_028"
+      ],
+      "surroundingContext": "In exchange for above mentioned valuable consideration, Promoter, shall, on behalf of\nself and Event provide the following:\n5.) Make reasonable efforts to promote event and offer maximum exposure to\nSponsor and Sponsor’s business in a positive light."
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 12,
+      "category": "signatures",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "______________________________________________\nSponsor (signature) | Sponsor: __________________________________\nAddress: __________________________________",
+      "candidateIds": [
+        "blank_017",
+        "blank_029"
+      ],
+      "surroundingContext": "This Agreement is hereby entered into on the date first mentioned above.\n______________________________________________\nSponsor (signature)\nSponsor: __________________________________\nAddress: __________________________________"
+    }
+  ],
+  "source": "ollama",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "EVENT SPONSORSHIP AGREEMENT\nThis Agreement is entered into on this day ________________, 20___ by and between\n_______________________________________ (Sponsoring Individual/Company)\nThis Agreement is entered into on this day ________________, 20___ by and between\n________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "EVENT SPONSORSHIP AGREEMENT\nThis Agreement is entered into on this day ________________, 20___ by and between\n_______________________________________ (Sponsoring Individual/Company)\nThis Agreement is entered into on this day ________________, 20___ by and between\n20___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_002"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "This Agreement is entered into on this day ________________, 20___ by and between\n_______________________________________ (Sponsoring Individual/Company)\nhereinafter referred to as “Sponsor” and ________________________(Promoter or Event\n_______________________________________ (Sponsoring Individual/Company)\n_______________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "_______________________________________ (Sponsoring Individual/Company)\nhereinafter referred to as “Sponsor” and ________________________(Promoter or Event\nCoordinator) hereinafter referred to as “Promoter.”\nhereinafter referred to as “Sponsor” and ________________________(Promoter or Event\n________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "______________________________________________________________________\n______________________________________________________________________\nWHEREAS, Event shall take place on __________________________ (Date or Dates)\n______________________________________________________________________\n______________________________________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "______________________________________________________________________\nWHEREAS, Event shall take place on __________________________ (Date or Dates)\nbetween ______________________ and _________________________ at\nWHEREAS, Event shall take place on __________________________ (Date or Dates)\n__________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 10,
+      "context": "WHEREAS, Event shall take place on __________________________ (Date or Dates)\nbetween ______________________ and _________________________ at\n_____________________ (Event Location)\nbetween ______________________ and _________________________ at\n______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_010"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 11,
+      "context": "WHEREAS, Event shall take place on __________________________ (Date or Dates)\nbetween ______________________ and _________________________ at\n_____________________ (Event Location)\nbetween ______________________ and _________________________ at\n_________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_011"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 17,
+      "context": "This agreement is hereby entered into on the date first mentioned above.\n______________________________________________\nSponsor (signature)\n______________________________________________\n______________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_017"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 18,
+      "context": "Sponsor (signature)\nSponsor: __________________________________\nAddress: __________________________________\nSponsor: __________________________________\n__________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_018"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 21,
+      "context": "__________________________________\nPhone: __________________________________\nDated: __________________________________\nPhone: __________________________________\n__________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_021"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 22,
+      "context": "Phone: __________________________________\nDated: __________________________________\n______________________________________________\nDated: __________________________________\n__________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_022"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 23,
+      "context": "Dated: __________________________________\n______________________________________________\nPromoter (signature)\n______________________________________________\n______________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_023"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 28,
+      "context": "__________________________________\nPhone: __________________________________\nDated: __________________________________\nPhone: __________________________________\n__________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_028"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 29,
+      "context": "Phone: __________________________________\nDated: __________________________________\nDated: __________________________________\n__________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_029"
+      ]
+    },
+    {
+      "type": "removed_field_unknown_candidate",
+      "context": "Address: __________________________________\n__________________________________\nPhone: __________________________________\nDated: __________________________________",
+      "message": "Removed \"Agreement Date\" because its candidate IDs were not found.",
+      "candidateIds": [
+        "blank_032"
+      ]
+    },
+    {
+      "type": "removed_field_unknown_candidate",
+      "context": "This Agreement is hereby entered into on the date first mentioned above.\n______________________________________________\nSponsor (signature)\nSponsor: __________________________________\nAddress: __________________________________\n__________________________________\nPhone: __________________________________\nDated: __________________________________",
+      "message": "Removed \"Signature\" because its candidate IDs were not found.",
+      "candidateIds": [
+        "blank_033"
+      ]
+    },
+    {
+      "type": "removed_field_unknown_candidate",
+      "context": "Promoter (signature)\n\n-- 2 of 3 --\n\nPromoter: __________________________________\nAddress: __________________________________",
+      "message": "Removed \"Signature\" because its candidate IDs were not found.",
+      "candidateIds": [
+        "blank_034"
+      ]
+    },
+    {
+      "type": "removed_field_unknown_candidate",
+      "context": "__________________________________\nPhone: __________________________________\nDated: __________________________________",
+      "message": "Removed \"Agreement Date\" because its candidate IDs were not found.",
+      "candidateIds": [
+        "blank_035"
+      ]
+    },
+    {
+      "type": "removed_field_unknown_candidate",
+      "context": "Phone: __________________________________\nDated: __________________________________",
+      "message": "Removed \"Agreement Date\" because its candidate IDs were not found.",
+      "candidateIds": [
+        "blank_036"
+      ]
+    }
+  ],
+  "templateName": "Event Sponsorship Agreement",
+  "reviewRequired": true
+}

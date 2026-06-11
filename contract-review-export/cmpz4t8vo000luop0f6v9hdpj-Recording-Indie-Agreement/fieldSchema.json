@@ -1,0 +1,344 @@
+{
+  "fields": [
+    {
+      "key": "effectiveDate",
+      "type": "date",
+      "label": "Effective Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________ | 20__ | ____ | ______ | _______ | _____",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004",
+        "blank_005",
+        "blank_006"
+      ],
+      "surroundingContext": "This Recording and Personal Services Agreement, (hereinafter referred to as the “Agreement”) executed and effective this __ day of ___________, 20__, by and between ____ (Artist)______ (hereinafter referred to as the “Artist”) and _______(Company)_____ (hereinafter referred to as the “Company”):\nThis Recording and Personal Services Agreement, (hereinafter referred to as the “Agreement”) executed and effective this __ day of ___________, 20__, by and between ____ (Artist)______ (hereinafter referred to as the “Artist”) and _______(Company)_____ (hereinafter referred to as the “Company”):\n___________"
+    },
+    {
+      "key": "effectiveDate2",
+      "type": "date",
+      "label": "Effective Date2",
+      "order": 7,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "____",
+      "candidateIds": [
+        "blank_007"
+      ],
+      "surroundingContext": "A. Term. The effective date of this Agreement shall commence with its execution by all of the parties, and shall continue thereafter for a period of ____ (#) years.\nA. Term. The effective date of this Agreement shall commence with its execution by all of the parties, and shall continue thereafter for a period of ____ (#) years.\n____"
+    },
+    {
+      "key": "termEndDate",
+      "type": "date",
+      "label": "Term End Date",
+      "order": 8,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "____ | ____________ | 20__",
+      "candidateIds": [
+        "blank_008",
+        "blank_009",
+        "blank_010",
+        "blank_011",
+        "blank_012"
+      ],
+      "surroundingContext": "5. Dates and Location of Recording Sessions. The recording sessions necessary to produce the Recording shall occur at studios and facilities chosen by Company in __ (city, State) ____, commencing on ____________, 20__ and ending on ____________, 20__.\n5. Dates and Location of Recording Sessions. The recording sessions necessary to produce the Recording shall occur at studios and facilities chosen by Company in __ (city, State) ____, commencing on ____________, 20__ and ending on ____________, 20__.\n____"
+    },
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 13,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________ | 20__",
+      "candidateIds": [
+        "blank_013",
+        "blank_014"
+      ],
+      "surroundingContext": "8. Completion and Release. The Recording shall be completed and prepared for release and distribution on or before ___________, 20__. Company and Artist acknowledge that time is of the essence in the completion of the Recording, and each agrees to exercise all reasonable means to achieve such completion.\n8. Completion and Release. The Recording shall be completed and prepared for release and distribution on or before ___________, 20__. Company and Artist acknowledge that time is of the essence in the completion of the Recording, and each agrees to exercise all reasonable means to achieve such completion.\n___________"
+    },
+    {
+      "key": "artistName",
+      "type": "text",
+      "label": "Artist Name",
+      "order": 15,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___",
+      "candidateIds": [
+        "blank_015"
+      ],
+      "surroundingContext": "10. License for Use of Name and Image. Upon the timely occurrence and performance of all material events and obligations required to produce the Recording, Artist shall grant to the Company the exclusive license to use the name “___ (Artist) __”, and the Artist’s photographic image, in the promotion and distribution of the Recording.\n10. License for Use of Name and Image. Upon the timely occurrence and performance of all material events and obligations required to produce the Recording, Artist shall grant to the Company the exclusive license to use the name “___ (Artist) __”, and the Artist’s photographic image, in the promotion and distribution of the Recording.\n___"
+    },
+    {
+      "key": "royaltyRate",
+      "type": "percentage",
+      "label": "Royalty Rate",
+      "order": 16,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "____ | _______",
+      "candidateIds": [
+        "blank_016",
+        "blank_017",
+        "blank_020"
+      ],
+      "surroundingContext": "____ (xx%) Percent to Company\n____ (xx%) Percent to Company\n____"
+    },
+    {
+      "key": "field",
+      "type": "currency",
+      "label": "Field",
+      "order": 18,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________ | ____________",
+      "candidateIds": [
+        "blank_018",
+        "blank_019"
+      ],
+      "surroundingContext": "a. _______________ (Amount (large)) ____________, plus;\na. _______________ (Amount (large)) ____________, plus;\n_______________"
+    },
+    {
+      "key": "artistName2",
+      "type": "text",
+      "label": "Artist Name2",
+      "order": 21,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_____ | ___",
+      "candidateIds": [
+        "blank_021",
+        "blank_022"
+      ],
+      "surroundingContext": "b) Arbitration. In the event of a dispute between Company and Artist regarding the terms, construction or performance of this Agreement, such dispute shall be settled by binding arbitration in _____(city, state)___, according to the rules of the American Arbitration Association for the settlement of commercial disputes, then in effect. The award or decision resulting therefrom shall be subject to immediate enforcement in a __(state)__ court of competent jurisdiction.\nb) Arbitration. In the event of a dispute between Company and Artist regarding the terms, construction or performance of this Agreement, such dispute shall be settled by binding arbitration in _____(city, state)___, according to the rules of the American Arbitration Association for the settlement of commercial disputes, then in effect. The award or decision resulting therefrom shall be subject to immediate enforcement in a __(state)__ court of competent jurisdiction.\n_____"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 23,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________",
+      "candidateIds": [
+        "blank_023"
+      ],
+      "surroundingContext": "Jurisdiction/Applicable Law. Company and Artist hereby submit to the jurisdiction of the courts of __(state)__ for the enforcement of this Agreement or any arbitration award or decision arising herefrom. This Agreement shall be enforced or construed according to the laws of the State of ___________.\nJurisdiction/Applicable Law. Company and Artist hereby submit to the jurisdiction of the courts of __(state)__ for the enforcement of this Agreement or any arbitration award or decision arising herefrom. This Agreement shall be enforced or construed according to the laws of the State of ___________.\n___________"
+    },
+    {
+      "key": "field2",
+      "type": "date",
+      "label": "Field2",
+      "order": 24,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________ | _______________________________",
+      "candidateIds": [
+        "blank_024",
+        "blank_025"
+      ],
+      "surroundingContext": "_____________________________ _______________________________\n_____________________________ _______________________________\n_____________________________"
+    }
+  ],
+  "source": "deterministic_fallback",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "This Recording and Personal Services Agreement, (hereinafter referred to as the “Agreement”) executed and effective this __ day of ___________, 20__, by and between ____ (Artist)______ (hereinafter referred to as the “Artist”) and _______(Company)_____ (hereinafter referred to as the “Company”):\nThis Recording and Personal Services Agreement, (hereinafter referred to as the “Agreement”) executed and effective this __ day of ___________, 20__, by and between ____ (Artist)______ (hereinafter referred to as the “Artist”) and _______(Company)_____ (hereinafter referred to as the “Company”):\n___________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "This Recording and Personal Services Agreement, (hereinafter referred to as the “Agreement”) executed and effective this __ day of ___________, 20__, by and between ____ (Artist)______ (hereinafter referred to as the “Artist”) and _______(Company)_____ (hereinafter referred to as the “Company”):\nThis Recording and Personal Services Agreement, (hereinafter referred to as the “Agreement”) executed and effective this __ day of ___________, 20__, by and between ____ (Artist)______ (hereinafter referred to as the “Artist”) and _______(Company)_____ (hereinafter referred to as the “Company”):\n20__",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_002"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "This Recording and Personal Services Agreement, (hereinafter referred to as the “Agreement”) executed and effective this __ day of ___________, 20__, by and between ____ (Artist)______ (hereinafter referred to as the “Artist”) and _______(Company)_____ (hereinafter referred to as the “Company”):\nThis Recording and Personal Services Agreement, (hereinafter referred to as the “Agreement”) executed and effective this __ day of ___________, 20__, by and between ____ (Artist)______ (hereinafter referred to as the “Artist”) and _______(Company)_____ (hereinafter referred to as the “Company”):\n____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "This Recording and Personal Services Agreement, (hereinafter referred to as the “Agreement”) executed and effective this __ day of ___________, 20__, by and between ____ (Artist)______ (hereinafter referred to as the “Artist”) and _______(Company)_____ (hereinafter referred to as the “Company”):\nThis Recording and Personal Services Agreement, (hereinafter referred to as the “Agreement”) executed and effective this __ day of ___________, 20__, by and between ____ (Artist)______ (hereinafter referred to as the “Artist”) and _______(Company)_____ (hereinafter referred to as the “Company”):\n______",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 5,
+      "context": "This Recording and Personal Services Agreement, (hereinafter referred to as the “Agreement”) executed and effective this __ day of ___________, 20__, by and between ____ (Artist)______ (hereinafter referred to as the “Artist”) and _______(Company)_____ (hereinafter referred to as the “Company”):\nThis Recording and Personal Services Agreement, (hereinafter referred to as the “Agreement”) executed and effective this __ day of ___________, 20__, by and between ____ (Artist)______ (hereinafter referred to as the “Artist”) and _______(Company)_____ (hereinafter referred to as the “Company”):\n_______",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 6,
+      "context": "This Recording and Personal Services Agreement, (hereinafter referred to as the “Agreement”) executed and effective this __ day of ___________, 20__, by and between ____ (Artist)______ (hereinafter referred to as the “Artist”) and _______(Company)_____ (hereinafter referred to as the “Company”):\nThis Recording and Personal Services Agreement, (hereinafter referred to as the “Agreement”) executed and effective this __ day of ___________, 20__, by and between ____ (Artist)______ (hereinafter referred to as the “Artist”) and _______(Company)_____ (hereinafter referred to as the “Company”):\n_____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_006"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 7,
+      "context": "A. Term. The effective date of this Agreement shall commence with its execution by all of the parties, and shall continue thereafter for a period of ____ (#) years.\nA. Term. The effective date of this Agreement shall commence with its execution by all of the parties, and shall continue thereafter for a period of ____ (#) years.\n____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_007"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "5. Dates and Location of Recording Sessions. The recording sessions necessary to produce the Recording shall occur at studios and facilities chosen by Company in __ (city, State) ____, commencing on ____________, 20__ and ending on ____________, 20__.\n5. Dates and Location of Recording Sessions. The recording sessions necessary to produce the Recording shall occur at studios and facilities chosen by Company in __ (city, State) ____, commencing on ____________, 20__ and ending on ____________, 20__.\n____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "5. Dates and Location of Recording Sessions. The recording sessions necessary to produce the Recording shall occur at studios and facilities chosen by Company in __ (city, State) ____, commencing on ____________, 20__ and ending on ____________, 20__.\n5. Dates and Location of Recording Sessions. The recording sessions necessary to produce the Recording shall occur at studios and facilities chosen by Company in __ (city, State) ____, commencing on ____________, 20__ and ending on ____________, 20__.\n____________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 10,
+      "context": "5. Dates and Location of Recording Sessions. The recording sessions necessary to produce the Recording shall occur at studios and facilities chosen by Company in __ (city, State) ____, commencing on ____________, 20__ and ending on ____________, 20__.\n5. Dates and Location of Recording Sessions. The recording sessions necessary to produce the Recording shall occur at studios and facilities chosen by Company in __ (city, State) ____, commencing on ____________, 20__ and ending on ____________, 20__.\n20__",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_010"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 11,
+      "context": "5. Dates and Location of Recording Sessions. The recording sessions necessary to produce the Recording shall occur at studios and facilities chosen by Company in __ (city, State) ____, commencing on ____________, 20__ and ending on ____________, 20__.\n5. Dates and Location of Recording Sessions. The recording sessions necessary to produce the Recording shall occur at studios and facilities chosen by Company in __ (city, State) ____, commencing on ____________, 20__ and ending on ____________, 20__.\n____________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_011"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 12,
+      "context": "5. Dates and Location of Recording Sessions. The recording sessions necessary to produce the Recording shall occur at studios and facilities chosen by Company in __ (city, State) ____, commencing on ____________, 20__ and ending on ____________, 20__.\n5. Dates and Location of Recording Sessions. The recording sessions necessary to produce the Recording shall occur at studios and facilities chosen by Company in __ (city, State) ____, commencing on ____________, 20__ and ending on ____________, 20__.\n20__",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_012"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 13,
+      "context": "8. Completion and Release. The Recording shall be completed and prepared for release and distribution on or before ___________, 20__. Company and Artist acknowledge that time is of the essence in the completion of the Recording, and each agrees to exercise all reasonable means to achieve such completion.\n8. Completion and Release. The Recording shall be completed and prepared for release and distribution on or before ___________, 20__. Company and Artist acknowledge that time is of the essence in the completion of the Recording, and each agrees to exercise all reasonable means to achieve such completion.\n___________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_013"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 14,
+      "context": "8. Completion and Release. The Recording shall be completed and prepared for release and distribution on or before ___________, 20__. Company and Artist acknowledge that time is of the essence in the completion of the Recording, and each agrees to exercise all reasonable means to achieve such completion.\n8. Completion and Release. The Recording shall be completed and prepared for release and distribution on or before ___________, 20__. Company and Artist acknowledge that time is of the essence in the completion of the Recording, and each agrees to exercise all reasonable means to achieve such completion.\n20__",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_014"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 15,
+      "context": "10. License for Use of Name and Image. Upon the timely occurrence and performance of all material events and obligations required to produce the Recording, Artist shall grant to the Company the exclusive license to use the name “___ (Artist) __”, and the Artist’s photographic image, in the promotion and distribution of the Recording.\n10. License for Use of Name and Image. Upon the timely occurrence and performance of all material events and obligations required to produce the Recording, Artist shall grant to the Company the exclusive license to use the name “___ (Artist) __”, and the Artist’s photographic image, in the promotion and distribution of the Recording.\n___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_015"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 16,
+      "context": "____ (xx%) Percent to Company\n____ (xx%) Percent to Company\n____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_016"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 17,
+      "context": "____ (xx%) Percent to Artist\n____ (xx%) Percent to Artist\n____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_017"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 21,
+      "context": "b) Arbitration. In the event of a dispute between Company and Artist regarding the terms, construction or performance of this Agreement, such dispute shall be settled by binding arbitration in _____(city, state)___, according to the rules of the American Arbitration Association for the settlement of commercial disputes, then in effect. The award or decision resulting therefrom shall be subject to immediate enforcement in a __(state)__ court of competent jurisdiction.\nb) Arbitration. In the event of a dispute between Company and Artist regarding the terms, construction or performance of this Agreement, such dispute shall be settled by binding arbitration in _____(city, state)___, according to the rules of the American Arbitration Association for the settlement of commercial disputes, then in effect. The award or decision resulting therefrom shall be subject to immediate enforcement in a __(state)__ court of competent jurisdiction.\n_____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_021"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 22,
+      "context": "b) Arbitration. In the event of a dispute between Company and Artist regarding the terms, construction or performance of this Agreement, such dispute shall be settled by binding arbitration in _____(city, state)___, according to the rules of the American Arbitration Association for the settlement of commercial disputes, then in effect. The award or decision resulting therefrom shall be subject to immediate enforcement in a __(state)__ court of competent jurisdiction.\nb) Arbitration. In the event of a dispute between Company and Artist regarding the terms, construction or performance of this Agreement, such dispute shall be settled by binding arbitration in _____(city, state)___, according to the rules of the American Arbitration Association for the settlement of commercial disputes, then in effect. The award or decision resulting therefrom shall be subject to immediate enforcement in a __(state)__ court of competent jurisdiction.\n___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_022"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 23,
+      "context": "Jurisdiction/Applicable Law. Company and Artist hereby submit to the jurisdiction of the courts of __(state)__ for the enforcement of this Agreement or any arbitration award or decision arising herefrom. This Agreement shall be enforced or construed according to the laws of the State of ___________.\nJurisdiction/Applicable Law. Company and Artist hereby submit to the jurisdiction of the courts of __(state)__ for the enforcement of this Agreement or any arbitration award or decision arising herefrom. This Agreement shall be enforced or construed according to the laws of the State of ___________.\n___________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_023"
+      ]
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

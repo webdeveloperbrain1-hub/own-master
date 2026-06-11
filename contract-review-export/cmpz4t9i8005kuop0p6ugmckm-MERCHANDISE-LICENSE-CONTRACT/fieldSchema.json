@@ -1,0 +1,156 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____ | ______ | 20______ | _______________________ | _____________________ | _________________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004",
+        "blank_005",
+        "blank_006"
+      ],
+      "surroundingContext": "Agreement made and entered into this _____ day of ______, 20______ by and between _______________________, hereinafter referred to as \"Owner\" and _____________________ of _________________________ hereinafter referred to as a\"Licensee\";\nAgreement made and entered into this _____ day of ______, 20______ by and between _______________________, hereinafter referred to as \"Owner\" and _____________________ of _________________________ hereinafter referred to as a\"Licensee\";\n_____"
+    },
+    {
+      "key": "agreementDate2",
+      "type": "date",
+      "label": "Agreement Date2",
+      "order": 7,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__________________",
+      "candidateIds": [
+        "blank_007",
+        "blank_008"
+      ],
+      "surroundingContext": "9. Licensee agrees that all records manufactured by and under this agreement shall bear the imprint, on the label and album cover and/or sleeve, of the words, c (date) __________________ARTIST'S NAME __________________, P (date) ARTIST, used by permission.\" in such manner and location as to give reasonable notice of copyright and phonoright.\n9. Licensee agrees that all records manufactured by and under this agreement shall bear the imprint, on the label and album cover and/or sleeve, of the words, c (date) __________________ARTIST'S NAME __________________, P (date) ARTIST, used by permission.\" in such manner and location as to give reasonable notice of copyright and phonoright.\n__________________"
+    },
+    {
+      "key": "address",
+      "type": "textarea",
+      "label": "Address",
+      "order": 9,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________",
+      "candidateIds": [
+        "blank_009"
+      ],
+      "surroundingContext": "b. Unlimited copies at 40% of the suggested retail price, for the Owner's purposes of selling to the public after concerts, performances and programs and at the ______________ retail location. It is understood that Licensee shall still remit to Owner the 22.5% royalty on the gross received for these purchases as specified in paragraph 4.\nb. Unlimited copies at 40% of the suggested retail price, for the Owner's purposes of selling to the public after concerts, performances and programs and at the ______________ retail location. It is understood that Licensee shall still remit to Owner the 22.5% royalty on the gross received for these purchases as specified in paragraph 4.\n______________"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 10,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________",
+      "candidateIds": [
+        "blank_010"
+      ],
+      "surroundingContext": "24. This agreement shall be deemed made in and shall be construed in accordance with the laws of the State of ___________________. If any part of this agreement shall be invalid or unenforceable, it shall not affect the validity of the balance of this agreement.\n24. This agreement shall be deemed made in and shall be construed in accordance with the laws of the State of ___________________. If any part of this agreement shall be invalid or unenforceable, it shall not affect the validity of the balance of this agreement.\n___________________"
+    },
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 11,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________",
+      "candidateIds": [
+        "blank_011"
+      ],
+      "surroundingContext": "Artist:_______________________________\nArtist:_______________________________\n_______________________________"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 12,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________________",
+      "candidateIds": [
+        "blank_012",
+        "blank_014"
+      ],
+      "surroundingContext": "by: __________________________________\nby: __________________________________\n__________________________________"
+    },
+    {
+      "key": "field2",
+      "type": "text",
+      "label": "Field2",
+      "order": 13,
+      "category": "rights",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________",
+      "candidateIds": [
+        "blank_013"
+      ],
+      "surroundingContext": "Licensee______________________________\nLicensee______________________________\n______________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 7,
+      "context": "9. Licensee agrees that all records manufactured by and under this agreement shall bear the imprint, on the label and album cover and/or sleeve, of the words, c (date) __________________ARTIST'S NAME __________________, P (date) ARTIST, used by permission.\" in such manner and location as to give reasonable notice of copyright and phonoright.\n9. Licensee agrees that all records manufactured by and under this agreement shall bear the imprint, on the label and album cover and/or sleeve, of the words, c (date) __________________ARTIST'S NAME __________________, P (date) ARTIST, used by permission.\" in such manner and location as to give reasonable notice of copyright and phonoright.\n__________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_007"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "9. Licensee agrees that all records manufactured by and under this agreement shall bear the imprint, on the label and album cover and/or sleeve, of the words, c (date) __________________ARTIST'S NAME __________________, P (date) ARTIST, used by permission.\" in such manner and location as to give reasonable notice of copyright and phonoright.\n9. Licensee agrees that all records manufactured by and under this agreement shall bear the imprint, on the label and album cover and/or sleeve, of the words, c (date) __________________ARTIST'S NAME __________________, P (date) ARTIST, used by permission.\" in such manner and location as to give reasonable notice of copyright and phonoright.\n__________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "b. Unlimited copies at 40% of the suggested retail price, for the Owner's purposes of selling to the public after concerts, performances and programs and at the ______________ retail location. It is understood that Licensee shall still remit to Owner the 22.5% royalty on the gross received for these purchases as specified in paragraph 4.\nb. Unlimited copies at 40% of the suggested retail price, for the Owner's purposes of selling to the public after concerts, performances and programs and at the ______________ retail location. It is understood that Licensee shall still remit to Owner the 22.5% royalty on the gross received for these purchases as specified in paragraph 4.\n______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 11,
+      "context": "Artist:_______________________________\nArtist:_______________________________\n_______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_011"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

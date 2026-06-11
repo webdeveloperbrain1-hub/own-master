@@ -1,0 +1,17 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 3,
+    "context": "1. I hereby employ you as my sole and exclusive artists' manager for a period of___years (not to exceed 7) from date hereof to negotiate contracts for the rendition of my professional services as a writer, or to otherwise in the fields of motion pictures, legitimate stage, radio broadcasting, television, and other fields of entertainment.\n1. I hereby employ you as my sole and exclusive artists' manager for a period of___years (not to exceed 7) from date hereof to negotiate contracts for the rendition of my professional services as a writer, or to otherwise in the fields of motion pictures, legitimate stage, radio broadcasting, television, and other fields of entertainment.\n___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_003"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

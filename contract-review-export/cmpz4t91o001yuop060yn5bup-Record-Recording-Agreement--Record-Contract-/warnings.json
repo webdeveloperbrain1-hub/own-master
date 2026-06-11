@@ -1,0 +1,209 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "RECORDING CONTRACT\nThis agreement is hereby entered into on this _________ day of ___________, 20 ___ by\n_________________________ hereinafter referred to as “Artist” and\nThis agreement is hereby entered into on this _________ day of ___________, 20 ___ by\n_________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 2,
+    "context": "RECORDING CONTRACT\nThis agreement is hereby entered into on this _________ day of ___________, 20 ___ by\n_________________________ hereinafter referred to as “Artist” and\nThis agreement is hereby entered into on this _________ day of ___________, 20 ___ by\n___________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_002"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 3,
+    "context": "RECORDING CONTRACT\nThis agreement is hereby entered into on this _________ day of ___________, 20 ___ by\n_________________________ hereinafter referred to as “Artist” and\nThis agreement is hereby entered into on this _________ day of ___________, 20 ___ by\n___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_003"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "This agreement is hereby entered into on this _________ day of ___________, 20 ___ by\n_________________________ hereinafter referred to as “Artist” and\n_________________________ hereinafter referred to as “Company” for the purposes of\n_________________________ hereinafter referred to as “Artist” and\n_________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "_________________________ hereinafter referred to as “Artist” and\n_________________________ hereinafter referred to as “Company” for the purposes of\na recording contract.\n_________________________ hereinafter referred to as “Company” for the purposes of\n_________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 6,
+    "context": "Company attests the following:\n1. Company is aware of Artist’s stage name as ____________, talents,\nexperience, image, and musical style.\n1. Company is aware of Artist’s stage name as ____________, talents,\n____________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_006"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 7,
+    "context": "Artist shall deliver to Company, for valuable consideration hereinafter described,\n_________ (____) number of recordings consisting of not less than 35 minutes of\noriginal musical work within _____ months. First album shall be delivered as\n_________ (____) number of recordings consisting of not less than 35 minutes of\n_________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_007"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 8,
+    "context": "Artist shall deliver to Company, for valuable consideration hereinafter described,\n_________ (____) number of recordings consisting of not less than 35 minutes of\noriginal musical work within _____ months. First album shall be delivered as\n_________ (____) number of recordings consisting of not less than 35 minutes of\n(____)",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_008"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 11,
+    "context": "Artist shall be compensated the following for services rendered:\nA royalty of ____________ (____%) per cent in respect of Work produced,\nplayed, promoted and sold, made hereunder during the term of this agreement.\nA royalty of ____________ (____%) per cent in respect of Work produced,\n____________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_011"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 12,
+    "context": "Artist shall be compensated the following for services rendered:\nA royalty of ____________ (____%) per cent in respect of Work produced,\nplayed, promoted and sold, made hereunder during the term of this agreement.\nA royalty of ____________ (____%) per cent in respect of Work produced,\n____%",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_012"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 13,
+    "context": "Artist shall grant to the Company the license to use the name\n“_____________________”, and the Artist's photographic image, biographical\ninformation, and other likeness and public information, in the promotion and\n“_____________________”, and the Artist's photographic image, biographical\n_____________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_013"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 14,
+    "context": "number of performances during the term of this Agreement shall not exceed\n___________________. Company shall be responsible for travel, hotel and meal\ncosts incurred by Artist in attending each such performance, Artist shall be paid\n___________________. Company shall be responsible for travel, hotel and meal\n___________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_014"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 15,
+    "context": "in accordance with applicable law in any in any court having jurisdiction thereof.\nVenue will be in ___________(county), ________ (state). Artist further consentsto the arbitrator who is appointed in said proceeding.\nc) JURISDICTION/APPLICABLE LAW.\nVenue will be in ___________(county), ________ (state). Artist further consentsto the arbitrator who is appointed in said proceeding.\n___________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_015"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 16,
+    "context": "in accordance with applicable law in any in any court having jurisdiction thereof.\nVenue will be in ___________(county), ________ (state). Artist further consentsto the arbitrator who is appointed in said proceeding.\nc) JURISDICTION/APPLICABLE LAW.\nVenue will be in ___________(county), ________ (state). Artist further consentsto the arbitrator who is appointed in said proceeding.\n________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_016"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 17,
+    "context": "Company and Artist hereby submit to the jurisdiction of the courts of\n_________________(state) for the enforcement of this Agreement or any\narbitration award or decision arising herefrom. This Agreement shall be enforcedor construed according to the laws of the State of _________________.\n_________________(state) for the enforcement of this Agreement or any\n_________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_017"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 19,
+    "context": "date first above mentioned.\n______________________________ _____________________________\nAuthorized Person Artist Rep or Artist\n______________________________ _____________________________\n______________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_019"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 20,
+    "context": "date first above mentioned.\n______________________________ _____________________________\nAuthorized Person Artist Rep or Artist\n______________________________ _____________________________\n_____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_020"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 21,
+    "context": "Authorized Person Artist Rep or Artist\n______________________________ _____________________________\nTitle Artist/Band Name (if applicable)\n______________________________ _____________________________\n______________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_021"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 22,
+    "context": "Authorized Person Artist Rep or Artist\n______________________________ _____________________________\nTitle Artist/Band Name (if applicable)\n______________________________ _____________________________\n_____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_022"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 23,
+    "context": "Title Artist/Band Name (if applicable)\n______________________________ _____________________________\nCompany Name Address\n______________________________ _____________________________\n______________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_023"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 24,
+    "context": "Title Artist/Band Name (if applicable)\n______________________________ _____________________________\nCompany Name Address\n______________________________ _____________________________\n_____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_024"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 25,
+    "context": "Company Name Address\n______________________________ _____________________________\nAddress Address\n______________________________ _____________________________\n______________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_025"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 26,
+    "context": "Company Name Address\n______________________________ _____________________________\nAddress Address\n______________________________ _____________________________\n_____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_026"
+    ]
+  }
+]

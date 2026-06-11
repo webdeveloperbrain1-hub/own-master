@@ -1,0 +1,29 @@
+{
+  "fields": [
+    {
+      "key": "term",
+      "type": "text",
+      "label": "Term",
+      "order": 1,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________",
+      "candidateIds": [
+        "blank_001"
+      ],
+      "surroundingContext": "with a duration of _______________minutes and seconds.\nwith a duration of _______________minutes and seconds.\n_______________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

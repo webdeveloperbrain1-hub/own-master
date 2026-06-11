@@ -1,0 +1,298 @@
+{
+  "fields": [
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 1,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______ | ________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002"
+      ],
+      "surroundingContext": "b. At least ______ separate changing rooms adequate for up to ________\nb. At least ______ separate changing rooms adequate for up to ________\n______"
+    },
+    {
+      "key": "advanceAmount",
+      "type": "currency",
+      "label": "Advance Amount",
+      "order": 3,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________",
+      "candidateIds": [
+        "blank_003"
+      ],
+      "surroundingContext": "performance. Lighting focus shall be completed ___________ in advance of\nperformance. Lighting focus shall be completed ___________ in advance of\n___________"
+    },
+    {
+      "key": "field2",
+      "type": "text",
+      "label": "Field2",
+      "order": 4,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______",
+      "candidateIds": [
+        "blank_004"
+      ],
+      "surroundingContext": "inventory _______ weeks prior to ARTIST'S arrival; equipment necessary to\ninventory _______ weeks prior to ARTIST'S arrival; equipment necessary to\n_______"
+    },
+    {
+      "key": "field3",
+      "type": "text",
+      "label": "Field3",
+      "order": 5,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "(________________________________________)",
+      "candidateIds": [
+        "blank_005"
+      ],
+      "surroundingContext": "g. A hot meal (________________________________________) after\ng. A hot meal (________________________________________) after\n(________________________________________)"
+    },
+    {
+      "key": "field4",
+      "type": "text",
+      "label": "Field4",
+      "order": 6,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________ | ________________",
+      "candidateIds": [
+        "blank_006",
+        "blank_007"
+      ],
+      "surroundingContext": "including _________________ standard table and ________________ chairs.\nincluding _________________ standard table and ________________ chairs.\n_________________"
+    },
+    {
+      "key": "field5",
+      "type": "text",
+      "label": "Field5",
+      "order": 8,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________________",
+      "candidateIds": [
+        "blank_008"
+      ],
+      "surroundingContext": "k. Upon request, a minimum of ________________ ( ) complimentary tickets to said\nk. Upon request, a minimum of ________________ ( ) complimentary tickets to said\n________________"
+    },
+    {
+      "key": "artistName",
+      "type": "text",
+      "label": "Artist Name",
+      "order": 9,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________",
+      "candidateIds": [
+        "blank_009"
+      ],
+      "surroundingContext": "Name of Artist _______________________________\nName of Artist _______________________________\n_______________________________"
+    },
+    {
+      "key": "feeAmount",
+      "type": "currency",
+      "label": "Fee Amount",
+      "order": 10,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______",
+      "candidateIds": [
+        "blank_010",
+        "blank_011"
+      ],
+      "surroundingContext": "a. STAGE: Requirements for stage are a minimum of ______ feet wide by ______\na. STAGE: Requirements for stage are a minimum of ______ feet wide by ______\n______"
+    },
+    {
+      "key": "field6",
+      "type": "text",
+      "label": "Field6",
+      "order": 12,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______ | ____",
+      "candidateIds": [
+        "blank_012",
+        "blank_013"
+      ],
+      "surroundingContext": "1. _______ main house amplifier (s) of ____ wattage each\n1. _______ main house amplifier (s) of ____ wattage each\n_______"
+    },
+    {
+      "key": "field7",
+      "type": "text",
+      "label": "Field7",
+      "order": 14,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________________________",
+      "candidateIds": [
+        "blank_014"
+      ],
+      "surroundingContext": "2. house speaker system including _____________________________________________\n2. house speaker system including _____________________________________________\n_____________________________________________"
+    },
+    {
+      "key": "field8",
+      "type": "text",
+      "label": "Field8",
+      "order": 15,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________",
+      "candidateIds": [
+        "blank_015"
+      ],
+      "surroundingContext": "3. _____________ ( ) downstage stage monitor speakers\n3. _____________ ( ) downstage stage monitor speakers\n_____________"
+    },
+    {
+      "key": "field9",
+      "type": "text",
+      "label": "Field9",
+      "order": 16,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________ | ______ | _________ | ____________",
+      "candidateIds": [
+        "blank_016",
+        "blank_017",
+        "blank_018",
+        "blank_019",
+        "blank_020"
+      ],
+      "surroundingContext": "5. _____________ ( ) microphones and stands: ______ vocal mics; ______ boom stands, _________ regular ____________ percussion mics on boom stands.\n5. _____________ ( ) microphones and stands: ______ vocal mics; ______ boom stands, _________ regular ____________ percussion mics on boom stands.\n_____________"
+    },
+    {
+      "key": "field10",
+      "type": "text",
+      "label": "Field10",
+      "order": 21,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________",
+      "candidateIds": [
+        "blank_021"
+      ],
+      "surroundingContext": "7. ______________ reverb and delay units for vocal mics\n7. ______________ reverb and delay units for vocal mics\n______________"
+    },
+    {
+      "key": "field11",
+      "type": "text",
+      "label": "Field11",
+      "order": 22,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________",
+      "candidateIds": [
+        "blank_022"
+      ],
+      "surroundingContext": "8. mixing board with __________ inputs and technician, plus technician for monitors on stage with reverb available.\n8. mixing board with __________ inputs and technician, plus technician for monitors on stage with reverb available.\n__________"
+    },
+    {
+      "key": "field12",
+      "type": "text",
+      "label": "Field12",
+      "order": 23,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________",
+      "candidateIds": [
+        "blank_023"
+      ],
+      "surroundingContext": "9. ________ direct boxes\n9. ________ direct boxes\n________"
+    },
+    {
+      "key": "field13",
+      "type": "text",
+      "label": "Field13",
+      "order": 24,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________",
+      "candidateIds": [
+        "blank_024"
+      ],
+      "surroundingContext": "f. DRESSING ROOMS: The PRESENTER will provide ________ ( ) clean, private\nf. DRESSING ROOMS: The PRESENTER will provide ________ ( ) clean, private\n________"
+    },
+    {
+      "key": "field14",
+      "type": "text",
+      "label": "Field14",
+      "order": 25,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________ | ________",
+      "candidateIds": [
+        "blank_025",
+        "blank_026",
+        "blank_027"
+      ],
+      "surroundingContext": "dressing rooms, one for __________ and the other __________for up to ________ band members, and not allowing public access to the performance area. Each room must have\ndressing rooms, one for __________ and the other __________for up to ________ band members, and not allowing public access to the performance area. Each room must have\n__________"
+    },
+    {
+      "key": "field15",
+      "type": "text",
+      "label": "Field15",
+      "order": 28,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________________",
+      "candidateIds": [
+        "blank_028"
+      ],
+      "surroundingContext": "make-up lights and mirrors, chairs and tables, costume rack, nearby lavatoryand sink, and be close to the stage. The PRESENTER must also supply _________________________, bottled water, and healthy snacks. In addition, the\nmake-up lights and mirrors, chairs and tables, costume rack, nearby lavatoryand sink, and be close to the stage. The PRESENTER must also supply _________________________, bottled water, and healthy snacks. In addition, the\n_________________________"
+    }
+  ],
+  "source": "deterministic_fallback",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "performance. Lighting focus shall be completed ___________ in advance of\nperformance. Lighting focus shall be completed ___________ in advance of\n___________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "inventory _______ weeks prior to ARTIST'S arrival; equipment necessary to\ninventory _______ weeks prior to ARTIST'S arrival; equipment necessary to\n_______",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "Name of Artist _______________________________\nName of Artist _______________________________\n_______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

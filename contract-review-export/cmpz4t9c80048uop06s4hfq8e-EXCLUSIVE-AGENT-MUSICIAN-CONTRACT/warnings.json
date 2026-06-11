@@ -1,0 +1,101 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n___________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 2,
+    "context": "___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n_______________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_002"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 3,
+    "context": "___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n___________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_003"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n__________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n__________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 6,
+    "context": "___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n_______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_006"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 7,
+    "context": "___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n____",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_007"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 8,
+    "context": "___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n__________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_008"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 9,
+    "context": "___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n___________________________________(AGENT)_______________________________, of ___________________________________(Address)__________________________________, hereinafter referred to as \"Agent\" and __________________________________________(Artist) _______________________ ____,of __________________________________________(Address) _________________________, hereinafter referred to as \"Musician(s)\", hereby agree to the following:\n_________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_009"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 19,
+    "context": "i) does not obtain employment for at least ___ cumulative weeks of up to six night engagements to be performed during each year during the term hereof; or\ni) does not obtain employment for at least ___ cumulative weeks of up to six night engagements to be performed during each year during the term hereof; or\n___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_019"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 20,
+    "context": "ii) does not obtain employment for at least ___ single night engagements to be performed during each year of the term hereof.\nii) does not obtain employment for at least ___ single night engagements to be performed during each year of the term hereof.\n___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_020"
+    ]
+  }
+]

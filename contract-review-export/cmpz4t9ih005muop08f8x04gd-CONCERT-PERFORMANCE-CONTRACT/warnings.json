@@ -1,0 +1,101 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "_______________________________________ (hereinafter referred to as the \"Buyer\") and the entertainer or entertainers, if more than one, listed on Addendum A attached hereto and included herein (hereinafter referred to as the \"Artist\"), by and through their designated agent or representative (\"Manager\") identified below.\n_______________________________________ (hereinafter referred to as the \"Buyer\") and the entertainer or entertainers, if more than one, listed on Addendum A attached hereto and included herein (hereinafter referred to as the \"Artist\"), by and through their designated agent or representative (\"Manager\") identified below.\n_______________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 7,
+    "context": "WHEREAS, Buyer desires to hire Artist, as independent contractor(s), to provide the entertainment generally described below (the \"Performance\") at the 20________ Concert; and\nWHEREAS, Buyer desires to hire Artist, as independent contractor(s), to provide the entertainment generally described below (the \"Performance\") at the 20________ Concert; and\n20________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_007"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 13,
+    "context": "4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_013"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 14,
+    "context": "4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n20____",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_014"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 15,
+    "context": "4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n_____________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_015"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 16,
+    "context": "4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n4. Date(s) and Time(s) of Performance: The date(s) of the Performance shall be ________________, 20____ and the time(s) of the Performance shall be _____________. This Performance shall have duration of at least _______ hours.\n_______",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_016"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 18,
+    "context": "7. Price of Performance: Buyer agrees to pay Artist or his agent an aggregate of ________________ DOLLARS ($ ) for the Performance by check immediately following the Performance, which check shall be made payable to the Manager. Upon proper endorsement of such check by Manager, Buyer agrees to cash the check for the Manager. The Manager shall distribute such amount to Artist(s) as agreed upon between them.\n7. Price of Performance: Buyer agrees to pay Artist or his agent an aggregate of ________________ DOLLARS ($ ) for the Performance by check immediately following the Performance, which check shall be made payable to the Manager. Upon proper endorsement of such check by Manager, Buyer agrees to cash the check for the Manager. The Manager shall distribute such amount to Artist(s) as agreed upon between them.\n________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_018"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 19,
+    "context": "13. Merchandising: Artist(s) shall not, during the 20___ Concert sell any goods, products, merchandise or services (other than the services provided herein) on the grounds of the Concert.\n13. Merchandising: Artist(s) shall not, during the 20___ Concert sell any goods, products, merchandise or services (other than the services provided herein) on the grounds of the Concert.\n20___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_019"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 20,
+    "context": "14. Promotion: Buyer shall be entitled to advertise and promote the appearance of Artist(s) at the 20___ Concert and the Performance. Artist(s) acknowledge that Buyer will rely on the terms hereof in all such promotions and advertising and in the brochures to be printed setting forth the names, dates and times of all performances to be held at the 20___ Concert. Artist(s)\n14. Promotion: Buyer shall be entitled to advertise and promote the appearance of Artist(s) at the 20___ Concert and the Performance. Artist(s) acknowledge that Buyer will rely on the terms hereof in all such promotions and advertising and in the brochures to be printed setting forth the names, dates and times of all performances to be held at the 20___ Concert. Artist(s)\n20___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_020"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 21,
+    "context": "14. Promotion: Buyer shall be entitled to advertise and promote the appearance of Artist(s) at the 20___ Concert and the Performance. Artist(s) acknowledge that Buyer will rely on the terms hereof in all such promotions and advertising and in the brochures to be printed setting forth the names, dates and times of all performances to be held at the 20___ Concert. Artist(s)\n14. Promotion: Buyer shall be entitled to advertise and promote the appearance of Artist(s) at the 20___ Concert and the Performance. Artist(s) acknowledge that Buyer will rely on the terms hereof in all such promotions and advertising and in the brochures to be printed setting forth the names, dates and times of all performances to be held at the 20___ Concert. Artist(s)\n20___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_021"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 22,
+    "context": "hereby acknowledge and agree that Buyer may use their names, photographs, likeness, facsimile signature and any other promotional materials in all of such promotions, advertising or other activities used to increase attendance at the 20___ Concert.\nhereby acknowledge and agree that Buyer may use their names, photographs, likeness, facsimile signature and any other promotional materials in all of such promotions, advertising or other activities used to increase attendance at the 20___ Concert.\n20___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_022"
+    ]
+  }
+]

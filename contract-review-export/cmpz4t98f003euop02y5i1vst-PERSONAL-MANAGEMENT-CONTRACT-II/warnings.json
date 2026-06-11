@@ -1,0 +1,53 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 7,
+    "context": "I. If, as a result of your efforts, I enter into a contract for my services as a recording artist with a major recording concern, I hereby agree to pay you ______________________ PERCENT (________%) of any and all sales, production, or royalty advances.\nI. If, as a result of your efforts, I enter into a contract for my services as a recording artist with a major recording concern, I hereby agree to pay you ______________________ PERCENT (________%) of any and all sales, production, or royalty advances.\n______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_007"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 8,
+    "context": "I. If, as a result of your efforts, I enter into a contract for my services as a recording artist with a major recording concern, I hereby agree to pay you ______________________ PERCENT (________%) of any and all sales, production, or royalty advances.\nI. If, as a result of your efforts, I enter into a contract for my services as a recording artist with a major recording concern, I hereby agree to pay you ______________________ PERCENT (________%) of any and all sales, production, or royalty advances.\n________%",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_008"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 9,
+    "context": "copyrights to either ___(Publisher Name)__ ASCAP. or ___(Publisher Name)___ BMI. I will retain all artist and writer credits and royalties.\ncopyrights to either ___(Publisher Name)__ ASCAP. or ___(Publisher Name)___ BMI. I will retain all artist and writer credits and royalties.\n___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_009"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 10,
+    "context": "copyrights to either ___(Publisher Name)__ ASCAP. or ___(Publisher Name)___ BMI. I will retain all artist and writer credits and royalties.\ncopyrights to either ___(Publisher Name)__ ASCAP. or ___(Publisher Name)___ BMI. I will retain all artist and writer credits and royalties.\n___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_010"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 11,
+    "context": "copyrights to either ___(Publisher Name)__ ASCAP. or ___(Publisher Name)___ BMI. I will retain all artist and writer credits and royalties.\ncopyrights to either ___(Publisher Name)__ ASCAP. or ___(Publisher Name)___ BMI. I will retain all artist and writer credits and royalties.\n___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_011"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

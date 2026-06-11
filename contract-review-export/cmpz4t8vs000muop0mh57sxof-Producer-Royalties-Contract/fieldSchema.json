@@ -1,0 +1,170 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________ | ___________________ | _________ | 20____",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004"
+      ],
+      "surroundingContext": "ROYALTY SPECIFICATION OF PRODUCER CONTRACT\nThis attachment to the Producer Agreement between ________________ hereinafter referred to as\nCompany, and ___________________ hereinafter referred to as Producer dated _________, 20____, is to\nThis attachment to the Producer Agreement between ________________ hereinafter referred to as\n________________"
+    },
+    {
+      "key": "paymentAmount",
+      "type": "currency",
+      "label": "Payment Amount",
+      "order": 5,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________",
+      "candidateIds": [
+        "blank_005"
+      ],
+      "surroundingContext": "specify the payment of royalties to Producer by Company as follows:\n1. Producer has received _______________________________ dollars ($ ) for his/her\nproduction of the ______________ (number) Master Recordings of the Company's recording artist\n1. Producer has received _______________________________ dollars ($ ) for his/her\n_______________________________"
+    },
+    {
+      "key": "paymentAmount2",
+      "type": "currency",
+      "label": "Payment Amount2",
+      "order": 6,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________",
+      "candidateIds": [
+        "blank_006"
+      ],
+      "surroundingContext": "1. Producer has received _______________________________ dollars ($ ) for his/her\nproduction of the ______________ (number) Master Recordings of the Company's recording artist\n___________________________ titles of which are listed in the aforementioned Producer Agreement.\nproduction of the ______________ (number) Master Recordings of the Company's recording artist\n______________"
+    },
+    {
+      "key": "advanceAmount",
+      "type": "currency",
+      "label": "Advance Amount",
+      "order": 7,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________________________",
+      "candidateIds": [
+        "blank_007"
+      ],
+      "surroundingContext": "production of the ______________ (number) Master Recordings of the Company's recording artist\n___________________________ titles of which are listed in the aforementioned Producer Agreement.\nThis is deemed as a recoupable advance against any royalties earned from sales.\n___________________________ titles of which are listed in the aforementioned Producer Agreement.\n___________________________"
+    },
+    {
+      "key": "producerSignature",
+      "type": "signature",
+      "label": "Producer Signature",
+      "order": 8,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________________________ | ______________________________",
+      "candidateIds": [
+        "blank_008",
+        "blank_009"
+      ],
+      "surroundingContext": "Signatures below confirms all parties agreement.\n________________________________ ______________________________\nProducer Company\n________________________________ ______________________________\n________________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "ROYALTY SPECIFICATION OF PRODUCER CONTRACT\nThis attachment to the Producer Agreement between ________________ hereinafter referred to as\nCompany, and ___________________ hereinafter referred to as Producer dated _________, 20____, is to\nThis attachment to the Producer Agreement between ________________ hereinafter referred to as\n________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "This attachment to the Producer Agreement between ________________ hereinafter referred to as\nCompany, and ___________________ hereinafter referred to as Producer dated _________, 20____, is to\nspecify the payment of royalties to Producer by Company as follows:\nCompany, and ___________________ hereinafter referred to as Producer dated _________, 20____, is to\n___________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_002"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "This attachment to the Producer Agreement between ________________ hereinafter referred to as\nCompany, and ___________________ hereinafter referred to as Producer dated _________, 20____, is to\nspecify the payment of royalties to Producer by Company as follows:\nCompany, and ___________________ hereinafter referred to as Producer dated _________, 20____, is to\n_________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "This attachment to the Producer Agreement between ________________ hereinafter referred to as\nCompany, and ___________________ hereinafter referred to as Producer dated _________, 20____, is to\nspecify the payment of royalties to Producer by Company as follows:\nCompany, and ___________________ hereinafter referred to as Producer dated _________, 20____, is to\n20____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 5,
+      "context": "specify the payment of royalties to Producer by Company as follows:\n1. Producer has received _______________________________ dollars ($ ) for his/her\nproduction of the ______________ (number) Master Recordings of the Company's recording artist\n1. Producer has received _______________________________ dollars ($ ) for his/her\n_______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 6,
+      "context": "1. Producer has received _______________________________ dollars ($ ) for his/her\nproduction of the ______________ (number) Master Recordings of the Company's recording artist\n___________________________ titles of which are listed in the aforementioned Producer Agreement.\nproduction of the ______________ (number) Master Recordings of the Company's recording artist\n______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_006"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 7,
+      "context": "production of the ______________ (number) Master Recordings of the Company's recording artist\n___________________________ titles of which are listed in the aforementioned Producer Agreement.\nThis is deemed as a recoupable advance against any royalties earned from sales.\n___________________________ titles of which are listed in the aforementioned Producer Agreement.\n___________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_007"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 8,
+      "context": "Signatures below confirms all parties agreement.\n________________________________ ______________________________\nProducer Company\n________________________________ ______________________________\n________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_008"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 9,
+      "context": "Signatures below confirms all parties agreement.\n________________________________ ______________________________\nProducer Company\n________________________________ ______________________________\n______________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_009"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

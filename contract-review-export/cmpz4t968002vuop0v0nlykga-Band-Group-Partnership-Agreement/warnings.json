@@ -1,0 +1,53 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 22,
+    "context": "PARTNERSHIP AGREEMENT ENTERED INTO AND SIGNED:\n____________________________ ____________________________\nNAME Date NAME Date\n____________________________ ____________________________\n____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_022"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 23,
+    "context": "PARTNERSHIP AGREEMENT ENTERED INTO AND SIGNED:\n____________________________ ____________________________\nNAME Date NAME Date\n____________________________ ____________________________\n____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_023"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 24,
+    "context": "____________________________ ____________________________\nNAME Date NAME Date\n____________________________ ____________________________\n____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_024"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 25,
+    "context": "____________________________ ____________________________\nNAME Date NAME Date\n____________________________ ____________________________\n____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_025"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 26,
+    "context": "NAME Date NAME Date\n______________________________________________________________________\nWITNESS Signature Witness Name Date\n______________________________________________________________________\n______________________________________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_026"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

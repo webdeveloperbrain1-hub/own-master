@@ -1,0 +1,35 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "AGREEMENT made this day of, 20 ___, between hereinafter called the \"Operator Employer,\" whose address is and hereinafter called the \"Artist Employee,\" whose address is Social Security No. _____(if AGVA Member, give Membership No.) AGVA Branch\nAGREEMENT made this day of, 20 ___, between hereinafter called the \"Operator Employer,\" whose address is and hereinafter called the \"Artist Employee,\" whose address is Social Security No. _____(if AGVA Member, give Membership No.) AGVA Branch\n___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 2,
+    "context": "AGREEMENT made this day of, 20 ___, between hereinafter called the \"Operator Employer,\" whose address is and hereinafter called the \"Artist Employee,\" whose address is Social Security No. _____(if AGVA Member, give Membership No.) AGVA Branch\nAGREEMENT made this day of, 20 ___, between hereinafter called the \"Operator Employer,\" whose address is and hereinafter called the \"Artist Employee,\" whose address is Social Security No. _____(if AGVA Member, give Membership No.) AGVA Branch\n_____",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_002"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 3,
+    "context": "2. OPTIONS AND NOTICE OF EXORCIZE OF OPTIONS. The Artist Employee(s) hereby gives and grants to the Operator Employer the option of extending this Agreement for ( ) consecutive additional periods of ( ) week(s) or ___________ ( ) day(s) immediately following the conclusion of the original engagement hereunder, upon the same or better terms and conditions contained herein for the original period thereof. The weekly or daily compensation during each such option period herein shall be $ dollars ( ) dollars. Each of these options to be effective must be exercised in writing by the Operator Employer no later than ( ) week(s) or ( ) day(s) prior to the termination of the Artist Employee(s) engagement. (NOTE: On engagements for one week or less AGVA rules require written notice the day following the opening; on engagements of 2 or 3 weeks, the rules require at least one week's written notice and on engagements of 4 or more weeks the rules require at least 2 week's written notice prior to the termination of the Artist Employee(s) engagement. All copies of option notices shall be sent simultaneously to AGVA NATIONAL HEADQUARTERS by the Operator Employer.\n2. OPTIONS AND NOTICE OF EXORCIZE OF OPTIONS. The Artist Employee(s) hereby gives and grants to the Operator Employer the option of extending this Agreement for ( ) consecutive additional periods of ( ) week(s) or ___________ ( ) day(s) immediately following the conclusion of the original engagement hereunder, upon the same or better terms and conditions contained herein for the original period thereof. The weekly or daily compensation during each such option period herein shall be $ dollars ( ) dollars. Each of these options to be effective must be exercised in writing by the Operator Employer no later than ( ) week(s) or ( ) day(s) prior to the termination of the Artist Employee(s) engagement. (NOTE: On engagements for one week or less AGVA rules require written notice the day following the opening; on engagements of 2 or 3 weeks, the rules require at least one week's written notice and on engagements of 4 or more weeks the rules require at least 2 week's written notice prior to the termination of the Artist Employee(s) engagement. All copies of option notices shall be sent simultaneously to AGVA NATIONAL HEADQUARTERS by the Operator Employer.\n___________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_003"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

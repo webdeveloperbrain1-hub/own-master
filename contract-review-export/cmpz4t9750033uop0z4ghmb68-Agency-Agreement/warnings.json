@@ -1,0 +1,98 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "AGENCY AGREEMENT (NON-EXCLUSIVE)\nThis Agreement is made on _____________, 20___ by and between _______________\n(Name of Band/Artist) hereinafter referred to as “Artist” and\nThis Agreement is made on _____________, 20___ by and between _______________\n_____________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 2,
+    "context": "AGENCY AGREEMENT (NON-EXCLUSIVE)\nThis Agreement is made on _____________, 20___ by and between _______________\n(Name of Band/Artist) hereinafter referred to as “Artist” and\nThis Agreement is made on _____________, 20___ by and between _______________\n20___",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_002"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 3,
+    "context": "AGENCY AGREEMENT (NON-EXCLUSIVE)\nThis Agreement is made on _____________, 20___ by and between _______________\n(Name of Band/Artist) hereinafter referred to as “Artist” and\nThis Agreement is made on _____________, 20___ by and between _______________\n_______________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_003"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "(Name of Band/Artist) hereinafter referred to as “Artist” and\n_____________________________ (Name of Agent) hereinafter “Agent” provides\nconsideration for Agent in exchange for the services and terms herein on its selected listof talent and its further consideration of the Agent's efforts to seek and find employment\n_____________________________ (Name of Agent) hereinafter “Agent” provides\n_____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "informed Agent may result in the loss of income for both Artist and Agent.\n______________________________ _____________________________\nAuthorized Person Artist Rep or Artist\n______________________________ _____________________________\n______________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 6,
+    "context": "informed Agent may result in the loss of income for both Artist and Agent.\n______________________________ _____________________________\nAuthorized Person Artist Rep or Artist\n______________________________ _____________________________\n_____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_006"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 7,
+    "context": "Authorized Person Artist Rep or Artist\n______________________________ _____________________________\nCompany Name and Title Band Name (if applicable)\n______________________________ _____________________________\n______________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_007"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 8,
+    "context": "Authorized Person Artist Rep or Artist\n______________________________ _____________________________\nCompany Name and Title Band Name (if applicable)\n______________________________ _____________________________\n_____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_008"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 9,
+    "context": "Company Name and Title Band Name (if applicable)\n______________________________ _____________________________\nAddress Address\n______________________________ _____________________________\n______________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_009"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 10,
+    "context": "Company Name and Title Band Name (if applicable)\n______________________________ _____________________________\nAddress Address\n______________________________ _____________________________\n_____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_010"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

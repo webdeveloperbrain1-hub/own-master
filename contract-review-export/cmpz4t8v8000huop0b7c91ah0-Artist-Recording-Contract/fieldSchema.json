@@ -1,0 +1,73 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "__/__/20____ | ______________________________________________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004"
+      ],
+      "surroundingContext": "1. AGREEMENT made this __________________ day of ___________________, 20______,\nbetween ___________________________________________________ (herein called \"the Company\")\nand (herein called \"the Artist\")"
+    },
+    {
+      "key": "royaltyRate",
+      "type": "percentage",
+      "label": "Royalty Rate",
+      "order": 3,
+      "category": "payment",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "______________________",
+      "candidateIds": [
+        "blank_005"
+      ],
+      "surroundingContext": "3. The Company will pay you for the rights granted herein and the services to be rendered hereunder by\nyou a royalty of ______________________cents for each double-faced record manufactured and sold\nthroughout the world by the Company or its associates or subsidiaries, on both faces of which are embodiedany of the selections recorded hereunder."
+    },
+    {
+      "key": "termEndDate",
+      "type": "date",
+      "label": "Term End Date",
+      "order": 4,
+      "category": "dates",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "____________________",
+      "candidateIds": [
+        "blank_006"
+      ],
+      "surroundingContext": "4. Payment of accrued royalties shall be made semi-annually on the first day of ____________________\nfor the period ending, and on the first day of for the period"
+    }
+  ],
+  "source": "ollama",
+  "warnings": [
+    {
+      "type": "low_confidence",
+      "order": 1,
+      "context": "1. AGREEMENT made this __________________ day of ___________________, 20______,\nbetween ___________________________________________________ (herein called \"the Company\")",
+      "message": "Confidence is low due to multiple blank candidates in one line.",
+      "candidateIds": [
+        "blank_001",
+        "blank_002"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "3. The Company will pay you for the rights granted herein and the services to be rendered hereunder by\nyou a royalty of ______________________cents ...",
+      "message": "This blank may be risky as it could refer to a critical term.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    }
+  ],
+  "templateName": "ArtistRecordingContract",
+  "reviewRequired": true
+}

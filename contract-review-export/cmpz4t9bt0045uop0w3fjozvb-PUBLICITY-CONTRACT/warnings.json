@@ -1,0 +1,44 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 2,
+    "context": "(a) ___________________________________ (hereinafter referred to as the \"Artist\") and;\n(a) ___________________________________ (hereinafter referred to as the \"Artist\") and;\n___________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_002"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "4. The parties have discussed the matter of how long this Agreement shall be in effect. They have discussed the advantages and disadvantages of a short-term, medium-term, and/or long-term Agreement. The parties agree that duration of this Agreement shall be ________________________ YEARS.\n4. The parties have discussed the matter of how long this Agreement shall be in effect. They have discussed the advantages and disadvantages of a short-term, medium-term, and/or long-term Agreement. The parties agree that duration of this Agreement shall be ________________________ YEARS.\n________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "14. As a partial fee for Publicist's services, Artist agrees to pay Publicist, as and when received by Artist, and during the term hereof, a sum equal to ______________________ per (week/month) _________________.\n14. As a partial fee for Publicist's services, Artist agrees to pay Publicist, as and when received by Artist, and during the term hereof, a sum equal to ______________________ per (week/month) _________________.\n______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 6,
+    "context": "14. As a partial fee for Publicist's services, Artist agrees to pay Publicist, as and when received by Artist, and during the term hereof, a sum equal to ______________________ per (week/month) _________________.\n14. As a partial fee for Publicist's services, Artist agrees to pay Publicist, as and when received by Artist, and during the term hereof, a sum equal to ______________________ per (week/month) _________________.\n_________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_006"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

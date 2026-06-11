@@ -1,0 +1,56 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "MASTER RECORDING LICENSE\nDate__________\nThe following will confirm the agreement as of the date written above between you and us for our\nDate__________\n__________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 12,
+    "context": "________________________________________________________________________________\n________________________________________________________________________________\n(hereinafter referred to as the \"Master\") and of all the performances embodied thereon; that you have the\n________________________________________________________________________________\n________________________________________________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_012"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 13,
+    "context": "4. We agree to pay you the sum of _______________________ as an advance against the royalties\npayable hereunder. We further agree to pay to you any royalties accruing to you hereunder over and abovethe amount of said advance. We further agree to reimburse you for session costs of each future master\n4. We agree to pay you the sum of _______________________ as an advance against the royalties\n_______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_013"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 15,
+    "context": "Should any portion of this Agreement be found to be invalid or unenforceable, it shall not affect the balanceof this Agreement.\n11. The duration of this Agreement shall be for _____ years from the date on which you give us the\nMaster under this Agreement, at the end of which time the Master and any accompanying artwork shall be\n11. The duration of this Agreement shall be for _____ years from the date on which you give us the\n_____",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_015"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 18,
+    "context": "notify us when you make such authorization.\nBy: _______________________________\nRecord Company\nBy: _______________________________\n_______________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_018"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 19,
+    "context": "ACCEPTED AND AGREED TO:\nBy: __________________________\nProducer\nBy: __________________________\n__________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_019"
+    ]
+  }
+]

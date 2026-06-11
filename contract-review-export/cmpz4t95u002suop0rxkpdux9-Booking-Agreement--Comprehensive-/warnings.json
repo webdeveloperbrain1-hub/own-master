@@ -1,0 +1,155 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 3,
+    "context": "This Agreement is entered into on this day, ________________, 20__ by\nand between ______________________, (a.k.a. ______________________) hereinafter\nreferred to as “Artist” and ______________________ (Name) of\nand between ______________________, (a.k.a. ______________________) hereinafter\n______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_003"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 4,
+    "context": "This Agreement is entered into on this day, ________________, 20__ by\nand between ______________________, (a.k.a. ______________________) hereinafter\nreferred to as “Artist” and ______________________ (Name) of\nand between ______________________, (a.k.a. ______________________) hereinafter\n______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_004"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "and between ______________________, (a.k.a. ______________________) hereinafter\nreferred to as “Artist” and ______________________ (Name) of\n(Venue or Agency) located at ______________________ (Address) hereinafter referredto as “Client”. For the mutual promises, obligations and considerations set forth herein,\nreferred to as “Artist” and ______________________ (Name) of\n______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 6,
+    "context": "referred to as “Artist” and ______________________ (Name) of\n(Venue or Agency) located at ______________________ (Address) hereinafter referredto as “Client”. For the mutual promises, obligations and considerations set forth herein,\nthe parties agree to be bound as follows:\n(Venue or Agency) located at ______________________ (Address) hereinafter referredto as “Client”. For the mutual promises, obligations and considerations set forth herein,\n______________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_006"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 12,
+    "context": "_______________________________________________,\n_______________________________________________.\nIf equipment of these specifications is not available, Client must obtain Artist’s express\n_______________________________________________.\n_______________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_012"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 13,
+    "context": "Client shall provide the following required items as requested by Artist:\n_______________________________________________,\n_______________________________________________,\n_______________________________________________,\n_______________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_013"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 19,
+    "context": "In exchange for the services specified in this Agreement, Client agrees to pay to Artist the\ntotal sum of $___________. This fee is exclusive of any travel, accommodations, or\nrider costs agreed to under this Agreement. Client agrees to pay 50% of the total fee\ntotal sum of $___________. This fee is exclusive of any travel, accommodations, or\n$___________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_019"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 20,
+    "context": "Where the location of performances under this contract is greater than two hundred (200)\nmiles from __________________________________ (home city and state of Artist)\nhereinafter referred to “Home”, Client shall be responsible to provide round-trip air\nmiles from __________________________________ (home city and state of Artist)\n__________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_020"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 24,
+    "context": "that they are legally permitted to enter into valid, binding contracts.\n_______________________________________________\nClient (signature)\n_______________________________________________\n_______________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_024"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 25,
+    "context": "Client (signature)\nClient: __________________________________\nAddress: __________________________________\nClient: __________________________________\n__________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_025"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 29,
+    "context": "__________________________________\nPhone: __________________________________\nDated: __________________________________\nPhone: __________________________________\n__________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_029"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 30,
+    "context": "Phone: __________________________________\nDated: __________________________________\n_______________________________________________\nDated: __________________________________\n__________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_030"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 31,
+    "context": "Dated: __________________________________\n_______________________________________________\nArtist or Authorized Representative of Artist\n_______________________________________________\n_______________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_031"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 32,
+    "context": "Artist or Authorized Representative of Artist\nArtist: __________________________________\nAddress: __________________________________\nArtist: __________________________________\n__________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_032"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 33,
+    "context": "Artist: __________________________________\nAddress: __________________________________\n__________________________________\nAddress: __________________________________\n__________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_033"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 36,
+    "context": "__________________________________\nPhone: __________________________________\nDated: __________________________________\nPhone: __________________________________\n__________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_036"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 37,
+    "context": "Phone: __________________________________\nDated: __________________________________\nDated: __________________________________\n__________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_037"
+    ]
+  }
+]

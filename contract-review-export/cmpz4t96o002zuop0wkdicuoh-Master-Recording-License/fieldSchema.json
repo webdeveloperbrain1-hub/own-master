@@ -1,0 +1,169 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "__________",
+      "candidateIds": [
+        "blank_001"
+      ],
+      "surroundingContext": "Date__________"
+    },
+    {
+      "key": "companyName",
+      "type": "text",
+      "label": "Company Name",
+      "order": 2,
+      "category": "parties",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "________________________________________________________________________________",
+      "candidateIds": [
+        "blank_018",
+        "blank_019"
+      ],
+      "surroundingContext": "__Producer"
+    },
+    {
+      "key": "masterTitles",
+      "type": "text",
+      "label": "Master Titles",
+      "order": 3,
+      "category": "other",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "________________________________________________________________________________\n\n________________________________________________________________________________\n\n________________________________________________________________________________\n\n______________________________________________________",
+      "candidateIds": [
+        "blank_002",
+        "blank_003",
+        "blank_004",
+        "blank_005",
+        "blank_006",
+        "blank_007",
+        "blank_008",
+        "blank_009"
+      ],
+      "surroundingContext": "________________________________________________________________________________\n________________________________________________________________________________\n________________________________________________________________________________\n________________________________________________________________________________\n________________________________________________________________________________\n________________________________________________________________________________\n________________________________________________________________________________\n________________________________________________________________________________\n________________________________________________________________________________\n________________________________________________________________________________\n________________________________________________________________________________\n________________________________________________________________________________\n____________________________"
+    },
+    {
+      "key": "advanceAmount",
+      "type": "currency",
+      "label": "Advance Amount",
+      "order": 4,
+      "category": "payment",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "_______________________",
+      "candidateIds": [
+        "blank_013"
+      ],
+      "surroundingContext": "4. We agree to pay you the sum of _______________________ as an advance against the royalties payable hereunder. We further agree to pay to you any royalties accruing to you hereunder over and above the amount of said advance. We further agree to reimburse you for session costs of each future master upon acceptance of the Master.\n4. We agree to pay you the sum of _______________________ as an advance against the royalties payable hereunder. We further agree to pay to you any royalties accruing to you hereunder over and above the amount of said advance. We further agree to reimburse you for session costs of each future master upon acceptance of the Master.\n_______________________"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 5,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "__________________________",
+      "candidateIds": [
+        "blank_014"
+      ],
+      "surroundingContext": "10. This Agreement shall be deemed to have been made in the State _____________________ and it's validity, construction, performance, breach and operation shall be governed by the laws of that state. Should any portion of this Agreement be found to be invalid or unenforceable, it shall not affect the balance of this Agreement.\n10. This Agreement shall be deemed to have been made in the State _____________________ and it's validity, construction, performance, breach and operation shall be governed by the laws of that state. Should any portion of this Agreement be found to be invalid or unenforceable, it shall not affect the balance of this Agreement.\n_____________________"
+    },
+    {
+      "key": "termEndDate",
+      "type": "date",
+      "label": "Term End Date",
+      "order": 6,
+      "category": "dates",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "_______________________________",
+      "candidateIds": [
+        "blank_015"
+      ],
+      "surroundingContext": "11. The duration of this Agreement shall be for _____ years from the date on which you give us the Master under this Agreement, at the end of which time the Master and any accompanying artwork shall be returned to you. We shall continue to render royalty statements and payments until inventory is depleted. You may at the expiration of this Agreement purchase the remaining inventory at cost plus shipping.\n11. The duration of this Agreement shall be for _____ years from the date on which you give us the Master under this Agreement, at the end of which time the Master and any accompanying artwork shall be returned to you. We shall continue to render royalty statements and payments until inventory is depleted. You may at the expiration of this Agreement purchase the remaining inventory at cost plus shipping.\n_____"
+    },
+    {
+      "key": "governingState2",
+      "type": "text",
+      "label": "Governing State2",
+      "order": 7,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________",
+      "candidateIds": [
+        "blank_016"
+      ],
+      "surroundingContext": "12. If any dispute or differences whatsoever shall arise between us in connection with this Agreement, they shall be submitted to arbitration in the State of ___________________, in accordance\n12. If any dispute or differences whatsoever shall arise between us in connection with this Agreement, they shall be submitted to arbitration in the State of ___________________, in accordance\n___________________"
+    },
+    {
+      "key": "governingState3",
+      "type": "text",
+      "label": "Governing State3",
+      "order": 8,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________",
+      "candidateIds": [
+        "blank_017"
+      ],
+      "surroundingContext": "with the laws of the State of _________________________ and the rules and regulations of the American Arbitration Association.\nwith the laws of the State of _________________________ and the rules and regulations of the American Arbitration Association.\n_________________________"
+    },
+    {
+      "key": "signatureRecordCompany",
+      "type": "signature",
+      "label": "Signature Record Company",
+      "order": 9,
+      "category": "other",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "By: _______________________________\n\n Record Company",
+      "candidateIds": [
+        "blank_012"
+      ],
+      "surroundingContext": "________________________________________________________________________________\n________________________________________________________________________________\n________________________________________________________________________________"
+    }
+  ],
+  "source": "ollama",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 13,
+      "context": "4. We agree to pay you the sum of _______________________ as an advance against the royalties payable hereunder. We further agree to pay to you any royalties accruing to you hereunder over and above the amount of said advance. We further agree to reimburse you for session costs of each future master upon acceptance of the Master.\n4. We agree to pay you the sum of _______________________ as an advance against the royalties payable hereunder. We further agree to pay to you any royalties accruing to you hereunder over and above the amount of said advance. We further agree to reimburse you for session costs of each future master upon acceptance of the Master.\n_______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_013"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 15,
+      "context": "11. The duration of this Agreement shall be for _____ years from the date on which you give us the Master under this Agreement, at the end of which time the Master and any accompanying artwork shall be returned to you. We shall continue to render royalty statements and payments until inventory is depleted. You may at the expiration of this Agreement purchase the remaining inventory at cost plus shipping.\n11. The duration of this Agreement shall be for _____ years from the date on which you give us the Master under this Agreement, at the end of which time the Master and any accompanying artwork shall be returned to you. We shall continue to render royalty statements and payments until inventory is depleted. You may at the expiration of this Agreement purchase the remaining inventory at cost plus shipping.\n_____",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_015"
+      ]
+    },
+    {
+      "type": "removed_field_unknown_candidate",
+      "context": "",
+      "message": "Removed \"Producer Signature\" because its candidate IDs were not found.",
+      "candidateIds": [
+        "blank_020"
+      ]
+    }
+  ],
+  "templateName": "Recording License Agreement",
+  "reviewRequired": true
+}

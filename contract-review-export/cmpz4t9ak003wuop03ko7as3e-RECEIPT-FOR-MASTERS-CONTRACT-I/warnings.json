@@ -1,0 +1,26 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "2. This is an attachment referred to in Paragraph ________________ of the parent contract dated ____________________________ between the undersigned parties.\n2. This is an attachment referred to in Paragraph ________________ of the parent contract dated ____________________________ between the undersigned parties.\n________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 2,
+    "context": "2. This is an attachment referred to in Paragraph ________________ of the parent contract dated ____________________________ between the undersigned parties.\n2. This is an attachment referred to in Paragraph ________________ of the parent contract dated ____________________________ between the undersigned parties.\n____________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_002"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

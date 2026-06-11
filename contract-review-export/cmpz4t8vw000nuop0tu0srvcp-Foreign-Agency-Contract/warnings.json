@@ -1,0 +1,44 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 5,
+    "context": "______________________________________________ (hereinafter referred to as \"Principal\") and\n______________________________________________ (hereinafter referred to as \"Agent\").\nPrincipal is the owner of the mechanical recording rights in copyrighted musical work referred to as\n______________________________________________ (hereinafter referred to as \"Agent\").\n______________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_005"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 6,
+    "context": "Principal is the owner of the mechanical recording rights in copyrighted musical work referred to as\n________________________________________ (hereinafter referred to as the \"Composition/Album\")\nwith music and lyrics by ___________________________ as recorded by __________________________.\n________________________________________ (hereinafter referred to as the \"Composition/Album\")\n________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_006"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 9,
+    "context": "marketing and negotiating for the granting of sub-publishers within the territory of\n______________________________ (hereinafter referred to as \"Licensed Territory\") the following rights:\n1. Exclusive right to print, publish and vend copies of the Composition/Album in the Licensed\n______________________________ (hereinafter referred to as \"Licensed Territory\") the following rights:\n______________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_009"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 14,
+    "context": "The term of this Agreement shall be for a period of _________________ year(s) commencing on the dateof execution of this Agreement.\nThis Agreement shall inure to the benefit of and shall be binding upon the parties hereto, their heirs,\nThe term of this Agreement shall be for a period of _________________ year(s) commencing on the dateof execution of this Agreement.\n_________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_014"
+    ]
+  },
+  {
+    "type": "ai_fields_removed",
+    "context": "source=ollama",
+    "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+    "candidateIds": []
+  }
+]

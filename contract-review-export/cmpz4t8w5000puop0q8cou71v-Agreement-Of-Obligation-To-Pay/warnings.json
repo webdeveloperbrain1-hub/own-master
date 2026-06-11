@@ -1,0 +1,56 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "AGREEMENT OF OBLIGATION TO PAY\nI, _______________________________________________________, (herein known as \"Artist\")\ndo hereby agree not to produce, sell, or market the recordings below listed until the debt and obligation to\nI, _______________________________________________________, (herein known as \"Artist\")\n_______________________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_001"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 15,
+    "context": "These song(s) were recorded at _______________________________________________ Studiosin the City of _____________________________ in the State of _________________________________\nat the address of _____________________________________________\non the the date(s) of:__________________________________________\nat the address of _____________________________________________\n_____________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_015"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 16,
+    "context": "at the address of _____________________________________________\non the the date(s) of:__________________________________________\nThese figures reflect American Federation of Musicians scale rates at the time the recordings were made.\non the the date(s) of:__________________________________________\n__________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_016"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 17,
+    "context": "Name Service Payment Due\n______________________________________________________________________________\n______________________________________________________________________________\n______________________________________________________________________________\n______________________________________________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_017"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 25,
+    "context": "______________________________________________________________________________\n______________________________________________________________________________\nIf Producer has made payment to any of the parties below listed, I will reimburse Producer his receipted\n______________________________________________________________________________\n______________________________________________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_025"
+    ]
+  },
+  {
+    "type": "risky_blank",
+    "order": 29,
+    "context": "Agreed to this ____________________day of _____________, 20______.\n___________________________________________\nArtist\n___________________________________________\n___________________________________________",
+    "message": "This blank touches business or legal terms and should be reviewed by a person.",
+    "candidateIds": [
+      "blank_029"
+    ]
+  }
+]

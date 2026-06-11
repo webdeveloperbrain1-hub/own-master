@@ -1,0 +1,302 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________ | ____________ | 20____",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003"
+      ],
+      "surroundingContext": "Agreement made this __________-__ day of ____________, 20____, by and between\nAgreement made this __________-__ day of ____________, 20____, by and between\n__________"
+    },
+    {
+      "key": "companySignature",
+      "type": "signature",
+      "label": "Company Signature",
+      "order": 4,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_____________________________________ | _______________________",
+      "candidateIds": [
+        "blank_004",
+        "blank_005"
+      ],
+      "surroundingContext": "_____________________________________(Sound Company) (hereinafter referred to as the \"Contractor\") and _______________________, (hereinafter referred to as the \"Buyer\") for the purpose of contracting sound reinforcement between the undersigned parties.\n_____________________________________(Sound Company) (hereinafter referred to as the \"Contractor\") and _______________________, (hereinafter referred to as the \"Buyer\") for the purpose of contracting sound reinforcement between the undersigned parties.\n_____________________________________"
+    },
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 6,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________",
+      "candidateIds": [
+        "blank_006"
+      ],
+      "surroundingContext": "Street: _______________________________________\nStreet: _______________________________________\n_______________________________________"
+    },
+    {
+      "key": "governingState",
+      "type": "text",
+      "label": "Governing State",
+      "order": 7,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________________ | _____ | _________",
+      "candidateIds": [
+        "blank_007",
+        "blank_008",
+        "blank_009"
+      ],
+      "surroundingContext": "City: ________________, State: _____, Zip: _________\nCity: ________________, State: _____, Zip: _________\n________________"
+    },
+    {
+      "key": "field2",
+      "type": "text",
+      "label": "Field2",
+      "order": 10,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________",
+      "candidateIds": [
+        "blank_010"
+      ],
+      "surroundingContext": "Phone: _________________\nPhone: _________________\n_________________"
+    },
+    {
+      "key": "agreementDate2",
+      "type": "date",
+      "label": "Agreement Date2",
+      "order": 11,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______ | _______________ | 20___ | ____",
+      "candidateIds": [
+        "blank_011",
+        "blank_012",
+        "blank_013",
+        "blank_014"
+      ],
+      "surroundingContext": "by _______ am/pm _______________, 20___.\nby _______ am/pm _______________, 20___.\n_______"
+    },
+    {
+      "key": "agreementDate3",
+      "type": "date",
+      "label": "Agreement Date3",
+      "order": 15,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "____________ | 20____ | _________",
+      "candidateIds": [
+        "blank_015",
+        "blank_016",
+        "blank_017",
+        "blank_018"
+      ],
+      "surroundingContext": "3. Load-in may commence at: ____ am/pm ____________, 20____.\n3. Load-in may commence at: ____ am/pm ____________, 20____.\n____________"
+    },
+    {
+      "key": "agreementDate4",
+      "type": "date",
+      "label": "Agreement Date4",
+      "order": 19,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____ | _____________ | 20____",
+      "candidateIds": [
+        "blank_019",
+        "blank_020",
+        "blank_021"
+      ],
+      "surroundingContext": "5. Showtime is: _____ am/pm _____________, 20____.\n5. Showtime is: _____ am/pm _____________, 20____.\n_____"
+    },
+    {
+      "key": "termEndDate",
+      "type": "date",
+      "label": "Term End Date",
+      "order": 22,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____ | _____________ | 20____ | ______ | ________",
+      "candidateIds": [
+        "blank_022",
+        "blank_023",
+        "blank_024",
+        "blank_025",
+        "blank_026",
+        "blank_027"
+      ],
+      "surroundingContext": "6. The Contractor shall operate and leave the equipment set up until: _____ am/pm _____________, 20____ after which the Contractor shall remove all equipment and personnel from the venue by ______ am/pm, ________, 20____.\n6. The Contractor shall operate and leave the equipment set up until: _____ am/pm _____________, 20____ after which the Contractor shall remove all equipment and personnel from the venue by ______ am/pm, ________, 20____.\n_____"
+    },
+    {
+      "key": "depositAmount",
+      "type": "currency",
+      "label": "Deposit Amount",
+      "order": 28,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "$ ______ | $ _________",
+      "candidateIds": [
+        "blank_028",
+        "blank_029"
+      ],
+      "surroundingContext": "7. Buyer shall pay to Contractor the amount of $ ______ upon the execution of this agreement as a non-refundable deposit for Contractor's services. At the completion of soundcheck, with Contractor's equipment in place and tested, Buyer shall pay to Contractor, in U.S. currency or certified cashier's check the balance of $ _________.\n7. Buyer shall pay to Contractor the amount of $ ______ upon the execution of this agreement as a non-refundable deposit for Contractor's services. At the completion of soundcheck, with Contractor's equipment in place and tested, Buyer shall pay to Contractor, in U.S. currency or certified cashier's check the balance of $ _________.\n$ ______"
+    },
+    {
+      "key": "field3",
+      "type": "text",
+      "label": "Field3",
+      "order": 30,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___",
+      "candidateIds": [
+        "blank_030"
+      ],
+      "surroundingContext": "a) ___ backstage security person(s) at the equipment access door during load-in\na) ___ backstage security person(s) at the equipment access door during load-in\n___"
+    },
+    {
+      "key": "termEndDate2",
+      "type": "date",
+      "label": "Term End Date2",
+      "order": 31,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___",
+      "candidateIds": [
+        "blank_031",
+        "blank_032",
+        "blank_033"
+      ],
+      "surroundingContext": "b) ___ security person(s) at the main mixing console fifteen (15) minutes before the public is admitted into the venue; to remain there until the public has left the venue.\nb) ___ security person(s) at the main mixing console fifteen (15) minutes before the public is admitted into the venue; to remain there until the public has left the venue.\n___"
+    },
+    {
+      "key": "field4",
+      "type": "text",
+      "label": "Field4",
+      "order": 34,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___",
+      "candidateIds": [
+        "blank_034"
+      ],
+      "surroundingContext": "e) ___ security person(s) at the equipment access door during load-out.\ne) ___ security person(s) at the equipment access door during load-out.\n___"
+    },
+    {
+      "key": "field5",
+      "type": "text",
+      "label": "Field5",
+      "order": 35,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________ | _____________________________________________________________________________",
+      "candidateIds": [
+        "blank_035",
+        "blank_036",
+        "blank_037",
+        "blank_038",
+        "blank_039",
+        "blank_040",
+        "blank_045",
+        "blank_046",
+        "blank_047",
+        "blank_048",
+        "blank_049",
+        "blank_050",
+        "blank_051",
+        "blank_052",
+        "blank_053",
+        "blank_054",
+        "blank_055",
+        "blank_056",
+        "blank_057",
+        "blank_058",
+        "blank_059",
+        "blank_060",
+        "blank_061",
+        "blank_062",
+        "blank_063",
+        "blank_064",
+        "blank_065",
+        "blank_066",
+        "blank_067"
+      ],
+      "surroundingContext": "___________________________\n___________________________\n___________________________"
+    },
+    {
+      "key": "governingState2",
+      "type": "text",
+      "label": "Governing State2",
+      "order": 41,
+      "category": "deal_terms",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________ | __________",
+      "candidateIds": [
+        "blank_041",
+        "blank_042"
+      ],
+      "surroundingContext": "16. Should any portion of this Agreement prove to be invalid, illegal or unenforceable, it shall not affect the balance of this Agreement. This Agreement is guided by and governed by the laws of the State of _________ and __________, County shall be the place of execution and jurisdiction.\n16. Should any portion of this Agreement prove to be invalid, illegal or unenforceable, it shall not affect the balance of this Agreement. This Agreement is guided by and governed by the laws of the State of _________ and __________, County shall be the place of execution and jurisdiction.\n_________"
+    },
+    {
+      "key": "field6",
+      "type": "text",
+      "label": "Field6",
+      "order": 43,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________________",
+      "candidateIds": [
+        "blank_043",
+        "blank_044"
+      ],
+      "surroundingContext": "_________________________ _________________________\n_________________________ _________________________\n_________________________"
+    }
+  ],
+  "source": "deterministic_fallback",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "_____________________________________(Sound Company) (hereinafter referred to as the \"Contractor\") and _______________________, (hereinafter referred to as the \"Buyer\") for the purpose of contracting sound reinforcement between the undersigned parties.\n_____________________________________(Sound Company) (hereinafter referred to as the \"Contractor\") and _______________________, (hereinafter referred to as the \"Buyer\") for the purpose of contracting sound reinforcement between the undersigned parties.\n_____________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 5,
+      "context": "_____________________________________(Sound Company) (hereinafter referred to as the \"Contractor\") and _______________________, (hereinafter referred to as the \"Buyer\") for the purpose of contracting sound reinforcement between the undersigned parties.\n_____________________________________(Sound Company) (hereinafter referred to as the \"Contractor\") and _______________________, (hereinafter referred to as the \"Buyer\") for the purpose of contracting sound reinforcement between the undersigned parties.\n_______________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

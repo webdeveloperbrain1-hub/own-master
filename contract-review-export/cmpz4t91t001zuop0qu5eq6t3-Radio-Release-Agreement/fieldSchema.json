@@ -1,0 +1,122 @@
+{
+  "fields": [
+    {
+      "key": "recipientName",
+      "type": "text",
+      "label": "Recipient Name",
+      "order": 1,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "________________________",
+      "candidateIds": [
+        "blank_001"
+      ],
+      "surroundingContext": "Dear Program/Music Director:\nI, ________________________, as sole and rightful owner (or duly authorized\nrepresentative of said owner) of all rights associated with the musical composition knownas ____________________ (hereinafter referred to as “Composition”) hereby grant a\nI, ________________________, as sole and rightful owner (or duly authorized\n________________________"
+    },
+    {
+      "key": "royaltyRate",
+      "type": "percentage",
+      "label": "Royalty Rate",
+      "order": 2,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "____________________ | ___________________",
+      "candidateIds": [
+        "blank_002",
+        "blank_003"
+      ],
+      "surroundingContext": "I, ________________________, as sole and rightful owner (or duly authorized\nrepresentative of said owner) of all rights associated with the musical composition knownas ____________________ (hereinafter referred to as “Composition”) hereby grant a\nrevocable license, free of royalties for play on your station known as\nrepresentative of said owner) of all rights associated with the musical composition knownas ____________________ (hereinafter referred to as “Composition”) hereby grant a\n____________________"
+    },
+    {
+      "key": "field",
+      "type": "signature",
+      "label": "Field",
+      "order": 4,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_________________________________",
+      "candidateIds": [
+        "blank_004"
+      ],
+      "surroundingContext": "Sincerely,\n_________________________________\nArtist or Authorized Representative\n_________________________________\n_________________________________"
+    },
+    {
+      "key": "address",
+      "type": "textarea",
+      "label": "Address",
+      "order": 5,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_________________________________",
+      "candidateIds": [
+        "blank_005"
+      ],
+      "surroundingContext": "Artist or Authorized Representative\n_________________________________\nAddress\n_________________________________\n_________________________________"
+    },
+    {
+      "key": "address2",
+      "type": "textarea",
+      "label": "Address2",
+      "order": 6,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________________________",
+      "candidateIds": [
+        "blank_006"
+      ],
+      "surroundingContext": "Address\n_________________________________\nPhone\n_________________________________\n_________________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "Dear Program/Music Director:\nI, ________________________, as sole and rightful owner (or duly authorized\nrepresentative of said owner) of all rights associated with the musical composition knownas ____________________ (hereinafter referred to as “Composition”) hereby grant a\nI, ________________________, as sole and rightful owner (or duly authorized\n________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 2,
+      "context": "I, ________________________, as sole and rightful owner (or duly authorized\nrepresentative of said owner) of all rights associated with the musical composition knownas ____________________ (hereinafter referred to as “Composition”) hereby grant a\nrevocable license, free of royalties for play on your station known as\nrepresentative of said owner) of all rights associated with the musical composition knownas ____________________ (hereinafter referred to as “Composition”) hereby grant a\n____________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_002"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 4,
+      "context": "Sincerely,\n_________________________________\nArtist or Authorized Representative\n_________________________________\n_________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_004"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 5,
+      "context": "Artist or Authorized Representative\n_________________________________\nAddress\n_________________________________\n_________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_005"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

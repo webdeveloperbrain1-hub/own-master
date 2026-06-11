@@ -1,0 +1,302 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______ | ________________ | 20____ | _________________________________________________ | _______________________________________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004",
+        "blank_005"
+      ],
+      "surroundingContext": "AGREEMENT made this _______ day of ________________, 20____, by and between _________________________________________________ (hereinafter referred to as the \"Purchaser\") and _______________________________________________(hereinafter referred to as the \"Licensor\").\nAGREEMENT made this _______ day of ________________, 20____, by and between _________________________________________________ (hereinafter referred to as the \"Purchaser\") and _______________________________________________(hereinafter referred to as the \"Licensor\").\n_______"
+    },
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 6,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "____________________________________",
+      "candidateIds": [
+        "blank_006"
+      ],
+      "surroundingContext": "(a) The musical style of the commercial package desired by the Purchaser is described as: ____________________________________\n(a) The musical style of the commercial package desired by the Purchaser is described as: ____________________________________\n____________________________________"
+    },
+    {
+      "key": "field2",
+      "type": "text",
+      "label": "Field2",
+      "order": 7,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "__________________________________________________",
+      "candidateIds": [
+        "blank_007"
+      ],
+      "surroundingContext": "(b) The vocal style most desired by the Purchaser can be generally described as __________________________________________________.\n(b) The vocal style most desired by the Purchaser can be generally described as __________________________________________________.\n__________________________________________________"
+    },
+    {
+      "key": "field3",
+      "type": "text",
+      "label": "Field3",
+      "order": 8,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________",
+      "candidateIds": [
+        "blank_008"
+      ],
+      "surroundingContext": "(c) The length(s) of the Commercial(s) most desired by the Purchaser is ______________ seconds long.\n(c) The length(s) of the Commercial(s) most desired by the Purchaser is ______________ seconds long.\n______________"
+    },
+    {
+      "key": "field4",
+      "type": "text",
+      "label": "Field4",
+      "order": 9,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________",
+      "candidateIds": [
+        "blank_009"
+      ],
+      "surroundingContext": "Introduction: _______________________________________________\nIntroduction: _______________________________________________\n_______________________________________________"
+    },
+    {
+      "key": "field5",
+      "type": "text",
+      "label": "Field5",
+      "order": 10,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________ | ________________________________________________________ | ___________________________________________",
+      "candidateIds": [
+        "blank_010",
+        "blank_012",
+        "blank_014",
+        "blank_016"
+      ],
+      "surroundingContext": "_______________________________________________\n_______________________________________________\n_______________________________________________"
+    },
+    {
+      "key": "field6",
+      "type": "text",
+      "label": "Field6",
+      "order": 11,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________________________________________________________",
+      "candidateIds": [
+        "blank_011"
+      ],
+      "surroundingContext": "Bed:________________________________________________________\nBed:________________________________________________________\n________________________________________________________"
+    },
+    {
+      "key": "field7",
+      "type": "text",
+      "label": "Field7",
+      "order": 13,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "________________________________________________________",
+      "candidateIds": [
+        "blank_013"
+      ],
+      "surroundingContext": "Exit:________________________________________________________\nExit:________________________________________________________\n________________________________________________________"
+    },
+    {
+      "key": "field8",
+      "type": "text",
+      "label": "Field8",
+      "order": 15,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "___________________________________________",
+      "candidateIds": [
+        "blank_015"
+      ],
+      "surroundingContext": "Additional Notes: ___________________________________________\nAdditional Notes: ___________________________________________\n___________________________________________"
+    },
+    {
+      "key": "agreementDate2",
+      "type": "date",
+      "label": "Agreement Date2",
+      "order": 17,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___________",
+      "candidateIds": [
+        "blank_017"
+      ],
+      "surroundingContext": "6. The period of this Agreement shall be for ___________ years commencing on the date first above written. Purchaser has the option to renew this Agreement THREE (3) times of a period of one year each under the same terms as outlined in this Agreement.\n6. The period of this Agreement shall be for ___________ years commencing on the date first above written. Purchaser has the option to renew this Agreement THREE (3) times of a period of one year each under the same terms as outlined in this Agreement.\n___________"
+    },
+    {
+      "key": "field9",
+      "type": "text",
+      "label": "Field9",
+      "order": 18,
+      "category": "rights",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________________",
+      "candidateIds": [
+        "blank_018"
+      ],
+      "surroundingContext": "7. Licensor agrees not to license the music, melody or lyrics to this particular commercial to any other person, firm or corporation within a radius of ONE HUNDRED (100) miles of the Purchasers broadcast center. This broadcast center is defined as ______________________________________.\n7. Licensor agrees not to license the music, melody or lyrics to this particular commercial to any other person, firm or corporation within a radius of ONE HUNDRED (100) miles of the Purchasers broadcast center. This broadcast center is defined as ______________________________________.\n______________________________________"
+    },
+    {
+      "key": "paymentAmount",
+      "type": "currency",
+      "label": "Payment Amount",
+      "order": 19,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "$ ___________",
+      "candidateIds": [
+        "blank_019"
+      ],
+      "surroundingContext": "(a) Reel-to-real copies $ ___________ each\n(a) Reel-to-real copies $ ___________ each\n$ ___________"
+    },
+    {
+      "key": "paymentAmount2",
+      "type": "currency",
+      "label": "Payment Amount2",
+      "order": 20,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "$ ___________",
+      "candidateIds": [
+        "blank_020"
+      ],
+      "surroundingContext": "(b) Cassette copies $ ___________ each\n(b) Cassette copies $ ___________ each\n$ ___________"
+    },
+    {
+      "key": "paymentAmount3",
+      "type": "currency",
+      "label": "Payment Amount3",
+      "order": 21,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "$ ___________",
+      "candidateIds": [
+        "blank_021"
+      ],
+      "surroundingContext": "(c) Digital copies $ ___________ each\n(c) Digital copies $ ___________ each\n$ ___________"
+    },
+    {
+      "key": "paymentAmount4",
+      "type": "currency",
+      "label": "Payment Amount4",
+      "order": 22,
+      "category": "payment",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "$______________",
+      "candidateIds": [
+        "blank_022"
+      ],
+      "surroundingContext": "12. Licensor has the option at any time during the initial term of this Agreement to purchase from the Licensor all rights and copyrights to the music, melody and lyrics of this particular musical commercial. The purchase price of said rights shall be $______________. Upon payment of this amount Licensor will relinquish and release to Purchaser all rights and copyrights worldwide to the performance and ownership.\n12. Licensor has the option at any time during the initial term of this Agreement to purchase from the Licensor all rights and copyrights to the music, melody and lyrics of this particular musical commercial. The purchase price of said rights shall be $______________. Upon payment of this amount Licensor will relinquish and release to Purchaser all rights and copyrights worldwide to the performance and ownership.\n$______________"
+    },
+    {
+      "key": "depositAmount",
+      "type": "currency",
+      "label": "Deposit Amount",
+      "order": 23,
+      "category": "payment",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "$ __________________",
+      "candidateIds": [
+        "blank_023"
+      ],
+      "surroundingContext": "(a) A deposit of $ __________________ shall be paid to Licensor at the time of execution of this Agreement;\n(a) A deposit of $ __________________ shall be paid to Licensor at the time of execution of this Agreement;\n$ __________________"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 24,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "$____________",
+      "candidateIds": [
+        "blank_024"
+      ],
+      "surroundingContext": "14. The agreed upon price of the commercial package is $____________ per year for the exclusive right to use and re-use the commercial package for the specific area mentioned in Section 4 of this Agreement to be paid as outlined in Section 13 above. This price is exclusive of sales or any other taxes due payable from the sale of this license.\n14. The agreed upon price of the commercial package is $____________ per year for the exclusive right to use and re-use the commercial package for the specific area mentioned in Section 4 of this Agreement to be paid as outlined in Section 13 above. This price is exclusive of sales or any other taxes due payable from the sale of this license.\n$____________"
+    },
+    {
+      "key": "field10",
+      "type": "text",
+      "label": "Field10",
+      "order": 25,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________ | ______________________________",
+      "candidateIds": [
+        "blank_025",
+        "blank_026"
+      ],
+      "surroundingContext": "_______________________________ ______________________________\n_______________________________ ______________________________\n_______________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 17,
+      "context": "6. The period of this Agreement shall be for ___________ years commencing on the date first above written. Purchaser has the option to renew this Agreement THREE (3) times of a period of one year each under the same terms as outlined in this Agreement.\n6. The period of this Agreement shall be for ___________ years commencing on the date first above written. Purchaser has the option to renew this Agreement THREE (3) times of a period of one year each under the same terms as outlined in this Agreement.\n___________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_017"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 22,
+      "context": "12. Licensor has the option at any time during the initial term of this Agreement to purchase from the Licensor all rights and copyrights to the music, melody and lyrics of this particular musical commercial. The purchase price of said rights shall be $______________. Upon payment of this amount Licensor will relinquish and release to Purchaser all rights and copyrights worldwide to the performance and ownership.\n12. Licensor has the option at any time during the initial term of this Agreement to purchase from the Licensor all rights and copyrights to the music, melody and lyrics of this particular musical commercial. The purchase price of said rights shall be $______________. Upon payment of this amount Licensor will relinquish and release to Purchaser all rights and copyrights worldwide to the performance and ownership.\n$______________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_022"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 24,
+      "context": "14. The agreed upon price of the commercial package is $____________ per year for the exclusive right to use and re-use the commercial package for the specific area mentioned in Section 4 of this Agreement to be paid as outlined in Section 13 above. This price is exclusive of sales or any other taxes due payable from the sale of this license.\n14. The agreed upon price of the commercial package is $____________ per year for the exclusive right to use and re-use the commercial package for the specific area mentioned in Section 4 of this Agreement to be paid as outlined in Section 13 above. This price is exclusive of sales or any other taxes due payable from the sale of this license.\n$____________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_024"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

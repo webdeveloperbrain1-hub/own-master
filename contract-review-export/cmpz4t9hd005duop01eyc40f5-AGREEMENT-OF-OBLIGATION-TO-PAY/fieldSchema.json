@@ -1,0 +1,127 @@
+{
+  "fields": [
+    {
+      "key": "artistName",
+      "type": "text",
+      "label": "Artist Name",
+      "order": 1,
+      "category": "parties",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________________",
+      "candidateIds": [
+        "blank_001"
+      ],
+      "surroundingContext": "I, _______________________________________________________, (herein known as \"Artist\") do hereby agree not to produce, sell, or market the recordings below listed until the debt and obligation to the parties herein listed are paid in full. The musical compositions shall include and are limited to:\nI, _______________________________________________________, (herein known as \"Artist\") do hereby agree not to produce, sell, or market the recordings below listed until the debt and obligation to the parties herein listed are paid in full. The musical compositions shall include and are limited to:\n_______________________________________________________"
+    },
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 2,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "______________________________________________________________________________ | ___________________________________________",
+      "candidateIds": [
+        "blank_002",
+        "blank_003",
+        "blank_004",
+        "blank_005",
+        "blank_006",
+        "blank_007",
+        "blank_008",
+        "blank_009",
+        "blank_010",
+        "blank_011",
+        "blank_017",
+        "blank_018",
+        "blank_019",
+        "blank_020",
+        "blank_021",
+        "blank_022",
+        "blank_023",
+        "blank_024",
+        "blank_025",
+        "blank_029"
+      ],
+      "surroundingContext": "______________________________________________________________________________\n______________________________________________________________________________\n______________________________________________________________________________"
+    },
+    {
+      "key": "address",
+      "type": "textarea",
+      "label": "Address",
+      "order": 12,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________________ | _____________________________ | _________________________________ | _____________________________________________",
+      "candidateIds": [
+        "blank_012",
+        "blank_013",
+        "blank_014",
+        "blank_015"
+      ],
+      "surroundingContext": "These song(s) were recorded at _______________________________________________ Studios in the City of _____________________________ in the State of _________________________________ at the address of _____________________________________________\nThese song(s) were recorded at _______________________________________________ Studios in the City of _____________________________ in the State of _________________________________ at the address of _____________________________________________\n_______________________________________________"
+    },
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 16,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "__________________________________________",
+      "candidateIds": [
+        "blank_016"
+      ],
+      "surroundingContext": "on the the date(s) of:__________________________________________\non the the date(s) of:__________________________________________\n__________________________________________"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 26,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "____________________ | _____________ | 20______",
+      "candidateIds": [
+        "blank_026",
+        "blank_027",
+        "blank_028"
+      ],
+      "surroundingContext": "Agreed to this ____________________day of _____________, 20______.\nAgreed to this ____________________day of _____________, 20______.\n____________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 1,
+      "context": "I, _______________________________________________________, (herein known as \"Artist\") do hereby agree not to produce, sell, or market the recordings below listed until the debt and obligation to the parties herein listed are paid in full. The musical compositions shall include and are limited to:\nI, _______________________________________________________, (herein known as \"Artist\") do hereby agree not to produce, sell, or market the recordings below listed until the debt and obligation to the parties herein listed are paid in full. The musical compositions shall include and are limited to:\n_______________________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_001"
+      ]
+    },
+    {
+      "type": "risky_blank",
+      "order": 16,
+      "context": "on the the date(s) of:__________________________________________\non the the date(s) of:__________________________________________\n__________________________________________",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_016"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

@@ -1,0 +1,95 @@
+{
+  "fields": [
+    {
+      "key": "field",
+      "type": "text",
+      "label": "Field",
+      "order": 1,
+      "category": "other",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_______________________________________",
+      "candidateIds": [
+        "blank_001"
+      ],
+      "surroundingContext": "Name _______________________________________\nName _______________________________________\n_______________________________________"
+    },
+    {
+      "key": "address",
+      "type": "textarea",
+      "label": "Address",
+      "order": 2,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_________________________________________",
+      "candidateIds": [
+        "blank_002"
+      ],
+      "surroundingContext": "Address _________________________________________\nAddress _________________________________________\n_________________________________________"
+    },
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 3,
+      "category": "dates",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "___",
+      "candidateIds": [
+        "blank_003"
+      ],
+      "surroundingContext": "1. I hereby employ you as my sole and exclusive artists' manager for a period of___years (not to exceed 7) from date hereof to negotiate contracts for the rendition of my professional services as a writer, or to otherwise in the fields of motion pictures, legitimate stage, radio broadcasting, television, and other fields of entertainment.\n1. I hereby employ you as my sole and exclusive artists' manager for a period of___years (not to exceed 7) from date hereof to negotiate contracts for the rendition of my professional services as a writer, or to otherwise in the fields of motion pictures, legitimate stage, radio broadcasting, television, and other fields of entertainment.\n___"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 4,
+      "category": "signatures",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "_____________________________________ | ____________________________________",
+      "candidateIds": [
+        "blank_004",
+        "blank_005"
+      ],
+      "surroundingContext": "Name: _____________________________________Signed: ____________________________________\nName: _____________________________________Signed: ____________________________________\n_____________________________________"
+    },
+    {
+      "key": "address2",
+      "type": "textarea",
+      "label": "Address2",
+      "order": 6,
+      "category": "parties",
+      "required": false,
+      "confidence": "medium",
+      "sourceText": "____________________________________________________________________",
+      "candidateIds": [
+        "blank_006"
+      ],
+      "surroundingContext": "Address: ____________________________________________________________________\nAddress: ____________________________________________________________________\n____________________________________________________________________"
+    }
+  ],
+  "source": "ollama_fallback_after_cleanup",
+  "warnings": [
+    {
+      "type": "risky_blank",
+      "order": 3,
+      "context": "1. I hereby employ you as my sole and exclusive artists' manager for a period of___years (not to exceed 7) from date hereof to negotiate contracts for the rendition of my professional services as a writer, or to otherwise in the fields of motion pictures, legitimate stage, radio broadcasting, television, and other fields of entertainment.\n1. I hereby employ you as my sole and exclusive artists' manager for a period of___years (not to exceed 7) from date hereof to negotiate contracts for the rendition of my professional services as a writer, or to otherwise in the fields of motion pictures, legitimate stage, radio broadcasting, television, and other fields of entertainment.\n___",
+      "message": "This blank touches business or legal terms and should be reviewed by a person.",
+      "candidateIds": [
+        "blank_003"
+      ]
+    },
+    {
+      "type": "ai_fields_removed",
+      "context": "source=ollama",
+      "message": "AI returned fields, but none were tied to valid parser blank candidates. Used deterministic fallback.",
+      "candidateIds": []
+    }
+  ],
+  "templateName": "Contract Template",
+  "reviewRequired": true
+}

@@ -1,0 +1,120 @@
+{
+  "fields": [
+    {
+      "key": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "order": 1,
+      "category": "dates",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "_____________ day of 20___ | ___________________ | ______________________",
+      "candidateIds": [
+        "blank_001",
+        "blank_002",
+        "blank_003",
+        "blank_004"
+      ],
+      "surroundingContext": "This Agreement made and entered into this ____________ day of 20___, by and between ___________________ (hereinafter referred to as the \"Owner\") and ______________________ (hereinafter referred to as the \"Licensee\")."
+    },
+    {
+      "key": "projectTitle",
+      "type": "text",
+      "label": "Project Title",
+      "order": 4,
+      "category": "deal_terms",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________________________________________________________________________\n\n______________________________________________________________________________\n\n______________________________________________________________________________\n\n____________________________________________________________",
+      "candidateIds": [
+        "blank_005",
+        "blank_006",
+        "blank_007",
+        "blank_008",
+        "blank_009",
+        "blank_010",
+        "blank_011"
+      ],
+      "surroundingContext": "Owner hereby grants to Licensee the right to record, reproduce, market and sell the musical composition now entitled:\n\n______________________________________________________________________________\n\n______________________________________________________________________________\n\n______________________________________________________________________________\n\n______________________________________________________________________________\n\n______________________________________________________________________________\n\n______________________________________________________________________________"
+    },
+    {
+      "key": "signature",
+      "type": "signature",
+      "label": "Signature",
+      "order": 5,
+      "category": "signatures",
+      "required": true,
+      "confidence": "medium",
+      "sourceText": "______________________________________________________________________________\n\n______________________________________________________________________________",
+      "candidateIds": [
+        "blank_012",
+        "blank_013"
+      ],
+      "surroundingContext": "Owner warrants and represents that it is the sole and exclusive proprietor of a valid copyright or license in the musical composition composed by:\n\n______________________________________________________________________________\n\n______________________________________________________________________________"
+    },
+    {
+      "key": "royaltyRatePhonorecordCents",
+      "type": "number",
+      "label": "Royalty Rate Phonorecord Cents",
+      "order": 6,
+      "category": "rights",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "FIVE (5) CENTS.",
+      "candidateIds": [
+        "blank_014"
+      ],
+      "surroundingContext": "(a) For each phonorecord manufactured, sold, and paid for, the Licensee shall pay the Owner FIVE (5) CENTS."
+    },
+    {
+      "key": "producerSsignature",
+      "type": "signature",
+      "label": "Producer Ssignature",
+      "order": 7,
+      "category": "other",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "______________________",
+      "candidateIds": [
+        "blank_015"
+      ],
+      "surroundingContext": "By ______________________ By ___________________________"
+    },
+    {
+      "key": "artistSsignature",
+      "type": "signature",
+      "label": "Artist Ssignature",
+      "order": 8,
+      "category": "other",
+      "required": true,
+      "confidence": "high",
+      "sourceText": "______________________",
+      "candidateIds": [
+        "blank_014"
+      ],
+      "surroundingContext": "By ______________________ By ___________________________"
+    }
+  ],
+  "source": "ollama",
+  "warnings": [
+    {
+      "type": "extraction_issue",
+      "order": 1,
+      "context": "Multiple blank candidates without clear mapping in the provided text.",
+      "message": "Some blanks were not labeled due to context ambiguity.",
+      "candidateIds": [
+        "blank_005",
+        "blank_006",
+        "blank_007",
+        "blank_008",
+        "blank_009",
+        "blank_010",
+        "blank_011",
+        "blank_012",
+        "blank_013"
+      ]
+    }
+  ],
+  "templateName": "MechanicalLicenseTemplate",
+  "reviewRequired": true
+}

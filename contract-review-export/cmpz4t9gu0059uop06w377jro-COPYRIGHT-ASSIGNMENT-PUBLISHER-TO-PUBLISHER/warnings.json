@@ -1,0 +1,15 @@
+[
+  {
+    "type": "risky_blank",
+    "order": 1,
+    "context": "Publisher Address, Second Song By Line Name, Second Song By Signature, Publisher Address, Songwriters Name",
+    "message": "Blank fields are present and may be critical for the agreement.",
+    "candidateIds": [
+      "blank_001",
+      "blank_002",
+      "blank_003",
+      "blank_004",
+      "blank_005"
+    ]
+  }
+]

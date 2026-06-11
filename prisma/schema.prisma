@@ -1,0 +1,152 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ContractFileType {
+  doc
+  docx
+  pdf
+  rtf
+  txt
+}
+
+enum AIScanStatus {
+  not_scanned
+  scanning
+  scanned
+  needs_review
+  failed
+}
+
+model ContractTemplate {
+  id                 String           @id @default(cuid())
+  name               String
+  category           String?
+  originalFileName   String
+  fileType           ContractFileType
+  storagePath        String
+
+  sourceZipPath      String?
+  fileHash           String?
+
+  extractedText      String?
+  textQuality        String?
+
+  aiScanStatus       AIScanStatus     @default(not_scanned)
+  fieldSchema        Json?
+  warnings           Json?
+  scanError          String?
+  approved           Boolean          @default(false)
+
+  generatedContracts GeneratedContract[]
+
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+
+  @@index([fileHash])
+  @@index([aiScanStatus])
+  @@index([fileType])
+  @@index([name])
+}
+
+model GeneratedContract {
+  id                    String           @id @default(cuid())
+  templateId            String
+  template              ContractTemplate @relation(fields: [templateId], references: [id])
+  title                 String?
+  dealData              Json
+  outputDocxPath        String
+  outputPdfPath         String?
+  missingRequiredFields Json?
+  warnings              Json?
+  createdAt             DateTime         @default(now())
+
+  @@index([templateId])
+}
+
+// ---------------------------------------------------------------------------
+// Contract Filing engine (ported from the standalone "contract filing" app).
+// Source of truth for the new in-site contract filler. Independent of the
+// legacy ContractTemplate/GeneratedContract models above.
+// ---------------------------------------------------------------------------
+
+model ContractFile {
+  id                 String   @id @default(cuid())
+  originalName       String
+  originalPath       String
+  storedPath         String
+  extension          String
+  sizeBytes          Int
+  sha256             String   @unique
+  textLength         Int      @default(0)
+  extractedText      String?
+  extractionStatus   String   @default("pending")
+  extractionWarnings String[] @default([])
+  analysisStatus     String   @default("pending")
+  needsReview        Boolean  @default(false)
+  reviewReason       String?
+  title              String?
+  contractType       String?
+  category           String?
+  parties            Json?
+  effectiveDate      String?
+  expirationDate     String?
+  summary            String?
+  keyTerms           Json?
+  obligations        Json?
+  rights             Json?
+  paymentTerms       String?
+  territory          String?
+  duration           String?
+  governingLaw       String?
+  renewalTerms       String?
+  terminationTerms   String?
+  riskFlags          Json?
+  tags               String[] @default([])
+  confidence         Float?
+  analyzerModel      String?
+  importedAt         DateTime @default(now())
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  drafts             ContractDraft[]
+  fieldScan          ContractTemplateFieldScan?
+
+  @@index([contractType])
+  @@index([category])
+  @@index([needsReview])
+  @@index([analysisStatus])
+}
+
+model ContractTemplateFieldScan {
+  id            String       @id @default(cuid())
+  templateId    String       @unique
+  template      ContractFile @relation(fields: [templateId], references: [id], onDelete: Cascade)
+  status        String       @default("pending")
+  analyzerModel String?
+  fields        Json
+  warnings      String[]     @default([])
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  @@index([status])
+}
+
+model ContractDraft {
+  id           String       @id @default(cuid())
+  templateId   String
+  template     ContractFile @relation(fields: [templateId], references: [id], onDelete: Cascade)
+  name         String
+  values       Json
+  renderedText String
+  status       String       @default("draft")
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  @@index([templateId])
+  @@index([status])
+}
