@@ -22,6 +22,12 @@ required. `.env.example` is the production configuration reference. See
 Initial access is free (`BILLING_MODE=preview`). AI is disabled by default.
 The support email is `admin@teddbernard.com`.
 
+For the existing Vercel website, see
+[Vercel backend deployment](docs/vercel-backend-deployment.md). It needs a public
+backend in addition to the Vite frontend. `render.yaml` prepares an optional paid
+Docker/database/storage deployment; `vercel.mjs` routes `/api` to the backend
+specified by `OWN_MASTERS_BACKEND_ORIGIN` and supports frontend deep links.
+
 ## Project structure
 
 ```text
