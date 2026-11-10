@@ -7,6 +7,7 @@ import { analyzeContract } from "./aiAnalyzer.mjs";
 import { fallbackAnalyze } from "./fallbackAnalyzer.mjs";
 import { extractText } from "./textExtraction.mjs";
 import { cleanZipPath, ensureDir, isSkippableEntry, safeStoredName, sha256 } from "./fileUtils.mjs";
+import { persistPrivateFile } from '../storage/privateFiles.mjs';
 
 const SUPPORTED_EXTENSIONS = new Set([".pdf", ".doc", ".docx", ".rtf", ".txt", ".md"]);
 
@@ -52,6 +53,12 @@ export async function importZip(zipPath, options = {}) {
       const hash = sha256(buffer);
       const existing = await prisma.contractFile.findUnique({ where: { sha256: hash } });
       if (existing) {
+        // Free hosts discard the cache on restart. Rebuild bundled originals
+        // without replacing the database IDs used by saved drafts.
+        const storedPath = path.join(config.storageDir, 'originals', safeStoredName(hash, originalName));
+        if (!await fs.stat(storedPath).then(stat => stat.isFile(), () => false)) await fs.writeFile(storedPath, buffer);
+        if (existing.storedPath !== storedPath)
+          await prisma.contractFile.update({ where: { id: existing.id }, data: { storedPath } });
         summary.duplicates += 1;
         summary.results.push({ originalName, status: "duplicate", id: existing.id });
         onProgress?.({ originalName, status: "duplicate", summary });
@@ -60,6 +67,7 @@ export async function importZip(zipPath, options = {}) {
 
       const storedPath = path.join(config.storageDir, "originals", safeStoredName(hash, originalName));
       await fs.writeFile(storedPath, buffer);
+      if (options.analyze !== 'local') await persistPrivateFile(storedPath);
 
       const extraction = await extractText(storedPath, extension);
       const analysis = options.analyze === 'local'

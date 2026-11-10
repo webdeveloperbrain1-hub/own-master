@@ -47,6 +47,10 @@ if (errors.length) {
     try { await fs.writeFile(probe, 'ok', { flag: 'wx' }); }
     finally { await fs.unlink(probe).catch(() => {}); }
   });
+  await check('Private cloud storage configuration (when enabled)', async () => {
+    const { verifyPrivateStorage } = await import('../server/lib/storage/privateFiles.mjs');
+    await verifyPrivateStorage();
+  });
   await check('LibreOffice document conversion', async () => {
     const { convertOfficeFile } = await import('../server/lib/contractFiling/documentLayout.mjs');
     const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'ownmasters-deployment-'));

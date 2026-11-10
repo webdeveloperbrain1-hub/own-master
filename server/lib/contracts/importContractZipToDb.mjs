@@ -4,6 +4,7 @@ import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { basename, extname, join, resolve } from 'node:path';
 import { prisma } from '../prisma.mjs';
 import { ensureContractStorage } from './storagePaths.mjs';
+import { persistPrivateFile } from '../storage/privateFiles.mjs';
 
 const supportedExtensions = new Set(['.doc', '.docx', '.pdf', '.rtf']);
 
@@ -169,6 +170,7 @@ export async function importContractZipToDb({ zipPath, outputDir } = {}) {
       }
 
       await writeFile(storagePath, fileBuffer);
+      await persistPrivateFile(storagePath);
 
       const title = titleFromFile(originalFileName);
 
@@ -268,6 +270,7 @@ export async function importLooseContractDirectoryToDb({ sourceDir, outputDir } 
       const storagePath = uniqueStoredPath(resolvedOutputDir, safeName, usedNames);
 
       await copyFile(fullPath, storagePath);
+      await persistPrivateFile(storagePath);
 
       const title = titleFromFile(entry.name);
 

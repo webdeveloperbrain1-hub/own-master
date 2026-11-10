@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 
 const source = fileURLToPath(new URL('../../', import.meta.url));
-const assets = ['dist', 'server/apiServer.mjs', 'server/startProduction.mjs', 'server/lib', 'server/assets',
+const assets = ['dist', 'server/apiServer.mjs', 'server/startProduction.mjs', 'server/startTrial.mjs', 'server/lib', 'server/assets',
   'prisma/schema.prisma', 'prisma/migrations', 'public/own-masters-logo.png',
   'scripts/checkDeployment.mjs', '.env.example', 'compose.production.yaml', 'ATTRIBUTIONS.md'];
 
@@ -61,7 +61,7 @@ export async function prepareRuntime(directory) {
   }
   const runtimePackage = {
     name: sourcePackage.name, version: sourcePackage.version, private: true, type: 'module', engines: sourcePackage.engines,
-    scripts: { postinstall: 'prisma generate', start: 'node server/startProduction.mjs',
+    scripts: { postinstall: 'prisma generate', start: 'node server/startProduction.mjs', 'start:trial': 'node server/startTrial.mjs',
       'db:deploy': 'prisma migrate deploy', 'deploy:check': 'node scripts/checkDeployment.mjs' },
     dependencies: Object.fromEntries([...dependencies].sort().map(name => [name, sourcePackage.dependencies[name]])),
     overrides: sourcePackage.overrides,

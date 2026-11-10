@@ -4,6 +4,7 @@ import { Document, Packer, Paragraph, TextRun } from 'docx';
 import { prisma } from '../prisma.mjs';
 import { ensureContractStorage } from './storagePaths.mjs';
 import { detectBlankCandidates, normalizeText } from './templateParser.mjs';
+import { persistPrivateFile } from '../storage/privateFiles.mjs';
 
 const blankPlaceholder = '________________';
 
@@ -180,6 +181,7 @@ export async function fillContractTemplate({ userId, templateId, dealData = {}, 
   const buffer = await Packer.toBuffer(doc);
 
   await import('node:fs/promises').then(({ writeFile }) => writeFile(outputDocxPath, buffer));
+  await persistPrivateFile(outputDocxPath);
 
   const updated = await prisma.generatedContract.update({
     where: { id: generated.id },

@@ -17,6 +17,7 @@ import fs from 'node:fs/promises';
 import { ensureContractLibrary } from './libraryLoader.mjs';
 import { cleanupSignedCopies } from '../contracts/contractProgress.mjs';
 import { billing } from '../billing/billingService.mjs';
+import { ensurePrivateFile } from '../storage/privateFiles.mjs';
 
 function corsHeaders(extra = {}) {
   return {
@@ -405,7 +406,7 @@ export async function handleFilingRoutes(req, res, ctx) {
       return true;
     }
     if (describeLibraryFile(template).kind !== 'guide') await billing.requireExports(auth);
-    const buffer = await fs.readFile(template.storedPath);
+    const buffer = await fs.readFile(await ensurePrivateFile(template.storedPath));
     sendBuffer(res, buffer, template.originalName, template.extension === '.pdf' ? 'application/pdf' : 'application/octet-stream', template.extension === '.pdf' ? 'inline' : 'attachment');
     return true;
   }

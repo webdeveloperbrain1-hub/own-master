@@ -31,6 +31,7 @@ import { billingConfig } from './lib/billing/billingConfig.mjs';
 import { publicSiteConfiguration, productionSiteErrors } from './lib/deployment/siteConfiguration.mjs';
 import { createStaticSite } from './lib/deployment/staticSite.mjs';
 import { OWN_MASTERS_MAIL_DESIGN } from './lib/mail/letterTemplate.mjs';
+import { ensurePrivateFile, verifyPrivateStorage } from './lib/storage/privateFiles.mjs';
 
 loadEnv();
 assertProductionAuthConfiguration();
@@ -57,7 +58,8 @@ function sendJson(res, status, payload) {
   res.end(JSON.stringify(payload));
 }
 
-function sendFile(res, filePath, fileName, contentType) {
+async function sendFile(res, filePath, fileName, contentType) {
+  await ensurePrivateFile(filePath);
   res.writeHead(200, {
     'Content-Type': contentType,
     'Content-Disposition': `attachment; filename="${fileName.replace(/"/g, '')}"`,
@@ -412,12 +414,18 @@ async function handleDownloadGenerated(req, res, generatedId) {
   const paths = contractStoragePaths();
   const filePath = resolve(generated.outputDocxPath);
 
-  if (!isInsideStorage(filePath, paths.generatedDir) || !existsSync(filePath)) {
+  if (!isInsideStorage(filePath, paths.generatedDir)) {
     sendJson(res, 404, { error: 'Generated contract file not found.' });
     return;
   }
 
-  sendFile(
+  try { await ensurePrivateFile(filePath); }
+  catch (error) {
+    if (error.code !== 'ENOENT') throw error;
+    sendJson(res, 404, { error: 'Generated contract file not found.' });
+    return;
+  }
+  await sendFile(
     res,
     filePath,
     safeDownloadName(`${generated.title || generated.template.name || basename(filePath)}.docx`),
@@ -644,7 +652,7 @@ const server = createServer(async (req, res) => {
         return;
       }
 
-      sendFile(res, filePath, source.sourceFile.split('/').pop(), contentTypeFor(source.extension));
+      await sendFile(res, filePath, source.sourceFile.split('/').pop(), contentTypeFor(source.extension));
       return;
     }
 
@@ -700,6 +708,7 @@ const server = createServer(async (req, res) => {
 if (production) {
   await prisma.accountUser.findFirst({ select: { id: true } });
   await ensureContractStorage();
+  await verifyPrivateStorage();
   await ensureContractLibrary();
 }
 server.listen(PORT, process.env.API_HOST || (production ? '0.0.0.0' : '127.0.0.1'), () => {

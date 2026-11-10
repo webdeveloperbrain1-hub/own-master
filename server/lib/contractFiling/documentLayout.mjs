@@ -9,6 +9,7 @@ import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
 import sanitizeHtml from 'sanitize-html';
 import { parseDocument, DomUtils } from 'htmlparser2';
 import AdmZip from 'adm-zip';
+import { ensurePrivateFile } from '../storage/privateFiles.mjs';
 import { config } from './filingConfig.mjs';
 
 const exec = promisify(execFile);
@@ -174,6 +175,7 @@ export async function getTemplateDocument(template) {
     const cache = path.join(directory, 'layout.json');
     try { return JSON.parse(await fs.readFile(cache, 'utf8')); } catch { /* build from original */ }
     await fs.mkdir(directory, { recursive: true });
+    await ensurePrivateFile(template.storedPath);
     const pdf = template.extension === '.pdf' ? template.storedPath : await convertOfficeFile(template.storedPath, directory, 'pdf');
     const result = await layoutFromPdf(pdf);
     await fs.writeFile(cache, JSON.stringify(result));

@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { privateFileConfiguration } from '../storage/privateFiles.mjs';
 
 export function publicSiteConfiguration(env = process.env) {
   return {
@@ -10,6 +11,7 @@ export function publicSiteConfiguration(env = process.env) {
 
 export function productionSiteErrors(env = process.env) {
   const errors = [];
+  try { privateFileConfiguration(env); } catch (error) { errors.push(error.message); }
   if (!env.CONTRACT_STORAGE_ROOT || !path.isAbsolute(env.CONTRACT_STORAGE_ROOT))
     errors.push('Set CONTRACT_STORAGE_ROOT to an absolute, persistent, writable storage directory.');
   else {

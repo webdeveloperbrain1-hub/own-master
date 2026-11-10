@@ -3,6 +3,7 @@ import { createReadStream } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { prisma } from '../prisma.mjs';
+import { persistPrivateFile, ensurePrivateFile, removePrivateFile } from '../storage/privateFiles.mjs';
 
 export const PROGRESS_STAGES = [
   'draft',
@@ -156,8 +157,7 @@ export function signedCopyPath(filePath) {
 
 export async function cleanupSignedCopies(copies) {
   for (const copy of copies) {
-    await fs
-      .rm(signedCopyPath(copy.storedPath), { force: true })
+    await removePrivateFile(signedCopyPath(copy.storedPath))
       .catch((error) => console.warn('[signed-copy] cleanup:', error.message));
   }
 }
@@ -188,6 +188,7 @@ async function receiveSignedCopy(req, fileName) {
     if (head.toString('ascii') !== '%PDF-')
       throw fail('This file is not a PDF. Choose a signed PDF file.');
     await handle.close();
+    await persistPrivateFile(storedPath);
     return {
       fileName: path.basename(fileName.replace(/\\/g, '/')),
       storedPath,
@@ -196,7 +197,7 @@ async function receiveSignedCopy(req, fileName) {
   } catch (error) {
     req.resume();
     await handle.close().catch(() => {});
-    await fs.rm(storedPath, { force: true });
+    await removePrivateFile(storedPath).catch(() => fs.rm(storedPath, { force: true }));
     throw error;
   }
 }
@@ -320,7 +321,7 @@ export async function handleContractProgressRoutes(
       },
     });
     if (!copy) throw fail('Signed copy not found.', 404);
-    const file = signedCopyPath(copy.storedPath);
+    const file = await ensurePrivateFile(signedCopyPath(copy.storedPath));
     await fs.access(file).catch(() => {
       throw fail(
         'The signed file is unavailable. Please check the server storage.',

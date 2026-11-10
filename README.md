@@ -28,6 +28,11 @@ backend in addition to the Vite frontend. `render.yaml` prepares an optional pai
 Docker/database/storage deployment; `vercel.mjs` routes `/api` to the backend
 specified by `OWN_MASTERS_BACKEND_ORIGIN` and supports frontend deep links.
 
+For a trial that stays available while your PC is off, use the
+[free cloud trial](docs/free-cloud-trial.md) with `render.free.yaml`. It keeps
+Render on Free and uses a free Supabase database/private bucket and Brevo SMTP
+on port 2525. These accounts and their free quotas must be configured first.
+
 ## Project structure
 
 ```text

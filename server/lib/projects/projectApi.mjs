@@ -3,6 +3,7 @@ import { createReadStream } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { prisma } from '../prisma.mjs';
+import { persistPrivateFile, ensurePrivateFile, removePrivateFile } from '../storage/privateFiles.mjs';
 
 export const MAX_AUDIO_BYTES = 50 * 1024 * 1024;
 const includes = {
@@ -77,7 +78,7 @@ export function audioFilePath(storedPath) {
 }
 
 async function removeAudio(storedPath) {
-  if (storedPath) await fs.rm(audioFilePath(storedPath), { force: true });
+  if (storedPath) await removePrivateFile(audioFilePath(storedPath));
 }
 
 async function uploadAudio(req, project, fileName) {
@@ -103,6 +104,7 @@ async function uploadAudio(req, project, fileName) {
     if (!size) throw fail('The audio file is empty.');
     const audioType = detectAudioType(head);
     await handle.close();
+    await persistPrivateFile(target);
     const saved = await prisma.musicProject.update({
       where: { id: project.id, userId: project.userId },
       data: { audioPath: target, audioType, fileName: name, fileSize: size },
@@ -117,7 +119,7 @@ async function uploadAudio(req, project, fileName) {
   } catch (error) {
     req.resume();
     await handle.close().catch(() => {});
-    await fs.rm(target, { force: true });
+    await removePrivateFile(target).catch(() => fs.rm(target, { force: true }));
     throw error;
   }
 }
@@ -125,7 +127,7 @@ async function uploadAudio(req, project, fileName) {
 async function streamAudio(req, res, project) {
   if (!project.audioPath)
     throw fail('No audio has been uploaded for this song.', 404);
-  const file = audioFilePath(project.audioPath);
+  const file = await ensurePrivateFile(audioFilePath(project.audioPath));
   const stat = await fs.stat(file).catch(() => {
     throw fail('Audio file not found. Please upload it again.', 404);
   });

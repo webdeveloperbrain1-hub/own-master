@@ -2,6 +2,7 @@ import { prisma } from '../prisma.mjs';
 import { detectBlankCandidates } from './templateParser.mjs';
 import { extractContractText } from './extractContractText.mjs';
 import { scanFieldsWithAI } from './aiFieldScanner.mjs';
+import { ensurePrivateFile } from '../storage/privateFiles.mjs';
 
 export async function scanContractTemplate(templateId) {
   const template = await prisma.contractTemplate.findUnique({ where: { id: templateId } });
@@ -16,7 +17,7 @@ export async function scanContractTemplate(templateId) {
   });
 
   try {
-    const extracted = await extractContractText(template.storagePath);
+    const extracted = await extractContractText(await ensurePrivateFile(template.storagePath));
     const blankCandidates = detectBlankCandidates(extracted.text);
     const fieldSchema = await scanFieldsWithAI({
       contractText: extracted.text,

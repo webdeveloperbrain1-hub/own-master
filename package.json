@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node server/startProduction.mjs",
+    "start:trial": "node server/startTrial.mjs",
     "build": "node scripts/buildProduction.mjs",
     "build:production": "npm run build",
     "deploy:check": "node scripts/checkDeployment.mjs",
