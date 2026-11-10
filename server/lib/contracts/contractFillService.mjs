@@ -143,7 +143,8 @@ function textToDocx(text, title) {
   });
 }
 
-export async function fillContractTemplate({ templateId, dealData = {}, title } = {}) {
+export async function fillContractTemplate({ userId, templateId, dealData = {}, title } = {}) {
+  if (!userId) throw Object.assign(new Error('Authentication required.'), { status: 401 });
   const template = await prisma.contractTemplate.findUnique({ where: { id: templateId } });
 
   if (!template) {
@@ -165,6 +166,7 @@ export async function fillContractTemplate({ templateId, dealData = {}, title } 
 
   const generated = await prisma.generatedContract.create({
     data: {
+      userId,
       templateId: template.id,
       title: outputTitle,
       dealData,

@@ -1,0 +1,32 @@
+name: own-master-local
+services:
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ownmasters_local
+      POSTGRES_USER: ownmasters
+      POSTGRES_PASSWORD: ownmasters_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - ownmasters_postgres_data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer:latest
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+  mailpit:
+    image: axllent/mailpit:latest
+    profiles: ["email-preview"]
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:1025:1025"
+      - "127.0.0.1:8025:8025"
+
+volumes:
+  ownmasters_postgres_data:

@@ -1,7 +1,9 @@
 import { createServer } from 'node:http';
 import { createReadStream, existsSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
-import { createClient } from '@supabase/supabase-js';
+import { handleAuthRoutes, requireLocalAuth, assertTrustedMutation } from './lib/auth/localAuth.mjs';
+import { assertProductionAuthConfiguration } from './lib/auth/authConfiguration.mjs';
+import { handleAccountContractRoutes, ownedAccountContract } from './lib/contracts/accountContracts.mjs';
 import { loadEnv } from './lib/env.mjs';
 import { prisma } from './lib/prisma.mjs';
 import {
@@ -20,18 +22,36 @@ import { scanContractTemplate, scanContractTemplates } from './lib/contracts/sca
 import { fillContractTemplate } from './lib/contracts/contractFillService.mjs';
 import { contractStoragePaths, ensureContractStorage } from './lib/contracts/storagePaths.mjs';
 import { handleFilingRoutes } from './lib/contractFiling/filingApi.mjs';
+import { ensureContractLibrary } from './lib/contractFiling/libraryLoader.mjs';
+import { handleProjectRoutes } from './lib/projects/projectApi.mjs';
+import { handleContractProgressRoutes } from './lib/contracts/contractProgress.mjs';
+import { handleBillingRoutes } from './lib/billing/billingApi.mjs';
+import { billing } from './lib/billing/billingService.mjs';
+import { billingConfig } from './lib/billing/billingConfig.mjs';
+import { publicSiteConfiguration, productionSiteErrors } from './lib/deployment/siteConfiguration.mjs';
+import { createStaticSite } from './lib/deployment/staticSite.mjs';
+import { OWN_MASTERS_MAIL_DESIGN } from './lib/mail/letterTemplate.mjs';
 
 loadEnv();
+assertProductionAuthConfiguration();
+billingConfig();
+const production = process.env.NODE_ENV === 'production';
+if (production) {
+  const errors = productionSiteErrors();
+  if (errors.length) throw new Error(errors.join('\n'));
+  if (!existsSync(resolve('dist/index.html'))) throw new Error('Build the website with npm run build:production before starting the production server.');
+}
+const serveWebsite = createStaticSite(resolve('dist'));
 
-const PORT = Number(process.env.API_PORT || 8787);
-const supabaseUrl = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = process.env.SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY;
+const PORT = Number(process.env.PORT || process.env.API_PORT || 8787);
 
 function sendJson(res, status, payload) {
   res.writeHead(status, {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': process.env.CORS_ORIGIN || 'http://127.0.0.1:5174',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Own-Masters-Demo',
+    'Access-Control-Allow-Credentials': 'true',
+    'Vary': 'Origin',
+    'Access-Control-Allow-Headers': 'Content-Type, X-Own-Masters-Request',
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
   });
   res.end(JSON.stringify(payload));
@@ -42,7 +62,9 @@ function sendFile(res, filePath, fileName, contentType) {
     'Content-Type': contentType,
     'Content-Disposition': `attachment; filename="${fileName.replace(/"/g, '')}"`,
     'Access-Control-Allow-Origin': process.env.CORS_ORIGIN || 'http://127.0.0.1:5174',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Own-Masters-Demo',
+    'Access-Control-Allow-Credentials': 'true',
+    'Vary': 'Origin',
+    'Access-Control-Allow-Headers': 'Content-Type, X-Own-Masters-Request',
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Access-Control-Expose-Headers': 'Content-Disposition, Content-Type',
   });
@@ -79,14 +101,15 @@ function isInsideStorage(filePath, storageRoot) {
   return resolvedFile === resolvedRoot || resolvedFile.startsWith(`${resolvedRoot}\\`) || resolvedFile.startsWith(`${resolvedRoot}/`);
 }
 
-function readBody(req) {
+function readBody(req, maxLength = 80_000) {
   return new Promise((resolve, reject) => {
     let body = '';
+    req.setEncoding('utf8');
 
     req.on('data', (chunk) => {
       body += chunk;
 
-      if (body.length > 80_000) {
+      if (body.length > maxLength) {
         reject(new Error('Request body is too large.'));
         req.destroy();
       }
@@ -108,72 +131,10 @@ function readBody(req) {
   });
 }
 
-function createAuthedSupabase(accessToken) {
-  return createClient(supabaseUrl, supabaseAnonKey, {
-    global: {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    },
-  });
-}
-
-async function requireAuth(req) {
-  const isDemo = process.env.NODE_ENV !== 'production' && req.headers['x-own-masters-demo'] === 'true';
-
-  if (isDemo) {
-    return {
-      user: { id: 'demo-admin', email: 'admin@ownmasters.local' },
-      isDemo: true,
-      supabase: null,
-    };
-  }
-
-  if (!supabaseUrl || !supabaseAnonKey) {
-    throw Object.assign(new Error('Supabase server configuration is missing.'), { status: 500 });
-  }
-
-  const header = req.headers.authorization || '';
-  const token = header.startsWith('Bearer ') ? header.slice('Bearer '.length) : '';
-
-  if (!token) {
-    throw Object.assign(new Error('Authentication required.'), { status: 401 });
-  }
-
-  const authedSupabase = createAuthedSupabase(token);
-  const { data, error } = await authedSupabase.auth.getUser(token);
-
-  if (error || !data.user) {
-    throw Object.assign(new Error('Authentication required.'), { status: 401 });
-  }
-
-  return {
-    user: data.user,
-    isDemo: false,
-    supabase: authedSupabase,
-  };
-}
+const requireAuth = requireLocalAuth;
 
 async function requireContractOwnership(auth, contractId) {
-  if (auth.isDemo) {
-    if (!contractId.startsWith('demo-contract-')) {
-      throw Object.assign(new Error('Contract not found.'), { status: 404 });
-    }
-
-    return null;
-  }
-
-  const { data, error } = await auth.supabase
-    .from('contracts')
-    .select('id,user_id,title,contract_type,content')
-    .eq('id', contractId)
-    .single();
-
-  if (error || !data) {
-    throw Object.assign(new Error('Contract not found.'), { status: 404 });
-  }
-
-  return data;
+  return ownedAccountContract(auth.user.id, contractId);
 }
 
 function trimInput(value, maxLength) {
@@ -248,7 +209,7 @@ async function handleExplain(req, res, contractId) {
   const contract = await requireContractOwnership(auth, contractId);
   const body = await readBody(req);
   const clauseText = trimInput(body.clauseText, 4000);
-  const contractType = trimInput(body.contractType || contract?.contract_type, 120);
+  const contractType = trimInput(body.contractType || contract?.contractType, 120);
 
   if (!clauseText) {
     sendJson(res, 400, { error: 'Add clause text to explain.' });
@@ -264,7 +225,7 @@ async function handleRiskReview(req, res, contractId) {
   const contract = await requireContractOwnership(auth, contractId);
   const body = await readBody(req);
   const contractText = trimInput(body.contractText || contract?.content, 12000);
-  const contractType = trimInput(body.contractType || contract?.contract_type, 120);
+  const contractType = trimInput(body.contractType || contract?.contractType, 120);
   const existingRiskFlags = detectLocalRiskFlags(contractText);
 
   const result = await reviewContractRiskWithAI({
@@ -273,16 +234,8 @@ async function handleRiskReview(req, res, contractId) {
     existingRiskFlags,
   });
 
-  if (!auth.isDemo && contract) {
-    await auth.supabase
-      .from('contracts')
-      .update({
-        ai_risk_review: result,
-        ai_summary: result.summary,
-        risk_flags: result.riskFlags,
-        last_ai_reviewed_at: new Date().toISOString(),
-      })
-      .eq('id', contractId);
+  if (contract) {
+    await prisma.accountContract.update({ where: { id: contract.id }, data: { aiRiskReview: result, aiSummary: result.summary, riskFlags: result.riskFlags, lastAiReviewedAt: new Date() } });
   }
 
   sendJson(res, 200, result);
@@ -425,8 +378,11 @@ async function handleTemplateSchema(_req, res, templateId) {
 }
 
 async function handleFillTemplate(req, res, templateId) {
+  const auth = await requireAuth(req);
+  await billing.requireExports(auth);
   const body = await readBody(req);
   const result = await fillContractTemplate({
+    userId: auth.user.id,
     templateId,
     dealData: body.dealData ?? {},
     title: body.title,
@@ -440,17 +396,19 @@ async function handleFillTemplate(req, res, templateId) {
   });
 }
 
-async function handleDownloadGenerated(_req, res, generatedId) {
+async function handleDownloadGenerated(req, res, generatedId) {
+  const auth = await requireAuth(req);
   const generated = await prisma.generatedContract.findUnique({
     where: { id: generatedId },
     include: { template: true },
   });
 
-  if (!generated) {
+  if (!generated || (generated.userId !== auth.user.id && !(generated.userId === null && auth.user.app_metadata?.role === 'admin'))) {
     sendJson(res, 404, { error: 'Generated contract not found.' });
     return;
   }
 
+  await billing.requireExports(auth);
   const paths = contractStoragePaths();
   const filePath = resolve(generated.outputDocxPath);
 
@@ -469,16 +427,67 @@ async function handleDownloadGenerated(_req, res, generatedId) {
 
 const server = createServer(async (req, res) => {
   try {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('Referrer-Policy', 'no-referrer');
+    res.setHeader('X-Frame-Options', 'DENY');
+    if (!production) res.setHeader('X-Own-Masters-Mail-Design', OWN_MASTERS_MAIL_DESIGN);
+    if (production) res.setHeader('Strict-Transport-Security', 'max-age=31536000');
+    res.setHeader('Access-Control-Allow-Origin', process.env.CORS_ORIGIN || 'http://127.0.0.1:5174');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Vary', 'Origin');
+
     if (req.method === 'OPTIONS') {
       sendJson(res, 204, {});
       return;
     }
 
-    const url = new URL(req.url, `http://${req.headers.host}`);
+    const url = new URL(req.url, 'http://ownmasters.internal');
+    if (production && await serveWebsite(req, res, url)) return;
+    if (req.method === 'GET' && url.pathname === '/api/site') {
+      res.setHeader('Cache-Control', 'no-store');
+      sendJson(res, 200, publicSiteConfiguration());
+      return;
+    }
+    if (req.method === 'GET' && url.pathname === '/api/health') {
+      res.setHeader('Cache-Control', 'no-store');
+      try {
+        await prisma.$queryRaw`SELECT 1`;
+        sendJson(res, 200, { status: 'ok' });
+      } catch { sendJson(res, 503, { status: 'unavailable' }); }
+      return;
+    }
+    if (!publicSiteConfiguration().aiEnabled && req.method === 'POST' &&
+      /\/(?:recommend-template|explain-clause|review-risk-ai)$/.test(url.pathname)) {
+      sendJson(res, 503, { error: 'AI assistance is not available.', code: 'feature_unavailable' });
+      return;
+    }
+
+    // Stripe authenticates with its signature, not an account cookie or our
+    // browser CSRF header. Preserve its raw bytes before any JSON parsing.
+    if (url.pathname === '/api/billing/webhook') {
+      res.setHeader('Cache-Control', 'no-store');
+      await handleBillingRoutes(req, res, { url, sendJson, readBody, requireAuth });
+      return;
+    }
+    assertTrustedMutation(req);
+    res.setHeader('Cache-Control', 'no-store');
+    if (await handleBillingRoutes(req, res, { url, sendJson, readBody, requireAuth })) return;
+    if (await handleAuthRoutes(req, res, { url, sendJson, readBody })) return;
+    if (await handleAccountContractRoutes(req, res, { url, sendJson, readBody, requireAuth })) return;
+    if (req.method === 'POST' && (url.pathname === '/api/contracts/import-zip' || /\/api\/contracts\/templates\/(?:scan-all|[^/]+\/(?:scan|approve))$/.test(url.pathname))) {
+      const auth = await requireAuth(req);
+      if (auth.user.app_metadata.role !== 'admin') throw Object.assign(new Error('Administrator access required.'), { status: 403 });
+    }
 
     // Contract Filing engine routes (/api/filing/*). Handled first; returns
     // true when it owns the route.
-    if (await handleFilingRoutes(req, res, { url, sendJson, readBody })) {
+    if (await handleContractProgressRoutes(req, res, { url, sendJson, readBody, requireAuth })) {
+      return;
+    }
+    if (await handleProjectRoutes(req, res, { url, sendJson, readBody, requireAuth })) {
+      return;
+    }
+    if (await handleFilingRoutes(req, res, { url, sendJson, readBody, requireAuth })) {
       return;
     }
 
@@ -616,7 +625,8 @@ const server = createServer(async (req, res) => {
     }
 
     if (req.method === 'POST' && url.pathname === '/api/contracts/template-file') {
-      await requireAuth(req);
+      const auth = await requireAuth(req);
+      await billing.requireExports(auth);
       const body = await readBody(req);
       const templateId = trimInput(body.templateId, 160);
       const source = getTemplateSource(templateId);
@@ -676,16 +686,37 @@ const server = createServer(async (req, res) => {
     sendJson(res, 404, { error: 'Not found.' });
   } catch (error) {
     const status = error.status || 500;
-    const message = status >= 500 ? 'The Own Masters AI service is unavailable right now.' : error.message;
+    if (error.retryAfter) res.setHeader('Retry-After', String(error.retryAfter));
+    const message = status >= 500 ? 'Own Masters could not complete this request. Please try again.' : error.message;
 
     if (status >= 500) {
       console.warn(`[own-masters-api] ${error.message}`);
     }
 
-    sendJson(res, status, { error: message, details: error.details });
+    if (!res.headersSent) sendJson(res, status, { error: error.code === 'email_not_configured' ? error.message : message, code: error.code || '', details: error.details });
   }
 });
 
-server.listen(PORT, () => {
-  console.log(`[own-masters-api] listening on http://127.0.0.1:${PORT}`);
+if (production) {
+  await prisma.accountUser.findFirst({ select: { id: true } });
+  await ensureContractStorage();
+  await ensureContractLibrary();
+}
+server.listen(PORT, process.env.API_HOST || (production ? '0.0.0.0' : '127.0.0.1'), () => {
+  console.log(`[own-masters] listening on port ${PORT}`);
+  if (!production) void ensureContractLibrary()
+    .then((result) => console.log(`[contract-library] ready (${result.imported} added, ${result.duplicates} already loaded)`))
+    .catch((error) => console.warn(`[contract-library] automatic loading failed: ${error.message}`));
 });
+
+let stopping = false;
+async function shutdown() {
+  if (stopping) return;
+  stopping = true;
+  const deadline = setTimeout(() => process.exit(1), 10000);
+  deadline.unref();
+  server.close(async () => { await prisma.$disconnect(); clearTimeout(deadline); });
+  server.closeIdleConnections();
+}
+process.once('SIGTERM', shutdown);
+process.once('SIGINT', shutdown);

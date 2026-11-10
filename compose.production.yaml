@@ -1,0 +1,20 @@
+name: own-masters
+services:
+  app:
+    build: .
+    init: true
+    restart: unless-stopped
+    env_file: .env.production
+    environment:
+      NODE_ENV: production
+      API_HOST: 0.0.0.0
+      API_PORT: 8787
+      CONTRACT_STORAGE_ROOT: /var/lib/ownmasters/storage
+    # A same-machine HTTPS reverse proxy forwards to this loopback port.
+    ports:
+      - "127.0.0.1:8787:8787"
+    volumes:
+      - ownmasters_files:/var/lib/ownmasters/storage
+    stop_grace_period: 15s
+volumes:
+  ownmasters_files:

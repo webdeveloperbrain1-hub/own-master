@@ -1,6 +1,10 @@
-import type { User } from '@supabase/supabase-js';
-
-export type AppUser = User;
+export interface AppUser {
+  id: string;
+  email: string;
+  emailVerified?: boolean;
+  user_metadata: { name: string };
+  app_metadata: { role?: string };
+}
 
 export type ContractStatus = 'draft' | 'completed';
 

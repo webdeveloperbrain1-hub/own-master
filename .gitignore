@@ -10,6 +10,14 @@ out/
 .env.development.local
 .env.test.local
 .env.production.local
+.env.production
+.env.staging
+*.log
+.codex/
+releases/
+contract-review-export/
+contract-review-export.zip
+server/data/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -34,3 +42,6 @@ storage/*
 *.swp
 .DS_Store
 Thumbs.db
+
+# Private local archives are never included in a release.
+.local/

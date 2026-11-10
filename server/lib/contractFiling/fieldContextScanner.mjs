@@ -3,6 +3,8 @@ import { detectTemplateFields } from "./templateFiller.mjs";
 
 export async function scanTemplateFieldsWithAI(template) {
   const baseFields = detectTemplateFields(template.extractedText || "", template);
+  if (process.env.AI_FEATURES_ENABLED !== 'true')
+    return { status: 'needs_review', analyzerModel: 'deterministic-fallback', fields: baseFields, warnings: ['Fields were extracted without AI. Review them before use.'] };
   const candidates = baseFields
     .filter((field) => !field.hidden)
     .map((field) => ({

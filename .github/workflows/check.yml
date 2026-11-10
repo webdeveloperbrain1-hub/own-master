@@ -1,0 +1,47 @@
+name: Check Own Masters
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  application:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: ownmasters_test
+          POSTGRES_USER: ownmasters_test
+          POSTGRES_PASSWORD: isolated-ci-password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ownmasters_test -d ownmasters_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://ownmasters_test:isolated-ci-password@127.0.0.1:5432/ownmasters_test
+      AI_FEATURES_ENABLED: 'false'
+      BILLING_MODE: preview
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx prisma generate
+      - run: npm run db:deploy
+      - run: npm run typecheck
+      - run: npm run test:unit
+      - run: npm run test:integration
+      - run: npm run build
+      - run: node tools/release/packageRelease.mjs
+      - run: npm ci --omit=dev
+        working-directory: releases/own-masters
+      - run: npm audit --omit=dev

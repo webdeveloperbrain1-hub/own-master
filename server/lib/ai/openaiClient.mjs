@@ -4,7 +4,6 @@ loadEnv();
 
 const DEFAULT_MODEL = 'gpt-4o-mini';
 const DEFAULT_PROVIDER = 'openai';
-const OLLAMA_CHAT_URL = 'http://127.0.0.1:11434/api/chat';
 let warnedMissingKey = false;
 let warnedMissingOllamaModel = false;
 let warnedUnknownProvider = false;
@@ -93,8 +92,7 @@ async function requestOpenAIChatJson({ messages, maxTokens }) {
   });
 
   if (!response.ok) {
-    const body = await response.text();
-    console.warn(`[own-masters-api] OpenAI request failed with ${response.status}: ${body.slice(0, 240)}`);
+    console.warn(`[own-masters-api] OpenAI request failed with status ${response.status}.`);
     return { json: null, error: { type: 'http_error', message: `OpenAI request failed with ${response.status}.` } };
   }
 
@@ -128,7 +126,7 @@ async function requestOllamaChatJson({ messages, maxTokens = 900 }) {
   let response;
 
   try {
-    response = await fetch(OLLAMA_CHAT_URL, {
+    response = await fetch(`${(process.env.OLLAMA_BASE_URL || 'http://127.0.0.1:11434').replace(/\/$/, '')}/api/chat`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -184,6 +182,8 @@ async function requestProviderJson({ provider, messages, maxTokens }) {
 
 export async function requestAIJsonResult({ messages, maxTokens = 900, retryInvalidJson = false }) {
   loadEnv();
+  if (process.env.AI_FEATURES_ENABLED !== 'true')
+    return { provider: 'disabled', json: null, error: { type: 'disabled', message: 'AI assistance is disabled.' } };
 
   const provider = aiProvider();
   const first = await requestProviderJson({ provider, messages, maxTokens });

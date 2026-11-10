@@ -1,0 +1,13 @@
+**
+!package.json
+!package-lock.json
+!prisma/
+!prisma/**
+!server/
+!server/**
+!dist/
+!dist/**
+!public/
+!public/own-masters-logo.png
+!scripts/
+!scripts/checkDeployment.mjs

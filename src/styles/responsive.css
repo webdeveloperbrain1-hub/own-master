@@ -1,0 +1,33 @@
+/* Let panels shrink naturally; keep wide document pages inside their own viewer. */
+#root, main, section { min-width: 0; }
+
+@media (max-width: 639px) {
+  /* Avoid iOS zooming the entire page when a form field receives focus. */
+  input:not([type='checkbox'], [type='radio'], [type='range']), textarea, select {
+    font-size: 16px;
+  }
+
+  :where(button, [role='button'], a.micro-interaction) {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+
+  .editor-actions {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .editor-actions > span, .editor-actions .document-downloads { grid-column: 1 / -1; }
+  .editor-actions > button, .document-downloads button {
+    min-width: 0;
+    padding-inline: 8px;
+    font-size: 13px;
+  }
+  .document-downloads > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .document-downloads button svg { flex-shrink: 0; }
+}
+
+@media (pointer: coarse) {
+  :where(button, [role='button'], a.micro-interaction) { touch-action: manipulation; }
+}

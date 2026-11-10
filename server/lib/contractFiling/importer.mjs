@@ -4,6 +4,7 @@ import path from "node:path";
 import { prisma } from "../prisma.mjs";
 import { config } from "./filingConfig.mjs";
 import { analyzeContract } from "./aiAnalyzer.mjs";
+import { fallbackAnalyze } from "./fallbackAnalyzer.mjs";
 import { extractText } from "./textExtraction.mjs";
 import { cleanZipPath, ensureDir, isSkippableEntry, safeStoredName, sha256 } from "./fileUtils.mjs";
 
@@ -61,8 +62,9 @@ export async function importZip(zipPath, options = {}) {
       await fs.writeFile(storedPath, buffer);
 
       const extraction = await extractText(storedPath, extension);
-      const analysis = analyze
-        ? await analyzeContract({ originalName, text: extraction.text })
+      const analysis = options.analyze === 'local'
+        ? fallbackAnalyze({ originalName, text: extraction.text, reason: 'Automatically loaded from the contract library. Review the contract before use.' })
+        : analyze ? await analyzeContract({ originalName, text: extraction.text })
         : {
             analysisStatus: "pending",
             needsReview: true,

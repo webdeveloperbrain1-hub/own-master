@@ -1,8 +1,0 @@
-[
-  {
-    "type": "no_blank_candidates",
-    "context": "",
-    "message": "The parser did not find any real blanks, underscores, placeholders, or empty fillable areas.",
-    "candidateIds": []
-  }
-]

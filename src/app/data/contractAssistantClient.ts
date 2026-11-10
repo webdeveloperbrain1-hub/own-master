@@ -1,5 +1,5 @@
 /// <reference types="vite/client" />
-import { supabase } from '@/lib/supabaseClient';
+import { API_BASE, apiHeaders } from './apiClient';
 import { CONTRACT_TEMPLATE_OPTIONS } from './contracts';
 import { BUILT_IN_TEMPLATES, fillTemplateWithAnswers, generateDeterministicContractDraft } from './contractDrafts';
 import type {
@@ -12,11 +12,6 @@ import type {
   LocalContractFieldSchema,
   LocalContractTemplate,
 } from '../types';
-
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8787';
-// Add VITE_ANTHROPIC_API_KEY to your .env file to enable direct AI calls
-const ANTHROPIC_API_KEY = import.meta.env.VITE_ANTHROPIC_API_KEY || '';
-const DEMO_USER_KEY = 'own_masters_demo_user';
 
 // ── Template analysis cache (avoids re-running AI on every render) ────────────
 const templateAnalysisCache = new Map<string, {
@@ -56,23 +51,12 @@ function genericFallbackQuestions(): TemplateQuestion[] {
 }
 
 // ── Auth headers ──────────────────────────────────────────────────────────────
-async function authHeaders() {
-  const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-
-  if (import.meta.env.DEV && window.localStorage.getItem(DEMO_USER_KEY) === 'true') {
-    headers['X-Own-Masters-Demo'] = 'true';
-    return headers;
-  }
-
-  const { data } = await supabase.auth.getSession();
-  const token = data.session?.access_token;
-  if (token) headers.Authorization = `Bearer ${token}`;
-  return headers;
-}
+async function authHeaders() { return { 'Content-Type': 'application/json', ...(await apiHeaders()) }; }
 
 // ── Backend helpers ───────────────────────────────────────────────────────────
 async function postJson<T>(path: string, body: unknown) {
   const response = await fetch(`${API_BASE}${path}`, {
+    credentials: 'include',
     method: 'POST',
     headers: await authHeaders(),
     body: JSON.stringify(body),
@@ -92,6 +76,7 @@ async function postJson<T>(path: string, body: unknown) {
 
 async function getJson<T>(path: string) {
   const response = await fetch(`${API_BASE}${path}`, {
+    credentials: 'include',
     method: 'GET',
     headers: await authHeaders(),
   });
@@ -110,6 +95,7 @@ async function getJson<T>(path: string) {
 
 async function postBlob(path: string, body: unknown) {
   const response = await fetch(`${API_BASE}${path}`, {
+    credentials: 'include',
     method: 'POST',
     headers: await authHeaders(),
     body: JSON.stringify(body),
@@ -129,108 +115,6 @@ async function postBlob(path: string, body: unknown) {
     contentType: response.headers.get('Content-Type') ?? 'application/octet-stream',
     disposition: response.headers.get('Content-Disposition') ?? '',
   };
-}
-
-// ── Direct Anthropic API call (same pattern as ContractFill artifact) ─────────
-async function callAI(system: string, userMessage: string): Promise<string> {
-  const headers: Record<string, string> = {
-    'Content-Type': 'application/json',
-    'anthropic-version': '2023-06-01',
-  };
-  if (ANTHROPIC_API_KEY) {
-    headers['x-api-key'] = ANTHROPIC_API_KEY;
-  }
-
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers,
-    body: JSON.stringify({
-      model: 'claude-haiku-4-5-20251001',
-      max_tokens: 1024,
-      system,
-      messages: [{ role: 'user', content: userMessage }],
-    }),
-  });
-
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({})) as { error?: { message?: string } };
-    throw new Error(err.error?.message || `HTTP ${res.status}`);
-  }
-
-  const data = await res.json() as {
-    type?: string;
-    error?: { message?: string };
-    content?: Array<{ text?: string }>;
-  };
-
-  if (data.type === 'error') throw new Error(data.error?.message || 'AI API error');
-
-  const raw = (data.content || []).map(b => b.text || '').join('').trim();
-  if (!raw) throw new Error('Empty response from AI');
-  return raw;
-}
-
-// Safely pull a JSON object out of an AI response (handles code-fenced or plain)
-function extractJSON<T>(raw: string): T {
-  const start = raw.indexOf('{');
-  const end = raw.lastIndexOf('}');
-  if (start === -1 || end === -1) throw new Error('No JSON object in AI response');
-  return JSON.parse(raw.slice(start, end + 1)) as T;
-}
-
-// ── Field-extraction system prompt (same approach as ContractFill artifact) ───
-const FIELD_EXTRACTION_SYSTEM = `You are a music contract analyst. Identify ALL blank fields (3+ underscores like ___) in a contract template.
-
-Return ONLY valid JSON — no markdown, no explanation:
-{
-  "contractTitle": "Short descriptive title",
-  "fields": [
-    {
-      "id": "unique_snake_case_id",
-      "label": "Human Readable Label",
-      "type": "text",
-      "placeholder": "example value"
-    }
-  ]
-}
-
-FIELD TYPE OPTIONS (set "type" to exactly one of these strings):
-- "text"     — default single-line input
-- "date"     — any date field
-- "number"   — dollar amounts or percentages
-- "textarea" — multi-line descriptions or long terms
-- "list"     — for fields that accept MULTIPLE values on separate lines.
-               Use whenever the label contains "(S)" or clearly implies multiple people/items.
-               e.g. "NAME OF MUSICIAN(S)", "CONTRIBUTOR(S)", "SONGWRITER(S)".
-               Set "placeholder" to a single example entry like "e.g. John Smith".
-- "count"    — for "Number of X" fields that control how many rows a linked list shows.
-               MUST also include "controls": "<exact id of the linked list field>".
-               e.g. "NUMBER OF MUSICIAN(S)" → type "count", "controls": "musician_names"
-
-RULES:
-1. One field per blank (___) in ORDER top to bottom
-2. Every "id" must be globally unique — never reuse, even for similar blanks
-3. Context-specific labels: "Employer Signature" vs "Musician Signature", not just "Signature" twice
-4. ALWAYS pair list/count: when you see "Number of X" near "Name(s) of X", use count + list
-5. Only include "controls" on count-type fields, nowhere else
-6. Return ONLY the JSON object`;
-
-async function analyzeTemplateText(templateText: string): Promise<{
-  contractTitle: string;
-  fields: TemplateQuestion[];
-}> {
-  const raw = await callAI(
-    FIELD_EXTRACTION_SYSTEM,
-    `Analyze this contract template. Return one field per blank (___), in order:\n\n${templateText.substring(0, 5000)}`,
-  );
-
-  const parsed = extractJSON<{ contractTitle: string; fields: TemplateQuestion[] }>(raw);
-
-  if (!Array.isArray(parsed.fields) || parsed.fields.length === 0) {
-    throw new Error('No blank fields detected in this template.');
-  }
-
-  return parsed;
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -280,28 +164,6 @@ export async function recommendContractTemplate(userRequest: string): Promise<Co
     return await postJson<ContractRecommendation>('/api/contracts/recommend-ai', { userRequest });
   } catch { /* fall through */ }
 
-  // 2. Direct AI
-  try {
-    const raw = await callAI(
-      `You are a music contract expert. Recommend the most suitable contract type for the user's request.
-Return ONLY valid JSON:
-{
-  "recommendedTemplateId": "one of the template IDs listed below",
-  "recommendedContractType": "Human-readable contract name",
-  "confidence": 0.85,
-  "reason": "One sentence explanation",
-  "alternatives": [
-    { "templateId": "id", "title": "Name", "description": "desc", "reason": "why alternative" }
-  ],
-  "missingInfo": ["missing item 1", "missing item 2"]
-}
-Available template IDs: ${CONTRACT_TEMPLATE_OPTIONS.map(t => `${t.id} (${t.title})`).join(', ')}`,
-      `User request: "${userRequest}"`,
-    );
-    const parsed = extractJSON<ContractRecommendation>(raw);
-    return { ...parsed, source: 'openai' };
-  } catch { /* fall through */ }
-
   // 3. Rule-based
   return recommendContractTemplateRuleBased(userRequest);
 }
@@ -317,23 +179,6 @@ export async function explainContractClause(
       clauseText,
       contractType,
     });
-  } catch { /* fall through */ }
-
-  // 2. Direct AI
-  try {
-    const raw = await callAI(
-      `You are a plain-English music contract explainer. Explain contract clauses clearly for artists and producers.
-Return ONLY valid JSON:
-{
-  "plainEnglishExplanation": "Clear explanation of what this clause means",
-  "termsToReview": ["term1", "term2"],
-  "riskLevel": "low|medium|high",
-  "notLegalAdvice": true
-}`,
-      `Contract type: ${contractType}\n\nClause:\n"${clauseText}"`,
-    );
-    const parsed = extractJSON<ClauseExplanation>(raw);
-    return { ...parsed, source: 'openai', notLegalAdvice: true };
   } catch { /* fall through */ }
 
   // 3. Static fallback
@@ -358,30 +203,6 @@ export async function reviewContractRisk(
       contractText,
       contractType,
     });
-  } catch { /* fall through */ }
-
-  // 2. Direct AI
-  try {
-    const raw = await callAI(
-      `You are a music contract risk reviewer. Identify risks clearly for artists and producers.
-Return ONLY valid JSON:
-{
-  "riskFlags": [
-    {
-      "id": "unique-flag-id",
-      "severity": "low|medium|high",
-      "title": "Short flag title",
-      "explanation": "What the risk means in plain English",
-      "suggestedQuestion": "Question to ask a lawyer or the other party"
-    }
-  ],
-  "summary": "One-paragraph plain-English summary of overall risk level",
-  "notLegalAdvice": true
-}`,
-      `Contract type: ${contractType}\n\nContract text (first 3000 chars):\n${contractText.substring(0, 3000)}`,
-    );
-    const parsed = extractJSON<RiskReviewResult>(raw);
-    return { ...parsed, source: 'openai', notLegalAdvice: true };
   } catch { /* fall through */ }
 
   // 3. Static fallback
@@ -447,28 +268,6 @@ export async function getTemplateQuestions(templateId: string) {
     const preview = await fetchTemplatePreview(templateId);
     if (preview.templateText) templateText = preview.templateText;
   } catch { /* use built-in */ }
-
-  // 3. Use AI to analyze template and extract fields
-  if (templateText) {
-    try {
-      const { contractTitle, fields } = await analyzeTemplateText(templateText);
-      const template = CONTRACT_TEMPLATE_OPTIONS.find(t => t.id === templateId);
-      const questions = fields.map(f => ({ ...f, required: f.required ?? true }));
-
-      templateAnalysisCache.set(templateId, { questions, templateText });
-
-      return {
-        template: template ?? { id: templateId, title: contractTitle, description: '' } as ContractTemplateOption,
-        questions,
-        schema: {
-          version: '1.0',
-          source: 'ai_analysis',
-          template_id: templateId,
-          template_name: contractTitle,
-        },
-      };
-    } catch { /* fall through */ }
-  }
 
   // 4. Generic fallback questions (always works)
   const template = CONTRACT_TEMPLATE_OPTIONS.find(t => t.id === templateId);

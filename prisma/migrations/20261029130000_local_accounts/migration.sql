@@ -1,0 +1,14 @@
+CREATE TABLE "AccountUser" ("id" TEXT NOT NULL, "email" TEXT NOT NULL, "name" TEXT NOT NULL, "passwordHash" TEXT NOT NULL, "role" TEXT NOT NULL DEFAULT 'member', "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP, "updatedAt" TIMESTAMP(3) NOT NULL, CONSTRAINT "AccountUser_pkey" PRIMARY KEY ("id"));
+CREATE TABLE "AccountSession" ("tokenHash" TEXT NOT NULL, "userId" TEXT NOT NULL, "expiresAt" TIMESTAMP(3) NOT NULL, "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP, CONSTRAINT "AccountSession_pkey" PRIMARY KEY ("tokenHash"));
+CREATE TABLE "PasswordResetToken" ("tokenHash" TEXT NOT NULL, "userId" TEXT NOT NULL, "expiresAt" TIMESTAMP(3) NOT NULL, "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP, CONSTRAINT "PasswordResetToken_pkey" PRIMARY KEY ("tokenHash"));
+CREATE TABLE "AuthRateLimit" ("key" TEXT NOT NULL, "attempts" INTEGER NOT NULL DEFAULT 1, "expiresAt" TIMESTAMP(3) NOT NULL, CONSTRAINT "AuthRateLimit_pkey" PRIMARY KEY ("key"));
+CREATE TABLE "AccountContract" ("id" TEXT NOT NULL, "userId" TEXT NOT NULL, "title" TEXT NOT NULL, "contractType" TEXT NOT NULL, "status" TEXT NOT NULL DEFAULT 'draft', "content" TEXT NOT NULL, "userRequest" TEXT, "selectedTemplateId" TEXT, "selectedTemplateSourceFile" TEXT, "wizardAnswers" JSONB NOT NULL DEFAULT '{}', "aiRecommendation" JSONB, "aiRiskReview" JSONB, "aiSummary" TEXT, "riskFlags" JSONB NOT NULL DEFAULT '[]', "lastAiReviewedAt" TIMESTAMP(3), "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP, "updatedAt" TIMESTAMP(3) NOT NULL, CONSTRAINT "AccountContract_pkey" PRIMARY KEY ("id"));
+CREATE UNIQUE INDEX "AccountUser_email_key" ON "AccountUser"("email");
+CREATE INDEX "AccountSession_userId_idx" ON "AccountSession"("userId");
+CREATE INDEX "AccountSession_expiresAt_idx" ON "AccountSession"("expiresAt");
+CREATE INDEX "PasswordResetToken_userId_idx" ON "PasswordResetToken"("userId");
+CREATE INDEX "AuthRateLimit_expiresAt_idx" ON "AuthRateLimit"("expiresAt");
+CREATE INDEX "AccountContract_userId_updatedAt_idx" ON "AccountContract"("userId", "updatedAt");
+ALTER TABLE "AccountSession" ADD CONSTRAINT "AccountSession_userId_fkey" FOREIGN KEY ("userId") REFERENCES "AccountUser"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "PasswordResetToken" ADD CONSTRAINT "PasswordResetToken_userId_fkey" FOREIGN KEY ("userId") REFERENCES "AccountUser"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "AccountContract" ADD CONSTRAINT "AccountContract_userId_fkey" FOREIGN KEY ("userId") REFERENCES "AccountUser"("id") ON DELETE CASCADE ON UPDATE CASCADE;

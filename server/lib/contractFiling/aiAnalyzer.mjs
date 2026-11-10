@@ -4,10 +4,12 @@ import { fallbackAnalyze } from "./fallbackAnalyzer.mjs";
 const MAX_ANALYSIS_CHARS = 18000;
 
 export async function analyzeContract(input) {
+  if (process.env.AI_FEATURES_ENABLED !== 'true')
+    return fallbackAnalyze({ ...input, reason: 'Template imported for manual review and editing. AI assistance is disabled.' });
   if (config.aiProvider !== "ollama") {
     return fallbackAnalyze({
       ...input,
-      reason: `Unsupported AI_PROVIDER=${config.aiProvider}. This local prototype currently implements native Ollama only.`
+      reason: 'Automated filing analysis is unavailable for the configured provider. Review the template before use.'
     });
   }
 

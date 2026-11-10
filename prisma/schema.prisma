@@ -7,6 +7,106 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model AccountUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  emailVerifiedAt DateTime?
+  role         String   @default("member")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  sessions     AccountSession[]
+  resetTokens  PasswordResetToken[]
+  verificationTokens EmailVerificationToken[]
+  contracts    AccountContract[]
+  billing      BillingAccount?
+}
+
+model BillingAccount {
+  userId                 String      @id
+  user                   AccountUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  stripeCustomerId       String?     @unique
+  stripeSubscriptionId   String?     @unique
+  stripePriceId          String?
+  subscriptionStatus     String      @default("none")
+  currentPeriodEnd       DateTime?
+  cancelAtPeriodEnd       Boolean     @default(false)
+  accessPaused           Boolean     @default(false)
+  checkoutSessionId      String?
+  createdAt              DateTime    @default(now())
+  updatedAt              DateTime    @updatedAt
+}
+
+model BillingWebhookEvent {
+  id        String   @id
+  type      String
+  createdAt DateTime @default(now())
+}
+
+model EmailVerificationToken {
+  tokenHash String      @id
+  userId    String      @unique
+  user      AccountUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  returnTo  String      @default("/dashboard")
+  expiresAt DateTime
+  createdAt DateTime    @default(now())
+
+  @@index([expiresAt])
+}
+
+model AccountSession {
+  tokenHash String      @id
+  userId    String
+  user      AccountUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime    @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model PasswordResetToken {
+  tokenHash String      @id
+  userId    String
+  user      AccountUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime    @default(now())
+
+  @@index([userId])
+}
+
+model AuthRateLimit {
+  key       String   @id
+  attempts  Int      @default(1)
+  expiresAt DateTime
+
+  @@index([expiresAt])
+}
+
+model AccountContract {
+  id                         String      @id @default(cuid())
+  userId                     String
+  user                       AccountUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title                      String
+  contractType               String
+  status                     String      @default("draft")
+  content                    String
+  userRequest                String?
+  selectedTemplateId         String?
+  selectedTemplateSourceFile String?
+  wizardAnswers              Json        @default("{}")
+  aiRecommendation           Json?
+  aiRiskReview               Json?
+  aiSummary                  String?
+  riskFlags                  Json        @default("[]")
+  lastAiReviewedAt            DateTime?
+  createdAt                  DateTime    @default(now())
+  updatedAt                  DateTime    @updatedAt
+
+  @@index([userId, updatedAt])
+}
+
 enum ContractFileType {
   doc
   docx
@@ -56,6 +156,7 @@ model ContractTemplate {
 
 model GeneratedContract {
   id                    String           @id @default(cuid())
+  userId                String?
   templateId            String
   template              ContractTemplate @relation(fields: [templateId], references: [id])
   title                 String?
@@ -67,6 +168,7 @@ model GeneratedContract {
   createdAt             DateTime         @default(now())
 
   @@index([templateId])
+  @@index([userId])
 }
 
 // ---------------------------------------------------------------------------
@@ -138,6 +240,7 @@ model ContractTemplateFieldScan {
 
 model ContractDraft {
   id           String       @id @default(cuid())
+  userId       String
   templateId   String
   template     ContractFile @relation(fields: [templateId], references: [id], onDelete: Cascade)
   name         String
@@ -146,7 +249,104 @@ model ContractDraft {
   status       String       @default("draft")
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
+  projectLinks ProjectContract[]
+  progress     ContractProgress?
 
+  @@index([userId])
   @@index([templateId])
   @@index([status])
+}
+
+model MusicProject {
+  id          String   @id @default(cuid())
+  userId      String
+  title       String
+  lyrics      String   @default("")
+  fileName    String?
+  fileSize    Int      @default(0)
+  audioType   String?
+  audioPath   String?
+  legacyId    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  comments    ProjectComment[]
+  contracts   ProjectContract[]
+
+  @@unique([userId, legacyId])
+  @@index([userId, updatedAt])
+}
+
+model ProjectComment {
+  id        String       @id @default(cuid())
+  projectId String
+  project   MusicProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  body      String
+  createdAt DateTime     @default(now())
+}
+
+model ProjectContract {
+  id                String         @id @default(cuid())
+  projectId         String
+  project           MusicProject   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  draftId           String?
+  draft             ContractDraft? @relation(fields: [draftId], references: [id], onDelete: Cascade)
+  accountContractId String?
+  title             String
+  contractType      String
+  createdAt         DateTime       @default(now())
+
+  @@unique([projectId, draftId])
+  @@unique([projectId, accountContractId])
+}
+
+enum ContractProgressStage {
+  draft
+  ready_for_review
+  awaiting_signatures
+  signed
+  cancelled
+}
+
+model ContractProgress {
+  id                String                @id @default(cuid())
+  userId            String
+  draftId           String?               @unique
+  draft             ContractDraft?        @relation(fields: [draftId], references: [id], onDelete: Cascade)
+  accountContractId String?
+  status            ContractProgressStage @default(draft)
+  version           Int                   @default(0)
+  createdAt         DateTime              @default(now())
+  updatedAt         DateTime              @updatedAt
+  events            ContractProgressEvent[]
+  signedCopies      SignedContractCopy[]
+
+  @@unique([userId, accountContractId])
+  @@index([userId, updatedAt])
+}
+
+model ContractProgressEvent {
+  id         String                @id @default(cuid())
+  progressId String
+  progress   ContractProgress      @relation(fields: [progressId], references: [id], onDelete: Cascade)
+  action     String
+  fromStatus ContractProgressStage?
+  toStatus   ContractProgressStage
+  actorId    String
+  actorName  String
+  note       String                @default("")
+  createdAt  DateTime              @default(now())
+
+  @@index([progressId, createdAt])
+}
+
+model SignedContractCopy {
+  id         String           @id @default(cuid())
+  progressId String
+  progress   ContractProgress @relation(fields: [progressId], references: [id], onDelete: Cascade)
+  fileName   String
+  storedPath String
+  sizeBytes  Int
+  uploadedAt DateTime         @default(now())
+
+  @@index([progressId, uploadedAt])
 }

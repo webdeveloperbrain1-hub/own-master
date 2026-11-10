@@ -1,39 +1,33 @@
-import { forwardRef, useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from 'react';
+import { forwardRef, lazy, Suspense, useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import {
-  BrowserRouter,
+  createBrowserRouter,
+  RouterProvider,
   Link,
   Navigate,
-  Outlet,
   Route,
   Routes,
   useLocation,
   useNavigate,
   useParams,
-  useSearchParams,
 } from 'react-router';
 import {
   ArrowLeft,
   ArrowRight,
   CheckCircle2,
   Download,
+  FileSearch,
   FileText,
-  FileAudio,
-  FolderOpen,
-  LayoutDashboard,
-  LogOut,
-  MessageSquare,
   Music2,
   PenLine,
   Plus,
   Search,
-  Send,
-  Share2,
   ShieldCheck,
   Sparkles,
   Trash2,
   Upload,
 } from 'lucide-react';
 import { AuthProvider, useAuth } from './auth/AuthContext';
+import { LoginPage, SignupPage, ForgotPasswordPage, ResetPasswordPage, ConfirmEmailPage, ResendConfirmationPage } from './pages/AuthPages';
 import { deleteContract, getContract, listContracts, updateContractContent } from './data/contracts';
 import {
   explainContractClause,
@@ -62,15 +56,35 @@ import type {
   TemplateQuestion,
 } from './types';
 import ContractFillerPage from './pages/ContractFiller';
+import SavedContractEditorPage from './pages/SavedContractEditor';
+const GuidePreviewPage = lazy(() => import('./pages/GuidePreview'));
+import { savedContractEditorPath } from './data/contractLinks';
+import DashboardLayout from './components/DashboardLayout';
+import ScrollMotion from './components/ScrollMotion';
+import LandingNavigation from './components/LandingNavigation';
+import SiteFooter from './components/SiteFooter';
+import { SiteConfigurationProvider, useSiteConfiguration } from './data/siteConfiguration';
+const InformationPage = lazy(() => import('./pages/Information'));
+import { UnsavedChangesProvider, useUnsavedChanges } from './components/UnsavedChanges';
+import { DraftRecoveryNotice, useDraftRecovery } from './components/DraftRecovery';
+import { TrackReviewWorkspace, ProjectDetailPage } from './components/ProjectWorkspace';
+import { ContractProgressPanel, ContractStageBadge } from './components/ContractProgress';
+import { fetchContractProgressList } from './data/contractProgressClient';
+import { contractStageLabel, type ContractProgressStage } from './data/contractProgressTypes';
+import { fetchFilingDrafts, deleteFilingDraft, downloadFilingDraft } from './data/contractFilingClient';
+import { mergeContractInventory, type ContractListItem } from './data/contractInventory';
+import { BillingProvider, ProExportNotice } from './billing/BillingContext';
+const PricingPage = lazy(() => import('./pages/Pricing'));
+const BillingPage = lazy(() => import('./pages/Billing'));
 
 const primaryButton =
-  'inline-flex items-center justify-center gap-2 border border-primary bg-primary text-primary-foreground px-[15px] py-[11px] rounded-[14px] font-[750] cursor-pointer hover:opacity-90 transition-all hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100';
+  'micro-interaction inline-flex items-center justify-center gap-2 border border-primary bg-primary text-primary-foreground px-[15px] py-[11px] rounded-[14px] font-[750] cursor-pointer hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed';
 
 const ghostButton =
-  'inline-flex items-center justify-center gap-2 border border-border bg-muted text-foreground px-[15px] py-[11px] rounded-[14px] font-[700] cursor-pointer hover:bg-accent transition-all';
+  'micro-interaction inline-flex items-center justify-center gap-2 border border-border bg-muted text-foreground px-[15px] py-[11px] rounded-[14px] font-[700] cursor-pointer hover:bg-accent';
 
 const panel =
-  'border border-border bg-gradient-to-b from-[rgba(255,255,255,.08)] to-[rgba(255,255,255,.04)] rounded-[22px]';
+  'border border-border bg-gradient-to-b from-[var(--panel-top)] to-[var(--panel-bottom)] rounded-[22px]';
 
 const card = 'border border-border bg-card rounded-[22px]';
 const legalPageClass =
@@ -85,59 +99,6 @@ type LiveTemplatePart =
   type: 'text',
   content,
 });
-
-type MusicProject = {
-  id: string;
-  title: string;
-  fileName: string;
-  fileSize: number;
-  lyrics: string;
-  comments: {
-    id: string;
-    body: string;
-    createdAt: string;
-  }[];
-  createdAt: string;
-};
-
-type ShareTarget = {
-  kind: 'contract' | 'track';
-  id: string;
-  title: string;
-};
-
-type ShareInvite = {
-  id: string;
-  targetKind: ShareTarget['kind'];
-  targetId: string;
-  targetTitle: string;
-  recipientName: string;
-  email: string;
-  permission: 'view' | 'comment' | 'edit' | 'signer';
-  note: string;
-  status: 'invited';
-  createdAt: string;
-};
-
-function formatFileSize(bytes: number) {
-  if (!bytes) {
-    return 'File selected';
-  }
-
-  if (bytes < 1024 * 1024) {
-    return `${Math.max(1, Math.round(bytes / 1024))} KB`;
-  }
-
-  return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
-}
-
-function musicProjectsKey(userKey?: string | null) {
-  return `own_masters_music_projects_${userKey || 'demo'}`;
-}
-
-function shareInvitesKey(userKey?: string | null) {
-  return `own_masters_share_invites_${userKey || 'demo'}`;
-}
 
 const defaultWizardQuestions: TemplateQuestion[] = [
   { id: 'partyOneName', label: 'Party 1 name', placeholder: 'Producer legal name', required: true },
@@ -340,8 +301,14 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
+      <Route path="/pricing" element={<Suspense fallback={<LoadingScreen label="Loading plans" />}><PricingPage /></Suspense>} />
+      {(['terms', 'privacy', 'contact'] as const).map(page => <Route key={page} path={`/${page}`} element={<Suspense fallback={<LoadingScreen label="Loading information" />}><InformationPage page={page} /></Suspense>} />)}
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
+      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+      <Route path="/reset-password" element={<ResetPasswordPage />} />
+      <Route path="/auth/confirm" element={<ConfirmEmailPage />} />
+      <Route path="/resend-confirmation" element={<ResendConfirmationPage />} />
       <Route
         path="/dashboard"
         element={
@@ -351,27 +318,34 @@ function AppRoutes() {
         }
       >
         <Route index element={<DashboardHome />} />
+        <Route path="billing" element={<Suspense fallback={<LoadingScreen label="Loading billing" />}><BillingPage /></Suspense>} />
         <Route path="contracts" element={<ContractsPage />} />
         <Route path="contract-filler" element={<ContractFillerPage />} />
+        <Route path="contract-filler/guides/:guideId" element={<Suspense fallback={<LoadingScreen label="Opening guide" />}><GuidePreviewPage /></Suspense>} />
+        <Route path="contracts/drafts/:draftId/edit" element={<SavedContractEditorPage />} />
         <Route path="contracts/:id" element={<ContractDetailPage />} />
+        <Route path="projects/:id" element={<ProjectDetailPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
 
+const router = createBrowserRouter([
+  { path: '*', element: <UnsavedChangesProvider><BillingProvider><AppRoutes /></BillingProvider></UnsavedChangesProvider> },
+]);
+
 export default function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
-    </AuthProvider>
+    <SiteConfigurationProvider><AuthProvider>
+      <ScrollMotion />
+      <RouterProvider router={router} />
+    </AuthProvider></SiteConfigurationProvider>
   );
 }
 
 function ProtectedRoute({ children }: { children: ReactNode }) {
-  const { user, loading } = useAuth();
+  const { user, loading, sessionError, retrySession } = useAuth();
   const location = useLocation();
 
   if (loading) {
@@ -379,7 +353,16 @@ function ProtectedRoute({ children }: { children: ReactNode }) {
   }
 
   if (!user) {
-    return <Navigate to="/login" replace state={{ from: location.pathname }} />;
+    if (sessionError) return (
+      <main className="min-h-screen flex items-center justify-center px-6">
+        <div className={`${panel} p-8 max-w-[420px]`}>
+          <h1 className="text-2xl mb-3">We couldn’t check your sign-in.</h1>
+          <p role="alert" className="text-muted-foreground mb-5">{sessionError}</p>
+          <button className={primaryButton} onClick={retrySession}>Try again</button>
+        </div>
+      </main>
+    );
+    return <Navigate to="/login" replace state={{ from: `${location.pathname}${location.search}${location.hash}` }} />;
   }
 
   return children;
@@ -389,7 +372,7 @@ function LoadingScreen({ label }: { label: string }) {
   return (
     <div className="min-h-screen flex items-center justify-center px-6">
       <div className={`${panel} p-8 text-center max-w-[360px]`}>
-        <img src="/own-masters-logo.png" alt="Own Masters" className="w-20 h-auto mx-auto mb-4" />
+        <img src="/own-masters-logo.png" alt="Own Masters" className="w-20 h-auto mx-auto mb-4 brightness-0 dark:brightness-100" />
         <p className="text-muted-foreground m-0">{label}...</p>
       </div>
     </div>
@@ -400,72 +383,24 @@ function LandingPage() {
   const { user, loading } = useAuth();
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(id)?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-            entry.target.querySelectorAll('.stagger-item').forEach((child, index) => {
-              window.setTimeout(() => child.classList.add('animate-in'), index * 90);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 },
-    );
-
-    document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <div className="min-h-screen">
-      <MotionStyles />
-      <div className="max-w-[1120px] mx-auto px-[18px] pb-16">
-        <header className="flex justify-between items-center py-[18px] border-b border-border">
-          <Link to="/" className="flex items-center justify-center font-[850] tracking-[-0.3px] text-[18px] gap-2">
-            <img src="/own-masters-logo.png" alt="Own Masters logo" className="w-16 h-auto" />
-            Own Masters
-          </Link>
-          <div className="flex gap-3 md:gap-6 items-center">
-            <button onClick={() => scrollToSection('about')} className="text-foreground cursor-pointer hover:opacity-70 transition-opacity hidden md:block bg-transparent border-0 p-0">
-              About
-            </button>
-            <button onClick={() => scrollToSection('how-it-works')} className="text-foreground cursor-pointer hover:opacity-70 transition-opacity hidden md:block bg-transparent border-0 p-0">
-              How it Works
-            </button>
-            {user ? (
-              <Link to="/dashboard" className={primaryButton}>
-                Go to Dashboard <ArrowRight className="size-4" />
-              </Link>
-            ) : (
-              <>
-                <Link to="/login" className="hidden sm:inline text-foreground hover:opacity-70 transition-opacity">
-                  Log In
-                </Link>
-                <Link to="/signup" className={primaryButton}>
-                  Sign Up
-                </Link>
-              </>
-            )}
-          </div>
-        </header>
+      <div className="max-w-[1120px] mx-auto px-4 sm:px-6 pb-12 sm:pb-16">
+        <LandingNavigation onSection={scrollToSection} />
 
-        <section id="home" className="py-[72px] md:py-[44px] grid md:grid-cols-1 lg:grid-cols-[1.12fr_0.88fr] gap-7 items-center fade-in-section">
-          <div>
-            <h1 className="m-0 mb-[14px] text-[clamp(38px,6vw,68px)] leading-[1.02] tracking-[-1.4px]">
+        <section id="home" data-reveal-group className="py-10 sm:py-12 grid grid-cols-1 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] gap-7 sm:gap-9 items-center">
+          <div className="min-w-0">
+            <h1 className="m-0 mb-[14px] text-[clamp(32px,5.8vw,68px)] leading-[1.06] tracking-[-0.8px] sm:tracking-[-1.4px]">
               Build your music business before the industry builds it for you.
             </h1>
-            <p className="text-muted-foreground text-[18px] leading-[1.5] max-w-[680px] m-0 mb-[22px]">
-              Own Masters helps artists, managers, producers, DJs, and writers organize teams, protect songs, manage agreements, and keep the paperwork behind the catalog in one place.
+            <p className="text-muted-foreground text-[16px] sm:text-[18px] leading-[1.55] max-w-[680px] m-0 mb-[22px]">
+              Own Masters helps artists, managers, producers, DJs, and writers organize songs, prepare agreements, and keep the paperwork behind the catalog in one place.
             </p>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
               <Link to={user ? '/dashboard' : '/signup'} className={primaryButton}>
                 Start Creating Contracts <ArrowRight className="size-4" />
               </Link>
@@ -476,75 +411,60 @@ function LandingPage() {
               )}
             </div>
 
-            <div className="text-[rgba(255,255,255,.50)] text-[13px] mt-3">
+            <div className="text-muted-foreground text-[13px] mt-3">
               For artists, managers, producers, DJs, writers, and music industry pros.
             </div>
 
-            <div className="flex gap-[10px] flex-wrap mt-4">
+            <div className="flex gap-2 sm:gap-[10px] flex-wrap mt-4">
               {['Artist', 'Manager', 'Producer', 'Writer', 'DJ', 'Industry Pro'].map((role) => (
-                <span key={role} className="px-[13px] py-[10px] rounded-full border border-border bg-muted text-[rgba(255,255,255,.78)] font-[700] text-[14px]">
+                <span key={role} className="px-3 py-2 sm:px-[13px] sm:py-[10px] shrink-0 whitespace-nowrap rounded-full border border-border bg-secondary text-secondary-foreground font-[700] text-[12px] sm:text-[14px]">
                   {role}
                 </span>
               ))}
             </div>
           </div>
 
-          <div className={`${panel} p-[22px]`}>
+          <div className={`${panel} min-w-0 p-4 sm:p-[22px]`}>
             <h3 className="m-0 mb-3 text-[18px]">Your music business command center</h3>
             {[
               ['Contracts Workspace', 'Split sheets, producer agreements, licenses, and deal memos'],
               ['Rights Organization', 'Keep ownership paperwork connected to every project'],
-              ['AI Contract Wizard', 'Coming next, built on the dashboard foundation'],
-            ].map(([title, description], index) => (
-              <div key={title} className="flex justify-between items-center gap-3 p-3 rounded-[16px] border border-border bg-muted mt-[10px]">
-                <div>
+              ['Document Exports', 'Download saved drafts as PDF or Word documents'],
+            ].map(([title, description]) => (
+              <div key={title} className="flex justify-between items-start sm:items-center gap-3 p-3 rounded-[16px] border border-border bg-muted mt-[10px]">
+                <div className="min-w-0 flex-1">
                   <strong>{title}</strong>
                   <br />
                   <span className="text-muted-foreground text-[13px]">{description}</span>
                 </div>
-                <div className="px-[9px] py-[6px] rounded-full border border-[rgba(255,255,255,.12)] text-[rgba(255,255,255,.78)] text-[12px] whitespace-nowrap">
-                  {index === 0 ? 'Live MVP' : 'Phase 1'}
+                <div className="shrink-0 px-[9px] py-[6px] rounded-full border border-border bg-secondary text-secondary-foreground text-[11px] sm:text-[12px] whitespace-nowrap">
+                  <CheckCircle2 className="size-4" aria-label="Included" />
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="py-[34px] fade-in-section">
-          <div className={`${panel} p-[22px]`}>
-            <div className="grid lg:grid-cols-[1fr_auto] gap-5 items-center">
-              <div>
-                <h2 className="m-0 mb-3 text-[30px] tracking-[-0.6px]">Create and manage your music contracts.</h2>
-                <p className="text-muted-foreground text-[17px] leading-[1.55] max-w-[720px] m-0">
-                  Own Masters helps artists, producers, managers, and rights holders create, organize, and manage essential music business documents without losing the creative pulse.
-                </p>
-              </div>
-              <Link to={user ? '/dashboard' : '/signup'} className={primaryButton}>
-                Open Dashboard <LayoutDashboard className="size-4" />
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        <LandingSections scrollToSection={scrollToSection} />
+        <LandingSections />
       </div>
     </div>
   );
 }
 
-function LandingSections({ scrollToSection }: { scrollToSection: (id: string) => void }) {
+function LandingSections() {
+  const { user, loading } = useAuth();
   return (
     <>
-      <section className="py-[50px] fade-in-section">
-        <h2 className="m-0 mb-10 text-[32px] tracking-tight text-center">What's coming first</h2>
-        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-[14px]">
+      <section className="py-8 sm:py-10 lg:py-[50px]">
+        <h2 data-reveal className="m-0 mb-6 sm:mb-10 text-[26px] sm:text-[32px] leading-tight tracking-tight text-center">Your songs. Your agreements. One workspace.</h2>
+        <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
           {[
             ['Contract Drafts', 'Start with split sheets, producer agreements, licenses, and deal memos.'],
             ['Catalog Paper Trail', 'Keep your ownership paperwork in one place as projects grow.'],
-            ['Team Workspace', 'Add managers, writers, producers, collaborators, and advisors.'],
-            ['AI Contract Wizard', 'Turn plain-English deal context into guided contract drafts in the next phase.'],
+            ['Song Projects', 'Keep audio, lyrics, notes, and related contracts together for each song.'],
+            ['Contract Progress', 'Track reviews and signing stages, then store the signed PDF with your draft.'],
           ].map(([title, description]) => (
-            <div key={title} className={`${card} p-5 hover-lift cursor-pointer stagger-item`}>
+            <div key={title} className={`${card} p-5 motion-card`}>
               <h3 className="m-0 mb-2 text-[18px] tracking-[-0.3px]">{title}</h3>
               <p className="m-0 text-muted-foreground leading-[1.45] text-[15px]">{description}</p>
             </div>
@@ -552,15 +472,15 @@ function LandingSections({ scrollToSection }: { scrollToSection: (id: string) =>
         </div>
       </section>
 
-      <section id="about" className="py-[50px] bg-gradient-to-b from-transparent via-[rgba(255,255,255,.02)] to-transparent fade-in-section">
-        <h2 className="m-0 mb-10 text-[32px] tracking-tight text-center">Built for both sides of the music business</h2>
-        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
+      <section id="about" className="py-8 sm:py-10 lg:py-[50px] bg-gradient-to-b from-transparent via-[rgba(255,255,255,.02)] to-transparent">
+        <h2 data-reveal className="m-0 mb-6 sm:mb-10 text-[26px] sm:text-[32px] leading-tight tracking-tight text-center">Built for both sides of the music business</h2>
+        <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {[
             ['For Creators', 'Run your music like a business. Define splits, save agreements, and keep your catalog organized.'],
-            ['For Managers', 'Manage artists, teams, agreements, release readiness, and advisor needs from one structured workspace.'],
+            ['For Managers', 'Keep artist projects, notes, and agreements organized in your own workspace.'],
             ['For Industry Pros', 'Help serious artists, producers, DJs, writers, and managers move with cleaner paperwork.'],
           ].map(([title, description]) => (
-            <div key={title} className={`${card} p-6 hover-lift cursor-pointer stagger-item`}>
+            <div key={title} className={`${card} p-5 sm:p-6 motion-card last:md:col-span-2 last:lg:col-span-1`}>
               <h3 className="m-0 mb-3 text-[19px] tracking-tight">{title}</h3>
               <p className="m-0 text-muted-foreground leading-[1.6] text-[15px]">{description}</p>
             </div>
@@ -568,19 +488,19 @@ function LandingSections({ scrollToSection }: { scrollToSection: (id: string) =>
         </div>
       </section>
 
-      <section id="how-it-works" className="py-[50px] fade-in-section">
-        <h2 className="m-0 mb-10 text-[32px] tracking-tight text-center">How it works</h2>
-        <div className="max-w-[820px] mx-auto space-y-6">
+      <section id="how-it-works" className="py-8 sm:py-10 lg:py-[50px]">
+        <h2 data-reveal className="m-0 mb-6 sm:mb-10 text-[26px] sm:text-[32px] leading-tight tracking-tight text-center">How it works</h2>
+        <div data-reveal-group className="max-w-[820px] mx-auto space-y-6">
           {[
             ['Create your account', 'Sign up, open your dashboard, and start organizing the documents behind your work.'],
             ['Choose a contract type', 'Pick a split sheet, producer agreement, license, distribution agreement, or performance deal.'],
-            ['Save the draft', 'Your first contract draft is saved to your account and ready for the upcoming AI wizard.'],
+            ['Save the draft', 'Edit and save your agreement, download a copy, and track its progress in your workspace.'],
           ].map(([title, description], index) => (
-            <div key={title} className="flex gap-6 items-start group cursor-pointer hover-lift stagger-item">
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-b from-[rgba(255,255,255,.15)] to-[rgba(255,255,255,.08)] border border-border flex items-center justify-center font-bold text-[18px] transition-all group-hover:border-primary group-hover:scale-110">
+            <div key={title} className="flex gap-3 sm:gap-6 items-start group motion-card">
+              <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-b from-[rgba(255,255,255,.15)] to-[rgba(255,255,255,.08)] border border-border flex items-center justify-center font-bold text-[18px] transition-all group-hover:border-primary group-hover:scale-110">
                 {index + 1}
               </div>
-              <div className="pt-2">
+              <div className="min-w-0 pt-1.5 sm:pt-2">
                 <h3 className="m-0 mb-2 text-[19px] tracking-tight">{title}</h3>
                 <p className="m-0 text-muted-foreground leading-[1.6] text-[15px]">{description}</p>
               </div>
@@ -589,242 +509,48 @@ function LandingSections({ scrollToSection }: { scrollToSection: (id: string) =>
         </div>
       </section>
 
-      <section className="py-[34px] fade-in-section" id="waitlist">
-        <div className={`${panel} p-[22px]`}>
-          <h2 className="m-0 mb-4 text-[26px] tracking-[-0.5px]">Still want early access updates?</h2>
-          <p className="text-muted-foreground text-[18px] leading-[1.5] max-w-[680px] m-0 mb-[22px]">
-            The dashboard foundation is live. Join the list if you want product notes as contract generation, advisor workflows, and catalog tools come online.
+      <section data-reveal className="py-[34px]" id="get-started" aria-labelledby="get-started-title">
+        <div className="rounded-[22px] sm:rounded-[28px] border border-primary bg-primary text-primary-foreground px-5 py-8 sm:px-10 sm:py-12 text-center">
+          <p className="m-0 mb-4 text-[12px] font-[800] uppercase tracking-[0.18em] text-primary-foreground/75">Your music. Your business.</p>
+          <h2 id="get-started-title" className="m-0 mx-auto max-w-[720px] text-[clamp(30px,4.5vw,46px)] font-[800] leading-[1.1] tracking-[-0.8px]">Make your next move official.</h2>
+          <p className="text-primary-foreground/80 text-[17px] leading-[1.6] max-w-[600px] mx-auto mt-5 mb-0">
+            Start your first contract and keep your songs, notes, and agreements together in one workspace.
           </p>
-          <button onClick={() => scrollToSection('home')} className={ghostButton}>
-            Back to Top <ArrowLeft className="size-4" />
-          </button>
+          <div className="flex flex-col sm:flex-row justify-center gap-3 max-w-[500px] mx-auto mt-7">
+            <Link to={user ? '/dashboard' : '/signup'} className="micro-interaction inline-flex items-center justify-center gap-2 rounded-[14px] border border-background bg-background text-foreground px-5 py-3.5 font-[800] hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-foreground">
+              {user ? 'Open your workspace' : 'Create free account'} <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+            <Link to="/pricing" className="micro-interaction inline-flex items-center justify-center rounded-[14px] border border-primary-foreground/30 px-5 py-3.5 font-[700] hover:bg-primary-foreground/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-foreground">
+              Explore plans
+            </Link>
+          </div>
+          {!loading && !user && <p className="m-0 mt-5 text-[13px] text-primary-foreground/75">Already have an account? <Link to="/login" className="font-[700] text-primary-foreground underline underline-offset-4 hover:opacity-80">Log in</Link></p>}
         </div>
       </section>
 
-      <footer className="text-[rgba(255,255,255,.52)] pt-7 border-t border-border mt-9 text-[13px] flex justify-between gap-3 flex-wrap">
-        <div>Own Masters. Be the label. Own the masters.</div>
-        <div>Terms | Privacy | Contact</div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }
 
-function AuthShell({ mode }: { mode: 'login' | 'signup' }) {
-  const { user, loading, signIn, signInDemo, signUp } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [searchParams] = useSearchParams();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [notice, setNotice] = useState(searchParams.get('notice') ?? '');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const isSignup = mode === 'signup';
-  const redirectTo = (location.state as { from?: string } | null)?.from ?? '/dashboard';
-
-  useEffect(() => {
-    if (!loading && user) {
-      navigate('/dashboard', { replace: true });
-    }
-  }, [loading, navigate, user]);
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setError('');
-    setNotice('');
-    setIsSubmitting(true);
-
-    try {
-      if (isSignup) {
-        const result = await signUp({ name: name.trim(), email: email.trim(), password });
-
-        if (result.needsEmailConfirmation) {
-          navigate('/login?notice=Check your email to confirm your account, then log in.', { replace: true });
-          return;
-        }
-      } else {
-        await signIn({ email: email.trim(), password });
-      }
-
-      navigate(redirectTo, { replace: true });
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  }
-
-  function handleDemoLogin() {
-    signInDemo();
-    navigate('/dashboard', { replace: true });
-  }
-
-  return (
-    <div className="min-h-screen flex items-center justify-center px-5 py-10">
-      <div className="w-full max-w-[460px]">
-        <Link to="/" className="flex items-center justify-center font-[850] tracking-[-0.3px] text-[18px] gap-2 mb-7">
-          <img src="/own-masters-logo.png" alt="Own Masters logo" className="w-16 h-auto" />
-          Own Masters
-        </Link>
-        <div className={`${panel} p-6`}>
-          <h1 className="m-0 mb-2 text-[32px] tracking-[-0.8px] leading-tight">
-            {isSignup ? 'Create your Own Masters account.' : 'Welcome back.'}
-          </h1>
-          <p className="m-0 mb-6 text-muted-foreground leading-[1.5]">
-            {isSignup
-              ? 'Start organizing the contracts behind your catalog.'
-              : 'Log in to manage your contracts, rights, and music business documents.'}
-          </p>
-
-          {notice && <div className="mb-4 rounded-[14px] border border-border bg-muted p-3 text-[14px] text-muted-foreground">{notice}</div>}
-          {error && <div className="mb-4 rounded-[14px] border border-destructive/50 bg-destructive/10 p-3 text-[14px] text-red-200">{error}</div>}
-
-          <form onSubmit={handleSubmit} className="grid gap-3">
-            {isSignup && (
-              <label className="grid gap-2 text-[14px]">
-                Name
-                <input
-                  value={name}
-                  onChange={(event) => setName(event.target.value)}
-                  className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-                  required
-                  disabled={isSubmitting}
-                />
-              </label>
-            )}
-            <label className="grid gap-2 text-[14px]">
-              Email
-              <input
-                type="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-                required
-                disabled={isSubmitting}
-              />
-            </label>
-            <label className="grid gap-2 text-[14px]">
-              Password
-              <input
-                type="password"
-                minLength={6}
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-                required
-                disabled={isSubmitting}
-              />
-            </label>
-            <button type="submit" disabled={isSubmitting} className={`${primaryButton} w-full mt-2`}>
-              {isSubmitting ? 'Working...' : isSignup ? 'Sign Up' : 'Log In'}
-            </button>
-          </form>
-
-          {import.meta.env.DEV && (
-            <div className="mt-4 rounded-[18px] border border-border bg-muted p-4">
-              <div className="text-[13px] text-muted-foreground mb-3">
-                Local preview account: admin@ownmasters.local
-              </div>
-              <button type="button" onClick={handleDemoLogin} className={`${ghostButton} w-full`}>
-                Use Demo Admin Account
-              </button>
-            </div>
-          )}
-
-          <p className="text-muted-foreground text-[14px] mt-5 mb-0 text-center">
-            {isSignup ? 'Already have an account?' : 'Need an account?'}{' '}
-            <Link to={isSignup ? '/login' : '/signup'} className="text-foreground font-[750] hover:opacity-80">
-              {isSignup ? 'Log in' : 'Sign up'}
-            </Link>
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function LoginPage() {
-  return <AuthShell mode="login" />;
-}
-
-function SignupPage() {
-  return <AuthShell mode="signup" />;
-}
-
-function DashboardLayout() {
-  const { isDemo, user, signOut } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const name = userDisplayName(user?.user_metadata?.name, user?.email);
-
-  async function handleLogout() {
-    await signOut();
-    navigate('/', { replace: true });
-  }
-
-  const navItems = [
-    ['/dashboard', 'Dashboard', LayoutDashboard],
-    ['/dashboard/contracts', 'Contracts', FolderOpen],
-    ['/dashboard/contract-filler', 'Contract Filler', PenLine],
-  ] as const;
-
-  return (
-    <div className="min-h-screen">
-      <div className="max-w-[1180px] mx-auto px-[18px] pb-14">
-        <header className="flex justify-between items-center py-[18px] border-b border-border">
-          <Link to="/dashboard" className="flex items-center justify-center font-[850] tracking-[-0.3px] text-[18px] gap-2">
-            <img src="/own-masters-logo.png" alt="Own Masters logo" className="w-16 h-auto" />
-            Own Masters
-          </Link>
-          <div className="flex items-center gap-3">
-            <div className="hidden sm:block text-right">
-              <div className="text-[13px] text-muted-foreground">Signed in as</div>
-              <div className="text-[14px] font-[750]">{name}{isDemo ? ' (demo)' : ''}</div>
-            </div>
-            <button onClick={handleLogout} className={ghostButton}>
-              <LogOut className="size-4" /> Logout
-            </button>
-          </div>
-        </header>
-
-        <nav className="flex gap-2 py-4 overflow-x-auto">
-          {navItems.map(([href, label, Icon]) => {
-            const isActive = location.pathname === href;
-            return (
-              <Link
-                key={href}
-                to={href}
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-[14px] border text-[14px] font-[750] whitespace-nowrap transition-all ${
-                  isActive ? 'border-primary bg-primary text-primary-foreground' : 'border-border bg-muted text-foreground hover:bg-accent'
-                }`}
-              >
-                <Icon className="size-4" />
-                {label}
-              </Link>
-            );
-          })}
-        </nav>
-
-        <Outlet />
-      </div>
-    </div>
-  );
-}
-
 function useContracts() {
-  const [contracts, setContracts] = useState<Contract[]>([]);
+  const [contracts, setContracts] = useState<ContractListItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
     let active = true;
 
-    listContracts()
-      .then((items) => {
+    Promise.allSettled([listContracts(), fetchFilingDrafts(), fetchContractProgressList()])
+      .then(([accountContracts, templateDrafts, progress]) => {
         if (active) {
-          setContracts(items);
-          setError('');
+          setContracts(mergeContractInventory(
+            accountContracts.status === 'fulfilled' ? accountContracts.value : [],
+            templateDrafts.status === 'fulfilled' ? templateDrafts.value : [],
+            progress.status === 'fulfilled' ? progress.value : [],
+          ));
+          setError(accountContracts.status === 'rejected' || templateDrafts.status === 'rejected' || progress.status === 'rejected'
+            ? 'Some contracts or progress stages could not be loaded. Please refresh to try again.' : '');
         }
       })
       .catch((err) => {
@@ -844,7 +570,9 @@ function useContracts() {
   }, []);
 
   async function removeContract(id: string) {
-    await deleteContract(id);
+    const contract = contracts.find((item) => item.id === id);
+    if (contract?.filingDraftId) await deleteFilingDraft(contract.filingDraftId);
+    else await deleteContract(id);
     setContracts((current) => current.filter((contract) => contract.id !== id));
   }
 
@@ -1055,7 +783,7 @@ function LocalTemplateScannerPage() {
       {(notice || error) && (
         <section className={`${notice ? 'border-primary/40 bg-primary/10' : 'border-destructive/50 bg-destructive/10'} rounded-[18px] border p-4`}>
           {notice && <p className="m-0">{notice}</p>}
-          {error && <p className="m-0 text-red-100">{error}</p>}
+          {error && <p className="m-0 text-red-700 dark:text-red-100">{error}</p>}
         </section>
       )}
 
@@ -1063,7 +791,7 @@ function LocalTemplateScannerPage() {
         <div className={`${panel} p-4`}>
           <div className="flex items-center justify-between gap-3 mb-3">
             <h2 className="m-0 text-[22px] tracking-[-0.3px]">Templates</h2>
-            <span className="rounded-full border border-border bg-muted px-3 py-1 text-[12px] text-muted-foreground">{templates.length}</span>
+            <span className="shrink-0 whitespace-nowrap rounded-full border border-border bg-muted px-3 py-1 text-[12px] text-muted-foreground">{templates.length}</span>
           </div>
           <label className="relative mb-3 block">
             <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
@@ -1139,13 +867,13 @@ function LocalTemplateScannerPage() {
                     ['Text', selectedTemplate.textQuality || 'not extracted'],
                     ['Fields', String(fields.length)],
                   ].map(([label, value]) => (
-                    <span key={label} className="rounded-full border border-border bg-muted px-3 py-1 text-[12px] text-muted-foreground">
+                    <span key={label} className="shrink-0 whitespace-nowrap rounded-full border border-border bg-muted px-3 py-1 text-[12px] text-muted-foreground">
                       {label}: {value}
                     </span>
                   ))}
                 </div>
                 {selectedTemplate.scanError && (
-                  <div className="mt-4 rounded-[14px] border border-destructive/50 bg-destructive/10 p-3 text-red-100">
+                  <div className="mt-4 rounded-[14px] border border-destructive/50 bg-destructive/10 p-3 text-red-700 dark:text-red-100">
                     {selectedTemplate.scanError}
                   </div>
                 )}
@@ -1320,105 +1048,21 @@ function flattenContractAnswers(answers: ContractWizardAnswers): Record<string, 
   );
 }
 
-function useMusicProjects(userKey?: string | null) {
-  const [projects, setProjects] = useState<MusicProject[]>([]);
-
-  useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem(musicProjectsKey(userKey));
-      setProjects(stored ? JSON.parse(stored) as MusicProject[] : []);
-    } catch {
-      setProjects([]);
-    }
-  }, [userKey]);
-
-  function saveProjects(nextProjects: MusicProject[]) {
-    setProjects(nextProjects);
-    window.localStorage.setItem(musicProjectsKey(userKey), JSON.stringify(nextProjects));
-  }
-
-  function addProject(input: { title: string; fileName: string; fileSize: number; lyrics: string }) {
-    const now = new Date().toISOString();
-    const project: MusicProject = {
-      id: `track-${crypto.randomUUID()}`,
-      title: input.title,
-      fileName: input.fileName,
-      fileSize: input.fileSize,
-      lyrics: input.lyrics,
-      comments: [],
-      createdAt: now,
-    };
-    saveProjects([project, ...projects]);
-  }
-
-  function addComment(projectId: string, body: string) {
-    const trimmed = body.trim();
-
-    if (!trimmed) {
-      return;
-    }
-
-    saveProjects(projects.map((project) => project.id === projectId
-      ? {
-          ...project,
-          comments: [
-            ...project.comments,
-            {
-              id: `comment-${crypto.randomUUID()}`,
-              body: trimmed,
-              createdAt: new Date().toISOString(),
-            },
-          ],
-        }
-      : project));
-  }
-
-  return { projects, addProject, addComment };
-}
-
-function useShareInvites(userKey?: string | null) {
-  const [invites, setInvites] = useState<ShareInvite[]>([]);
-
-  useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem(shareInvitesKey(userKey));
-      setInvites(stored ? JSON.parse(stored) as ShareInvite[] : []);
-    } catch {
-      setInvites([]);
-    }
-  }, [userKey]);
-
-  function saveInvite(input: Omit<ShareInvite, 'id' | 'status' | 'createdAt'>) {
-    const invite: ShareInvite = {
-      ...input,
-      id: `invite-${crypto.randomUUID()}`,
-      status: 'invited',
-      createdAt: new Date().toISOString(),
-    };
-    const nextInvites = [invite, ...invites];
-    setInvites(nextInvites);
-    window.localStorage.setItem(shareInvitesKey(userKey), JSON.stringify(nextInvites));
-  }
-
-  return { invites, saveInvite };
-}
-
 function DashboardHome() {
   const { user } = useAuth();
   const { contracts, loading, error, removeContract } = useContracts();
-  const { projects, addProject, addComment } = useMusicProjects(user?.id ?? user?.email);
-  const { invites, saveInvite } = useShareInvites(user?.id ?? user?.email);
-  const [shareTarget, setShareTarget] = useState<ShareTarget | null>(null);
   const draftCount = contracts.filter((contract) => contract.status === 'draft').length;
-  const completedCount = contracts.filter((contract) => contract.status === 'completed').length;
+  const completedCount = contracts.filter((contract) => contract.status === 'completed' || contract.status === 'signed').length;
+  const reviewCount = contracts.filter((contract) => contract.status === 'ready_for_review' || contract.status === 'awaiting_signatures').length;
 
   return (
     <main className="grid gap-6">
-      <section className={`${panel} p-6 lg:p-8`}>
+      <ProExportNotice />
+      <section data-reveal className={`${panel} p-6 lg:p-8`}>
         <div className="grid lg:grid-cols-[1fr_auto] gap-5 items-center">
           <div>
             <p className="m-0 mb-2 text-[14px] text-muted-foreground">Your music business command center</p>
-            <h1 className="m-0 mb-3 text-[clamp(34px,5vw,56px)] leading-[1.04] tracking-[-1.2px]">
+            <h1 className="m-0 mb-3 break-words text-[clamp(28px,5vw,56px)] leading-[1.08] tracking-[-0.8px] sm:tracking-[-1.2px]">
               Welcome back, {userDisplayName(user?.user_metadata?.name, user?.email)}.
             </h1>
             <p className="m-0 text-muted-foreground text-[18px] leading-[1.5] max-w-[720px]">
@@ -1431,14 +1075,15 @@ function DashboardHome() {
         </div>
       </section>
 
-      <section className="grid md:grid-cols-3 gap-4">
+      <section data-reveal-group className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <SummaryCard icon={FileText} label="Total contracts" value={contracts.length} />
         <SummaryCard icon={PenLine} label="Draft contracts" value={draftCount} />
-        <SummaryCard icon={CheckCircle2} label="Completed contracts" value={completedCount} />
+        <SummaryCard icon={FileSearch} label="In review / signing" value={reviewCount} />
+        <SummaryCard icon={CheckCircle2} label="Finished contracts" value={completedCount} />
       </section>
 
       <section className={`${panel} p-5`}>
-        <div className="flex flex-wrap justify-between gap-3 items-center mb-5">
+        <div data-reveal className="flex flex-wrap justify-between gap-3 items-center mb-5">
           <div>
             <h2 className="m-0 text-[24px] tracking-[-0.4px]">Contracts</h2>
             <p className="m-0 text-muted-foreground text-[14px]">Create, manage, and organize the agreements behind your catalog.</p>
@@ -1453,35 +1098,18 @@ function DashboardHome() {
           loading={loading}
           error={error}
           onDelete={removeContract}
-          onShare={(contract) => setShareTarget({ kind: 'contract', id: contract.id, title: contract.title })}
         />
       </section>
 
-      <TrackReviewWorkspace
-        projects={projects}
-        invites={invites}
-        onAddProject={addProject}
-        onAddComment={addComment}
-        onShareTrack={(project) => setShareTarget({ kind: 'track', id: project.id, title: project.title })}
-      />
+      <TrackReviewWorkspace />
 
-      {shareTarget && (
-        <ShareDialog
-          target={shareTarget}
-          onClose={() => setShareTarget(null)}
-          onSave={(invite) => {
-            saveInvite(invite);
-            setShareTarget(null);
-          }}
-        />
-      )}
     </main>
   );
 }
 
 function SummaryCard({ icon: Icon, label, value }: { icon: typeof FileText; label: string; value: number }) {
   return (
-    <div className={`${card} p-5`}>
+    <div className={`${card} p-5 motion-card`}>
       <div className="flex items-center justify-between gap-4">
         <div>
           <p className="m-0 text-muted-foreground text-[14px]">{label}</p>
@@ -1495,325 +1123,10 @@ function SummaryCard({ icon: Icon, label, value }: { icon: typeof FileText; labe
   );
 }
 
-function TrackReviewWorkspace({
-  projects,
-  invites,
-  onAddProject,
-  onAddComment,
-  onShareTrack,
-}: {
-  projects: MusicProject[];
-  invites: ShareInvite[];
-  onAddProject: (input: { title: string; fileName: string; fileSize: number; lyrics: string }) => void;
-  onAddComment: (projectId: string, body: string) => void;
-  onShareTrack: (project: MusicProject) => void;
-}) {
-  const [trackTitle, setTrackTitle] = useState('');
-  const [lyrics, setLyrics] = useState('');
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [commentDrafts, setCommentDrafts] = useState<Record<string, string>>({});
-  const [formError, setFormError] = useState('');
-
-  function handleAddProject(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setFormError('');
-
-    if (!trackTitle.trim()) {
-      setFormError('Add a title for this track.');
-      return;
-    }
-
-    if (!selectedFile) {
-      setFormError('Choose an audio file for this track.');
-      return;
-    }
-
-    onAddProject({
-      title: trackTitle.trim(),
-      fileName: selectedFile.name,
-      fileSize: selectedFile.size,
-      lyrics: lyrics.trim(),
-    });
-    setTrackTitle('');
-    setLyrics('');
-    setSelectedFile(null);
-    event.currentTarget.reset();
-  }
-
-  function handleAddComment(projectId: string) {
-    onAddComment(projectId, commentDrafts[projectId] ?? '');
-    setCommentDrafts({ ...commentDrafts, [projectId]: '' });
-  }
-
-  return (
-    <section className={`${panel} p-5`}>
-      <div className="flex flex-wrap justify-between gap-3 items-start mb-5">
-        <div>
-          <div className="flex items-center gap-2">
-            <FileAudio className="size-5" />
-            <h2 className="m-0 text-[24px] tracking-[-0.4px]">Track review workspace</h2>
-          </div>
-          <p className="m-0 mt-1 text-muted-foreground text-[14px] max-w-[680px]">
-            Upload a working track, keep lyrics beside it, and collect notes before attaching the right contract.
-          </p>
-        </div>
-        <span className="rounded-full border border-border bg-muted px-3 py-1 text-[12px] text-muted-foreground">
-          {projects.length} tracks
-        </span>
-      </div>
-
-      <form onSubmit={handleAddProject} className="grid lg:grid-cols-[1fr_1fr] gap-3 mb-5">
-        <label className="grid gap-2 text-[14px]">
-          Track title
-          <input
-            value={trackTitle}
-            onChange={(event) => setTrackTitle(event.target.value)}
-            placeholder="Night Drive demo"
-            className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-          />
-        </label>
-        <label className="grid gap-2 text-[14px]">
-          Music file
-          <input
-            type="file"
-            accept="audio/*"
-            onChange={(event) => setSelectedFile(event.target.files?.[0] ?? null)}
-            className="w-full border border-ring bg-input text-foreground px-[14px] py-[11px] rounded-[14px] outline-none file:mr-3 file:rounded-[10px] file:border file:border-border file:bg-card file:px-3 file:py-2 file:text-foreground file:font-[800]"
-          />
-        </label>
-        <label className="grid gap-2 text-[14px] lg:col-span-2">
-          Lyrics
-          <textarea
-            value={lyrics}
-            onChange={(event) => setLyrics(event.target.value)}
-            placeholder="Paste lyrics, hook ideas, or reference notes..."
-            className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] min-h-[110px] resize-y transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-          />
-        </label>
-        {formError && (
-          <div className="lg:col-span-2 rounded-[14px] border border-destructive/50 bg-destructive/10 p-3 text-[14px] text-red-100">
-            {formError}
-          </div>
-        )}
-        <div className="lg:col-span-2 flex flex-wrap items-center gap-3">
-          <button type="submit" className={primaryButton}>
-            <Upload className="size-4" /> Add Track
-          </button>
-          <span className="text-[13px] text-muted-foreground">
-            Files are staged in this workspace for now. Cloud storage can plug into this flow next.
-          </span>
-        </div>
-      </form>
-
-      {projects.length ? (
-        <div className="grid gap-3">
-          {projects.map((project) => (
-            <div key={project.id} className="rounded-[18px] border border-border bg-muted p-4">
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div>
-                  <div className="font-[850] text-[18px]">{project.title}</div>
-                  <div className="text-[13px] text-muted-foreground mt-1">
-                    {project.fileName} · {formatFileSize(project.fileSize)}
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-2 justify-start sm:justify-end">
-                  <span className="rounded-full border border-border bg-card px-3 py-1 text-[12px] text-muted-foreground">
-                    {project.comments.length} comments
-                  </span>
-                  <span className="rounded-full border border-border bg-card px-3 py-1 text-[12px] text-muted-foreground">
-                    {invites.filter((invite) => invite.targetKind === 'track' && invite.targetId === project.id).length} shared
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => onShareTrack(project)}
-                    className="inline-flex items-center justify-center gap-2 rounded-[12px] border border-border bg-card px-3 py-1 text-[12px] font-[800] hover:bg-background transition-all"
-                  >
-                    <Share2 className="size-3" /> Share
-                  </button>
-                </div>
-              </div>
-              {project.lyrics && (
-                <details className="mt-3 rounded-[14px] border border-border bg-card p-3">
-                  <summary className="cursor-pointer text-[13px] font-[800]">Lyrics</summary>
-                  <p className="mt-3 mb-0 whitespace-pre-wrap text-[14px] leading-[1.6] text-muted-foreground">{project.lyrics}</p>
-                </details>
-              )}
-              <div className="grid gap-2 mt-3">
-                {project.comments.map((comment) => (
-                  <div key={comment.id} className="rounded-[14px] border border-border bg-card p-3">
-                    <div className="flex items-center gap-2 text-[12px] text-muted-foreground mb-1">
-                      <MessageSquare className="size-3" /> {formatDate(comment.createdAt)}
-                    </div>
-                    <p className="m-0 text-[14px] leading-[1.5]">{comment.body}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-col sm:flex-row gap-2 mt-3">
-                <input
-                  value={commentDrafts[project.id] ?? ''}
-                  onChange={(event) => setCommentDrafts({ ...commentDrafts, [project.id]: event.target.value })}
-                  placeholder="Leave a note on the track..."
-                  className="flex-1 border border-ring bg-input text-foreground px-[14px] py-[11px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-                />
-                <button type="button" onClick={() => handleAddComment(project.id)} className={ghostButton}>
-                  <MessageSquare className="size-4" /> Comment
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="rounded-[18px] border border-border bg-muted p-6 text-center">
-          <Music2 className="size-6 mx-auto mb-3 text-muted-foreground" />
-          <h3 className="m-0 mb-2 text-[20px] tracking-[-0.3px]">No tracks uploaded yet.</h3>
-          <p className="m-0 text-muted-foreground text-[14px]">
-            Add a track, lyrics, and comments here before sending contracts around the song.
-          </p>
-        </div>
-      )}
-    </section>
-  );
-}
-
-function ShareDialog({
-  target,
-  onClose,
-  onSave,
-}: {
-  target: ShareTarget;
-  onClose: () => void;
-  onSave: (invite: Omit<ShareInvite, 'id' | 'status' | 'createdAt'>) => void;
-}) {
-  const [recipientName, setRecipientName] = useState('');
-  const [email, setEmail] = useState('');
-  const [permission, setPermission] = useState<ShareInvite['permission']>(target.kind === 'contract' ? 'signer' : 'comment');
-  const [note, setNote] = useState('');
-  const [error, setError] = useState('');
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setError('');
-
-    if (!recipientName.trim()) {
-      setError('Add the recipient name.');
-      return;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      setError('Add a valid recipient email.');
-      return;
-    }
-
-    onSave({
-      targetKind: target.kind,
-      targetId: target.id,
-      targetTitle: target.title,
-      recipientName: recipientName.trim(),
-      email: email.trim(),
-      permission,
-      note: note.trim(),
-    });
-  }
-
-  const permissionOptions: Array<{ value: ShareInvite['permission']; label: string; description: string }> = [
-    { value: 'view', label: 'View only', description: 'Can open and review, but cannot comment or edit.' },
-    { value: 'comment', label: 'Comment', description: 'Can leave notes on the track or draft.' },
-    { value: 'edit', label: 'Edit details', description: 'Can help fill draft details, but cannot delete.' },
-    { value: 'signer', label: 'Signer / recipient', description: 'Receives the contract for review or signing later.' },
-  ];
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
-      <form onSubmit={handleSubmit} className="w-full max-w-[620px] rounded-[22px] border border-border bg-[#111820] p-5 shadow-2xl">
-        <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
-          <div>
-            <div className="text-[13px] text-muted-foreground mb-1">
-              Share {target.kind === 'contract' ? 'contract' : 'track'}
-            </div>
-            <h2 className="m-0 text-[26px] tracking-[-0.5px]">{target.title}</h2>
-          </div>
-          <button type="button" onClick={onClose} className={ghostButton}>
-            Cancel
-          </button>
-        </div>
-
-        <label className="grid gap-2 text-[14px] mb-4">
-          Recipient name
-          <input
-            value={recipientName}
-            onChange={(event) => setRecipientName(event.target.value)}
-            placeholder="Artist, producer, manager, label, or company"
-            className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-          />
-        </label>
-
-        <label className="grid gap-2 text-[14px] mb-4">
-          Recipient email
-          <input
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            placeholder="recipient@example.com"
-            className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-          />
-        </label>
-
-        <div className="grid gap-2 mb-4">
-          <div className="text-[14px] font-[800]">Permission</div>
-          <div className="grid sm:grid-cols-2 gap-2">
-            {permissionOptions.map((option) => {
-              const isSelected = permission === option.value;
-              return (
-                <button
-                  key={option.value}
-                  type="button"
-                  onClick={() => setPermission(option.value)}
-                  className={`text-left rounded-[16px] border p-3 transition-all ${
-                    isSelected ? 'border-primary bg-primary/15' : 'border-border bg-muted hover:bg-accent'
-                  }`}
-                >
-                  <div className="font-[850]">{option.label}</div>
-                  <p className="m-0 mt-1 text-[12px] text-muted-foreground leading-[1.45]">{option.description}</p>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        <label className="grid gap-2 text-[14px] mb-4">
-          Note
-          <textarea
-            value={note}
-            onChange={(event) => setNote(event.target.value)}
-            placeholder="Example: Please review the royalty section and confirm the split."
-            className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] min-h-[92px] resize-y transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-          />
-        </label>
-
-        <div className="rounded-[14px] border border-border bg-muted p-3 text-[13px] text-muted-foreground mb-4">
-          This saves the send request in the workspace for now. Real email delivery and backend permission checks can plug into this same flow next.
-        </div>
-
-        {error && (
-          <div className="rounded-[14px] border border-destructive/50 bg-destructive/10 p-3 text-[14px] text-red-100 mb-4">
-            {error}
-          </div>
-        )}
-
-        <div className="flex flex-wrap gap-3 justify-end">
-          <button type="button" onClick={onClose} className={ghostButton}>
-            Close
-          </button>
-          <button type="submit" className={primaryButton}>
-            <Send className="size-4" /> Send
-          </button>
-        </div>
-      </form>
-    </div>
-  );
-}
-
 function ContractsPage() {
   const { contracts, loading, error, removeContract } = useContracts();
+  const [stageFilter, setStageFilter] = useState('all');
+  const filteredContracts = stageFilter === 'all' ? contracts : contracts.filter((contract) => contract.status === stageFilter);
 
   return (
     <main className="grid gap-6">
@@ -1830,7 +1143,8 @@ function ContractsPage() {
       </section>
 
       <section className={`${panel} p-5`}>
-        <ContractsBlock contracts={contracts} loading={loading} error={error} onDelete={removeContract} />
+        <label className="grid gap-2 text-[14px] mb-4 max-w-[320px]">Filter by progress<select className="border border-border bg-input text-foreground rounded-[12px] p-3" value={stageFilter} onChange={(event) => setStageFilter(event.target.value)}><option value="all">All stages</option>{['draft', 'ready_for_review', 'awaiting_signatures', 'signed', 'cancelled', 'completed'].map((value) => <option key={value} value={value}>{contractStageLabel(value)}</option>)}</select></label>
+        {!loading && contracts.length > 0 && !filteredContracts.length ? <p className="text-muted-foreground p-4">No contracts at this stage.</p> : <ContractsBlock contracts={filteredContracts} loading={loading} error={error} onDelete={removeContract} />}
       </section>
     </main>
   );
@@ -1841,23 +1155,21 @@ function ContractsBlock({
   loading,
   error,
   onDelete,
-  onShare,
 }: {
-  contracts: Contract[];
+  contracts: ContractListItem[];
   loading: boolean;
   error: string;
   onDelete?: (id: string) => Promise<void>;
-  onShare?: (contract: Contract) => void;
 }) {
   const [deletingId, setDeletingId] = useState('');
   const [deleteError, setDeleteError] = useState('');
 
-  async function handleDelete(contract: Contract) {
+  async function handleDelete(contract: ContractListItem) {
     if (!onDelete) {
       return;
     }
 
-    const confirmed = window.confirm(`Delete "${contract.title}"? This cannot be undone.`);
+    const confirmed = window.confirm(`Delete "${contract.title}" and its progress history and signed copies? This cannot be undone.`);
 
     if (!confirmed) {
       return;
@@ -1879,9 +1191,9 @@ function ContractsBlock({
     return <div className={`${card} p-6 text-muted-foreground`}>Loading contracts...</div>;
   }
 
-  if (error) {
+  if (error && !contracts.length) {
     return (
-      <div className="rounded-[18px] border border-destructive/50 bg-destructive/10 p-5 text-red-100">
+      <div className="rounded-[18px] border border-destructive/50 bg-destructive/10 p-5 text-red-700 dark:text-red-100">
         {error}
       </div>
     );
@@ -1893,40 +1205,38 @@ function ContractsBlock({
 
   return (
     <div className="grid gap-3">
+      {error && <div role="alert" className="rounded-[18px] border border-border bg-muted p-4 text-muted-foreground">{error}</div>}
       {deleteError && (
-        <div className="rounded-[18px] border border-destructive/50 bg-destructive/10 p-4 text-red-100">
+        <div className="rounded-[18px] border border-destructive/50 bg-destructive/10 p-4 text-red-700 dark:text-red-100">
           {deleteError}
         </div>
       )}
       {contracts.map((contract) => (
         <div
+          data-reveal
           key={contract.id}
-          className="grid md:grid-cols-[1fr_210px_120px_280px] gap-3 items-center rounded-[18px] border border-border bg-muted p-4 hover:bg-accent transition-all"
+          className="motion-card grid sm:grid-cols-[minmax(0,1fr)_minmax(0,190px)] lg:grid-cols-[minmax(0,1fr)_minmax(0,190px)_minmax(145px,max-content)_auto] gap-3 items-center rounded-[18px] border border-border bg-muted p-4 hover:bg-accent"
         >
           <div>
-            <div className="font-[800]">{contract.title}</div>
+            <div className="font-[800] break-words">{contract.title}</div>
             <div className="text-[13px] text-muted-foreground mt-1">Updated {formatDate(contract.updatedAt)}</div>
           </div>
-          <div className="text-[14px] text-muted-foreground">{contract.contractType}</div>
+          <div className="min-w-0 text-[14px] text-muted-foreground sm:text-right lg:text-left">{contract.contractType}</div>
           <div>
-            <span className="inline-flex rounded-full border border-border bg-card px-3 py-1 text-[12px] font-[750] capitalize">
-              {contract.status}
-            </span>
+            <ContractStageBadge status={contract.status} />
           </div>
-          <div className="flex flex-wrap items-center gap-2 justify-start md:justify-end">
+          <div className="flex flex-wrap items-center gap-2 justify-start sm:justify-end">
             <Link
-              to={`/dashboard/contracts/${contract.id}`}
-              className="inline-flex items-center justify-center gap-2 rounded-[12px] border border-border bg-card px-3 py-2 text-[13px] font-[800] hover:bg-background transition-all"
+              to={contract.filingDraftId ? savedContractEditorPath(contract.filingDraftId) : `/dashboard/contracts/${contract.id}`}
+              aria-label={contract.filingDraftId ? 'Edit draft' : 'Open contract'}
+              title={contract.filingDraftId ? 'Edit draft' : 'Open contract'}
+              className="inline-flex size-11 items-center justify-center rounded-[12px] border border-border bg-card hover:bg-background transition-all"
             >
-              Open <ArrowRight className="size-4" />
+              {contract.filingDraftId ? <PenLine className="size-4" aria-hidden="true" /> : <ArrowRight className="size-4" aria-hidden="true" />}
             </Link>
-            {onShare && (
-              <button
-                type="button"
-                onClick={() => onShare(contract)}
-                className="inline-flex items-center justify-center gap-2 rounded-[12px] border border-border bg-card px-3 py-2 text-[13px] font-[800] hover:bg-background transition-all"
-              >
-                <Share2 className="size-4" /> Share
+            {contract.filingDraftId && (
+              <button onClick={() => { setDeleteError(''); void downloadFilingDraft(contract.filingDraftId!).catch((err) => setDeleteError(err instanceof Error ? err.message : 'Download failed.')); }} aria-label="Download PDF" title="Download PDF" className="inline-flex size-11 items-center justify-center rounded-[12px] border border-border bg-card hover:bg-background transition-all">
+                <Download className="size-4" aria-hidden="true" />
               </button>
             )}
             {onDelete && (
@@ -1934,9 +1244,12 @@ function ContractsBlock({
                 type="button"
                 onClick={() => handleDelete(contract)}
                 disabled={deletingId === contract.id}
-                className="inline-flex items-center justify-center gap-2 rounded-[12px] border border-red-400/40 bg-red-500/10 px-3 py-2 text-[13px] font-[800] text-red-100 hover:bg-red-500/20 disabled:opacity-60 disabled:cursor-not-allowed transition-all"
+                aria-label={deletingId === contract.id ? 'Deleting contract' : 'Delete contract'}
+                title={deletingId === contract.id ? 'Deleting contract' : 'Delete contract'}
+                aria-busy={deletingId === contract.id}
+                className="inline-flex size-11 items-center justify-center rounded-[12px] border border-red-400/40 bg-red-500/10 text-red-700 dark:text-red-100 hover:bg-red-500/20 disabled:opacity-60 disabled:cursor-not-allowed transition-all"
               >
-                <Trash2 className="size-4" /> {deletingId === contract.id ? 'Deleting' : 'Delete'}
+                <Trash2 className="size-4" aria-hidden="true" />
               </button>
             )}
           </div>
@@ -2205,7 +1518,7 @@ const templateUsesDetectedBlanks = templateQuestions.some((question) =>
                   This list only includes templates approved and scanned in Template Admin.
                 </p>
               </div>
-              <span className="rounded-full border border-border bg-muted px-3 py-1 text-[12px] text-muted-foreground">
+              <span className="shrink-0 whitespace-nowrap rounded-full border border-border bg-muted px-3 py-1 text-[12px] text-muted-foreground">
                 {templates.length} templates
               </span>
             </div>
@@ -2240,7 +1553,7 @@ const templateUsesDetectedBlanks = templateQuestions.some((question) =>
                             </div>
                           )}
                         </div>
-                        <span className="rounded-full border border-border bg-card px-3 py-1 text-[12px] font-[800]">
+                        <span className="shrink-0 whitespace-nowrap rounded-full border border-border bg-card px-3 py-1 text-[12px] font-[800]">
                           {loadingTemplateId === template.id ? 'Loading...' : selectedTemplate?.id === template.id ? 'Selected' : 'Use template'}
                         </span>
                       </div>
@@ -2259,7 +1572,7 @@ const templateUsesDetectedBlanks = templateQuestions.some((question) =>
               </div>
           </div>
 
-        {error && <div className="rounded-[14px] border border-destructive/50 bg-destructive/10 p-3 text-[14px] text-red-100">{error}</div>}
+        {error && <div className="rounded-[14px] border border-destructive/50 bg-destructive/10 p-3 text-[14px] text-red-700 dark:text-red-100">{error}</div>}
 
         <div className="flex flex-wrap gap-3">
           <button type="submit" disabled={isSubmitting || !selectedTemplate} className={primaryButton}>
@@ -2346,13 +1659,13 @@ const TemplateFillWorkspace = forwardRef<
   return (
     <div ref={ref} className={`${panel} scroll-mt-5 overflow-hidden`}>
       <div className="grid min-h-[760px] lg:grid-cols-[390px_minmax(0,1fr)]">
-        <section className="border-b border-border bg-[#0f1118] lg:border-b-0 lg:border-r">
-          <div className="flex items-center justify-between border-b border-border bg-[#11151f] px-5 py-4">
+        <section className="border-b border-border bg-card lg:border-b-0 lg:border-r">
+          <div className="flex items-center justify-between border-b border-border bg-muted px-5 py-4">
             <div>
               <div className="text-[11px] font-[800] uppercase tracking-[0.22em] text-muted-foreground">Fill in fields</div>
               <div className="mt-1 max-w-[260px] truncate text-[12px] text-muted-foreground">{template.title}</div>
             </div>
-            <div className="rounded-full border border-border bg-card px-3 py-1 text-[12px] font-[800] text-primary">{progress}% complete</div>
+            <div className="shrink-0 whitespace-nowrap rounded-full border border-border bg-card px-3 py-1 text-[12px] font-[800] text-primary">{progress}% complete</div>
           </div>
           <div className="h-[3px] bg-border">
             <div
@@ -2386,8 +1699,8 @@ const TemplateFillWorkspace = forwardRef<
           </div>
         </section>
 
-        <section className="flex min-w-0 flex-col bg-[#0b0d13]">
-          <div className="flex items-center justify-between border-b border-border bg-[#11151f] px-5 py-4">
+        <section className="flex min-w-0 flex-col bg-background">
+          <div className="flex items-center justify-between border-b border-border bg-muted px-5 py-4">
             <div>
               <div className="text-[11px] font-[800] uppercase tracking-[0.22em] text-muted-foreground">Live preview</div>
               {template.sourceFile && (
@@ -3073,7 +2386,7 @@ function WizardInput({
                 : type === 'multiselect' && value
                   ? `${value}, ${option}`
                   : option)}
-              className={`rounded-full border px-3 py-2 text-[13px] font-[800] transition-all ${
+              className={`shrink-0 whitespace-nowrap rounded-full border px-3 py-2 text-[13px] font-[800] transition-all ${
                 (type === 'multiselect' ? value?.split(', ').includes(option) : value === option)
                   ? 'border-primary bg-primary text-primary-foreground'
                   : 'border-border bg-input text-foreground hover:bg-accent'
@@ -3151,7 +2464,7 @@ function TemplateDocumentPreview({
           <div className="text-[11px] uppercase tracking-[0.14em] text-[#4a4a4a]">Word/RTF template preview</div>
           <div className="text-[18px] font-[850] text-[#151515]">{title}</div>
         </div>
-        <div className="rounded-full border border-[#b8b8b8] bg-white px-3 py-1 text-[12px] font-[800] text-[#333]">
+        <div className="shrink-0 whitespace-nowrap rounded-full border border-[#b8b8b8] bg-white px-3 py-1 text-[12px] font-[800] text-[#333]">
           {pages.length} {pages.length === 1 ? 'page' : 'pages'}
         </div>
       </div>
@@ -3315,10 +2628,17 @@ function signatureTableRtf(left: string, right: string) {
 
 function ContractDetailPage() {
   const { id } = useParams();
+  const { user } = useAuth();
+  return <ContractDetail key={`${user?.id}:${id}`} />;
+}
+
+function ContractDetail() {
+  const { aiEnabled } = useSiteConfiguration();
+  const { id } = useParams();
   const navigate = useNavigate();
   const { user } = useAuth();
-  const { invites, saveInvite } = useShareInvites(user?.id ?? user?.email);
   const [contract, setContract] = useState<Contract | null>(null);
+  const [progressStage, setProgressStage] = useState<ContractProgressStage | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [clauseText, setClauseText] = useState('');
@@ -3333,12 +2653,16 @@ function ContractDetailPage() {
   const [resolvedTemplateSourceFile, setResolvedTemplateSourceFile] = useState('');
   const [deleteError, setDeleteError] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-  const [sendDialogOpen, setSendDialogOpen] = useState(false);
-  const [sendNotice, setSendNotice] = useState('');
   const [isEditingContract, setIsEditingContract] = useState(false);
   const [editContent, setEditContent] = useState('');
   const [editError, setEditError] = useState('');
   const [isSavingEdit, setIsSavingEdit] = useState(false);
+  const [editBaseline, setEditBaseline] = useState('');
+  const editDirty = isEditingContract && editContent !== editBaseline;
+  const recovery = useDraftRecovery(user?.id || '', `account-contract:${id}`, editDirty, {
+    templateId: id || '', name: contract?.title || '', text: editContent, html: '', baseUpdatedAt: contract?.updatedAt,
+  });
+  const markEditClean = useUnsavedChanges(editDirty || Boolean(recovery.copy), isSavingEdit, recovery.clear);
 
   useEffect(() => {
     let active = true;
@@ -3349,6 +2673,7 @@ function ContractDetailPage() {
       return;
     }
 
+    setProgressStage(null);
     getContract(id)
       .then((item) => {
         if (active) {
@@ -3480,22 +2805,17 @@ function ContractDetailPage() {
         ? [
             ['Type', contract.contractType],
             ['Source', (resolvedTemplateSourceFile || contract.selectedTemplateSourceFile)?.split('/').pop() ?? 'Own Masters starter template'],
-            ['Status', contract.status],
+            ['Status', contractStageLabel(progressStage || contract.status)],
             ['Created', formatDate(contract.createdAt)],
             ['Last updated', formatDate(contract.updatedAt)],
           ]
         : [],
-    [contract, resolvedTemplateSourceFile],
+    [contract, resolvedTemplateSourceFile, progressStage],
   );
   const displayContractText = useMemo(
     () => bestContractDisplayText(contract?.content ?? '', templatePreview),
     [contract?.content, templatePreview],
   );
-  const sentInvites = useMemo(
-    () => contract ? invites.filter((invite) => invite.targetKind === 'contract' && invite.targetId === contract.id) : [],
-    [contract, invites],
-  );
-
   async function handleExplainDraft() {
     if (!contract) {
       return;
@@ -3548,6 +2868,7 @@ function ContractDetailPage() {
   }
 
   setEditContent(displayContractText || contract.content);
+    setEditBaseline(displayContractText || contract.content);
     setEditError('');
     setIsEditingContract(true);
     window.setTimeout(() => {
@@ -3574,6 +2895,8 @@ function ContractDetailPage() {
       setContract(updated);
       setTemplatePreview('');
       setIsEditingContract(false);
+      recovery.clear();
+      markEditClean();
     } catch (err) {
       setEditError(err instanceof Error ? err.message : 'Unable to save your edits.');
     } finally {
@@ -3586,7 +2909,7 @@ function ContractDetailPage() {
       return;
     }
 
-    const confirmed = window.confirm(`Delete "${contract.title}"? This cannot be undone.`);
+    const confirmed = window.confirm(`Delete "${contract.title}" and its progress history and signed copies? This cannot be undone.`);
 
     if (!confirmed) {
       return;
@@ -3597,6 +2920,8 @@ function ContractDetailPage() {
 
     try {
       await deleteContract(contract.id);
+      recovery.clear();
+      markEditClean();
       navigate('/dashboard/contracts');
     } catch (err) {
       setDeleteError(err instanceof Error ? err.message : 'Unable to delete this contract.');
@@ -3631,20 +2956,23 @@ function ContractDetailPage() {
           <div>
             <h1 className="m-0 mb-3 text-[34px] tracking-[-0.8px] leading-tight">{contract.title}</h1>
             <p className="m-0 text-muted-foreground max-w-[720px]">
-              Review the draft first. When it looks right, use Send to add the recipient details.
+              Edit your draft, download a copy, and keep the signed PDF with your contract.
             </p>
           </div>
           <div className="flex flex-wrap gap-2 justify-start lg:justify-end">
-            <span className="inline-flex rounded-full border border-border bg-muted px-4 py-2 text-[13px] font-[800] capitalize">
-              {contract.status}
-            </span>
-            <button type="button" onClick={() => setSendDialogOpen(true)} className={primaryButton}>
-              <Send className="size-4" /> Send
-            </button>
+            <ContractStageBadge status={progressStage || contract.status} />
           </div>
         </div>
       </section>
 
+      {recovery.copy && <DraftRecoveryNotice busy={isSavingEdit} changedOnServer={Boolean(recovery.copy.baseUpdatedAt && recovery.copy.baseUpdatedAt !== contract.updatedAt)} onDiscard={recovery.clear} onRestore={() => {
+        setEditBaseline(displayContractText || contract.content);
+        setEditContent(recovery.copy!.text);
+        setIsEditingContract(true);
+        recovery.clear();
+      }} />}
+      {recovery.unavailable && <p role="alert" className="text-sm text-muted-foreground">This browser cannot keep a recovery copy. Save your edits before leaving.</p>}
+      <ContractProgressPanel key={contract.id} source="account" contractId={contract.id} disabled={isSavingEdit || isEditingContract || Boolean(recovery.copy)} onChange={(value) => setProgressStage(value.tracked ? value.status : null)} />
       <section className="grid md:grid-cols-4 gap-3">
         {metadata.map(([label, value]) => (
           <div key={label} className={`${card} p-4`}>
@@ -3653,36 +2981,6 @@ function ContractDetailPage() {
           </div>
         ))}
       </section>
-
-      {(sendNotice || sentInvites.length > 0) && (
-        <section className={`${panel} p-5`}>
-          <div className="flex items-center gap-2 mb-4">
-            <Send className="size-5" />
-            <h2 className="m-0 text-[24px] tracking-[-0.4px]">Send history</h2>
-          </div>
-          {sendNotice && (
-            <div className="rounded-[14px] border border-primary/40 bg-primary/10 p-3 mb-3 text-[14px]">
-              {sendNotice}
-            </div>
-          )}
-          <div className="grid gap-3">
-            {sentInvites.map((invite) => (
-              <div key={invite.id} className={`${card} p-4`}>
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div>
-                    <div className="font-[850]">{invite.recipientName || invite.email}</div>
-                    <div className="text-[13px] text-muted-foreground normal-case">{invite.email}</div>
-                  </div>
-                  <span className="rounded-full border border-border bg-muted px-3 py-1 text-[12px] font-[800] capitalize">
-                    {invite.status}
-                  </span>
-                </div>
-                {invite.note && <p className="m-0 mt-3 text-[14px] text-muted-foreground leading-[1.5]">{invite.note}</p>}
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
 
       <section className={`${panel} p-6`}>
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
@@ -3718,7 +3016,7 @@ function ContractDetailPage() {
           )}
 
           {sourceFileError && (
-            <div className="mt-5 rounded-[16px] border border-destructive/50 bg-destructive/10 p-5 text-red-100">
+            <div className="mt-5 rounded-[16px] border border-destructive/50 bg-destructive/10 p-5 text-red-700 dark:text-red-100">
               {sourceFileError}
             </div>
           )}
@@ -3732,18 +3030,19 @@ function ContractDetailPage() {
                     Edit the contract text directly. Saving updates the paper preview and download.
                   </p>
                 </div>
-                <span className="rounded-full border border-border bg-card px-3 py-1 text-[12px] text-muted-foreground">
+                <span className="shrink-0 whitespace-nowrap rounded-full border border-border bg-card px-3 py-1 text-[12px] text-muted-foreground">
                   {editContent.length.toLocaleString()} characters
                 </span>
               </div>
               <textarea
                 value={editContent}
+                disabled={isSavingEdit || Boolean(recovery.copy)}
                 onChange={(event) => setEditContent(event.target.value)}
                 spellCheck={false}
                 className="min-h-[520px] w-full resize-y rounded-[14px] border border-ring bg-white px-4 py-4 font-['Times_New_Roman',Times,serif] text-[14px] leading-[1.45] text-black outline-none focus:border-primary focus:ring-1 focus:ring-primary"
               />
               {editError && (
-                <div className="mt-3 rounded-[14px] border border-destructive/50 bg-destructive/10 p-3 text-[14px] text-red-100">
+                <div className="mt-3 rounded-[14px] border border-destructive/50 bg-destructive/10 p-3 text-[14px] text-red-700 dark:text-red-100">
                   {editError}
                 </div>
               )}
@@ -3754,6 +3053,8 @@ function ContractDetailPage() {
                 <button
                   type="button"
                   onClick={() => {
+                    if (editDirty && !window.confirm('Discard your unsaved contract edits?')) return;
+                    recovery.clear();
                     setIsEditingContract(false);
                     setEditError('');
                   }}
@@ -3785,28 +3086,29 @@ function ContractDetailPage() {
             </div>
           )}
         </div>
-        <div className="grid gap-2 mt-4">
-          <label className="text-[14px]">Clause or section to explain</label>
+        {aiEnabled && <div className="grid gap-2 mt-4">
+          <label className="text-[14px]" htmlFor="clause-to-explain">Clause or section to explain</label>
           <textarea
+            id="clause-to-explain"
             value={clauseText}
             onChange={(event) => setClauseText(event.target.value)}
             placeholder="Paste a clause here, or leave this blank to explain the draft summary."
             className="w-full border border-ring bg-input text-foreground px-[14px] py-[13px] rounded-[14px] outline-none placeholder:text-[rgba(255,255,255,.42)] min-h-[100px] resize-y transition-all focus:border-primary focus:ring-1 focus:ring-primary"
           />
-        </div>
+        </div>}
         <div className="flex flex-wrap gap-3 mt-5">
           {deleteError && (
-            <div className="basis-full rounded-[18px] border border-destructive/50 bg-destructive/10 p-4 text-red-100">
+            <div className="basis-full rounded-[18px] border border-destructive/50 bg-destructive/10 p-4 text-red-700 dark:text-red-100">
               {deleteError}
             </div>
           )}
-          <button type="button" onClick={handleExplainDraft} disabled={Boolean(aiActionLoading)} className={primaryButton}>
+          {aiEnabled && <><button type="button" onClick={handleExplainDraft} disabled={Boolean(aiActionLoading)} className={primaryButton}>
             {aiActionLoading === 'explain' ? 'Explaining...' : 'Explain this'} <Sparkles className="size-4" />
           </button>
           <button type="button" onClick={handleRiskReview} disabled={Boolean(aiActionLoading)} className={ghostButton}>
             {aiActionLoading === 'risk' ? 'Reviewing...' : 'Review Risk'} <ShieldCheck className="size-4" />
-          </button>
-          <button type="button" onClick={startManualEdit} className={ghostButton}>
+          </button></>}
+          <button type="button" onClick={startManualEdit} disabled={Boolean(recovery.copy) || isSavingEdit} className={ghostButton}>
             Continue Editing <PenLine className="size-4" />
           </button>
           <Link to="/dashboard" className={ghostButton}>
@@ -3816,7 +3118,7 @@ function ContractDetailPage() {
             type="button"
             onClick={handleDeleteContract}
             disabled={isDeleting}
-            className="inline-flex items-center justify-center gap-2 border border-red-400/40 bg-red-500/10 text-red-100 px-[15px] py-[11px] rounded-[14px] font-[700] cursor-pointer hover:bg-red-500/20 disabled:opacity-60 disabled:cursor-not-allowed transition-all"
+            className="inline-flex items-center justify-center gap-2 border border-red-400/40 bg-red-500/10 text-red-700 dark:text-red-100 px-[15px] py-[11px] rounded-[14px] font-[700] cursor-pointer hover:bg-red-500/20 disabled:opacity-60 disabled:cursor-not-allowed transition-all"
           >
             <Trash2 className="size-4" /> {isDeleting ? 'Deleting...' : 'Delete Contract'}
           </button>
@@ -3835,7 +3137,7 @@ function ContractDetailPage() {
               <div className="text-[13px] font-[800] mb-2">Terms to review</div>
               <div className="flex flex-wrap gap-2">
                 {explanation.termsToReview.map((term) => (
-                  <span key={term} className="rounded-full border border-border bg-muted px-3 py-1 text-[12px] text-muted-foreground">
+                  <span key={term} className="shrink-0 whitespace-nowrap rounded-full border border-border bg-muted px-3 py-1 text-[12px] text-muted-foreground">
                     {term}
                   </span>
                 ))}
@@ -3859,7 +3161,7 @@ function ContractDetailPage() {
                 <div key={flag.id} className="rounded-[18px] border border-border bg-muted p-4">
                   <div className="flex flex-wrap gap-2 items-center justify-between">
                     <h3 className="m-0 text-[17px]">{flag.title}</h3>
-                    <span className="rounded-full border border-border bg-card px-3 py-1 text-[12px] font-[800] capitalize">
+                    <span className="shrink-0 whitespace-nowrap rounded-full border border-border bg-card px-3 py-1 text-[12px] font-[800] capitalize">
                       {flag.severity}
                     </span>
                   </div>
@@ -3877,48 +3179,6 @@ function ContractDetailPage() {
         </section>
       )}
 
-      {sendDialogOpen && (
-        <ShareDialog
-          target={{ kind: 'contract', id: contract.id, title: contract.title }}
-          onClose={() => setSendDialogOpen(false)}
-          onSave={(invite) => {
-            saveInvite(invite);
-            setSendNotice(`Send request saved for ${invite.recipientName}.`);
-            setSendDialogOpen(false);
-          }}
-        />
-      )}
     </main>
-  );
-}
-
-function MotionStyles() {
-  return (
-    <style>{`
-      .fade-in-section {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-      }
-      .fade-in-section.animate-in {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .stagger-item {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-      }
-      .stagger-item.animate-in {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .hover-lift {
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-      .hover-lift:hover {
-        transform: translateY(-4px);
-      }
-    `}</style>
   );
 }
