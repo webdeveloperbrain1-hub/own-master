@@ -348,7 +348,7 @@ function ProtectedRoute({ children }: { children: ReactNode }) {
   const { user, loading, sessionError, retrySession } = useAuth();
   const location = useLocation();
 
-  if (loading) {
+  if (loading && !user) {
     return <LoadingScreen label="Opening your workspace" />;
   }
 
@@ -401,9 +401,9 @@ function LandingPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
-              <Link to={user ? '/dashboard' : '/signup'} className={primaryButton}>
-                Start Creating Contracts <ArrowRight className="size-4" />
-              </Link>
+              {(user || !loading) && <Link to={user ? '/dashboard' : '/signup'} className={primaryButton}>
+                {user ? 'Dashboard' : 'Start Creating Contracts'} <ArrowRight className="size-4" />
+              </Link>}
               {!loading && !user && (
                 <Link to="/login" className={ghostButton}>
                   Log In
@@ -517,9 +517,9 @@ function LandingSections() {
             Start your first contract and keep your songs, notes, and agreements together in one workspace.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 max-w-[500px] mx-auto mt-7">
-            <Link to={user ? '/dashboard' : '/signup'} className="micro-interaction inline-flex items-center justify-center gap-2 rounded-[14px] border border-background bg-background text-foreground px-5 py-3.5 font-[800] hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-foreground">
-              {user ? 'Open your workspace' : 'Create free account'} <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
+            {(user || !loading) && <Link to={user ? '/dashboard' : '/signup'} className="micro-interaction inline-flex items-center justify-center gap-2 rounded-[14px] border border-background bg-background text-foreground px-5 py-3.5 font-[800] hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-foreground">
+              {user ? 'Dashboard' : 'Create free account'} <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>}
             <Link to="/pricing" className="micro-interaction inline-flex items-center justify-center rounded-[14px] border border-primary-foreground/30 px-5 py-3.5 font-[700] hover:bg-primary-foreground/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-foreground">
               Explore plans
             </Link>

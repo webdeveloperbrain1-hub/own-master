@@ -347,20 +347,20 @@ function AccountForm({ mode }: { mode: 'login' | 'signup' }) {
       setBusy(false);
     }
   }
+  if (user) return <Navigate to={returnTo} replace />;
   if (loading)
     return (
       <AuthFrame
-        title="Opening your account…"
-        description="Checking your sign-in."
+        title="Opening your workspace…"
+        description="Please wait a moment."
       >
         <Loader2
           role="status"
-          aria-label="Checking sign-in"
+          aria-label="Opening workspace"
           className="size-5 animate-spin"
         />
       </AuthFrame>
     );
-  if (user) return <Navigate to={returnTo} replace />;
   if (pendingEmail)
     return (
       <ConfirmationWaiting

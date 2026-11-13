@@ -12,6 +12,9 @@ const dom = new JSDOM('<!doctype html><html><body></body></html>', { url: 'https
 for (const name of ['window', 'document', 'navigator', 'localStorage', 'HTMLElement', 'HTMLInputElement', 'Element', 'Node', 'Event', 'CustomEvent'])
   Object.defineProperty(globalThis, name, { configurable: true, value: dom.window[name as keyof typeof dom.window] });
 Object.assign(globalThis, { IS_REACT_ACT_ENVIRONMENT: true });
+Object.defineProperty(window, 'matchMedia', { configurable: true, value: (media: string) => ({
+  matches: false, media, addEventListener() {}, removeEventListener() {},
+}) });
 const { act, useState } = await import('react');
 const { createRoot } = await import('react-dom/client');
 const { createMemoryRouter, RouterProvider } = await import('react-router');
@@ -20,11 +23,12 @@ const bundlePath = resolve(`.codex/auth-browser-tests-${process.pid}.mjs`);
 const bundle = await build({ stdin: { contents: `
   export { AuthProvider, useAuth } from './src/app/auth/AuthContext';
   export { LoginPage, SignupPage, ConfirmEmailPage, ResetPasswordPage, ResendConfirmationPage } from './src/app/pages/AuthPages';
+  export { default as LandingNavigation } from './src/app/components/LandingNavigation';
 `, resolveDir: process.cwd(), loader: 'tsx' }, bundle: true, packages: 'external', platform: 'node', format: 'esm', write: false,
   define: { 'import.meta.env': JSON.stringify({ DEV: false, VITE_API_BASE_URL: '' }) } });
 await writeFile(bundlePath, bundle.outputFiles[0].contents);
 after(async () => { await unlink(bundlePath); dom.window.close(); });
-const { AuthProvider, useAuth, LoginPage, SignupPage, ConfirmEmailPage, ResetPasswordPage, ResendConfirmationPage } = await import(pathToFileURL(bundlePath).href);
+const { AuthProvider, useAuth, LoginPage, SignupPage, ConfirmEmailPage, ResetPasswordPage, ResendConfirmationPage, LandingNavigation } = await import(pathToFileURL(bundlePath).href);
 const person = { id: 'owner-one', email: 'owner@example.test', user_metadata: { name: 'Owner' } };
 let session: () => Promise<unknown>;
 let posts: string[];
@@ -65,10 +69,11 @@ function Probe() {
   </>;
 }
 async function flush() { await setImmediate(); await setImmediate(); }
-async function setup(path = '/probe', signedIn = false, offline = false) {
+async function setup(path = '/probe', signedIn = false, offline = false, initialSession?: () => Promise<unknown>) {
   posts = []; confirmation = false; configurationFails = offline; unconfirmedLogin = false;
-  session = async () => { if (offline) throw new TypeError('Failed to fetch'); return { user: signedIn ? person : null }; };
+  session = initialSession ?? (async () => { if (offline) throw new TypeError('Failed to fetch'); return { user: signedIn ? person : null }; });
   const router = createMemoryRouter([
+    { path: '/', element: <LandingNavigation onSection={() => {}} /> },
     { path: '/probe', element: <Probe /> }, { path: '/login', element: <LoginPage /> }, { path: '/signup', element: <SignupPage /> },
     { path: '/auth/confirm', element: <ConfirmEmailPage /> }, { path: '/reset-password', element: <ResetPasswordPage /> },
     { path: '/resend-confirmation', element: <ResendConfirmationPage /> },
@@ -94,6 +99,58 @@ async function setup(path = '/probe', signedIn = false, offline = false) {
     cleanup: async () => { await act(async () => root.unmount()); router.dispose(); container.remove(); },
   };
 }
+
+test('landing navigation waits for the session and shows Dashboard for the signed-in account on desktop and mobile', async () => {
+  let finish!: (result: unknown) => void;
+  const app = await setup('/', false, false, () => new Promise(resolve => { finish = resolve; }));
+  try {
+    assert.equal(app.container.querySelector('a[href="/login"], a[href="/signup"]'), null);
+    await app.click('Open navigation menu');
+    assert.equal(app.container.querySelector('#mobile-site-menu a[href="/login"], #mobile-site-menu a[href="/signup"]'), null);
+    await act(async () => { finish({ user: person }); await flush(); });
+    assert.equal(app.container.querySelector('a[href="/login"], a[href="/signup"]'), null);
+    assert.ok(app.container.querySelector('nav[aria-label="Main navigation"] a[href="/dashboard"]'));
+    for (const link of app.container.querySelectorAll('a[href="/dashboard"]')) assert.equal(link.textContent?.trim(), 'Dashboard');
+    await app.click('Open navigation menu');
+    const dashboard = app.container.querySelector('#mobile-site-menu a[href="/dashboard"]') as HTMLAnchorElement;
+    assert.equal(dashboard.textContent?.trim(), 'Dashboard');
+    await act(async () => { dashboard.click(); await flush(); });
+    assert.equal(app.router.state.location.pathname, '/dashboard');
+  } finally { await app.cleanup(); }
+});
+
+test('landing navigation keeps Dashboard during a session refresh failure and restores guest actions after confirmed sign-out', async () => {
+  const app = await setup('/', true);
+  try {
+    session = async () => { throw new TypeError('Failed to fetch'); };
+    await app.focus();
+    assert.ok(app.container.querySelector('a[href="/dashboard"]'));
+    assert.equal(app.container.querySelector('a[href="/login"], a[href="/signup"]'), null);
+    session = async () => ({ user: null });
+    await app.focus();
+    assert.equal(app.container.querySelector('a[href="/dashboard"]'), null);
+    assert.ok(app.container.querySelector('a[href="/login"]'));
+    assert.ok(app.container.querySelector('a[href="/signup"]'));
+  } finally { await app.cleanup(); }
+});
+
+test('login and signup use a workspace loader then return an existing account to its dashboard destination', async () => {
+  for (const route of ['/login', '/signup']) {
+    let finish!: (result: unknown) => void;
+    const returnTo = '/dashboard/contracts?stage=draft#document';
+    const app = await setup(`${route}?next=${encodeURIComponent(returnTo)}`, false, false,
+      () => new Promise(resolve => { finish = resolve; }));
+    try {
+      assert.match(app.container.textContent!, /Opening your workspace/);
+      assert.doesNotMatch(app.container.textContent!, /Checking your sign-in/);
+      assert.equal(app.container.querySelector('form'), null);
+      await act(async () => { finish({ user: person }); await flush(); });
+      const location = app.router.state.location;
+      assert.equal(`${location.pathname}${location.search}${location.hash}`, returnTo);
+      assert.equal(app.container.querySelector('form'), null);
+    } finally { await app.cleanup(); }
+  }
+});
 
 test('temporary session-service failures and malformed responses preserve the signed-in editor; confirmed expiry signs out', async () => {
   const app = await setup('/probe', true);

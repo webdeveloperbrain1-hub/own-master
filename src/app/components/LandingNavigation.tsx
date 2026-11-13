@@ -7,7 +7,8 @@ const action = 'micro-interaction inline-flex min-h-11 items-center justify-cent
 const navLink = 'inline-flex min-h-11 items-center rounded-[12px] px-3 py-2 text-[14px] font-semibold hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary';
 
 export default function LandingNavigation({ onSection }: { onSection: (id: string) => void }) {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+  const accountReady = Boolean(user) || !loading;
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
   const header = useRef<HTMLElement>(null);
@@ -40,11 +41,11 @@ export default function LandingNavigation({ onSection }: { onSection: (id: strin
         <Link to="/pricing" className={navLink}>Pricing</Link>
         <button type="button" onClick={() => section('about')} className={navLink}>About</button>
         <button type="button" onClick={() => section('how-it-works')} className={navLink}>How it works</button>
-        {!user && <Link to="/login" className={navLink}>Log in</Link>}
-        <Link to={user ? '/dashboard' : '/signup'} className={`${action} ml-2`}>{user ? 'Go to Dashboard' : 'Sign Up'}{user && <ArrowRight className="size-4" aria-hidden="true" />}</Link>
+        {!loading && !user && <Link to="/login" className={navLink}>Log in</Link>}
+        {accountReady && <Link to={user ? '/dashboard' : '/signup'} className={`${action} ml-2`}>{user ? 'Dashboard' : 'Sign Up'}{user && <ArrowRight className="size-4" aria-hidden="true" />}</Link>}
       </nav>
       <div className="flex shrink-0 items-center gap-2 lg:hidden">
-        <div className="hidden sm:block"><Link to={user ? '/dashboard' : '/signup'} className={action}>{user ? 'Dashboard' : 'Sign Up'}</Link></div>
+        {accountReady && <div className="hidden sm:block"><Link to={user ? '/dashboard' : '/signup'} className={action}>{user ? 'Dashboard' : 'Sign Up'}</Link></div>}
         <button ref={toggle} type="button" className="inline-flex size-11 shrink-0 items-center justify-center rounded-[12px] border border-border bg-muted hover:bg-accent" aria-label={open ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={open} aria-controls="mobile-site-menu" onClick={() => setOpen((value) => !value)}>
           {open ? <X className="size-5" aria-hidden="true" /> : <Menu className="size-5" aria-hidden="true" />}
         </button>
@@ -54,8 +55,8 @@ export default function LandingNavigation({ onSection }: { onSection: (id: strin
       <Link to="/pricing" className={navLink} onClick={() => setOpen(false)}>Pricing</Link>
       <button type="button" className={navLink} onClick={() => section('about')}>About Own Masters</button>
       <button type="button" className={navLink} onClick={() => section('how-it-works')}>How it works</button>
-      {!user && <Link to="/login" className={navLink} onClick={() => setOpen(false)}>Log in</Link>}
-      <Link to={user ? '/dashboard' : '/signup'} className={`${action} mt-1`} onClick={() => setOpen(false)}>{user ? 'Open your workspace' : 'Create free account'}<ArrowRight className="size-4" aria-hidden="true" /></Link>
+      {!loading && !user && <Link to="/login" className={navLink} onClick={() => setOpen(false)}>Log in</Link>}
+      {accountReady && <Link to={user ? '/dashboard' : '/signup'} className={`${action} mt-1`} onClick={() => setOpen(false)}>{user ? 'Dashboard' : 'Create free account'}<ArrowRight className="size-4" aria-hidden="true" /></Link>}
     </nav>}
   </header>;
 }
