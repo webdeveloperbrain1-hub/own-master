@@ -159,11 +159,11 @@ export function ContractDraftDownloadButton({
   draftId: string;
   disabled?: boolean;
 }) {
-  const { status, showUpgrade } = useBilling();
+  const { status, showUpgrade, isAdmin } = useBilling();
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
   async function download(format: 'pdf' | 'docx') {
-    if (status && !status.canExport) { showUpgrade(); return; }
+    if (!isAdmin && status && !status.canExport) { showUpgrade(); return; }
     setBusy(true); setError('');
     try { await downloadFilingDraft(draftId, format); }
     catch (err) { setError(err instanceof Error ? err.message : 'Download failed.'); }

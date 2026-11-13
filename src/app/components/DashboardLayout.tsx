@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router';
-import { CreditCard, FolderOpen, LayoutDashboard, LogOut, Menu, PenLine, Sparkles } from 'lucide-react';
+import { CreditCard, FolderOpen, LayoutDashboard, LogOut, Menu, PenLine, Sparkles, UserRound } from 'lucide-react';
 import { useAuth } from '../auth/AuthContext';
 import { authErrorMessage } from '../auth/authFlows';
 import { useBilling } from '../billing/BillingContext';
@@ -13,12 +13,13 @@ const navItems = [
   ['/dashboard/contracts', 'Contracts', FolderOpen],
   ['/dashboard/contract-filler', 'Contract Filler', PenLine],
   ['/dashboard/billing', 'Billing', CreditCard],
+  ['/dashboard/account', 'Account', UserRound],
 ] as const;
 
 const menuButton = 'micro-interaction inline-flex min-h-11 items-center justify-center gap-2 rounded-[14px] border border-border bg-muted px-3 py-2.5 text-[13px] font-bold hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary';
 
 export default function DashboardLayout() {
-  const { catalog, status: billingStatus, showUpgrade } = useBilling();
+  const { catalog, status: billingStatus, showUpgrade, isAdmin } = useBilling();
   const requestLeave = useLeaveConfirmation();
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
@@ -62,7 +63,7 @@ export default function DashboardLayout() {
       <div className="flex-1 px-4 py-6">
         <p className="mb-3 px-3 text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground">Workspace</p>
         <nav aria-label="Workspace navigation" className="grid gap-2">
-          {navItems.map(([href, label, Icon]) => {
+          {navItems.filter(([href]) => !(isAdmin && href === '/dashboard/billing')).map(([href, label, Icon]) => {
             const isActive = location.pathname === href ||
               (href === '/dashboard' ? location.pathname.startsWith('/dashboard/projects/') : location.pathname.startsWith(`${href}/`));
             return <Link key={href} to={href} onClick={closeMenu} aria-current={isActive ? 'page' : undefined}
@@ -75,14 +76,14 @@ export default function DashboardLayout() {
       </div>
 
       <div className="mt-auto shrink-0 space-y-4 border-t border-border p-4">
-        {catalog?.mode === 'stripe' && billingStatus?.plan !== 'pro' && <button type="button" onClick={() => { closeMenu(); showUpgrade(); }} className={`${menuButton} w-full`}>
+        {!isAdmin && catalog?.mode === 'stripe' && billingStatus?.plan !== 'pro' && <button type="button" onClick={() => { closeMenu(); showUpgrade(); }} className={`${menuButton} w-full`}>
           <Sparkles className="size-4 shrink-0" aria-hidden="true" />View Pro
         </button>}
         <div className="flex min-w-0 items-center gap-3 px-1">
           <span aria-hidden="true" className="flex size-10 shrink-0 items-center justify-center rounded-full border border-border bg-accent text-[14px] font-bold">{name.slice(0, 1).toUpperCase()}</span>
           <div className="min-w-0">
             <p className="truncate text-[14px] font-[750]" title={name}>{name}</p>
-            <p className="text-[12px] text-muted-foreground">Your workspace</p>
+            <p className="text-[12px] text-muted-foreground">{isAdmin ? 'Administrator' : 'Your workspace'}</p>
           </div>
         </div>
         <div className="flex items-center gap-2">

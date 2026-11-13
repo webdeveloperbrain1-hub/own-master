@@ -6,15 +6,17 @@ import { fetchBillingCatalog, fetchBillingStatus, proPriceLabel, type BillingCat
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '../components/ui/dialog';
 
 type BillingContextValue = {
+  isAdmin: boolean;
   catalog: BillingCatalog | null; status: BillingStatus | null; loading: boolean; error: string;
   refresh: () => Promise<void>; showUpgrade: () => void;
 };
-const Context = createContext<BillingContextValue>({ catalog: null, status: null, loading: false, error: '', refresh: async () => {}, showUpgrade: () => {} });
+const Context = createContext<BillingContextValue>({ isAdmin: false, catalog: null, status: null, loading: false, error: '', refresh: async () => {}, showUpgrade: () => {} });
 const button = 'micro-interaction inline-flex items-center justify-center gap-2 rounded-[14px] border border-border bg-muted px-4 py-3 font-semibold hover:bg-accent';
 
 export function BillingProvider({ children }: { children: ReactNode }) {
   const { user, loading: authLoading } = useAuth();
   const owner = user?.id || '';
+  const isAdmin = user?.app_metadata?.role === 'admin';
   const [data, setData] = useState<{ owner: string; catalog: BillingCatalog | null; status: BillingStatus | null }>({ owner: '', catalog: null, status: null });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -27,26 +29,26 @@ export function BillingProvider({ children }: { children: ReactNode }) {
     if (authLoading) return;
     const request = ++version.current;
     setLoading(true);
-    const [plans, account] = await Promise.allSettled([fetchBillingCatalog(), owner ? fetchBillingStatus() : Promise.resolve(null)]);
+    const [plans, account] = await Promise.allSettled([isAdmin ? Promise.resolve(null) : fetchBillingCatalog(), owner ? fetchBillingStatus() : Promise.resolve(null)]);
     if (version.current !== request) return;
     setData((current) => ({ owner, catalog: plans.status === 'fulfilled' ? plans.value : current.catalog,
       status: account.status === 'fulfilled' ? account.value : current.owner === owner ? current.status : null }));
     setError(plans.status === 'rejected' || account.status === 'rejected' ? 'Billing is temporarily unavailable. Please refresh to try again.' : '');
     setLoading(false);
-  }, [owner, authLoading]);
+  }, [owner, authLoading, isAdmin]);
   useEffect(() => {
     setOpen(false);
     void refresh();
     const focus = () => { void refresh(); };
-    const upgrade = () => setOpen(true);
+    const upgrade = () => { if (!isAdmin) setOpen(true); };
     window.addEventListener('focus', focus);
     window.addEventListener('own-masters-upgrade-required', upgrade);
     return () => { version.current++; window.removeEventListener('focus', focus); window.removeEventListener('own-masters-upgrade-required', upgrade); };
-  }, [refresh]);
+  }, [refresh, isAdmin]);
   const returnTo = `${location.pathname}${location.search}${location.hash}`;
-  return <Context.Provider value={{ catalog, status, loading, error, refresh, showUpgrade: () => setOpen(true) }}>
+  return <Context.Provider value={{ isAdmin, catalog, status, loading, error, refresh, showUpgrade: () => { if (!isAdmin) setOpen(true); } }}>
     {children}
-    {catalog?.mode === 'stripe' && <Dialog open={open} onOpenChange={setOpen}>
+    {!isAdmin && catalog?.mode === 'stripe' && <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="sm:max-w-[480px] rounded-[22px] max-h-[calc(100dvh-2rem)] overflow-y-auto">
         <DialogHeader>
           <Sparkles className="size-8 mb-2 text-primary" />
@@ -70,8 +72,8 @@ export function BillingProvider({ children }: { children: ReactNode }) {
 export const useBilling = () => useContext(Context);
 
 export function ProExportNotice() {
-  const { catalog, status, showUpgrade } = useBilling();
-  if (!catalog || catalog.mode === 'preview' || status?.plan === 'pro') return null;
+  const { catalog, status, showUpgrade, isAdmin } = useBilling();
+  if (isAdmin || !catalog || catalog.mode === 'preview' || status?.canExport) return null;
   return <aside data-reveal className="flex flex-wrap items-center justify-between gap-3 rounded-[16px] border border-border bg-muted p-4 text-[14px]">
     <div><strong>Take your contracts further with Pro.</strong><p className="text-muted-foreground mt-1">PDF and Word exports are included in Pro. You can keep drafting on Free.</p></div>
     <button type="button" className={button} onClick={showUpgrade}><Sparkles className="size-4" />View Pro</button>

@@ -7,7 +7,7 @@ export interface BillingCatalog {
 }
 export interface BillingStatus {
   mode: 'preview' | 'stripe';
-  plan: 'free' | 'pro';
+  plan: 'free' | 'pro' | 'admin';
   canExport: boolean;
   checkoutAvailable: boolean;
   portalAvailable: boolean;

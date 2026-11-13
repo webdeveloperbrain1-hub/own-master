@@ -2,7 +2,7 @@ import { readdir } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 
 // Verification stays in the source project and never ships in a release.
-const integration = new Set(['localAccounts.test.mjs', 'projectWorkspace.test.mjs', 'contractProgress.test.mjs', 'billing.test.mjs', 'guidePreview.test.mjs', 'libraryUpload.test.mjs']);
+const integration = new Set(['localAccounts.test.mjs', 'projectWorkspace.test.mjs', 'contractProgress.test.mjs', 'billing.test.mjs', 'guidePreview.test.mjs', 'libraryUpload.test.mjs', 'accountSettings.test.mjs']);
 const group = process.argv[2] || 'unit';
 if (!['unit', 'integration'].includes(group)) throw new Error('Choose unit or integration.');
 const files = (await readdir('tests')).filter(name => /\.test\.(mjs|tsx?)$/.test(name) && integration.has(name) === (group === 'integration')).sort();

@@ -276,6 +276,47 @@ export async function handleAuthRoutes(req, res, { url, sendJson, readBody }) {
     return true;
   }
   const body = await readBody(req, 8000);
+  if (!body || typeof body !== 'object' || Array.isArray(body))
+    throw fail('Send account details as a JSON object.');
+  if (url.pathname === '/api/auth/profile') {
+    const user = await sessionUser(req);
+    if (!user) throw fail('Please log in to continue.', 401);
+    if (typeof body.name !== 'string' || !body.name.trim() || body.name.trim().length > 120 || /[\u0000-\u001f]/.test(body.name))
+      throw fail('Enter a display name between 1 and 120 characters.');
+    // Profile edits may only change the display name. Identity and privileges
+    // always come from the authenticated session, never from request fields.
+    const updated = await prisma.accountUser.update({ where: { id: user.id }, data: { name: body.name.trim() } });
+    sendJson(res, 200, { user: publicUser(updated) });
+    return true;
+  }
+  if (url.pathname === '/api/auth/change-password') {
+    const user = await sessionUser(req);
+    if (!user) throw fail('Please log in to continue.', 401);
+    await rateLimit(req, 'change-password', user.email, 5);
+    if (typeof body.currentPassword !== 'string' || Buffer.byteLength(body.currentPassword) > 1024 ||
+        !await verifyPassword(body.currentPassword, user.passwordHash))
+      throw fail('Your current password is incorrect.', 400, 'invalid_current_password');
+    const password = passwordInput(body.password);
+    if (password === body.currentPassword) throw fail('Choose a password different from your current one.', 400, 'same_password');
+    const passwordHash = await hashPassword(password);
+    const raw = randomBytes(32).toString('hex');
+    const updated = await prisma.$transaction(async (db) => {
+      const current = await db.$queryRaw`SELECT "passwordHash" FROM "AccountUser" WHERE "id" = ${user.id} FOR UPDATE`;
+      if (current[0]?.passwordHash !== user.passwordHash)
+        throw fail('Your password changed during this request. Please log in again.', 401);
+      const session = await db.accountSession.findUnique({ where: { tokenHash: hash(tokenFrom(req)) } });
+      if (!session || session.userId !== user.id || session.expiresAt <= new Date())
+        throw fail('Please log in to continue.', 401);
+      const account = await db.accountUser.update({ where: { id: user.id }, data: { passwordHash } });
+      await db.accountSession.deleteMany({ where: { userId: user.id } });
+      await db.passwordResetToken.deleteMany({ where: { userId: user.id } });
+      await db.accountSession.create({ data: { tokenHash: hash(raw), userId: user.id, expiresAt: new Date(Date.now() + SESSION_SECONDS * 1000) } });
+      return account;
+    });
+    cookie(res, raw, SESSION_SECONDS);
+    sendJson(res, 200, { user: publicUser(updated) });
+    return true;
+  }
   if (url.pathname === '/api/auth/resend-confirmation') {
     if (!accountMailConfiguration().available)
       throw fail(

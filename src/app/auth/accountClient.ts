@@ -23,11 +23,14 @@ export async function accountRequest<T>(
     });
     if (!result || typeof result !== 'object' || Array.isArray(result))
       throw new Error('The account service returned an incomplete response. Please try again.');
-    if (!response.ok)
+    if (!response.ok) {
+      if (response.status === 401 && ['profile', 'change-password'].includes(path))
+        window.dispatchEvent(new Event('own-masters-session-expired'));
       throw Object.assign(
         new Error(result.error || 'The account service is unavailable. Please try again.'),
         { code: result.code, status: response.status },
       );
+    }
     return result as T;
   } catch (error) {
     if (controller.signal.aborted) throw new Error('The account service timed out. Please try again.');

@@ -5,12 +5,19 @@ import { useBilling } from '../billing/BillingContext';
 import { proPriceLabel } from '../data/billingClient';
 import EarlyAccess from '../components/EarlyAccess';
 import SiteFooter from '../components/SiteFooter';
+import AdministratorAccess from '../components/AdministratorAccess';
 
 const button = 'micro-interaction inline-flex items-center justify-center gap-2 rounded-[14px] border border-border px-5 py-3 font-semibold hover:opacity-90';
 export default function PricingPage() {
   const { user } = useAuth();
-  const { catalog, status, loading, error, refresh } = useBilling();
+  const { catalog, status, loading, error, refresh, isAdmin } = useBilling();
   const preview = catalog?.mode === 'preview';
+  if (isAdmin) return <main className="mx-auto grid max-w-[900px] gap-6 px-4 py-10 sm:px-6">
+    <h1 className="text-[30px] font-bold">Administrator access</h1>
+    <AdministratorAccess />
+    <Link to="/dashboard" className={`${button} justify-self-start`}>Open workspace<ArrowRight className="size-4" /></Link>
+    <SiteFooter />
+  </main>;
   return <main className="mx-auto max-w-[1000px] px-4 sm:px-6 pb-12 sm:pb-16">
     <header className="flex flex-wrap justify-between items-center gap-4 py-5 border-b border-border">
       <Link to="/" className="flex min-h-11 items-center gap-2 font-extrabold text-[18px]"><Music2 className="size-6" />Own Masters</Link>

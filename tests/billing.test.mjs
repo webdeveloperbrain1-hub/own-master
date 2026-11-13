@@ -34,6 +34,19 @@ test('preview is the default and cannot create payments, paid status, or contact
   assert.equal(subscriptionAllowsExports({ subscriptionStatus: 'active', stripePriceId: 'price_pro', currentPeriodEnd: new Date(0) }), false);
 });
 
+test('administrators have full access without subscriptions, Stripe availability, or a billing account', async () => {
+  const admin = { user: { id: 'admin-test', app_metadata: { role: 'admin' } } };
+  const service = createBillingService({ env: { BILLING_MODE: 'stripe' }, db: {}, stripeFactory: () => { throw new Error('Admins must never contact Stripe'); } });
+  const status = await service.status(admin);
+  assert.equal(status.plan, 'admin');
+  assert.equal(status.canExport, true);
+  assert.equal(status.checkoutAvailable, false);
+  assert.equal(status.portalAvailable, false);
+  await service.requireExports(admin);
+  await assert.rejects(service.checkout(admin, { plan: 'pro' }), { code: 'admin_access' });
+  await assert.rejects(service.portal(admin), { code: 'admin_access' });
+});
+
 test('Checkout uses authenticated owners, configured price, one open session, and the matching portal customer', async () => {
   const users = [`billing-${randomUUID()}`, `billing-${randomUUID()}`];
   const calls = { customers: [], checkouts: [], portals: [] };

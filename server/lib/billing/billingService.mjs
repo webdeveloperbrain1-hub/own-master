@@ -48,6 +48,11 @@ export function createBillingService({ db = prisma, env = process.env, stripeFac
   }
   const internal = (auth) => auth.user.app_metadata?.role === 'admin';
   async function status(auth) {
+    if (internal(auth)) return {
+      mode: env.BILLING_MODE === 'stripe' ? 'stripe' : 'preview', plan: 'admin',
+      canExport: true, checkoutAvailable: false, portalAvailable: false,
+      subscriptionStatus: 'none', currentPeriodEnd: null, cancelAtPeriodEnd: false,
+    };
     const settings = config();
     const account = settings.mode === 'stripe' ? await db.billingAccount.findUnique({ where: { userId: auth.user.id } }) : null;
     const pro = subscriptionAllowsExports(account, now()) && account.stripePriceId === settings.priceId;
@@ -62,9 +67,11 @@ export function createBillingService({ db = prisma, env = process.env, stripeFac
     };
   }
   async function requireExports(auth) {
+    if (internal(auth)) return;
     if (!(await status(auth)).canExport) throw billingError('Contract exports are included in Pro. Your draft is saved; view plans to upgrade.', 402, 'upgrade_required');
   }
   async function checkout(auth, input = {}) {
+    if (internal(auth)) throw billingError('Administrator accounts have full access without a subscription.', 400, 'admin_access');
     if (input.plan !== 'pro') throw billingError('Choose the Pro plan.');
     const settings = config(), api = stripe();
     await proPrice();
@@ -96,6 +103,7 @@ export function createBillingService({ db = prisma, env = process.env, stripeFac
     });
   }
   async function portal(auth) {
+    if (internal(auth)) throw billingError('Administrator accounts have full access without a subscription.', 400, 'admin_access');
     const api = stripe();
     const account = await db.billingAccount.findUnique({ where: { userId: auth.user.id } });
     if (!account?.stripeCustomerId) throw billingError('There is no billing account to manage yet.', 409);

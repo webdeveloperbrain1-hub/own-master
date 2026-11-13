@@ -76,6 +76,7 @@ import { mergeContractInventory, type ContractListItem } from './data/contractIn
 import { BillingProvider, ProExportNotice } from './billing/BillingContext';
 const PricingPage = lazy(() => import('./pages/Pricing'));
 const BillingPage = lazy(() => import('./pages/Billing'));
+const AccountPage = lazy(() => import('./pages/Account'));
 
 const primaryButton =
   'micro-interaction inline-flex items-center justify-center gap-2 border border-primary bg-primary text-primary-foreground px-[15px] py-[11px] rounded-[14px] font-[750] cursor-pointer hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed';
@@ -319,6 +320,7 @@ function AppRoutes() {
       >
         <Route index element={<DashboardHome />} />
         <Route path="billing" element={<Suspense fallback={<LoadingScreen label="Loading billing" />}><BillingPage /></Suspense>} />
+        <Route path="account" element={<Suspense fallback={<LoadingScreen label="Loading account" />}><AccountPage /></Suspense>} />
         <Route path="contracts" element={<ContractsPage />} />
         <Route path="contract-filler" element={<ContractFillerPage />} />
         <Route path="contract-filler/guides/:guideId" element={<Suspense fallback={<LoadingScreen label="Opening guide" />}><GuidePreviewPage /></Suspense>} />

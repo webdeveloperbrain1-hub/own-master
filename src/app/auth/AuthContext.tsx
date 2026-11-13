@@ -26,6 +26,8 @@ interface AuthContextValue {
   resendConfirmation: (email: string, returnTo?: string) => Promise<void>;
   confirmEmail: (token: string) => Promise<{ returnTo: string }>;
   updatePassword: (password: string, token: string) => Promise<void>;
+  updateProfile: (name: string) => Promise<void>;
+  changePassword: (currentPassword: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
 }
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
@@ -120,6 +122,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     async signOut() {
       await accountRequest('logout', {});
       acceptUser(null);
+    },
+    async updateProfile(name) {
+      const version = ++generation.current;
+      const result = await accountRequest<{ user: AppUser }>('profile', { name: name.trim() });
+      if (version === generation.current) acceptUser(result.user);
+    },
+    async changePassword(currentPassword, password) {
+      const version = ++generation.current;
+      const result = await accountRequest<{ user: AppUser }>('change-password', { currentPassword, password });
+      if (version === generation.current) acceptUser(result.user);
     },
     async requestPasswordReset(email) {
       await accountRequest('forgot-password', { email: email.trim() });

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router';
 import { ArrowLeft, ArrowUpRight, Check, CreditCard, FileText, Loader2, RefreshCw, Sparkles } from 'lucide-react';
 import EarlyAccess from '../components/EarlyAccess';
+import AdministratorAccess from '../components/AdministratorAccess';
 import { useBilling } from '../billing/BillingContext';
 import { useLeaveConfirmation } from '../components/UnsavedChanges';
 import { createBillingPortal, createCheckout, proPriceLabel, safeBillingReturn } from '../data/billingClient';
@@ -11,7 +12,7 @@ const primary = `${button} bg-primary text-primary-foreground`;
 const panel = 'min-w-0 rounded-[22px] border border-border bg-card p-5 sm:p-6';
 
 export default function BillingPage() {
-  const { catalog, status, loading, error, refresh } = useBilling();
+  const { catalog, status, loading, error, refresh, isAdmin } = useBilling();
   const [params] = useSearchParams();
   const requestLeave = useLeaveConfirmation();
   const [busy, setBusy] = useState(false);
@@ -22,14 +23,14 @@ export default function BillingPage() {
   const preview = catalog?.mode === 'preview';
   const pro = status?.plan === 'pro';
   useEffect(() => {
-    if (!returned || preview || pro) return;
+    if (isAdmin || !returned || preview || pro) return;
     let attempts = 0;
     const timer = window.setInterval(() => {
       if (++attempts > 10) { window.clearInterval(timer); return; }
       void refresh();
     }, 2000);
     return () => window.clearInterval(timer);
-  }, [returned, preview, pro, refresh]);
+  }, [returned, preview, pro, refresh, isAdmin]);
   async function openPayment(action: 'checkout' | 'portal') {
     if (busy) return;
     setBusy(true); setActionError('');
@@ -42,6 +43,11 @@ export default function BillingPage() {
       setActionError(failure instanceof Error ? failure.message : 'Billing could not be opened.');
     } finally { setBusy(false); }
   }
+  if (isAdmin) return <main className="grid gap-6">
+    <header><h1 className="text-[30px] font-bold">Administrator access</h1></header>
+    <AdministratorAccess />
+    <Link to="/dashboard/account" className={`${button} justify-self-start`}>Account settings</Link>
+  </main>;
   return <main className="grid gap-6">
     <header data-reveal className="flex flex-wrap gap-4 justify-between items-start">
       <div className="min-w-0"><p className="text-[12px] uppercase tracking-[0.16em] text-muted-foreground mb-2">Your account</p><h1 className="text-[30px] sm:text-[36px] font-bold tracking-tight">{preview ? 'Your plan' : 'Plans & billing'}</h1><p className="text-muted-foreground mt-2">{preview ? 'Everything included in your Own Masters workspace.' : 'See your plan and manage your subscription in one place.'}</p></div>
