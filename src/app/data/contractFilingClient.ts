@@ -1,6 +1,13 @@
 /// <reference types="vite/client" />
 
-import { apiJson, downloadApiFile } from './apiClient';
+import { apiFetch, apiJson, downloadApiFile } from './apiClient';
+
+export async function uploadFilingTemplate(file: File): Promise<{ id: string; originalName: string; duplicate: boolean; needsReview: boolean }> {
+  const response = await apiFetch(`/api/filing/upload?name=${encodeURIComponent(file.name)}`, {
+    method: 'POST', headers: { 'Content-Type': 'application/octet-stream' }, body: file,
+  });
+  return response.json();
+}
 
 export type FilingFieldType = 'text' | 'textarea' | 'paragraph' | 'date' | 'money' | 'percent';
 

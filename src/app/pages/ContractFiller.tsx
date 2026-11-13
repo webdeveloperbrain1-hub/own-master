@@ -6,13 +6,14 @@ import { DraftRecoveryNotice, useDraftRecovery } from '../components/DraftRecove
 import { useUnsavedChanges } from '../components/UnsavedChanges';
 import { useAuth } from '../auth/AuthContext';
 import { guidePreviewPath, savedContractEditorPath } from '../data/contractLinks';
-import { BookOpen, Loader2, RefreshCw, Save, Search, Sparkles } from 'lucide-react';
+import { BookOpen, Loader2, RefreshCw, Save, Search, Sparkles, Upload } from 'lucide-react';
 import {
   fetchFilingSummary,
   fetchFilingTemplateFill,
   fetchFilingTemplates,
   downloadFilingOriginal,
   saveFilingDraft,
+  uploadFilingTemplate,
   type FilingSummary,
   type FilingTemplateListItem,
   type FilingTemplateMeta,
@@ -79,6 +80,11 @@ function NewContractFillerPage({ projectId }: { projectId: string | null }) {
   const [summary, setSummary] = useState<FilingSummary | null>(null);
   const [status, setStatus] = useState<string>('');
   const [busy, setBusy] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [uploadMessage, setUploadMessage] = useState('');
+  const [uploadError, setUploadError] = useState('');
+  const [libraryRevision, setLibraryRevision] = useState(0);
+  const uploadInput = useRef<HTMLInputElement>(null);
 
   const [selected, setSelected] = useState<FilingTemplateMeta | null>(null);
   const [draftName, setDraftName] = useState('');
@@ -137,6 +143,31 @@ function NewContractFillerPage({ projectId }: { projectId: string | null }) {
     }
   }, []);
 
+  async function uploadContract(file: File) {
+    setUploadMessage('');
+    setUploadError('');
+    if (file.size > 20 * 1024 * 1024) {
+      setUploadError('Documents must be 20 MB or smaller.');
+      return;
+    }
+    setUploading(true);
+    try {
+      const result = await uploadFilingTemplate(file);
+      setUploadMessage(result.duplicate ? `${result.originalName} is already in the library.` : `${result.originalName} was added to the library.${result.needsReview ? ' Check the extracted text before using it.' : ''}`);
+      setLibraryKind('template');
+      setCategory('');
+      setCommonOnly(false);
+      setQuery('');
+      setLibraryRevision((revision) => revision + 1);
+      await loadSummary();
+    } catch (error) {
+      setUploadError(error instanceof Error ? error.message : 'The document could not be uploaded.');
+    } finally {
+      setUploading(false);
+      if (uploadInput.current) uploadInput.current.value = '';
+    }
+  }
+
   useEffect(() => {
     const timer = setTimeout(
       () => void loadTemplates(query),
@@ -148,7 +179,7 @@ function NewContractFillerPage({ projectId }: { projectId: string | null }) {
       // debounce delay, so a slower response cannot restore stale matches.
       templateRequest.current += 1;
     };
-  }, [query, loadTemplates]);
+  }, [query, loadTemplates, libraryRevision]);
 
   useEffect(() => {
     void loadSummary();
@@ -311,6 +342,23 @@ function NewContractFillerPage({ projectId }: { projectId: string | null }) {
       )}
 
       <section className={`${panel} min-w-0 p-4`} aria-label="Contract library">
+        {user?.app_metadata?.role === 'admin' && (
+          <div className="mb-4 border-b border-border pb-4">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h2 className="font-semibold">Manage contract library</h2>
+                <p className="text-[12px] text-muted-foreground mt-1">Add a document for all members. PDF, DOC, DOCX, RTF, TXT, or MD, up to 20 MB.</p>
+              </div>
+              <input ref={uploadInput} type="file" className="hidden" aria-label="Choose a contract to upload" accept=".pdf,.doc,.docx,.rtf,.txt,.md" disabled={uploading} onChange={(event) => { const file = event.target.files?.[0]; if (file) void uploadContract(file); }} />
+              <button type="button" className={primaryButton} disabled={uploading} onClick={() => uploadInput.current?.click()}>
+                {uploading ? <Loader2 className="size-4 animate-spin" /> : <Upload className="size-4" />}
+                {uploading ? 'Uploading contract…' : 'Upload contract'}
+              </button>
+            </div>
+            {uploadMessage && <p role="status" className="mt-2 text-[13px] text-muted-foreground">{uploadMessage}</p>}
+            {uploadError && <p role="alert" className="mt-2 text-[13px] text-destructive">{uploadError}</p>}
+          </div>
+        )}
         <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
           <div className="grid w-full min-w-0 grid-cols-2 gap-2 sm:flex sm:w-auto" role="group" aria-label="Library section">
             {([['template', 'Contract templates'], ['guide', 'Guides & Resources']] as const).map(([kind, label]) => (

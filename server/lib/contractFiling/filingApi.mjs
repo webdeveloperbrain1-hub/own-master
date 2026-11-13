@@ -1,6 +1,7 @@
 import { prisma } from '../prisma.mjs';
 import { config } from './filingConfig.mjs';
 import { importZip } from './importer.mjs';
+import { uploadLibraryDocument } from './libraryUpload.mjs';
 import { buildLibraryCatalog, describeLibraryFile, filterLibraryCatalog, libraryCatalogSummary, publicCatalogEntry } from './libraryCatalog.mjs';
 import { scanTemplateFieldsWithAI } from './fieldContextScanner.mjs';
 import {
@@ -109,11 +110,17 @@ export async function handleFilingRoutes(req, res, ctx) {
   if (!pathname.startsWith('/api/filing/')) return false;
   const auth = await requireAuth(req);
   const userId = auth.user.id;
-  if (req.method === 'POST' && (pathname === '/api/filing/import' || pathname === '/api/filing/scan-all' || pathname.endsWith('/scan-fields'))) {
+  if (req.method === 'POST' && (pathname === '/api/filing/upload' || pathname === '/api/filing/import' || pathname === '/api/filing/scan-all' || pathname.endsWith('/scan-fields'))) {
     if (auth.user.app_metadata?.role !== 'admin') {
       sendJson(res, 403, { error: 'Only a library administrator can import or scan shared templates.' });
       return true;
     }
+  }
+
+  if (req.method === 'POST' && pathname === '/api/filing/upload') {
+    const result = await uploadLibraryDocument(req, url.searchParams.get('name'));
+    sendJson(res, result.duplicate ? 200 : 201, result);
+    return true;
   }
 
   if (req.method === 'GET' && (['/api/filing/templates', '/api/filing/summary'].includes(pathname) || /^\/api\/filing\/guides\/[^/]+$/.test(pathname))) {

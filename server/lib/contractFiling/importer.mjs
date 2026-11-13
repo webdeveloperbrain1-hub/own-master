@@ -59,17 +59,20 @@ export async function importZip(zipPath, options = {}) {
         if (!await fs.stat(storedPath).then(stat => stat.isFile(), () => false)) await fs.writeFile(storedPath, buffer);
         if (existing.storedPath !== storedPath)
           await prisma.contractFile.update({ where: { id: existing.id }, data: { storedPath } });
+        if (options.persist) await persistPrivateFile(storedPath);
         summary.duplicates += 1;
-        summary.results.push({ originalName, status: "duplicate", id: existing.id });
+        summary.results.push({ originalName, status: "duplicate", id: existing.id, needsReview: existing.needsReview });
         onProgress?.({ originalName, status: "duplicate", summary });
         continue;
       }
 
       const storedPath = path.join(config.storageDir, "originals", safeStoredName(hash, originalName));
       await fs.writeFile(storedPath, buffer);
-      if (options.analyze !== 'local') await persistPrivateFile(storedPath);
+      if (options.analyze !== 'local' || options.persist) await persistPrivateFile(storedPath);
 
       const extraction = await extractText(storedPath, extension);
+      if (options.rejectFailedExtraction && extraction.status === 'failed')
+        throw new Error('The uploaded document could not be read.');
       const analysis = options.analyze === 'local'
         ? fallbackAnalyze({ originalName, text: extraction.text, reason: 'Automatically loaded from the contract library. Review the contract before use.' })
         : analyze ? await analyzeContract({ originalName, text: extraction.text })
