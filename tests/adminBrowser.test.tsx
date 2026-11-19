@@ -88,6 +88,7 @@ async function setup(path = '/dashboard/admin', role = 'admin', billingUnavailab
   return { container, router, calls, find,
     setFailLibrary: (value: boolean) => { failLibrary = value; },
     setFailUser: (value: boolean) => { failUser = value; },
+    setRole: (value: string) => { role = value; actor.app_metadata.role = value; },
     fill: async (label: string, value: string) => { await act(async () => {
       const element = find(label); assert.ok(element, `Missing ${label}`);
       const prototype = element instanceof window.HTMLTextAreaElement ? window.HTMLTextAreaElement.prototype : element instanceof window.HTMLSelectElement ? window.HTMLSelectElement.prototype : window.HTMLInputElement.prototype;
@@ -116,6 +117,67 @@ test('admin overview and navigation are available only to administrator accounts
     assert.equal(member.container.querySelector('a[href="/dashboard/admin"]'), null);
     assert.equal(member.calls.some(call => call.path.startsWith('/api/admin/')), false);
   } finally { await member.cleanup(); }
+});
+
+test('administrator sidebar prioritizes management and highlights only the selected admin section', async () => {
+  const app = await setup('/dashboard/admin?tab=users&item=member-one');
+  const navigation = () => app.container.querySelector('nav[aria-label="Workspace navigation"]')!;
+  try {
+    assert.deepEqual([...navigation().querySelectorAll('section')].map(section => section.getAttribute('aria-label')), ['Administration menu', 'My workspace menu', 'Account menu']);
+    const management = navigation().querySelector('[aria-label="Administration menu"]')!;
+    assert.deepEqual([...management.querySelectorAll('a')].map(link => link.textContent), ['Overview', 'Users', 'Library', 'Support & Reports', 'Activity']);
+    assert.equal(navigation().querySelector('a[href="/dashboard/billing"]'), null);
+    for (const [path, label] of [
+      ['/dashboard/admin?tab=library&item=doc-one', 'Library'],
+      ['/dashboard/admin/?tab=library', 'Library'],
+      ['/dashboard/admin?tab=tickets&item=request-one', 'Support & Reports'],
+      ['/dashboard/admin?tab=activity', 'Activity'],
+      ['/dashboard/admin?tab=unknown', 'Overview'],
+      ['/dashboard/admin', 'Overview'],
+    ]) {
+      await app.navigate(path);
+      const selected = navigation().querySelectorAll('a[aria-current="page"]');
+      assert.equal(selected.length, 1);
+      assert.equal(selected[0].textContent, label);
+    }
+  } finally { await app.cleanup(); }
+});
+
+test('member sidebar exposes personal tools and no website administration links', async () => {
+  const app = await setup('/dashboard', 'member');
+  try {
+    const navigation = app.container.querySelector('nav[aria-label="Workspace navigation"]')!;
+    assert.deepEqual([...navigation.querySelectorAll('a')].map(link => link.textContent), ['Dashboard', 'My contracts', 'Library & guides', 'My account', 'Support', 'Your plan']);
+    assert.equal(navigation.querySelector('a[href^="/dashboard/admin"]'), null);
+    assert.equal(navigation.querySelector('[aria-label="Administration menu"]'), null);
+    assert.equal(navigation.querySelectorAll('a[aria-current="page"]').length, 1);
+    assert.equal(app.calls.some(call => call.path.startsWith('/api/admin/')), false);
+  } finally { await app.cleanup(); }
+});
+
+test('mobile admin menu has the same role-specific links and closes after selecting a section', async () => {
+  const app = await setup();
+  try {
+    const desktopLinks = [...app.container.querySelectorAll('nav[aria-label="Workspace navigation"] a')].map(link => link.getAttribute('href'));
+    await act(async () => { app.container.querySelector<HTMLButtonElement>('button[aria-label="Open workspace menu"]')!.click(); await flush(); });
+    const menu = window.document.querySelector('[role="dialog"] nav[aria-label="Workspace navigation"]')!;
+    assert.ok(menu);
+    assert.deepEqual([...menu.querySelectorAll('a')].map(link => link.getAttribute('href')), desktopLinks);
+    await act(async () => { menu.querySelector<HTMLAnchorElement>('a[href="/dashboard/admin?tab=users"]')!.click(); await flush(); });
+    assert.equal(app.router.state.location.search, '?tab=users');
+    assert.equal(window.document.querySelector('[role="dialog"]'), null);
+  } finally { await app.cleanup(); }
+});
+
+test('refreshing a changed role removes stale administrator navigation and leaves the admin page', async () => {
+  const app = await setup('/dashboard/admin?tab=users');
+  try {
+    app.setRole('member');
+    await act(async () => { window.dispatchEvent(new window.Event('focus')); await flush(); });
+    assert.equal(app.router.state.location.pathname, '/dashboard');
+    assert.equal(app.container.querySelector('a[href^="/dashboard/admin"]'), null);
+    assert.ok(app.container.querySelector('a[href="/dashboard/billing"]'));
+  } finally { await app.cleanup(); }
 });
 
 test('account privilege changes show a review step before submitting the selected role', async () => {

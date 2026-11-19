@@ -1,22 +1,21 @@
 import { useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router';
-import { CreditCard, FolderOpen, LayoutDashboard, LogOut, Menu, PenLine, Sparkles, UserRound, ShieldCheck, LifeBuoy } from 'lucide-react';
+import { Activity, BookOpen, CreditCard, FolderOpen, LayoutDashboard, LogOut, Menu, Sparkles, UserRound, Users, ShieldCheck, LifeBuoy, type LucideIcon } from 'lucide-react';
 import { useAuth } from '../auth/AuthContext';
 import { authErrorMessage } from '../auth/authFlows';
 import { useBilling } from '../billing/BillingContext';
+import { adminSections, adminUrl, selectedAdminSection, type AdminSection } from '../data/adminNavigation';
 import ThemeToggle from './ThemeToggle';
 import { useLeaveConfirmation } from './UnsavedChanges';
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from './ui/sheet';
 
-const navItems = [
-  ['/dashboard', 'Dashboard', LayoutDashboard],
-  ['/dashboard/contracts', 'Contracts', FolderOpen],
-  ['/dashboard/contract-filler', 'Contract Filler', PenLine],
-  ['/dashboard/billing', 'Billing', CreditCard],
-  ['/dashboard/account', 'Account', UserRound],
-  ['/dashboard/support', 'Support', LifeBuoy],
-  ['/dashboard/admin', 'Admin', ShieldCheck],
-] as const;
+type NavItem = { href: string; label: string; icon: LucideIcon; adminSection?: AdminSection };
+const workspaceItems: NavItem[] = [
+  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { href: '/dashboard/contracts', label: 'My contracts', icon: FolderOpen },
+  { href: '/dashboard/contract-filler', label: 'Library & guides', icon: BookOpen },
+];
+const adminIcons = { overview: ShieldCheck, users: Users, library: BookOpen, tickets: LifeBuoy, activity: Activity };
 
 const menuButton = 'micro-interaction inline-flex min-h-11 items-center justify-center gap-2 rounded-[14px] border border-border bg-muted px-3 py-2.5 text-[13px] font-bold hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary';
 
@@ -30,6 +29,25 @@ export default function DashboardLayout() {
   const [loggingOut, setLoggingOut] = useState(false);
   const [logoutError, setLogoutError] = useState('');
   const name = user?.user_metadata?.name || user?.email?.split('@')[0] || 'Your account';
+  const homeHref = isAdmin ? adminUrl('overview') : '/dashboard';
+  const currentPath = location.pathname.replace(/\/+$/, '') || '/';
+  const currentAdminSection = selectedAdminSection(new URLSearchParams(location.search).get('tab'));
+  const navGroups: { label: string; items: NavItem[] }[] = [
+    ...(isAdmin ? [{ label: 'Administration', items: adminSections.map(([key, label]) => ({ href: adminUrl(key), label, icon: adminIcons[key], adminSection: key })) }] : []),
+    { label: isAdmin ? 'My workspace' : 'Workspace', items: isAdmin ? workspaceItems.map(item => item.href === '/dashboard' ? { ...item, label: 'My dashboard' } : item) : workspaceItems },
+    { label: 'Account', items: [
+      { href: '/dashboard/account', label: 'My account', icon: UserRound },
+      { href: '/dashboard/support', label: isAdmin ? 'My support requests' : 'Support', icon: LifeBuoy },
+      ...(!isAdmin ? [{ href: '/dashboard/billing', label: catalog?.mode === 'preview' ? 'Your plan' : 'Billing', icon: CreditCard }] : []),
+    ] },
+  ];
+
+  function isCurrentItem(item: NavItem) {
+    if (item.adminSection) return currentPath === '/dashboard/admin' && item.adminSection === currentAdminSection;
+    return currentPath === item.href || (item.href === '/dashboard'
+      ? currentPath.startsWith('/dashboard/projects/')
+      : currentPath.startsWith(`${item.href}/`));
+  }
 
   useEffect(() => { setMenuOpen(false); }, [location.key, user?.id]);
   useEffect(() => {
@@ -57,23 +75,24 @@ export default function DashboardLayout() {
 
   function workspaceMenu() {
     return <>
-      <Link to="/dashboard" onClick={closeMenu} className="flex min-h-[76px] shrink-0 items-center gap-2.5 border-b border-border px-5 pr-14 text-[17px] font-[850] tracking-[-0.3px] lg:pr-5">
+      <Link to={homeHref} onClick={closeMenu} className="flex min-h-[76px] shrink-0 items-center gap-2.5 border-b border-border px-5 pr-14 text-[17px] font-[850] tracking-[-0.3px] lg:pr-5">
         <img src="/own-masters-logo.png" alt="" className="h-auto w-10 shrink-0 brightness-0 dark:brightness-100" />
         Own Masters
       </Link>
 
-      <div className="flex-1 px-4 py-6">
-        <p className="mb-3 px-3 text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground">Workspace</p>
-        <nav aria-label="Workspace navigation" className="grid gap-2">
-          {navItems.filter(([href]) => !(isAdmin && href === '/dashboard/billing') && (href !== '/dashboard/admin' || isAdmin)).map(([href, label, Icon]) => {
-            const isActive = location.pathname === href ||
-              (href === '/dashboard' ? location.pathname.startsWith('/dashboard/projects/') : location.pathname.startsWith(`${href}/`));
-            return <Link key={href} to={href} onClick={closeMenu} aria-current={isActive ? 'page' : undefined}
-              className={`micro-interaction flex min-h-12 items-center gap-3 rounded-[14px] border px-3.5 py-3 text-[14px] font-[750] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${isActive ? 'border-primary bg-primary text-primary-foreground' : 'border-transparent text-muted-foreground hover:bg-accent hover:text-foreground'}`}>
-              <Icon className="size-[18px] shrink-0" aria-hidden="true" />
-              {href === '/dashboard/billing' && catalog?.mode === 'preview' ? 'Your plan' : label}
-            </Link>;
-          })}
+      <div className="flex-1 px-4 py-5">
+        <nav aria-label="Workspace navigation" className="grid gap-5">
+          {navGroups.map(group => <section key={group.label} aria-label={`${group.label} menu`}>
+            <h2 className="mb-2 px-3 text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground">{group.label}</h2>
+            <div className="grid gap-1">{group.items.map(item => {
+              const Icon = item.icon;
+              const isActive = isCurrentItem(item);
+              return <Link key={item.href} to={item.href} onClick={closeMenu} aria-current={isActive ? 'page' : undefined}
+                className={`micro-interaction flex min-h-11 items-center gap-3 rounded-[14px] border px-3.5 py-2.5 text-[14px] font-[750] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${isActive ? 'border-primary bg-primary text-primary-foreground' : 'border-transparent text-muted-foreground hover:bg-accent hover:text-foreground'}`}>
+                <Icon className="size-[18px] shrink-0" aria-hidden="true" />{item.label}
+              </Link>;
+            })}</div>
+          </section>)}
         </nav>
       </div>
 
@@ -85,7 +104,7 @@ export default function DashboardLayout() {
           <span aria-hidden="true" className="flex size-10 shrink-0 items-center justify-center rounded-full border border-border bg-accent text-[14px] font-bold">{name.slice(0, 1).toUpperCase()}</span>
           <div className="min-w-0">
             <p className="truncate text-[14px] font-[750]" title={name}>{name}</p>
-            <p className="text-[12px] text-muted-foreground">{isAdmin ? 'Administrator' : 'Your workspace'}</p>
+            <p className="text-[12px] text-muted-foreground">{isAdmin ? 'Administrator' : 'Member'}</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -111,7 +130,7 @@ export default function DashboardLayout() {
             <Menu className="size-5" aria-hidden="true" />
           </button>
         </SheetTrigger>
-        <Link to="/dashboard" className="flex min-w-0 items-center gap-2 text-[16px] font-[850] tracking-[-0.3px]">
+        <Link to={homeHref} className="flex min-w-0 items-center gap-2 text-[16px] font-[850] tracking-[-0.3px]">
           <img src="/own-masters-logo.png" alt="" className="h-auto w-9 shrink-0 brightness-0 dark:brightness-100" />
           Own Masters
         </Link>

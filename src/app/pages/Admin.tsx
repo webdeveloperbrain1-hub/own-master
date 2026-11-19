@@ -2,20 +2,19 @@ import { useState, type FormEvent } from 'react';
 import { Link, Navigate, useSearchParams } from 'react-router';
 import { Loader2, ShieldCheck, Upload } from 'lucide-react';
 import { useAuth } from '../auth/AuthContext';
+import { adminSections as tabs, adminUrl, selectedAdminSection } from '../data/adminNavigation';
 import { useUnsavedChanges } from '../components/UnsavedChanges';
 import { fetchAdmin, updateAdmin, type Activity, type AdminDocument, type AdminSummary, type AdminUser, type Page, type SupportTicket, type TicketStatus } from '../data/adminClient';
 import { downloadFilingOriginal, uploadFilingTemplate } from '../data/contractFilingClient';
 import { adminButton as button, adminInput as input, adminPanel as panel, adminPrimary as primary, dateLabel, Pagination, RemoteState, SaveError, statusLabel, TicketConversation, useRemote } from '../components/AdminShared';
 
-const adminUrl = (tab: string, item?: string) => `/dashboard/admin?${new URLSearchParams({ tab, ...(item ? { item } : {}) })}`;
 const messageOf = (error: unknown) => error instanceof Error ? error.message : 'The change could not be saved.';
-const tabs = [['overview', 'Overview'], ['users', 'Users'], ['library', 'Library'], ['tickets', 'Support & Reports'], ['activity', 'Activity']] as const;
 
 export default function AdminPage() {
   const { user, isAdmin } = useAuth();
   const [params] = useSearchParams();
   if (!user || !isAdmin) return <Navigate to="/dashboard" replace />;
-  const tab = tabs.some(([key]) => key === params.get('tab')) ? params.get('tab')! : 'overview';
+  const tab = selectedAdminSection(params.get('tab'));
   const item = params.get('item');
   return <main className="grid min-w-0 gap-6">
     <header className="flex flex-wrap items-start justify-between gap-4">

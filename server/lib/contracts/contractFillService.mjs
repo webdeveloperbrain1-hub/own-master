@@ -5,6 +5,7 @@ import { prisma } from '../prisma.mjs';
 import { ensureContractStorage } from './storagePaths.mjs';
 import { detectBlankCandidates, normalizeText } from './templateParser.mjs';
 import { persistPrivateFile } from '../storage/privateFiles.mjs';
+import { approvedTemplateWhere } from './templateLibraryApi.mjs';
 
 const blankPlaceholder = '________________';
 
@@ -144,9 +145,9 @@ function textToDocx(text, title) {
   });
 }
 
-export async function fillContractTemplate({ userId, templateId, dealData = {}, title } = {}) {
+export async function fillContractTemplate({ userId, templateId, dealData = {}, title, allowUnapproved = false } = {}) {
   if (!userId) throw Object.assign(new Error('Authentication required.'), { status: 401 });
-  const template = await prisma.contractTemplate.findUnique({ where: { id: templateId } });
+  const template = await prisma.contractTemplate.findFirst({ where: { id: templateId, ...(allowUnapproved ? {} : approvedTemplateWhere) } });
 
   if (!template) {
     throw Object.assign(new Error('Contract template not found.'), { status: 404 });

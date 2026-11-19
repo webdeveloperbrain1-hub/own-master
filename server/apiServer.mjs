@@ -20,6 +20,7 @@ import { validateTemplateInputValue } from './lib/contracts/scanTemplateConfig.m
 import { importContractZipToDb } from './lib/contracts/importContractZipToDb.mjs';
 import { scanContractTemplate, scanContractTemplates } from './lib/contracts/scanContractTemplateService.mjs';
 import { fillContractTemplate } from './lib/contracts/contractFillService.mjs';
+import { handleTemplateLibraryRoutes, templateMetadata } from './lib/contracts/templateLibraryApi.mjs';
 import { contractStoragePaths, ensureContractStorage } from './lib/contracts/storagePaths.mjs';
 import { handleFilingRoutes } from './lib/contractFiling/filingApi.mjs';
 import { ensureContractLibrary } from './lib/contractFiling/libraryLoader.mjs';
@@ -73,22 +74,6 @@ async function sendFile(res, filePath, fileName, contentType) {
     'Access-Control-Expose-Headers': 'Content-Disposition, Content-Type',
   });
   createReadStream(filePath).pipe(res);
-}
-
-function templateMetadata(template) {
-  return {
-    id: template.id,
-    name: template.name,
-    category: template.category,
-    originalFileName: template.originalFileName,
-    fileType: template.fileType,
-    textQuality: template.textQuality,
-    aiScanStatus: template.aiScanStatus,
-    approved: template.approved,
-    createdAt: template.createdAt,
-    updatedAt: template.updatedAt,
-    generatedCount: template._count?.generatedContracts,
-  };
 }
 
 function safeDownloadName(value = '') {
@@ -245,47 +230,6 @@ async function handleRiskReview(req, res, contractId) {
   sendJson(res, 200, result);
 }
 
-async function handleListLocalTemplates(req, res) {
-  const url = new URL(req.url, `http://${req.headers.host}`);
-  const includeAll = url.searchParams.get('includeAll') === 'true';
-
-  const templates = await prisma.contractTemplate.findMany({
-    where: includeAll
-      ? {}
-      : {
-          approved: true,
-          aiScanStatus: 'scanned',
-        },
-    orderBy: [{ createdAt: 'desc' }],
-    include: { _count: { select: { generatedContracts: true } } },
-  });
-
-  sendJson(res, 200, { templates: templates.map(templateMetadata) });
-}
-
-async function handleGetLocalTemplate(_req, res, templateId) {
-  const template = await prisma.contractTemplate.findUnique({
-    where: { id: templateId },
-    include: { _count: { select: { generatedContracts: true } } },
-  });
-
-  if (!template) {
-    sendJson(res, 404, { error: 'Contract template not found.' });
-    return;
-  }
-
-  sendJson(res, 200, {
-    template: {
-      ...templateMetadata(template),
-      fieldSchema: template.fieldSchema,
-      warnings: template.warnings,
-      scanError: template.scanError,
-      extractedText: template.extractedText,
-      extractedTextPreview: template.extractedText?.slice(0, 3000) ?? null,
-    },
-  });
-}
-
 async function handleImportZip(req, res) {
   const body = await readBody(req);
   const paths = await ensureContractStorage();
@@ -365,28 +309,13 @@ async function handleScanAll(req, res) {
   sendJson(res, 200, { results });
 }
 
-async function handleTemplateSchema(_req, res, templateId) {
-  const template = await prisma.contractTemplate.findUnique({ where: { id: templateId } });
-
-  if (!template) {
-    sendJson(res, 404, { error: 'Contract template not found.' });
-    return;
-  }
-
-  sendJson(res, 200, {
-    fieldSchema: template.fieldSchema,
-    warnings: template.warnings,
-    status: template.aiScanStatus,
-    approved: template.approved,
-  });
-}
-
 async function handleFillTemplate(req, res, templateId) {
   const auth = await requireAuth(req);
   await billing.requireExports(auth);
   const body = await readBody(req);
   const result = await fillContractTemplate({
     userId: auth.user.id,
+    allowUnapproved: auth.user.app_metadata?.role === 'admin',
     templateId,
     dealData: body.dealData ?? {},
     title: body.title,
@@ -503,10 +432,7 @@ const server = createServer(async (req, res) => {
       return;
     }
 
-    if (req.method === 'GET' && url.pathname === '/api/contracts/templates') {
-      await handleListLocalTemplates(req, res);
-      return;
-    }
+    if (await handleTemplateLibraryRoutes(req, res, { url, sendJson, requireAuth })) return;
 
     if (req.method === 'POST' && url.pathname === '/api/contracts/import-zip') {
       await handleImportZip(req, res);
@@ -515,12 +441,6 @@ const server = createServer(async (req, res) => {
 
     if (req.method === 'POST' && url.pathname === '/api/contracts/templates/scan-all') {
       await handleScanAll(req, res);
-      return;
-    }
-
-    const localTemplateSchemaMatch = url.pathname.match(/^\/api\/contracts\/templates\/([^/]+)\/schema$/);
-    if (req.method === 'GET' && localTemplateSchemaMatch) {
-      await handleTemplateSchema(req, res, localTemplateSchemaMatch[1]);
       return;
     }
 
@@ -539,12 +459,6 @@ const server = createServer(async (req, res) => {
     const localTemplateFillMatch = url.pathname.match(/^\/api\/contracts\/templates\/([^/]+)\/fill$/);
     if (req.method === 'POST' && localTemplateFillMatch) {
       await handleFillTemplate(req, res, localTemplateFillMatch[1]);
-      return;
-    }
-
-    const localTemplateGetMatch = url.pathname.match(/^\/api\/contracts\/templates\/([^/]+)$/);
-    if (req.method === 'GET' && localTemplateGetMatch) {
-      await handleGetLocalTemplate(req, res, localTemplateGetMatch[1]);
       return;
     }
 

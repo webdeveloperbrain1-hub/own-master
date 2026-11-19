@@ -13,11 +13,15 @@ import { handleAdminRoutes } from '../server/lib/admin/adminApi.mjs';
 import { handleSupportRoutes } from '../server/lib/support/supportApi.mjs';
 import { handleFilingRoutes } from '../server/lib/contractFiling/filingApi.mjs';
 import { handleBillingRoutes } from '../server/lib/billing/billingApi.mjs';
+import { handleTemplateLibraryRoutes } from '../server/lib/contracts/templateLibraryApi.mjs';
+import { fillContractTemplate } from '../server/lib/contracts/contractFillService.mjs';
+import { handleProjectRoutes } from '../server/lib/projects/projectApi.mjs';
+import { handleAccountContractRoutes } from '../server/lib/contracts/accountContracts.mjs';
 
 loadEnv();
 
 test('administrator tools enforce roles, preserve drafts, isolate support notes, and report real usage', async t => {
-  const run = randomUUID(); const password = 'Trial-password1!'; const users = []; const files = [];
+  const run = randomUUID(); const password = 'Trial-password1!'; const users = []; const files = []; const legacyTemplates = [];
   const server = createServer(async (req, res) => {
     const sendJson = (response, status, body) => { response.writeHead(status, { 'Content-Type': 'application/json' }); response.end(JSON.stringify(body)); };
     try {
@@ -29,6 +33,9 @@ test('administrator tools enforce roles, preserve drafts, isolate support notes,
       if (await handleSupportRoutes(req, res, ctx)) return;
       if (await handleFilingRoutes(req, res, ctx)) return;
       if (await handleBillingRoutes(req, res, ctx)) return;
+      if (await handleTemplateLibraryRoutes(req, res, ctx)) return;
+      if (await handleProjectRoutes(req, res, ctx)) return;
+      if (await handleAccountContractRoutes(req, res, ctx)) return;
       sendJson(res, 404, { error: 'Not found.' });
     } catch (error) { sendJson(res, error.status || 500, { error: error.message, code: error.code }); }
   });
@@ -79,6 +86,39 @@ test('administrator tools enforce roles, preserve drafts, isolate support notes,
       await json(await a.call(`/api/admin/users/${self.id}/update`, { role: 'admin', suspended: true, reason: 'Test', updatedAt: self.updatedAt }), 400);
       const pending = await json(await a.call(`/api/admin/users/${users[4].id}`));
       await json(await a.call(`/api/admin/users/${pending.id}/update`, { role: 'admin', suspended: false, updatedAt: pending.updatedAt }), 400);
+    });
+    await t.test('legacy template reads require a session, hide unapproved sources, and scope member usage', async () => {
+      for (const [approved, aiScanStatus] of [[true, 'scanned'], [false, 'not_scanned'], [true, 'needs_review']]) legacyTemplates.push(await prisma.contractTemplate.create({ data: {
+        name: `Legacy role review ${run}`, originalFileName: 'role-review.txt', storagePath: 'not-a-real-source', fileType: 'txt', approved, aiScanStatus, extractedText: 'Role review fixture.', fieldSchema: { fields: [] },
+      } }));
+      const [approved, pending, needsReview] = legacyTemplates;
+      for (const path of ['/api/contracts/templates', '/api/contracts/templates?includeAll=true', `/api/contracts/templates/${approved.id}`, `/api/contracts/templates/${approved.id}/schema`])
+        await json(await guest.call(path), 401);
+      await json(await member.call('/api/contracts/templates?includeAll=true', undefined, { 'X-Own-Masters-Role': 'admin' }), 403);
+      const memberList = await json(await member.call('/api/contracts/templates'));
+      assert.ok(memberList.templates.some(template => template.id === approved.id));
+      assert.ok(memberList.templates.every(template => template.approved && template.aiScanStatus === 'scanned'));
+      for (const file of [pending, needsReview]) {
+        await json(await member.call(`/api/contracts/templates/${file.id}`), 404);
+        await json(await member.call(`/api/contracts/templates/${file.id}/schema`), 404);
+        await assert.rejects(fillContractTemplate({ userId: users[2].id, templateId: file.id }), { status: 404 });
+        await json(await a.call(`/api/contracts/templates/${file.id}`));
+      }
+      await prisma.generatedContract.createMany({ data: [users[2], users[3]].map(user => ({ userId: user.id, templateId: approved.id, title: 'Private generated fixture', dealData: {}, outputDocxPath: 'not-a-real-output' })) });
+      assert.equal((await json(await member.call(`/api/contracts/templates/${approved.id}`))).template.generatedCount, 1);
+      assert.equal((await json(await a.call(`/api/contracts/templates/${approved.id}`))).template.generatedCount, 2);
+      const all = await json(await a.call('/api/contracts/templates?includeAll=true'));
+      assert.ok(legacyTemplates.every(file => all.templates.some(template => template.id === file.id)));
+    });
+    await t.test('private projects and contracts stay owner-scoped even for website administrators', async () => {
+      const project = await prisma.musicProject.create({ data: { userId: users[2].id, title: 'Private member project', lyrics: 'PRIVATE-ROLE-REVIEW' } });
+      const contract = await prisma.accountContract.create({ data: { userId: users[2].id, title: 'Private member contract', contractType: 'Recording', content: 'PRIVATE-ROLE-REVIEW' } });
+      await json(await member.call(`/api/projects/${project.id}`));
+      await json(await member.call(`/api/account-contracts/${contract.id}`));
+      for (const browser of [a, b, other]) {
+        await json(await browser.call(`/api/projects/${project.id}`), 404);
+        await json(await browser.call(`/api/account-contracts/${contract.id}`), 404);
+      }
     });
     await t.test('administrators can edit user names without changing credentials or revoking their sessions', async () => {
       const target = await json(await a.call(`/api/admin/users/${users[3].id}`));
@@ -229,6 +269,8 @@ test('administrator tools enforce roles, preserve drafts, isolate support notes,
     const ids = users.map(user => user.id);
     await prisma.platformActivity.deleteMany({ where: { actorId: { in: ids } } });
     await prisma.musicProject.deleteMany({ where: { userId: { in: ids } } });
+    await prisma.generatedContract.deleteMany({ where: { templateId: { in: legacyTemplates.map(file => file.id) } } });
+    await prisma.contractTemplate.deleteMany({ where: { id: { in: legacyTemplates.map(file => file.id) } } });
     if (draftId) await prisma.contractDraft.deleteMany({ where: { id: draftId } });
     if (documentId) await prisma.contractFile.deleteMany({ where: { id: documentId } });
     await prisma.accountUser.deleteMany({ where: { id: { in: ids } } });
