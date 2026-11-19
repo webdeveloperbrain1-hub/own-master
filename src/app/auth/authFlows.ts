@@ -48,6 +48,8 @@ export function authErrorMessage(error: unknown): string {
       return 'Your email or password is incorrect. Please try again.';
     case 'email_not_confirmed':
       return 'Confirm your email before logging in. You can resend the confirmation below.';
+    case 'email_already_registered':
+      return 'An account with this email already exists. Log in or reset your password.';
     case 'over_email_send_rate_limit':
     case 'over_request_rate_limit':
       return 'Too many attempts. Please wait a moment before trying again.';

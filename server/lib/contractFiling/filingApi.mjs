@@ -19,6 +19,7 @@ import { ensureContractLibrary } from './libraryLoader.mjs';
 import { cleanupSignedCopies } from '../contracts/contractProgress.mjs';
 import { billing } from '../billing/billingService.mjs';
 import { ensurePrivateFile } from '../storage/privateFiles.mjs';
+import { recordActivity } from '../admin/activity.mjs';
 
 function corsHeaders(extra = {}) {
   return {
@@ -48,14 +49,24 @@ function fillFieldsForTemplate(template) {
   return detectTemplateFields(template.extractedText || '', template);
 }
 
-async function loadTemplate(id) {
-  return prisma.contractFile.findUnique({ where: { id }, include: { fieldScan: true } });
+async function loadTemplate(id, auth, newDraft = false) {
+  const template = await prisma.contractFile.findUnique({ where: { id }, include: { fieldScan: true } });
+  if (template?.archivedAt && auth?.user.app_metadata?.role !== 'admin') {
+    if (newDraft || !await prisma.contractDraft.count({ where: { templateId: id, userId: auth.user.id } })) return null;
+  }
+  return template;
 }
 
 async function loadCatalog(userId) {
   return buildLibraryCatalog(await prisma.contractFile.findMany({
+    where: { archivedAt: null },
     include: { drafts: { where: { userId }, select: { userId: true } } },
   }));
+}
+
+function publicTemplate(template) {
+  const { storedPath, originalPath, sha256, reviewNote, reviewedBy, ...safe } = template;
+  return safe;
 }
 
 async function projectDraftLink(body, userId) {
@@ -119,6 +130,7 @@ export async function handleFilingRoutes(req, res, ctx) {
 
   if (req.method === 'POST' && pathname === '/api/filing/upload') {
     const result = await uploadLibraryDocument(req, url.searchParams.get('name'));
+    await recordActivity(auth.user, result.duplicate ? 'library.duplicate' : 'library.uploaded', 'library', result.id, `${result.duplicate ? 'Uploaded an existing document' : 'Uploaded a document'}: ${result.originalName}.`);
     sendJson(res, result.duplicate ? 200 : 201, result);
     return true;
   }
@@ -142,7 +154,7 @@ export async function handleFilingRoutes(req, res, ctx) {
   // --- Read-only guide metadata and accessible text ---
   const guideMatch = pathname.match(/^\/api\/filing\/guides\/([^/]+)$/);
   if (req.method === 'GET' && guideMatch) {
-    const guide = await loadTemplate(guideMatch[1]);
+    const guide = await loadTemplate(guideMatch[1], auth);
     if (!guide || describeLibraryFile(guide).kind !== 'guide') {
       sendJson(res, 404, { error: 'Guide not found.' });
       return true;
@@ -177,7 +189,7 @@ export async function handleFilingRoutes(req, res, ctx) {
     const force = url.searchParams.get('force') === 'true';
     const limit = Number(url.searchParams.get('limit') || 0);
     const templates = await prisma.contractFile.findMany({
-      where: force ? {} : { fieldScan: null },
+      where: { archivedAt: null, ...(force ? {} : { fieldScan: null }) },
       orderBy: { originalName: 'asc' },
       include: { fieldScan: true },
       ...(limit ? { take: limit } : {}),
@@ -302,14 +314,14 @@ export async function handleFilingRoutes(req, res, ctx) {
       sendJson(res, 404, { error: 'Draft not found.' });
       return true;
     }
-    sendJson(res, 200, draft);
+    sendJson(res, 200, { ...draft, template: publicTemplate(draft.template) });
     return true;
   }
 
   // --- Template fill schema + initial preview ---
   const fillMatch = pathname.match(/^\/api\/filing\/templates\/([^/]+)\/fill$/);
   if (req.method === 'GET' && fillMatch) {
-    const template = await loadTemplate(fillMatch[1]);
+    const template = await loadTemplate(fillMatch[1], auth);
     if (!template) {
       sendJson(res, 404, { error: 'Template not found.' });
       return true;
@@ -327,10 +339,10 @@ export async function handleFilingRoutes(req, res, ctx) {
       template: {
         id: template.id,
         originalName: template.originalName,
-        title: template.title || template.originalName,
+        title: describeLibraryFile(template).title,
         contractType: template.contractType,
-        category: template.category,
-        summary: template.summary,
+        category: describeLibraryFile(template).category,
+        summary: template.displayDescription ?? template.summary,
       },
       fields,
       preview: renderPreviewHtml(renderFilledTemplate(template.extractedText || '', fields, {})),
@@ -344,7 +356,7 @@ export async function handleFilingRoutes(req, res, ctx) {
   // --- Live preview ---
   const previewMatch = pathname.match(/^\/api\/filing\/templates\/([^/]+)\/preview$/);
   if (req.method === 'POST' && previewMatch) {
-    const template = await loadTemplate(previewMatch[1]);
+    const template = await loadTemplate(previewMatch[1], auth);
     if (!template) {
       sendJson(res, 404, { error: 'Template not found.' });
       return true;
@@ -364,7 +376,7 @@ export async function handleFilingRoutes(req, res, ctx) {
   // --- Save filled draft ---
   const draftsMatch = pathname.match(/^\/api\/filing\/templates\/([^/]+)\/drafts$/);
   if (req.method === 'POST' && draftsMatch) {
-    const template = await loadTemplate(draftsMatch[1]);
+    const template = await loadTemplate(draftsMatch[1], auth, true);
     if (!template) {
       sendJson(res, 404, { error: 'Template not found.' });
       return true;
@@ -394,7 +406,7 @@ export async function handleFilingRoutes(req, res, ctx) {
   // --- Scan one template's fields ---
   const scanMatch = pathname.match(/^\/api\/filing\/templates\/([^/]+)\/scan-fields$/);
   if (req.method === 'POST' && scanMatch) {
-    const template = await loadTemplate(scanMatch[1]);
+    const template = await loadTemplate(scanMatch[1], auth);
     if (!template) {
       sendJson(res, 404, { error: 'Template not found.' });
       return true;
@@ -407,7 +419,7 @@ export async function handleFilingRoutes(req, res, ctx) {
   // --- Single template detail ---
   const originalMatch = pathname.match(/^\/api\/filing\/templates\/([^/]+)\/original$/);
   if (req.method === 'GET' && originalMatch) {
-    const template = await loadTemplate(originalMatch[1]);
+    const template = await loadTemplate(originalMatch[1], auth);
     if (!template) {
       sendJson(res, 404, { error: 'Template not found.' });
       return true;
@@ -420,12 +432,12 @@ export async function handleFilingRoutes(req, res, ctx) {
 
   const getMatch = pathname.match(/^\/api\/filing\/templates\/([^/]+)$/);
   if (req.method === 'GET' && getMatch) {
-    const template = await loadTemplate(getMatch[1]);
+    const template = await loadTemplate(getMatch[1], auth);
     if (!template) {
       sendJson(res, 404, { error: 'Template not found.' });
       return true;
     }
-    sendJson(res, 200, template);
+    sendJson(res, 200, publicTemplate(template));
     return true;
   }
 

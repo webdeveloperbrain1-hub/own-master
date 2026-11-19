@@ -26,14 +26,14 @@ export function describeLibraryFile(file) {
   const match = categories.find(([pattern]) => pattern.test(stem));
   const category = guide ? 'Guides & Resources' : match?.[1] || 'Business & Administration';
   return {
-    title,
-    category,
-    kind: guide ? 'guide' : 'template',
-    description: guide ? 'Reference material to read alongside the contract library.' : match?.[2] || 'Supporting agreements and forms for business relationships and administration.',
+    title: file.displayTitle || title,
+    category: file.displayCategory || category,
+    kind: file.libraryKind || (guide ? 'guide' : 'template'),
+    description: file.displayDescription ?? (guide ? 'Reference material to read alongside the contract library.' : match?.[2] || 'Supporting agreements and forms for business relationships and administration.'),
     // Common types are starting points, not a claim of legal or content approval.
     commonType: !guide && /^(?:split sheet|artist.producer contract|producer.simple.agreement|booking contract|publishing agreement)$/i.test(stem),
     extractionLabel: file.extractionStatus === 'complete' ? 'Text extracted' : 'Check source text',
-    analysisLabel: file.analysisStatus === 'complete' ? (file.needsReview ? 'Analysis needs review' : 'Analysis available') : 'Analysis not completed',
+    analysisLabel: file.reviewedAt ? 'Reviewed by administrator' : file.analysisStatus === 'complete' ? (file.needsReview ? 'Analysis needs review' : 'Analysis available') : 'Analysis not completed',
   };
 }
 

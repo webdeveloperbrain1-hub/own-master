@@ -302,9 +302,13 @@ export function SignupPage() {
 
 function AccountForm({ mode }: { mode: 'login' | 'signup' }) {
   const { user, loading, sessionError, retrySession, signIn, signUp } = useAuth();
+  const location = useLocation();
   const returnTo = useReturnPath();
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(() => {
+    const value = (location.state as { email?: unknown } | null)?.email;
+    return typeof value === 'string' && value.length <= 254 ? value : '';
+  });
   const [password, setPassword] = useState('');
   const [confirmation, setConfirmation] = useState('');
   const [error, setError] = useState('');
@@ -312,6 +316,7 @@ function AccountForm({ mode }: { mode: 'login' | 'signup' }) {
   const [pendingEmail, setPendingEmail] = useState('');
   const [emailSent, setEmailSent] = useState(true);
   const [unconfirmedEmail, setUnconfirmedEmail] = useState('');
+  const [existingEmail, setExistingEmail] = useState('');
   const { configuration, configurationError, retryConfiguration } = useEmailConfiguration();
   const signup = mode === 'signup';
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -319,6 +324,7 @@ function AccountForm({ mode }: { mode: 'login' | 'signup' }) {
     if (busy) return;
     setError('');
     setUnconfirmedEmail('');
+    setExistingEmail('');
     if (signup) {
       const validation = !name.trim()
         ? 'Enter your name.'
@@ -339,6 +345,11 @@ function AccountForm({ mode }: { mode: 'login' | 'signup' }) {
       setConfirmation('');
     } catch (err) {
       setError(authErrorMessage(err));
+      if (signup && authErrorCode(err) === 'email_already_registered') {
+        setExistingEmail(email.trim());
+        setPassword('');
+        setConfirmation('');
+      }
       if (authErrorCode(err) === 'email_not_confirmed') {
         setPassword('');
         setUnconfirmedEmail(email.trim());
@@ -424,7 +435,7 @@ function AccountForm({ mode }: { mode: 'login' | 'signup' }) {
             value={email}
             onChange={(event) => {
               setEmail(event.target.value);
-              if (unconfirmedEmail) { setUnconfirmedEmail(''); setError(''); }
+              if (unconfirmedEmail || existingEmail) { setUnconfirmedEmail(''); setExistingEmail(''); setError(''); }
             }}
             required
             disabled={busy}
@@ -499,9 +510,13 @@ function AccountForm({ mode }: { mode: 'login' | 'signup' }) {
 
 export function ForgotPasswordPage() {
   const { requestPasswordReset } = useAuth();
+  const location = useLocation();
   const { configuration, configurationError, retryConfiguration } = useEmailConfiguration();
   const available = configuration?.passwordResetAvailable ?? null;
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(() => {
+    const value = (location.state as { email?: unknown } | null)?.email;
+    return typeof value === 'string' && value.length <= 254 ? value : '';
+  });
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [sent, setSent] = useState(false);

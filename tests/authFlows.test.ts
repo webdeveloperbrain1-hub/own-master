@@ -56,6 +56,10 @@ test('connection and login errors have useful messages', () => {
     /email or password is incorrect/,
   );
   assert.match(
+    authErrorMessage({ code: 'email_already_registered' }),
+    /An account with this email already exists/,
+  );
+  assert.match(
     authErrorMessage({ code: 'over_request_rate_limit' }),
     /wait a moment/,
   );

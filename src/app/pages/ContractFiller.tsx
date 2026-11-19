@@ -44,7 +44,7 @@ export default function ContractFillerPage() {
 }
 
 function NewContractFillerPage({ projectId }: { projectId: string | null }) {
-  const { user } = useAuth();
+  const { user, isAdmin } = useAuth();
   const navigate = useNavigate();
   const [songProject, setSongProject] = useState<MusicProject | null>(null);
   const [projectError, setProjectError] = useState('');
@@ -342,18 +342,22 @@ function NewContractFillerPage({ projectId }: { projectId: string | null }) {
       )}
 
       <section className={`${panel} min-w-0 p-4`} aria-label="Contract library">
-        {user?.app_metadata?.role === 'admin' && (
+        {isAdmin && (
           <div className="mb-4 border-b border-border pb-4">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 <h2 className="font-semibold">Manage contract library</h2>
-                <p className="text-[12px] text-muted-foreground mt-1">Add a document for all members. PDF, DOC, DOCX, RTF, TXT, or MD, up to 20 MB.</p>
+                <p className="text-[12px] text-muted-foreground mt-1">Your library admin account also manages users and the whole website. Upload PDF, DOC, DOCX, RTF, TXT, or MD, up to 20 MB.</p>
               </div>
               <input ref={uploadInput} type="file" className="hidden" aria-label="Choose a contract to upload" accept=".pdf,.doc,.docx,.rtf,.txt,.md" disabled={uploading} onChange={(event) => { const file = event.target.files?.[0]; if (file) void uploadContract(file); }} />
+              <div className="flex flex-wrap gap-2">
+              <Link to="/dashboard/admin?tab=users" className={ghostButton}>Manage users</Link>
+              <Link to="/dashboard/admin?tab=library" className={ghostButton}>Manage library</Link>
               <button type="button" className={primaryButton} disabled={uploading} onClick={() => uploadInput.current?.click()}>
                 {uploading ? <Loader2 className="size-4 animate-spin" /> : <Upload className="size-4" />}
                 {uploading ? 'Uploading contract…' : 'Upload contract'}
               </button>
+              </div>
             </div>
             {uploadMessage && <p role="status" className="mt-2 text-[13px] text-muted-foreground">{uploadMessage}</p>}
             {uploadError && <p role="alert" className="mt-2 text-[13px] text-destructive">{uploadError}</p>}
@@ -429,8 +433,8 @@ function NewContractFillerPage({ projectId }: { projectId: string | null }) {
         ) : (
           <div data-reveal-group className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[420px] overflow-y-auto pr-1">
             {templates.map((template) => (
+              <div key={template.id} className="grid min-w-0 content-start gap-1">
               <button
-                key={template.id}
                 type="button"
                 onClick={() => template.kind === 'guide' ? navigate(guidePreviewPath(template.id, projectId)) : void selectTemplate(template.id)}
                 disabled={
@@ -458,6 +462,8 @@ function NewContractFillerPage({ projectId }: { projectId: string | null }) {
                 <p className="mt-2 text-[11px] text-muted-foreground">{template.extractionLabel} · {template.analysisLabel}</p>
                 {template.kind === 'guide' && <span className="mt-2 inline-flex items-center gap-1 text-[12px] font-semibold"><BookOpen className="size-3.5" />Preview guide</span>}
               </button>
+              <Link to={`/dashboard/support?${new URLSearchParams({ kind: 'report', document: template.id, title: template.title })}`} className="inline-flex min-h-9 items-center px-2 text-[11px] text-muted-foreground underline hover:text-foreground">Report a problem</Link>
+              </div>
             ))}
           </div>
         )}

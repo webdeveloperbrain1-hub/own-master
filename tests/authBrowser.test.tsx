@@ -22,19 +22,20 @@ await mkdir(resolve('.codex'), { recursive: true });
 const bundlePath = resolve(`.codex/auth-browser-tests-${process.pid}.mjs`);
 const bundle = await build({ stdin: { contents: `
   export { AuthProvider, useAuth } from './src/app/auth/AuthContext';
-  export { LoginPage, SignupPage, ConfirmEmailPage, ResetPasswordPage, ResendConfirmationPage } from './src/app/pages/AuthPages';
+  export { LoginPage, SignupPage, ForgotPasswordPage, ConfirmEmailPage, ResetPasswordPage, ResendConfirmationPage } from './src/app/pages/AuthPages';
   export { default as LandingNavigation } from './src/app/components/LandingNavigation';
 `, resolveDir: process.cwd(), loader: 'tsx' }, bundle: true, packages: 'external', platform: 'node', format: 'esm', write: false,
   define: { 'import.meta.env': JSON.stringify({ DEV: false, VITE_API_BASE_URL: '' }) } });
 await writeFile(bundlePath, bundle.outputFiles[0].contents);
 after(async () => { await unlink(bundlePath); dom.window.close(); });
-const { AuthProvider, useAuth, LoginPage, SignupPage, ConfirmEmailPage, ResetPasswordPage, ResendConfirmationPage, LandingNavigation } = await import(pathToFileURL(bundlePath).href);
+const { AuthProvider, useAuth, LoginPage, SignupPage, ForgotPasswordPage, ConfirmEmailPage, ResetPasswordPage, ResendConfirmationPage, LandingNavigation } = await import(pathToFileURL(bundlePath).href);
 const person = { id: 'owner-one', email: 'owner@example.test', user_metadata: { name: 'Owner' } };
 let session: () => Promise<unknown>;
 let posts: string[];
 let confirmation = false;
 let configurationFails = false;
 let unconfirmedLogin = false;
+let existingSignup = false;
 globalThis.fetch = async (url, init) => {
   const path = String(url);
   let data: unknown;
@@ -46,6 +47,8 @@ globalThis.fetch = async (url, init) => {
     posts.push(path);
     if (path.endsWith('/login') && unconfirmedLogin)
       return new Response(JSON.stringify({ error: 'Confirm your email before logging in.', code: 'email_not_confirmed' }), { status: 403, headers: { 'Content-Type': 'application/json' } });
+    if (path.endsWith('/signup') && existingSignup)
+      return Response.json({ error: 'Email conflict', code: 'email_already_registered' }, { status: 409 });
     if (path.endsWith('/signup')) data = { needsEmailConfirmation: true, emailSent: true };
     if (path.endsWith('/login')) data = { user: person };
     if (path.endsWith('/logout')) data = { ok: true };
@@ -70,12 +73,13 @@ function Probe() {
 }
 async function flush() { await setImmediate(); await setImmediate(); }
 async function setup(path = '/probe', signedIn = false, offline = false, initialSession?: () => Promise<unknown>) {
-  posts = []; confirmation = false; configurationFails = offline; unconfirmedLogin = false;
+  posts = []; confirmation = false; configurationFails = offline; unconfirmedLogin = false; existingSignup = false;
   session = initialSession ?? (async () => { if (offline) throw new TypeError('Failed to fetch'); return { user: signedIn ? person : null }; });
   const router = createMemoryRouter([
     { path: '/', element: <LandingNavigation onSection={() => {}} /> },
     { path: '/probe', element: <Probe /> }, { path: '/login', element: <LoginPage /> }, { path: '/signup', element: <SignupPage /> },
     { path: '/auth/confirm', element: <ConfirmEmailPage /> }, { path: '/reset-password', element: <ResetPasswordPage /> },
+    { path: '/forgot-password', element: <ForgotPasswordPage /> },
     { path: '/resend-confirmation', element: <ResendConfirmationPage /> },
     { path: '/dashboard', element: <p>Workspace</p> }, { path: '/dashboard/contracts', element: <p>Contracts</p> },
   ], { initialEntries: [path] });
@@ -215,6 +219,42 @@ test('production signup validates confirmation and passphrases, preserves return
     assert.equal(app.container.querySelector('summary')!.textContent, 'Didn’t receive the email?');
     assert.equal(app.container.querySelector('details')!.open, false);
     assert.ok(app.container.querySelector('a[href="/login?next=%2Fdashboard%2Fcontracts"]'));
+  } finally { await app.cleanup(); }
+});
+
+test('duplicate signup shows the warning and keeps only the usual login link below the form', async () => {
+  const app = await setup('/signup?next=%2Fdashboard%2Fcontracts');
+  try {
+    existingSignup = true;
+    await app.fill('input[name="name"]', 'Owner'); await app.fill('input[name="email"]', person.email);
+    await app.fill('#password', 'Abcdef1!'); await app.fill('#confirm-password', 'Abcdef1!'); await app.submit();
+    assert.match(app.container.querySelector('[role="alert"]')!.textContent!, /An account with this email already exists/);
+    assert.doesNotMatch(app.container.textContent!, /Check your email/);
+    assert.equal((app.container.querySelector('#password') as HTMLInputElement).value, '');
+    assert.equal((app.container.querySelector('#confirm-password') as HTMLInputElement).value, '');
+    assert.equal((app.container.querySelector('input[name="name"]') as HTMLInputElement).value, 'Owner');
+    assert.equal(app.container.querySelector('nav[aria-label="Existing account options"]'), null);
+    assert.equal(app.container.querySelector('a[href^="/forgot-password"], a[href^="/resend-confirmation"]'), null);
+    const loginLinks = app.container.querySelectorAll<HTMLAnchorElement>('a[href^="/login"]');
+    assert.equal(loginLinks.length, 1);
+    assert.equal(loginLinks[0].textContent, 'Log in');
+    assert.equal(loginLinks[0].getAttribute('href'), '/login?next=%2Fdashboard%2Fcontracts');
+    assert.deepEqual(posts, ['/api/auth/signup']);
+  } finally { await app.cleanup(); }
+});
+
+test('changing a duplicate email clears the old warning and allows a new signup', async () => {
+  const app = await setup('/signup');
+  try {
+    existingSignup = true;
+    await app.fill('input[name="name"]', 'Owner'); await app.fill('input[name="email"]', person.email);
+    await app.fill('#password', 'Abcdef1!'); await app.fill('#confirm-password', 'Abcdef1!'); await app.submit();
+    await app.fill('input[name="email"]', 'new@example.test');
+    assert.equal(app.container.querySelector('[role="alert"]'), null);
+    assert.equal(app.container.querySelector('nav[aria-label="Existing account options"]'), null);
+    existingSignup = false;
+    await app.fill('#password', 'Abcdef1!'); await app.fill('#confirm-password', 'Abcdef1!'); await app.submit();
+    assert.match(app.container.textContent!, /Check your email/);
   } finally { await app.cleanup(); }
 });
 

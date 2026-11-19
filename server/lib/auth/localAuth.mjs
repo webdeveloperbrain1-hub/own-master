@@ -6,6 +6,7 @@ import {
 } from 'node:crypto';
 import { promisify } from 'node:util';
 import { prisma } from '../prisma.mjs';
+import { recordActivity } from '../admin/activity.mjs';
 import { authClientAddress } from './authConfiguration.mjs';
 import {
   accountMailConfiguration,
@@ -121,11 +122,12 @@ export function assertTrustedMutation(req) {
 
 async function createSession(req, res, user) {
   const raw = randomBytes(32).toString('hex');
-  await prisma.$transaction(async (db) => {
+  const account = await prisma.$transaction(async (db) => {
     // Serialize login with password changes so an old password cannot create a
     // new session immediately after a reset has revoked existing sessions.
     const current =
-      await db.$queryRaw`SELECT "passwordHash", "emailVerifiedAt" FROM "AccountUser" WHERE "id" = ${user.id} FOR UPDATE`;
+      await db.$queryRaw`SELECT "passwordHash", "emailVerifiedAt", "suspendedAt" FROM "AccountUser" WHERE "id" = ${user.id} FOR UPDATE`;
+    if (current[0]?.suspendedAt) throw fail('This account is suspended. Contact support for help.', 403, 'account_suspended');
     if (current[0]?.passwordHash !== user.passwordHash)
       throw fail(
         'Your email or password is incorrect.',
@@ -152,8 +154,12 @@ async function createSession(req, res, user) {
         expiresAt: new Date(Date.now() + SESSION_SECONDS * 1000),
       },
     });
+    const updated = await db.accountUser.update({ where: { id: user.id }, data: { lastLoginAt: new Date(), lastActiveAt: new Date() } });
+    await recordActivity(user, 'account.login', 'user', user.id, 'Signed in to the workspace.', db);
+    return updated;
   });
   cookie(res, raw, SESSION_SECONDS);
+  return account;
 }
 
 export async function sessionUser(req) {
@@ -163,11 +169,14 @@ export async function sessionUser(req) {
     where: { tokenHash: hash(token) },
     include: { user: true },
   });
-  return session &&
+  const valid = session &&
     session.expiresAt > new Date() &&
-    session.user.emailVerifiedAt
-    ? session.user
-    : null;
+    session.user.emailVerifiedAt && !session.user.suspendedAt;
+  if (!valid) return null;
+  if (!session.user.lastActiveAt || session.user.lastActiveAt < new Date(Date.now() - 15 * 60000)) {
+    await prisma.accountUser.updateMany({ where: { id: session.userId, OR: [{ lastActiveAt: null }, { lastActiveAt: { lt: new Date(Date.now() - 15 * 60000) } }] }, data: { lastActiveAt: new Date() } });
+  }
+  return session.user;
 }
 
 export async function requireLocalAuth(req) {
@@ -176,7 +185,7 @@ export async function requireLocalAuth(req) {
   return { user: publicUser(user) };
 }
 
-async function rateLimit(req, scope, email, max = 12) {
+export async function rateLimit(req, scope, email, max = 12) {
   await prisma.authRateLimit.deleteMany({
     where: { expiresAt: { lt: new Date() } },
   });
@@ -285,7 +294,11 @@ export async function handleAuthRoutes(req, res, { url, sendJson, readBody }) {
       throw fail('Enter a display name between 1 and 120 characters.');
     // Profile edits may only change the display name. Identity and privileges
     // always come from the authenticated session, never from request fields.
-    const updated = await prisma.accountUser.update({ where: { id: user.id }, data: { name: body.name.trim() } });
+    const updated = await prisma.$transaction(async (db) => {
+      const account = await db.accountUser.update({ where: { id: user.id }, data: { name: body.name.trim() } });
+      await recordActivity(user, 'account.profile', 'user', user.id, 'Updated their profile.', db);
+      return account;
+    });
     sendJson(res, 200, { user: publicUser(updated) });
     return true;
   }
@@ -311,6 +324,7 @@ export async function handleAuthRoutes(req, res, { url, sendJson, readBody }) {
       await db.accountSession.deleteMany({ where: { userId: user.id } });
       await db.passwordResetToken.deleteMany({ where: { userId: user.id } });
       await db.accountSession.create({ data: { tokenHash: hash(raw), userId: user.id, expiresAt: new Date(Date.now() + SESSION_SECONDS * 1000) } });
+      await recordActivity(user, 'account.password', 'user', user.id, 'Changed their password and revoked other sessions.', db);
       return account;
     });
     cookie(res, raw, SESSION_SECONDS);
@@ -382,26 +396,33 @@ export async function handleAuthRoutes(req, res, { url, sendJson, readBody }) {
     if (!name || name.length > 120)
       throw fail('Enter a name up to 120 characters.');
     const password = passwordInput(body.password);
+    const existingAccount = () => fail(
+      'An account with this email already exists. Log in or reset your password.',
+      409,
+      'email_already_registered',
+    );
+    if (await prisma.accountUser.findUnique({ where: { email }, select: { id: true } }))
+      throw existingAccount();
     if (!accountMailConfiguration().available)
       throw fail(
         'Account confirmation emails are not set up yet. Please contact the site owner.',
         503,
         'email_not_configured',
       );
-    // Derive for both new and existing addresses, and return the same public
-    // outcome without changing an existing account's password or name.
     const passwordHash = await hashPassword(password);
-    let user = await prisma.accountUser.findUnique({ where: { email } });
-    if (!user) {
-      try {
-        user = await prisma.accountUser.create({ data: { email, name, passwordHash } });
-      } catch (error) {
-        if (error.code !== 'P2002') throw error;
-        user = await prisma.accountUser.findUnique({ where: { email } });
-        if (!user) throw error;
-      }
+    let user;
+    try {
+      user = await prisma.$transaction(async (db) => {
+        const account = await db.accountUser.create({ data: { email, name, passwordHash } });
+        await recordActivity(account, 'account.created', 'user', account.id, 'Created an account awaiting email confirmation.', db);
+        return account;
+      });
+    } catch (error) {
+      // Another signup may register this email after the lookup above.
+      if (error.code === 'P2002') throw existingAccount();
+      throw error;
     }
-    const emailSent = user.emailVerifiedAt ? true : await issueConfirmation(user, body.returnTo);
+    const emailSent = await issueConfirmation(user, body.returnTo);
     sendJson(res, 201, { needsEmailConfirmation: true, emailSent });
     return true;
   }
@@ -429,14 +450,15 @@ export async function handleAuthRoutes(req, res, { url, sendJson, readBody }) {
         401,
         'invalid_credentials',
       );
+    if (user.suspendedAt) throw fail('This account is suspended. Contact support for help.', 403, 'account_suspended');
     if (!user.emailVerifiedAt)
       throw fail(
         'Confirm your email before logging in. You can resend the confirmation below.',
         403,
         'email_not_confirmed',
       );
-    await createSession(req, res, user);
-    sendJson(res, 200, { user: publicUser(user) });
+    const account = await createSession(req, res, user);
+    sendJson(res, 200, { user: publicUser(account) });
     return true;
   }
   if (url.pathname === '/api/auth/forgot-password') {

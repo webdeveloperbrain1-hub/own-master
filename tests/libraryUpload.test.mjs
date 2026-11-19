@@ -115,6 +115,7 @@ test('only a signed-in administrator can upload a shared contract; duplicates pr
     addedPaths.push(join(config.storageDir, 'originals', safeStoredName(createHash('sha256').update(failedContent).digest('hex'), name)));
   } finally {
     await new Promise(resolve => server.close(resolve));
+    await prisma.platformActivity.deleteMany({ where: { actorId: { in: users.map(user => user.id) } } });
     await prisma.contractFile.deleteMany({ where: { id: { in: addedIds } } });
     await prisma.accountUser.deleteMany({ where: { id: { in: users.map(user => user.id) } } });
     await Promise.all(addedPaths.map(file => fs.rm(file, { force: true })));

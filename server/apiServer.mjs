@@ -26,6 +26,8 @@ import { ensureContractLibrary } from './lib/contractFiling/libraryLoader.mjs';
 import { handleProjectRoutes } from './lib/projects/projectApi.mjs';
 import { handleContractProgressRoutes } from './lib/contracts/contractProgress.mjs';
 import { handleBillingRoutes } from './lib/billing/billingApi.mjs';
+import { handleAdminRoutes } from './lib/admin/adminApi.mjs';
+import { handleSupportRoutes } from './lib/support/supportApi.mjs';
 import { billing } from './lib/billing/billingService.mjs';
 import { billingConfig } from './lib/billing/billingConfig.mjs';
 import { publicSiteConfiguration, productionSiteErrors } from './lib/deployment/siteConfiguration.mjs';
@@ -481,6 +483,8 @@ const server = createServer(async (req, res) => {
     res.setHeader('Cache-Control', 'no-store');
     if (await handleBillingRoutes(req, res, { url, sendJson, readBody, requireAuth })) return;
     if (await handleAuthRoutes(req, res, { url, sendJson, readBody })) return;
+    if (await handleAdminRoutes(req, res, { url, sendJson, readBody, requireAuth })) return;
+    if (await handleSupportRoutes(req, res, { url, sendJson, readBody, requireAuth })) return;
     if (await handleAccountContractRoutes(req, res, { url, sendJson, readBody, requireAuth })) return;
     if (req.method === 'POST' && (url.pathname === '/api/contracts/import-zip' || /\/api\/contracts\/templates\/(?:scan-all|[^/]+\/(?:scan|approve))$/.test(url.pathname))) {
       const auth = await requireAuth(req);

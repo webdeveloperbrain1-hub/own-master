@@ -71,3 +71,6 @@ local email designs; `npm run mail:check` checks configured SMTP without sending
 unless you explicitly pass a recipient.
 
 Feature and developer notes are in [development.md](docs/development.md).
+The library administrator also manages website users, library documents, support,
+reports, and activity from **Admin**. See [administration.md](docs/administration.md)
+for access, deployment, and account-recovery details.

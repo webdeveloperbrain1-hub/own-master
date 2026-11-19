@@ -15,8 +15,8 @@ try {
   const account = await prisma.$transaction(async (tx) => {
     const user = await tx.accountUser.upsert({
       where: { email },
-      create: { email, name: 'Library Administrator', passwordHash, role: 'admin', emailVerifiedAt: new Date() },
-      update: { passwordHash, role: 'admin', emailVerifiedAt: new Date() },
+      create: { email, name: 'Website Administrator', passwordHash, role: 'admin', emailVerifiedAt: new Date() },
+      update: { passwordHash, role: 'admin', emailVerifiedAt: new Date(), suspendedAt: null, suspensionReason: null },
       select: { id: true, email: true, role: true },
     });
     await tx.accountSession.deleteMany({ where: { userId: user.id } });

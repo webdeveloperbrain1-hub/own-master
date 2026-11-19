@@ -91,6 +91,7 @@ test('account settings update only the signed-in profile and rotate password ses
     await json(await client().call('login', { email: member.email, password: winner }));
   } finally {
     await new Promise(resolve => server.close(resolve));
+    await prisma.platformActivity.deleteMany({ where: { actorId: { in: users.map(user => user.id) } } });
     await prisma.accountUser.deleteMany({ where: { id: { in: users.map(user => user.id) } } });
     await prisma.$disconnect();
   }

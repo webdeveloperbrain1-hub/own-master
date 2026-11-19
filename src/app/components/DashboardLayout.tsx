@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router';
-import { CreditCard, FolderOpen, LayoutDashboard, LogOut, Menu, PenLine, Sparkles, UserRound } from 'lucide-react';
+import { CreditCard, FolderOpen, LayoutDashboard, LogOut, Menu, PenLine, Sparkles, UserRound, ShieldCheck, LifeBuoy } from 'lucide-react';
 import { useAuth } from '../auth/AuthContext';
 import { authErrorMessage } from '../auth/authFlows';
 import { useBilling } from '../billing/BillingContext';
@@ -14,14 +14,16 @@ const navItems = [
   ['/dashboard/contract-filler', 'Contract Filler', PenLine],
   ['/dashboard/billing', 'Billing', CreditCard],
   ['/dashboard/account', 'Account', UserRound],
+  ['/dashboard/support', 'Support', LifeBuoy],
+  ['/dashboard/admin', 'Admin', ShieldCheck],
 ] as const;
 
 const menuButton = 'micro-interaction inline-flex min-h-11 items-center justify-center gap-2 rounded-[14px] border border-border bg-muted px-3 py-2.5 text-[13px] font-bold hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary';
 
 export default function DashboardLayout() {
-  const { catalog, status: billingStatus, showUpgrade, isAdmin } = useBilling();
+  const { catalog, status: billingStatus, showUpgrade } = useBilling();
   const requestLeave = useLeaveConfirmation();
-  const { user, signOut } = useAuth();
+  const { user, isAdmin, signOut } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -63,7 +65,7 @@ export default function DashboardLayout() {
       <div className="flex-1 px-4 py-6">
         <p className="mb-3 px-3 text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground">Workspace</p>
         <nav aria-label="Workspace navigation" className="grid gap-2">
-          {navItems.filter(([href]) => !(isAdmin && href === '/dashboard/billing')).map(([href, label, Icon]) => {
+          {navItems.filter(([href]) => !(isAdmin && href === '/dashboard/billing') && (href !== '/dashboard/admin' || isAdmin)).map(([href, label, Icon]) => {
             const isActive = location.pathname === href ||
               (href === '/dashboard' ? location.pathname.startsWith('/dashboard/projects/') : location.pathname.startsWith(`${href}/`));
             return <Link key={href} to={href} onClick={closeMenu} aria-current={isActive ? 'page' : undefined}

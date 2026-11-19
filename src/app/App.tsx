@@ -77,6 +77,8 @@ import { BillingProvider, ProExportNotice } from './billing/BillingContext';
 const PricingPage = lazy(() => import('./pages/Pricing'));
 const BillingPage = lazy(() => import('./pages/Billing'));
 const AccountPage = lazy(() => import('./pages/Account'));
+const AdminPage = lazy(() => import('./pages/Admin'));
+const SupportPage = lazy(() => import('./pages/Support'));
 
 const primaryButton =
   'micro-interaction inline-flex items-center justify-center gap-2 border border-primary bg-primary text-primary-foreground px-[15px] py-[11px] rounded-[14px] font-[750] cursor-pointer hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed';
@@ -321,6 +323,9 @@ function AppRoutes() {
         <Route index element={<DashboardHome />} />
         <Route path="billing" element={<Suspense fallback={<LoadingScreen label="Loading billing" />}><BillingPage /></Suspense>} />
         <Route path="account" element={<Suspense fallback={<LoadingScreen label="Loading account" />}><AccountPage /></Suspense>} />
+        <Route path="admin" element={<Suspense fallback={<LoadingScreen label="Loading administration" />}><AdminPage /></Suspense>} />
+        <Route path="contract-templates" element={<Navigate to="/dashboard/admin?tab=library" replace />} />
+        <Route path="support" element={<Suspense fallback={<LoadingScreen label="Loading support" />}><SupportPage /></Suspense>} />
         <Route path="contracts" element={<ContractsPage />} />
         <Route path="contract-filler" element={<ContractFillerPage />} />
         <Route path="contract-filler/guides/:guideId" element={<Suspense fallback={<LoadingScreen label="Opening guide" />}><GuidePreviewPage /></Suspense>} />
@@ -1465,10 +1470,10 @@ const templateUsesDetectedBlanks = templateQuestions.some((question) =>
             <div>
               <h2 className="m-0 text-[24px] tracking-[-0.4px]">No approved templates yet.</h2>
               <p className="m-0 mt-2 text-muted-foreground">
-                Review and approve templates in Template Admin.
+                Review and manage documents in website administration.
               </p>
-              <Link to="/dashboard/contract-templates" className={`${ghostButton} mt-4`}>
-                Open Template Admin
+              <Link to="/dashboard/admin?tab=library" className={`${ghostButton} mt-4`}>
+                Open library administration
               </Link>
             </div>
           </div>
@@ -1517,7 +1522,7 @@ const templateUsesDetectedBlanks = templateQuestions.some((question) =>
               <div>
                 <div className="text-[14px] font-[750]">Approved templates</div>
                 <p className="m-0 mt-1 text-[13px] text-muted-foreground">
-                  This list only includes templates approved and scanned in Template Admin.
+                  This list only includes approved and scanned templates.
                 </p>
               </div>
               <span className="shrink-0 whitespace-nowrap rounded-full border border-border bg-muted px-3 py-1 text-[12px] text-muted-foreground">

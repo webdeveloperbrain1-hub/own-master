@@ -12,6 +12,7 @@ import type { AppUser } from '../types';
 
 interface AuthContextValue {
   user: AppUser | null;
+  isAdmin: boolean;
   loading: boolean;
   sessionError: string;
   retrySession: () => void;
@@ -95,6 +96,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [sessionCheck]);
   const value: AuthContextValue = {
     user,
+    isAdmin: user?.app_metadata?.role === 'admin',
     loading,
     sessionError,
     retrySession: () => setSessionCheck((value) => value + 1),

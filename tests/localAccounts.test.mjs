@@ -249,6 +249,16 @@ test('PostgreSQL accounts, cookie sessions, contracts, recovery, and isolation w
       createHash('sha256').update(originalToken).digest('hex'),
     );
     assert.notEqual(verification.tokenHash, originalToken);
+    const pendingMessageCount = messages.length;
+    const pendingDuplicate = await json(await a.call('/api/auth/signup', {
+      name: 'Replace pending account', email: ` ${email.toUpperCase()} `, password: 'Different-password3!',
+    }), 409);
+    assert.equal(pendingDuplicate.code, 'email_already_registered');
+    assert.match(pendingDuplicate.error, /An account with this email already exists/);
+    assert.equal(messages.length, pendingMessageCount);
+    assert.deepEqual(await prisma.emailVerificationToken.findUnique({ where: { userId: ownerId } }), verification);
+    assert.equal((await prisma.accountUser.findUnique({ where: { email } })).passwordHash, stored.passwordHash);
+    assert.equal((await prisma.accountUser.findUnique({ where: { email } })).name, stored.name);
     await json(await a.call('/api/auth/resend-confirmation', { email }));
     assert.equal(
       messages.length,
@@ -344,21 +354,27 @@ test('PostgreSQL accounts, cookie sessions, contracts, recovery, and isolation w
       await a.call('/api/auth/signup', {
         name: 'Duplicate',
         email,
-        password: 'Abcdef1!',
+        password: 'Different-password3!',
       }),
-      201,
+      409,
     );
-    assert.deepEqual(existingSignup, signup);
+    assert.equal(existingSignup.code, 'email_already_registered');
     assert.equal((await prisma.accountUser.findUnique({ where: { email } })).name, 'Local test owner');
-    await json(
-      await b.call('/api/auth/signup', {
-        name: 'Other test owner',
-        email: otherEmail,
-        password: 'Other-password2!',
-        returnTo: '//evil.test',
-      }),
-      201,
-    );
+    assert.equal((await prisma.accountUser.findUnique({ where: { email } })).passwordHash, stored.passwordHash);
+    assert.equal((await json(await a.call('/api/auth/session'))).user.id, ownerId);
+    const beforeRaceMessages = messages.length;
+    const otherSignup = { name: 'Other test owner', email: otherEmail, password: 'Other-password2!', returnTo: '//evil.test' };
+    const competingSignups = await Promise.all([
+      b.call('/api/auth/signup', otherSignup),
+      b.call('/api/auth/signup', { ...otherSignup, email: otherEmail.toUpperCase() }),
+    ]);
+    assert.deepEqual(competingSignups.map(response => response.status).sort(), [201, 409]);
+    const createdSignup = await json(competingSignups.find(response => response.status === 201), 201);
+    assert.deepEqual(createdSignup, signup);
+    const racedDuplicate = await json(competingSignups.find(response => response.status === 409), 409);
+    assert.equal(racedDuplicate.code, 'email_already_registered');
+    assert.equal(await prisma.accountUser.count({ where: { email: otherEmail } }), 1);
+    assert.equal(messages.length, beforeRaceMessages + 1);
     assert.equal(confirmationLink().searchParams.get('next'), '/dashboard');
     const otherToken = new URLSearchParams(
       confirmationLink().hash.slice(1),
@@ -657,6 +673,7 @@ test('PostgreSQL accounts, cookie sessions, contracts, recovery, and isolation w
     await prisma.contractProgress.deleteMany({
       where: { userId: { in: [ownerId, otherId].filter(Boolean) } },
     });
+    await prisma.platformActivity.deleteMany({ where: { actorId: { in: [ownerId, otherId].filter(Boolean) } } });
     await prisma.accountUser.deleteMany({
       where: { email: { in: [email, otherEmail] } },
     });

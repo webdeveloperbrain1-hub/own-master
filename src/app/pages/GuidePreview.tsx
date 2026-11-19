@@ -79,6 +79,7 @@ function GuidePreview({ guideId }: { guideId: string }) {
         </div>
         <p className="mt-3 text-sm text-muted-foreground">Read this reference guide here. Its contents cannot be edited.</p>
         {guide && <button type="button" className={`${button} mt-4`} disabled={downloading} onClick={() => void download()}>{downloading ? <Loader2 className="size-4 animate-spin" /> : <Download className="size-4" />}{downloading ? 'Downloading…' : 'Download original'}</button>}
+        {guide && <Link to={`/dashboard/support?${new URLSearchParams({ kind: 'report', document: guide.id, title: guide.title })}`} className="ml-3 mt-4 inline-flex min-h-11 items-center text-sm text-muted-foreground underline">Report a problem</Link>}
       </header>
       {downloadError && <p role="alert" className="text-sm text-destructive">{downloadError}</p>}
       {loading && <section className={`${panel} flex items-center gap-2`} role="status"><Loader2 className="size-4 animate-spin" />Loading guide preview…</section>}

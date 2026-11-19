@@ -14,6 +14,10 @@ model AccountUser {
   passwordHash String
   emailVerifiedAt DateTime?
   role         String   @default("member")
+  suspendedAt  DateTime?
+  suspensionReason String?
+  lastLoginAt  DateTime?
+  lastActiveAt DateTime?
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
   sessions     AccountSession[]
@@ -21,6 +25,7 @@ model AccountUser {
   verificationTokens EmailVerificationToken[]
   contracts    AccountContract[]
   billing      BillingAccount?
+  supportTickets SupportTicket[]
 }
 
 model BillingAccount {
@@ -195,6 +200,15 @@ model ContractFile {
   title              String?
   contractType       String?
   category           String?
+  displayTitle       String?
+  displayCategory    String?
+  displayDescription String?
+  libraryKind        String?
+  archivedAt         DateTime?
+  reviewedAt         DateTime?
+  reviewedBy         String?
+  reviewNote         String?
+  version            Int      @default(0)
   parties            Json?
   effectiveDate      String?
   expirationDate     String?
@@ -222,6 +236,56 @@ model ContractFile {
   @@index([category])
   @@index([needsReview])
   @@index([analysisStatus])
+  @@index([archivedAt])
+}
+
+model SupportTicket {
+  id          String   @id @default(cuid())
+  userId      String
+  user        AccountUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  kind        String   @default("support")
+  subject     String
+  message     String
+  targetId    String?
+  targetTitle String?
+  status      String   @default("open")
+  priority    String   @default("normal")
+  version     Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  replies     SupportReply[]
+
+  @@index([userId, updatedAt])
+  @@index([status, kind, updatedAt])
+}
+
+model SupportReply {
+  id          String   @id @default(cuid())
+  ticketId    String
+  ticket      SupportTicket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  authorId    String
+  authorName  String
+  isStaff     Boolean  @default(false)
+  isInternal  Boolean  @default(false)
+  body        String
+  createdAt   DateTime @default(now())
+
+  @@index([ticketId, createdAt])
+}
+
+model PlatformActivity {
+  id          String   @id @default(cuid())
+  actorId     String?
+  actorName   String
+  action      String
+  entityType  String
+  entityId    String?
+  description String
+  createdAt   DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([actorId, createdAt])
+  @@index([action, createdAt])
 }
 
 model ContractTemplateFieldScan {

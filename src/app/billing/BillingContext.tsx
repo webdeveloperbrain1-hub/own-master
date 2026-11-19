@@ -14,9 +14,8 @@ const Context = createContext<BillingContextValue>({ isAdmin: false, catalog: nu
 const button = 'micro-interaction inline-flex items-center justify-center gap-2 rounded-[14px] border border-border bg-muted px-4 py-3 font-semibold hover:bg-accent';
 
 export function BillingProvider({ children }: { children: ReactNode }) {
-  const { user, loading: authLoading } = useAuth();
+  const { user, isAdmin, loading: authLoading } = useAuth();
   const owner = user?.id || '';
-  const isAdmin = user?.app_metadata?.role === 'admin';
   const [data, setData] = useState<{ owner: string; catalog: BillingCatalog | null; status: BillingStatus | null }>({ owner: '', catalog: null, status: null });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');

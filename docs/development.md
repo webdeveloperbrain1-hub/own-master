@@ -186,8 +186,12 @@ Authentication status refreshes across tabs and on focus. Successful login retur
 to the requested dashboard path, query, and fragment.
 Temporary account-service failures preserve an already open workspace and its
 unsaved edits; only a confirmed expired session signs the user out. Login works
-with cookies even when local browser storage is blocked. Signup gives the same
-public result for new and existing addresses without changing existing credentials.
+with cookies even when local browser storage is blocked. Signup returns HTTP 409
+with `email_already_registered` for an existing email, including pending accounts
+and concurrent duplicate registrations. The form shows a clear message and keeps
+the usual login link below the form. Duplicate attempts do not change
+existing credentials or send another confirmation email. These requests remain
+rate-limited; email matching ignores letter case and surrounding whitespace.
 
 Confirmation and password recovery use standard SMTP with Nodemailer. Configure
 APP_ORIGIN, SMTP_HOST, SMTP_PORT, SMTP_FROM, and optionally SMTP_USER / SMTP_PASSWORD
