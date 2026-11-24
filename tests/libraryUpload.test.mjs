@@ -51,7 +51,7 @@ test('only a signed-in administrator can upload a shared contract; duplicates pr
   });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   const base = `http://127.0.0.1:${server.address().port}`;
-  const name = `Studio agreement ${tag}.txt`;
+  const name = `Studio agreement – 東京 ${tag}.txt`;
   const content = `STUDIO AGREEMENT ${tag}\nArtist: __________\nProducer: __________\nThe parties agree that the producer shall provide recording services for a fee of ________.`;
   const route = `/api/filing/upload?name=${encodeURIComponent(name)}`;
   const upload = (cookie = '', path = route, body = content, extraHeaders = {}) => fetch(`${base}${path}`, {
@@ -100,6 +100,8 @@ test('only a signed-in administrator can upload a shared contract; duplicates pr
     assert.ok((await list.json()).some(entry => entry.id === result.id));
     const original = await fetch(`${base}/api/filing/templates/${result.id}/original`, { headers: { Cookie: member } });
     assert.equal(original.status, 200);
+    assert.match(original.headers.get('content-disposition'), /filename\*=UTF-8''/);
+    assert.ok(original.headers.get('content-disposition').includes(encodeURIComponent(name)));
     assert.equal(await original.text(), content);
     assert.equal(await fs.readFile(saved.storedPath, 'utf8'), content, 'a lost local cache is restored from private storage');
     storageUnavailable = true;

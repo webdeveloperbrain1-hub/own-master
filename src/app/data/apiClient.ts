@@ -38,15 +38,24 @@ export async function apiJson<T>(path: string, body?: unknown): Promise<T> {
   return response.json() as Promise<T>;
 }
 
+export function downloadFileName(disposition: string | null, fallback: string) {
+  const encoded = disposition?.match(/(?:^|;)\s*filename\*\s*=\s*UTF-8'[^']*'([^;]+)/i);
+  if (encoded) {
+    try {
+      const name = decodeURIComponent(encoded[1].trim());
+      if (name) return name;
+    } catch { /* Use the plain filename when an encoded header is malformed. */ }
+  }
+  const plain = disposition?.match(/(?:^|;)\s*filename\s*=\s*(?:"((?:[^"\\]|\\.)*)"|([^;]*))/i);
+  return plain?.[1]?.replace(/\\(.)/g, '$1') || plain?.[2]?.trim() || fallback;
+}
+
 export async function downloadApiFile(path: string, fileName: string) {
   const response = await apiFetch(path);
   const url = URL.createObjectURL(await response.blob());
   const link = document.createElement('a');
   link.href = url;
-  link.download =
-    response.headers
-      .get('Content-Disposition')
-      ?.match(/filename="([^"]+)"/)?.[1] || fileName;
+  link.download = downloadFileName(response.headers.get('Content-Disposition'), fileName);
   document.body.appendChild(link);
   link.click();
   link.remove();

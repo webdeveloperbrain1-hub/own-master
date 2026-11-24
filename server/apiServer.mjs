@@ -35,6 +35,7 @@ import { publicSiteConfiguration, productionSiteErrors } from './lib/deployment/
 import { createStaticSite } from './lib/deployment/staticSite.mjs';
 import { OWN_MASTERS_MAIL_DESIGN } from './lib/mail/letterTemplate.mjs';
 import { ensurePrivateFile, verifyPrivateStorage } from './lib/storage/privateFiles.mjs';
+import { contentDisposition } from './lib/http/downloadHeaders.mjs';
 
 loadEnv();
 assertProductionAuthConfiguration();
@@ -65,7 +66,7 @@ async function sendFile(res, filePath, fileName, contentType) {
   await ensurePrivateFile(filePath);
   res.writeHead(200, {
     'Content-Type': contentType,
-    'Content-Disposition': `attachment; filename="${fileName.replace(/"/g, '')}"`,
+    'Content-Disposition': contentDisposition(fileName),
     'Access-Control-Allow-Origin': process.env.CORS_ORIGIN || 'http://127.0.0.1:5174',
     'Access-Control-Allow-Credentials': 'true',
     'Vary': 'Origin',

@@ -4,6 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { prisma } from '../prisma.mjs';
 import { persistPrivateFile, ensurePrivateFile, removePrivateFile } from '../storage/privateFiles.mjs';
+import { contentDisposition } from '../http/downloadHeaders.mjs';
 
 export const PROGRESS_STAGES = [
   'draft',
@@ -328,11 +329,10 @@ export async function handleContractProgressRoutes(
         404,
       );
     });
-    const safeName = copy.fileName.replace(/[^a-zA-Z0-9._ -]/g, '_');
     res.writeHead(200, {
       'Content-Type': 'application/pdf',
       'Content-Length': copy.sizeBytes,
-      'Content-Disposition': `attachment; filename="${safeName}"; filename*=UTF-8''${encodeURIComponent(copy.fileName)}`,
+      'Content-Disposition': contentDisposition(copy.fileName),
       'Cache-Control': 'private, no-store',
       'X-Content-Type-Options': 'nosniff',
       'Access-Control-Allow-Origin':

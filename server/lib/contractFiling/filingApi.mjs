@@ -20,6 +20,7 @@ import { cleanupSignedCopies } from '../contracts/contractProgress.mjs';
 import { billing } from '../billing/billingService.mjs';
 import { ensurePrivateFile } from '../storage/privateFiles.mjs';
 import { recordActivity } from '../admin/activity.mjs';
+import { contentDisposition } from '../http/downloadHeaders.mjs';
 
 function corsHeaders(extra = {}) {
   return {
@@ -33,7 +34,7 @@ function corsHeaders(extra = {}) {
 function sendBuffer(res, buffer, fileName, contentType, disposition = 'attachment') {
   res.writeHead(200, corsHeaders({
     'Content-Type': contentType,
-    'Content-Disposition': `${disposition}; filename="${fileName.replace(/"/g, '')}"`,
+    'Content-Disposition': contentDisposition(fileName, disposition),
     'Content-Length': buffer.length,
     'Access-Control-Expose-Headers': 'Content-Disposition, Content-Type',
   }));

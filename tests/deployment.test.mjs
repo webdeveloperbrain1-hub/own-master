@@ -18,6 +18,7 @@ test('production serves deep links and assets while keeping API errors and priva
   await fs.mkdir(path.join(root, 'assets'), { recursive: true });
   await fs.writeFile(path.join(root, 'index.html'), '<!doctype html><title>Own Masters</title>');
   await fs.writeFile(path.join(root, 'assets', 'main-123.js'), 'console.log("Own Masters");');
+  await fs.writeFile(path.join(root, 'assets', 'pdf.worker-123.mjs'), 'export const WorkerMessageHandler = {};');
   await fs.writeFile(path.join(temporary, '.env'), 'must-stay-private');
   await fs.mkdir(path.join(temporary, 'private'));
   await fs.writeFile(path.join(temporary, 'private', 'secret.txt'), 'must-stay-private');
@@ -44,6 +45,9 @@ test('production serves deep links and assets while keeping API errors and priva
     assert.equal(asset.status, 200);
     assert.match(asset.headers.get('content-type'), /javascript/);
     assert.match(asset.headers.get('cache-control'), /immutable/);
+    const worker = await fetch(base + '/assets/pdf.worker-123.mjs');
+    assert.equal(worker.status, 200);
+    assert.match(worker.headers.get('content-type'), /javascript/, 'PDF module workers require a JavaScript MIME type');
     const head = await fetch(base + '/login', { method: 'HEAD' });
     assert.equal(head.status, 200);
     assert.equal(await head.text(), '');

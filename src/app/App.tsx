@@ -55,8 +55,8 @@ import type {
   RiskReviewResult,
   TemplateQuestion,
 } from './types';
-import ContractFillerPage from './pages/ContractFiller';
-import SavedContractEditorPage from './pages/SavedContractEditor';
+const ContractFillerPage = lazy(() => import('./pages/ContractFiller'));
+const SavedContractEditorPage = lazy(() => import('./pages/SavedContractEditor'));
 const GuidePreviewPage = lazy(() => import('./pages/GuidePreview'));
 import { savedContractEditorPath } from './data/contractLinks';
 import DashboardLayout from './components/DashboardLayout';
@@ -67,7 +67,8 @@ import { SiteConfigurationProvider, useSiteConfiguration } from './data/siteConf
 const InformationPage = lazy(() => import('./pages/Information'));
 import { UnsavedChangesProvider, useUnsavedChanges } from './components/UnsavedChanges';
 import { DraftRecoveryNotice, useDraftRecovery } from './components/DraftRecovery';
-import { TrackReviewWorkspace, ProjectDetailPage } from './components/ProjectWorkspace';
+const TrackReviewWorkspace = lazy(() => import('./components/ProjectWorkspace').then(module => ({ default: module.TrackReviewWorkspace })));
+const ProjectDetailPage = lazy(() => import('./components/ProjectWorkspace').then(module => ({ default: module.ProjectDetailPage })));
 import { ContractProgressPanel, ContractStageBadge } from './components/ContractProgress';
 import { fetchContractProgressList } from './data/contractProgressClient';
 import { contractStageLabel, type ContractProgressStage } from './data/contractProgressTypes';
@@ -327,11 +328,11 @@ function AppRoutes() {
         <Route path="contract-templates" element={<Navigate to="/dashboard/admin?tab=library" replace />} />
         <Route path="support" element={<Suspense fallback={<LoadingScreen label="Loading support" />}><SupportPage /></Suspense>} />
         <Route path="contracts" element={<ContractsPage />} />
-        <Route path="contract-filler" element={<ContractFillerPage />} />
+        <Route path="contract-filler" element={<Suspense fallback={<LoadingScreen label="Loading contract library" />}><ContractFillerPage /></Suspense>} />
         <Route path="contract-filler/guides/:guideId" element={<Suspense fallback={<LoadingScreen label="Opening guide" />}><GuidePreviewPage /></Suspense>} />
-        <Route path="contracts/drafts/:draftId/edit" element={<SavedContractEditorPage />} />
+        <Route path="contracts/drafts/:draftId/edit" element={<Suspense fallback={<LoadingScreen label="Opening saved contract" />}><SavedContractEditorPage /></Suspense>} />
         <Route path="contracts/:id" element={<ContractDetailPage />} />
-        <Route path="projects/:id" element={<ProjectDetailPage />} />
+        <Route path="projects/:id" element={<Suspense fallback={<LoadingScreen label="Opening song project" />}><ProjectDetailPage /></Suspense>} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
@@ -1108,7 +1109,9 @@ function DashboardHome() {
         />
       </section>
 
-      <TrackReviewWorkspace />
+      <Suspense fallback={<section className={`${panel} p-5`} role="status">Loading song projects…</section>}>
+        <TrackReviewWorkspace />
+      </Suspense>
 
     </main>
   );

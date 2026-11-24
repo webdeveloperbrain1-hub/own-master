@@ -119,7 +119,14 @@ export async function migrateBrowserProjects(
   const completed = new Set(imported);
   const known = new Set(projects.map((project) => project.legacyId));
   for (const legacyId of known) if (legacyId) completed.add(legacyId);
-  localStorage.setItem(markerKey, JSON.stringify([...completed]));
+  const rememberImports = () => {
+    try {
+      localStorage.setItem(markerKey, JSON.stringify([...completed]));
+    } catch {
+      /* Server legacy IDs keep imports idempotent when browser storage is full. */
+    }
+  };
+  rememberImports();
   const migrated = [...projects];
   for (const entry of legacy) {
     if (
@@ -138,7 +145,7 @@ export async function migrateBrowserProjects(
     });
     migrated.push(project);
     completed.add(entry.id);
-    localStorage.setItem(markerKey, JSON.stringify([...completed]));
+    rememberImports();
   }
   return migrated.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
 }
