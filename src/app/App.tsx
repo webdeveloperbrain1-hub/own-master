@@ -401,26 +401,29 @@ function LandingPage() {
 
         <section id="home" data-reveal-group className="py-10 sm:py-12 grid grid-cols-1 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] gap-7 sm:gap-9 items-center">
           <div className="min-w-0">
+            <p className="text-muted-foreground text-[13px] sm:text-[14px] m-0 mb-3">
+              For music creators and the teams behind them.
+            </p>
             <h1 className="m-0 mb-[14px] text-[clamp(32px,5.8vw,68px)] leading-[1.06] tracking-[-0.8px] sm:tracking-[-1.4px]">
-              Build your music business before the industry builds it for you.
+              Make music.<br />Handle business.
             </h1>
             <p className="text-muted-foreground text-[16px] sm:text-[18px] leading-[1.55] max-w-[680px] m-0 mb-[22px]">
-              Own Masters helps artists, managers, producers, DJs, and writers organize songs, prepare agreements, and keep the paperwork behind the catalog in one place.
+              From your first split sheet to your next release, keep the details together. Own Masters brings your songs, contracts, and ownership paperwork into one workspace—so you can spend less time chasing documents and more time moving forward.
             </p>
 
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
               {(user || !loading) && <Link to={user ? '/dashboard' : '/signup'} className={primaryButton}>
-                {user ? 'Dashboard' : 'Start Creating Contracts'} <ArrowRight className="size-4" />
+                {user ? 'Dashboard' : 'Create Your Free Workspace'} <ArrowRight className="size-4" />
               </Link>}
               {!loading && !user && (
-                <Link to="/login" className={ghostButton}>
-                  Log In
-                </Link>
+                <button type="button" onClick={() => scrollToSection('how-it-works')} className={ghostButton}>
+                  See How It Works
+                </button>
               )}
             </div>
 
             <div className="text-muted-foreground text-[13px] mt-3">
-              For artists, managers, producers, DJs, writers, and music industry pros.
+              Free early access. No credit card required.
             </div>
 
             <div className="flex gap-2 sm:gap-[10px] flex-wrap mt-4">
