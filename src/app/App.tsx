@@ -396,7 +396,7 @@ function LandingPage() {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-[1120px] mx-auto px-4 sm:px-6 pb-12 sm:pb-16">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-12 sm:pb-16">
         <LandingNavigation onSection={scrollToSection} />
 
         <section id="home" data-reveal-group className="py-10 sm:py-12 grid grid-cols-1 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] gap-7 sm:gap-9 items-center">
@@ -501,7 +501,7 @@ function LandingSections() {
 
       <section id="how-it-works" className="py-8 sm:py-10 lg:py-[50px]">
         <h2 data-reveal className="m-0 mb-6 sm:mb-10 text-[26px] sm:text-[32px] leading-tight tracking-tight text-center">How it works</h2>
-        <div data-reveal-group className="max-w-[820px] mx-auto space-y-6">
+        <div data-reveal-group className="max-w-[880px] mx-auto space-y-6">
           {[
             ['Create your account', 'Sign up, open your dashboard, and start organizing the documents behind your work.'],
             ['Choose a contract type', 'Pick a split sheet, producer agreement, license, distribution agreement, or performance deal.'],
